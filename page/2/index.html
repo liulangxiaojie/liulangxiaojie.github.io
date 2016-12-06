@@ -143,6 +143,95 @@
       <div class="body-wrap">
         
   
+    <article id="post-使用git发布一个项目" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/11/使用git发布一个项目/">使用git发布一个项目</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1、创建一个新的仓库"><a href="#1、创建一个新的仓库" class="headerlink" title="1、创建一个新的仓库"></a>1、创建一个新的仓库</h3><blockquote>
+<ul>
+<li>在写完仓库的描述后， <strong>勾选</strong> 格式化 <code>Initialize this repository with a README</code> ,创建一个使用说明。</li>
+</ul>
+</blockquote>
+<h3 id="2、发布页面"><a href="#2、发布页面" class="headerlink" title="2、发布页面"></a>2、发布页面</h3><blockquote>
+<ul>
+<li>创建好仓库后，在设置项–&gt; <code>Options</code> 选项中 <strong>勾选</strong> <code>launch automatic page generator</code>进入到博客的页面后继续发布 <strong>点击</strong>  <code>Continue to Layouts</code> –&gt;选择模板后 <strong>点击</strong>  <code>Public page</code>发布页面。</li>
+</ul>
+</blockquote>
+<h3 id="3、修改仓库的默认分支，然后跟新"><a href="#3、修改仓库的默认分支，然后跟新" class="headerlink" title="3、修改仓库的默认分支，然后跟新"></a>3、修改仓库的默认分支，然后跟新</h3><blockquote>
+<ul>
+<li>发布页面完成后 <strong>点击</strong> <code>Setting</code> 在 <code>Branches</code> 里边把仓库的默认分支更改 <code>master</code> 为 <code>gh-pages</code> 然后 <strong>点击</strong>  <code>updata</code>完成跟新。</li>
+</ul>
+</blockquote>
+<h3 id="4、把gh-pages分支下的内容克隆到本地"><a href="#4、把gh-pages分支下的内容克隆到本地" class="headerlink" title="4、把gh-pages分支下的内容克隆到本地"></a>4、把gh-pages分支下的内容克隆到本地</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone  git<span class="string">"仓库的地址"</span></div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>把gitHub远程仓库下托管的源文件下载到了本地</li>
+<li>让本地的文件项目和远程仓库保持了一个链接的通道</li>
+<li>下载到本地文件夹里边的【.git】隐藏文件夹不要删除</li>
+</ul>
+</blockquote>
+<h3 id="5、本地仓库和远程仓库关联起来【发布项目非必选可以省略】"><a href="#5、本地仓库和远程仓库关联起来【发布项目非必选可以省略】" class="headerlink" title="5、本地仓库和远程仓库关联起来【发布项目非必选可以省略】"></a>5、本地仓库和远程仓库关联起来【发布项目非必选可以省略】</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git remote add origin 远程仓库的地址</div><div class="line">git remote -v  查看关联状态</div></pre></td></tr></table></figure>
+<h3 id="6、最新文件上传"><a href="#6、最新文件上传" class="headerlink" title="6、最新文件上传"></a>6、最新文件上传</h3><blockquote>
+<ul>
+<li>修改本地的项目文件，把最新的项目文件上传到gh-pages这个分支下。</li>
+</ul>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git add .  //添加所有的文件</div><div class="line">$ git commit -m"备注"  //如果出现 please tell me who you are?的时候按照提示执行git config xxx..两句话，依据话是配置邮箱，一句话是配置用户名(都是gitHub上的邮箱和用户名)，配置完成后重新commit</div><div class="line">$ git push origin gh-pages  //输入gitHub的用户名和密码提交即可</div></pre></td></tr></table></figure>
+<h3 id="7、项目展示的地址"><a href="#7、项目展示的地址" class="headerlink" title="7、项目展示的地址"></a>7、项目展示的地址</h3><blockquote>
+<ul>
+<li>回到你发布项目的仓库，点击Settings,在GitHub Pages就能看到项目展示的地址。</li>
+</ul>
+</blockquote>
+<h3 id="8、移动端项目二维码生成"><a href="#8、移动端项目二维码生成" class="headerlink" title="8、移动端项目二维码生成"></a>8、移动端项目二维码生成</h3><blockquote>
+<ul>
+<li>在线生成地址：<a href="http://cli.im/" target="_blank" rel="external">http://cli.im/</a></li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/11/使用git发布一个项目/" class="archive-article-date">
+  	<time datetime="2016-11-11T07:00:42.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-11</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-hexo搭建github博客" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
