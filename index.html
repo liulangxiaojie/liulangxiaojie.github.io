@@ -409,78 +409,6 @@
 
 
   
-    <article id="post-Angular表达式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/03/Angular表达式/">AngularJS表达式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="AngularJS-是一个JavaScript框架，通过script标签来引入到HTML页面。"><a href="#AngularJS-是一个JavaScript框架，通过script标签来引入到HTML页面。" class="headerlink" title="AngularJS 是一个JavaScript框架，通过script标签来引入到HTML页面。"></a>AngularJS 是一个JavaScript框架，通过script标签来引入到HTML页面。</h3><blockquote>
-<p>angular表达式双大括号内&#123;&#123; &#125;&#125;，&#123;&#123; &amp;#125&amp;;#125;是体现angularJS的重要特性。<br>&#123;&#123; &#125;&#125;可以包含文字、运算符和变量,支持三元表达式。但是不支持条件判断、循环及异常；<br>&#123;&#123; &#125;&#125;中放入’’表示字符串<br>&#123;&#123;name?name:’xiaojie’&#125;&#125;表示为如果name存在的话，就显示xiaojie，当我们输入内容的时候，视图就会跟着我们输入的内容改变；</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input type="text" ng-model="name"&gt;</div><div class="line">&#123;&#123;name?name:'xiaojie'&#125;&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>如果我们把输入框中的内容清空的话，那就会显示xiaojie，可以理解为一个默认值的存在；</p>
-</blockquote>
-<h3 id="AngularJS-数字计算"><a href="#AngularJS-数字计算" class="headerlink" title="AngularJS 数字计算"></a>AngularJS 数字计算</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-init="quantity=1;cost=5"&gt;</div><div class="line">&lt;p&gt;总价:&#123;&#123;quantity*cost&#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>视图上显示为6</p>
-</blockquote>
-<h3 id="AngularJS-字符串"><a href="#AngularJS-字符串" class="headerlink" title="AngularJS 字符串"></a>AngularJS 字符串</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app="" ng-init="firstName='Yang';lastName='xiaojie'"&gt;</div><div class="line">&lt;p&gt;姓名:&#123;&#123;firstName + " " + lastName&#125;&#125;&lt;/p&gt; </div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>视图上显示为Yang xiaojie</p>
-</blockquote>
-<h3 id="AngularJS-对象"><a href="#AngularJS-对象" class="headerlink" title="AngularJS 对象"></a>AngularJS 对象</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app="" ng-init="person=&#123;firstName:'Yang',lastName:'xiaojie'&#125;"&gt;</div><div class="line">&lt;p&gt;姓为&#123;&#123;person.lastName&#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>视图上显示为xiaojie</p>
-</blockquote>
-<h3 id="AngularJS-数组"><a href="#AngularJS-数组" class="headerlink" title="AngularJS 数组"></a>AngularJS 数组</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app="" ng-init="points=[1,15,19,2,40]"&gt;</div><div class="line">&lt;p&gt;第三个值为&#123;&#123;points[2]&#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>视图上边显示为19</p>
-</blockquote>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/03/Angular表达式/" class="archive-article-date">
-  	<time datetime="2016-12-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-03</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-AngularJS自定义指令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -514,6 +442,78 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指令/">指令</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Angular表达式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/03/Angular表达式/">AngularJS表达式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="AngularJS-是一个JavaScript框架，通过script标签来引入到HTML页面。"><a href="#AngularJS-是一个JavaScript框架，通过script标签来引入到HTML页面。" class="headerlink" title="AngularJS 是一个JavaScript框架，通过script标签来引入到HTML页面。"></a>AngularJS 是一个JavaScript框架，通过script标签来引入到HTML页面。</h3><blockquote>
+<p>angular表达式双大括号内&#123;&#123; &#125;&#125;，&#123;&#123; &#125;&#125;是体现angularJS的重要特性。<br>&#123;&#123; &#125;&#125;可以包含文字、运算符和变量,支持三元表达式。但是不支持条件判断、循环及异常；<br>&#123;&#123; &#125;&#125;中放入’’表示字符串<br>&#123;&#123;name?name:’xiaojie’&#125;&#125;表示为如果name存在的话，就显示xiaojie，当我们输入内容的时候，视图就会跟着我们输入的内容改变；</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input type="text" ng-model="name"&gt;</div><div class="line">&#123;&#123;name?name:'xiaojie'&#125;&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如果我们把输入框中的内容清空的话，那就会显示xiaojie，可以理解为一个默认值的存在；</p>
+</blockquote>
+<h3 id="AngularJS-数字计算"><a href="#AngularJS-数字计算" class="headerlink" title="AngularJS 数字计算"></a>AngularJS 数字计算</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-init="quantity=1;cost=5"&gt;</div><div class="line">&lt;p&gt;总价:&#123;&#123;quantity*cost&#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>视图上显示为6</p>
+</blockquote>
+<h3 id="AngularJS-字符串"><a href="#AngularJS-字符串" class="headerlink" title="AngularJS 字符串"></a>AngularJS 字符串</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app="" ng-init="firstName='Yang';lastName='xiaojie'"&gt;</div><div class="line">&lt;p&gt;姓名:&#123;&#123;firstName + " " + lastName&#125;&#125;&lt;/p&gt; </div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>视图上显示为Yang xiaojie</p>
+</blockquote>
+<h3 id="AngularJS-对象"><a href="#AngularJS-对象" class="headerlink" title="AngularJS 对象"></a>AngularJS 对象</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app="" ng-init="person=&#123;firstName:'Yang',lastName:'xiaojie'&#125;"&gt;</div><div class="line">&lt;p&gt;姓为&#123;&#123;person.lastName&#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>视图上显示为xiaojie</p>
+</blockquote>
+<h3 id="AngularJS-数组"><a href="#AngularJS-数组" class="headerlink" title="AngularJS 数组"></a>AngularJS 数组</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app="" ng-init="points=[1,15,19,2,40]"&gt;</div><div class="line">&lt;p&gt;第三个值为&#123;&#123;points[2]&#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>视图上边显示为19</p>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/03/Angular表达式/" class="archive-article-date">
+  	<time datetime="2016-12-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-03</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li></ul>
 	</div>
 
       
