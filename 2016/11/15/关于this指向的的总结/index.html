@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | 杨小杰的博客</title>
+  <title>关于6个this指向的总结 | 杨小杰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="1、自执行函数中的this永远都是window。123(function () &amp;#123;    console.log(this)  //window&amp;#125;)();
+2、当函数被调用的时候，看前面是否有”.”,”.”前面是谁，this就是谁。1234567var hello = &amp;#123;    user:&quot;name&quot;,    fn:function()&amp;#123;        co">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/12/06/hello-world/index.html">
+<meta property="og:title" content="关于6个this指向的总结">
+<meta property="og:url" content="http://yoursite.com/2016/11/15/关于this指向的的总结/index.html">
 <meta property="og:site_name" content="杨小杰的博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-12-06T15:55:21.467Z">
+<meta property="og:description" content="1、自执行函数中的this永远都是window。123(function () &amp;#123;    console.log(this)  //window&amp;#125;)();
+2、当函数被调用的时候，看前面是否有”.”,”.”前面是谁，this就是谁。1234567var hello = &amp;#123;    user:&quot;name&quot;,    fn:function()&amp;#123;        co">
+<meta property="og:updated_time" content="2016-12-02T16:48:13.184Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="关于6个this指向的总结">
+<meta name="twitter:description" content="1、自执行函数中的this永远都是window。123(function () &amp;#123;    console.log(this)  //window&amp;#125;)();
+2、当函数被调用的时候，看前面是否有”.”,”.”前面是谁，this就是谁。1234567var hello = &amp;#123;    user:&quot;name&quot;,    fn:function()&amp;#123;        co">
   
     <link rel="alternative" href="/atom.xml" title="杨小杰的博客" type="application/atom+xml">
   
@@ -148,7 +148,7 @@ Quick">
 </nav>
 
       <div class="body-wrap">
-        <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-关于this指向的的总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -158,7 +158,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      关于6个this指向的总结
     </h1>
   
 
@@ -166,24 +166,31 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
+        <h3 id="1、自执行函数中的this永远都是window。"><a href="#1、自执行函数中的this永远都是window。" class="headerlink" title="1、自执行函数中的this永远都是window。"></a>1、自执行函数中的this永远都是window。</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(function () &#123;</div><div class="line">    console.log(this)  //window</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<h3 id="2、当函数被调用的时候，看前面是否有”-”-”-”前面是谁，this就是谁。"><a href="#2、当函数被调用的时候，看前面是否有”-”-”-”前面是谁，this就是谁。" class="headerlink" title="2、当函数被调用的时候，看前面是否有”.”,”.”前面是谁，this就是谁。"></a>2、当函数被调用的时候，看前面是否有”.”,”.”前面是谁，this就是谁。</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var hello = &#123;</div><div class="line">    user:<span class="string">"name"</span>,</div><div class="line">    fn:function()&#123;</div><div class="line">        console.log(this);  //this指向name这个对象</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">    hello.fn();</div></pre></td></tr></table></figure>
+<h3 id="3、当触发一个元素身上的事件，执行对应的函数，函数中的this指向当前这个元素。"><a href="#3、当触发一个元素身上的事件，执行对应的函数，函数中的this指向当前这个元素。" class="headerlink" title="3、当触发一个元素身上的事件，执行对应的函数，函数中的this指向当前这个元素。"></a>3、当触发一个元素身上的事件，执行对应的函数，函数中的this指向当前这个元素。</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">document.onclick= function () &#123;</div><div class="line">    console.log(this) //document</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4、在构造函数中，this指向当前实例。"><a href="#4、在构造函数中，this指向当前实例。" class="headerlink" title="4、在构造函数中，this指向当前实例。"></a>4、在构造函数中，this指向当前实例。</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function Fn()&#123;</div><div class="line">    this.user = <span class="string">"name"</span>;</div><div class="line">    console.log(this);</div><div class="line">&#125;</div><div class="line">var a = new Fn;</div></pre></td></tr></table></figure>
+<h3 id="5、call-apply-bind-改变this的指向。"><a href="#5、call-apply-bind-改变this的指向。" class="headerlink" title="5、call(),apply(),bind()改变this的指向。"></a>5、call(),apply(),bind()改变this的指向。</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var b=[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</div><div class="line">function foo(y) &#123;</div><div class="line">    console.log(this)</div><div class="line">&#125;</div><div class="line">foo.apply(b); //[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</div><div class="line">foo.call(b); //[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</div><div class="line">var foo1 = foo.bind(b);</div><div class="line">foo1(); //[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</div></pre></td></tr></table></figure>
+<h3 id="6、回调函数中this一般指向window。"><a href="#6、回调函数中this一般指向window。" class="headerlink" title="6、回调函数中this一般指向window。"></a>6、回调函数中this一般指向window。</h3><blockquote>
+<p><strong>回调函数是什么?</strong></p>
+<ul>
+<li>就是一个函数A，作为参数，传入了另一个函数B中，然后被B在某个时间调用。</li>
+</ul>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function a()&#123;</div><div class="line">    console.log(<span class="string">'我是函数a'</span>,<span class="string">'this指向'</span>+this)</div><div class="line">&#125;</div><div class="line">function b(callback)&#123;</div><div class="line">    console.log(<span class="string">'我是函数a'</span>,<span class="string">'this指向'</span>+this)</div><div class="line">&#125;</div><div class="line">b(a());</div></pre></td></tr></table></figure>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/12/06/hello-world/" class="archive-article-date">
-  	<time datetime="2016-12-06T15:52:42.932Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-06</time>
+      <a href="/2016/11/15/关于this指向的的总结/" class="archive-article-date">
+  	<time datetime="2016-11-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-15</time>
 </a>
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/this/">this</a></li></ul>
+	</div>
+
       
 
       <div class="clearfix"></div>
@@ -194,18 +201,18 @@ Quick">
   
 <nav id="article-nav">
   
-    <a href="/2016/12/07/nihao-md/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/11/20/跑马灯(原生JS版 + 构造函数版)/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          nihao.md
+          跑马灯(原生JS版 + 构造函数版)
         
       </div>
     </a>
   
   
-    <a href="/2016/11/20/跑马灯(原生JS版 + 构造函数版)/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">跑马灯(原生JS版 + 构造函数版)</div>
+    <a href="/2016/11/11/使用git发布一个项目/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用git发布一个项目</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -251,7 +258,7 @@ Quick">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hello-world" data-title="Hello World" data-url="http://yoursite.com/2016/12/06/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="关于this指向的的总结" data-title="关于6个this指向的总结" data-url="http://yoursite.com/2016/11/15/关于this指向的的总结/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
