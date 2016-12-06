@@ -6,27 +6,45 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>AngularJS自定义指令 | 杨小杰的博客</title>
+  <title>AngularJS模块 | 杨小杰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="AngularJS自定义指令
-指令分为组件式指令和装饰行指令
+  <meta name="description" content="AngularJS模块angular对象中有module这个方法，可以用来创建模块name，requires，confiFn
 
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html ng-app=&quot;myApp&quot;&amp;gt;&amp;lt;head&amp;gt">
+/*
+ name:模块的名字 requires:模块的依赖，默认无依赖要用空数组代替
+ configFn:配置的函数 */
+
+angular.module(name,requires,configFn)
+
+
+创建一个模块1var app=angular.module(&apos;y">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AngularJS自定义指令">
-<meta property="og:url" content="http://yoursite.com/2016/12/03/AngularJS自定义指令/index.html">
+<meta property="og:title" content="AngularJS模块">
+<meta property="og:url" content="http://yoursite.com/2016/12/05/AngularJS模块、控制器/index.html">
 <meta property="og:site_name" content="杨小杰的博客">
-<meta property="og:description" content="AngularJS自定义指令
-指令分为组件式指令和装饰行指令
+<meta property="og:description" content="AngularJS模块angular对象中有module这个方法，可以用来创建模块name，requires，confiFn
 
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html ng-app=&quot;myApp&quot;&amp;gt;&amp;lt;head&amp;gt">
-<meta property="og:updated_time" content="2016-12-06T17:15:42.240Z">
+/*
+ name:模块的名字 requires:模块的依赖，默认无依赖要用空数组代替
+ configFn:配置的函数 */
+
+angular.module(name,requires,configFn)
+
+
+创建一个模块1var app=angular.module(&apos;y">
+<meta property="og:updated_time" content="2016-12-06T15:28:41.391Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AngularJS自定义指令">
-<meta name="twitter:description" content="AngularJS自定义指令
-指令分为组件式指令和装饰行指令
+<meta name="twitter:title" content="AngularJS模块">
+<meta name="twitter:description" content="AngularJS模块angular对象中有module这个方法，可以用来创建模块name，requires，confiFn
 
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html ng-app=&quot;myApp&quot;&amp;gt;&amp;lt;head&amp;gt">
+/*
+ name:模块的名字 requires:模块的依赖，默认无依赖要用空数组代替
+ configFn:配置的函数 */
+
+angular.module(name,requires,configFn)
+
+
+创建一个模块1var app=angular.module(&apos;y">
   
     <link rel="alternative" href="/atom.xml" title="杨小杰的博客" type="application/atom+xml">
   
@@ -154,7 +172,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-AngularJS自定义指令" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-AngularJS模块、控制器" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -164,7 +182,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      AngularJS自定义指令
+      AngularJS模块
     </h1>
   
 
@@ -172,21 +190,41 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="AngularJS自定义指令"><a href="#AngularJS自定义指令" class="headerlink" title="AngularJS自定义指令"></a>AngularJS自定义指令</h1><blockquote>
-<p>指令分为组件式指令和装饰行指令</p>
+        <h3 id="AngularJS模块"><a href="#AngularJS模块" class="headerlink" title="AngularJS模块"></a>AngularJS模块</h3><p>angular对象中有module这个方法，可以用来创建模块name，requires，confiFn</p>
+<blockquote>
+<p>/<em>*
+ </em>name:模块的名字<br> <em>requires:模块的依赖，默认无依赖要用空数组代替
+ </em>configFn:配置的函数<br> */</p>
+<ul>
+<li>angular.module(name,requires,configFn)</li>
+</ul>
 </blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html ng-app="myApp"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;AngularJS自定义指令&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;!--用于属性名--&gt;</div><div class="line">&lt;div good-name&gt;8岁了&lt;/div&gt;</div><div class="line">&lt;!--用于标签--&gt;</div><div class="line">&lt;good-name&gt;&lt;/good-name&gt;</div><div class="line">&lt;!--用于样式类名--&gt;</div><div class="line">&lt;div class="good-name"&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;!--注释 很少用（必须有replace:true）--&gt;</div><div class="line">&lt;!-- directive:good-name --&gt;</div><div class="line">&lt;!--前后要有空格--&gt;</div><div class="line"></div><div class="line">&lt;script src="../angular.js"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var myApp = angular.module('myApp', []);</div><div class="line">    myApp.directive('goodName',function () &#123;</div><div class="line">	/*定义一个指令,指令的名字叫做 goodName</div><div class="line">	命名的时候是驼峰命名法，使用的时候用 - 分割，将大写转为小写</div><div class="line">	定义的时候goodName 使用的时候  good-name*/</div><div class="line">        return &#123;//声明一个函数，返回一个对象</div><div class="line">            template:'&lt;p&gt;Yang &lt;span ng-transclude&gt;&lt;/span&gt;&lt;/p&gt;',//定义一个模板</div><div class="line">            templateUrl:'url.html',//引入外界的模板，在使用templateUrl时候，template不能存在</div><div class="line">            replace:true,//替换原有的标签</div><div class="line">            restrict:'ECMA',</div><div class="line">			//定义指令可以使用的位置，不写的话，默认值是EA</div><div class="line">			/**</div><div class="line">			 *E  element 用于标签</div><div class="line">			 *C  class   用于样式类名</div><div class="line">			 *M  comment  用于注释</div><div class="line">			 *A  attribute 用于是属性名</div><div class="line">			 */   </div><div class="line">            transclude:true,</div><div class="line">            /*</div><div class="line">            保存原有标签里面的内容</div><div class="line">			和 ng-transclude(会形成自己的作用域)结合使用</div><div class="line">			原有标签里面的内容添加到&lt;span ng-transclude&gt;&lt;/span&gt;中</div><div class="line">             */</div><div class="line">            scope:true,</div><div class="line">			//会形成自己的作用域</div><div class="line">            /**</div><div class="line">             * @param scope :当前模板的作用域，如果当前模板没有形成作用域，会直接找父集的作用域</div><div class="line">             * @param element ：自定义指令所在的DOM元素，是一个jQuery对象，内置的有轻量级的jQuery也就是 jqLite(简化版的jQuery)</div><div class="line">             * @param attrs ：自定义指令所在的DOM元素上的属性存储在attrs对象中</div><div class="line">             */</div><div class="line">            link:function (scope,element,attrs) &#123;//只有link才可以操作DOM</div><div class="line">			//实现和 DOM元素、作用域的链接（链接阶段）</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;)</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h3 id="创建一个模块"><a href="#创建一个模块" class="headerlink" title="创建一个模块"></a>创建一个模块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var app=angular.module(<span class="string">'yang'</span>,[])</div></pre></td></tr></table></figure>
+<h3 id="通过模块创建控制器"><a href="#通过模块创建控制器" class="headerlink" title="通过模块创建控制器"></a>通过模块创建控制器</h3><blockquote>
+<p>控制器就是用来控制数据放到哪个模板里，在一个模块下可以声明多个控制器<br>/<em>*
+ </em>name:控制器的名字<br> <em>fn:控制器对应的函数
+ </em>/</p>
+<ul>
+<li>app.controller(name,fn)</li>
+</ul>
+</blockquote>
+ <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-controller='myCtrl'&gt;&lt;/div&gt; //可管理的范围是ng-controller= 'myCtrl'这个div元素</div></pre></td></tr></table></figure>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.controller(<span class="string">'myCtrl'</span>,function($scope)&#123;</div><div class="line">$scope.name=<span class="string">'xiaojie'</span>;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>定义一个控制器，就会自动注入一个对象$scope，定义的变量和方法,都是定义在$scope上的属性</p>
+</blockquote>
+
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/12/03/AngularJS自定义指令/" class="archive-article-date">
-  	<time datetime="2016-12-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-03</time>
+      <a href="/2016/12/05/AngularJS模块、控制器/" class="archive-article-date">
+  	<time datetime="2016-12-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-05</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指令/">指令</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模块/">模块</a></li></ul>
 	</div>
 
       
@@ -199,18 +237,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/12/04/用装饰行(自定义)指令封装一个插件/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/12/06/常用网站的整理/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          装饰型指令(自定义指令)封装插件
+          关于自己常用的一些学习网站、博客整理
         
       </div>
     </a>
   
   
-    <a href="/2016/12/03/组件式指令/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">组件式指令</div>
+    <a href="/2016/12/04/WebStorm 2016.3激活方式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">WebStorm 2016激活</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -256,7 +294,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="AngularJS自定义指令" data-title="AngularJS自定义指令" data-url="http://yoursite.com/2016/12/03/AngularJS自定义指令/"></div>
+	<div class="ds-thread" data-thread-key="AngularJS模块、控制器" data-title="AngularJS模块" data-url="http://yoursite.com/2016/12/05/AngularJS模块、控制器/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
