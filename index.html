@@ -440,6 +440,93 @@
 
 
   
+    <article id="post-AngularJS事件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/01/AngularJS事件/">AngularJS事件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="ng-click"><a href="#ng-click" class="headerlink" title="ng-click"></a>ng-click</h3><blockquote>
+<p>定义了指令定义了 AngularJS 点击事件。<br>开关灯思想通过这个小例子：<br>核心思想是通过改变flag的值来操作元素的显示和隐藏<br><code>ng-show</code> / <code>ng-hide</code> 第一次初始化时，消耗性能较高; <code>ng-if</code> 当频繁切换时，消耗性能比较高</p>
+</blockquote>
+<pre><code class="python">&lt;!DOCTYPE html&gt;
+&lt;html ng-app="module"&gt;//确定了angular的作用范围，后边的module是模块的名字
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;开关灯&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div ng-controller="myCtrl"&gt;//控制器的作用范围，后边写的是控制器的名字
+    &lt;div ng-click="show()"&gt;{{flag?'打开':'隐藏'}}&lt;/div&gt;
+    //ng-click后边的一定是一个方法，()绝对不能少
+    &lt;div ng-hide="flag"&gt;内容&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;script src="angular.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    var app=angular.module('module',[]);
+    //创建一个模块
+    app.controller('myCtrl', function ($scope) {
+        //创建一个控制器，第一个是控制器的名字
+        $scope.flag=true;//先在$scope上定义flag的值
+        $scope.show= function () {
+            $scope.flag=!$scope.flag;
+            //每次点击都会改变flag的值
+        }
+    })
+&lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+<blockquote>
+<ul>
+<li>ng-hide控制DOM元素的隐藏和显示，值为true，隐藏；值为false，显示。操作css样式，不会产生作用域</li>
+<li>ng-show控制DOM元素的显示和隐藏，值为true，显示；值为false，隐藏。操作css样式，不会产生作用域</li>
+<li>ng-if控制DOM元素的存在与不存在，当值为true的时候，DOM元素存在，false的时候DOM元素不存在。频繁在操作DOM元素，会产生作用域，不建议使用</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/01/AngularJS事件/" class="archive-article-date">
+  	<time datetime="2016-11-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-01</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/事件/">事件</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-跑马灯(原生JS版 + 构造函数版)" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -817,7 +904,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 10px;">WebStorm</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/指令/" style="font-size: 20px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a>
+    				<a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 13.33px;">JS</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 10px;">WebStorm</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/指令/" style="font-size: 16.67px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a>
     			</div>
     	</section>
     
