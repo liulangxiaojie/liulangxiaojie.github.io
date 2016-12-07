@@ -143,6 +143,66 @@
       <div class="body-wrap">
         
   
+    <article id="post-关于this指向的的总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/15/关于this指向的的总结/">关于6个this指向的总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1、自执行函数中的this永远都是window。"><a href="#1、自执行函数中的this永远都是window。" class="headerlink" title="1、自执行函数中的this永远都是window。"></a>1、自执行函数中的this永远都是window。</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(function () &#123;</div><div class="line">    console.log(this)  //window</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<h3 id="2、当函数被调用的时候，看前面是否有”-”-”-”前面是谁，this就是谁。"><a href="#2、当函数被调用的时候，看前面是否有”-”-”-”前面是谁，this就是谁。" class="headerlink" title="2、当函数被调用的时候，看前面是否有”.”,”.”前面是谁，this就是谁。"></a>2、当函数被调用的时候，看前面是否有”.”,”.”前面是谁，this就是谁。</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var hello = &#123;</div><div class="line">    user:<span class="string">"name"</span>,</div><div class="line">    fn:function()&#123;</div><div class="line">        console.log(this);  //this指向name这个对象</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">    hello.fn();</div></pre></td></tr></table></figure>
+<h3 id="3、当触发一个元素身上的事件，执行对应的函数，函数中的this指向当前这个元素。"><a href="#3、当触发一个元素身上的事件，执行对应的函数，函数中的this指向当前这个元素。" class="headerlink" title="3、当触发一个元素身上的事件，执行对应的函数，函数中的this指向当前这个元素。"></a>3、当触发一个元素身上的事件，执行对应的函数，函数中的this指向当前这个元素。</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">document.onclick= function () &#123;</div><div class="line">    console.log(this) //document</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4、在构造函数中，this指向当前实例。"><a href="#4、在构造函数中，this指向当前实例。" class="headerlink" title="4、在构造函数中，this指向当前实例。"></a>4、在构造函数中，this指向当前实例。</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function Fn()&#123;</div><div class="line">    this.user = <span class="string">"name"</span>;</div><div class="line">    console.log(this);</div><div class="line">&#125;</div><div class="line">var a = new Fn;</div></pre></td></tr></table></figure>
+<h3 id="5、call-apply-bind-改变this的指向。"><a href="#5、call-apply-bind-改变this的指向。" class="headerlink" title="5、call(),apply(),bind()改变this的指向。"></a>5、call(),apply(),bind()改变this的指向。</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var b=[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</div><div class="line">function foo(y) &#123;</div><div class="line">    console.log(this)</div><div class="line">&#125;</div><div class="line">foo.apply(b); //[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</div><div class="line">foo.call(b); //[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</div><div class="line">var foo1 = foo.bind(b);</div><div class="line">foo1(); //[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</div></pre></td></tr></table></figure>
+<h3 id="6、回调函数中this一般指向window。"><a href="#6、回调函数中this一般指向window。" class="headerlink" title="6、回调函数中this一般指向window。"></a>6、回调函数中this一般指向window。</h3><blockquote>
+<p><strong>回调函数是什么?</strong></p>
+<ul>
+<li>就是一个函数A，作为参数，传入了另一个函数B中，然后被B在某个时间调用。</li>
+</ul>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function a()&#123;</div><div class="line">    console.log(<span class="string">'我是函数a'</span>,<span class="string">'this指向'</span>+this)</div><div class="line">&#125;</div><div class="line">function b(callback)&#123;</div><div class="line">    console.log(<span class="string">'我是函数a'</span>,<span class="string">'this指向'</span>+this)</div><div class="line">&#125;</div><div class="line">b(a());</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/15/关于this指向的的总结/" class="archive-article-date">
+  	<time datetime="2016-11-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-15</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/this/">this</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-使用git发布一个项目" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -415,7 +475,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 13.33px;">JS</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 10px;">WebStorm</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/指令/" style="font-size: 16.67px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a>
+    				<a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 13.33px;">JS</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 10px;">WebStorm</a> <a href="/tags/Webstrom/" style="font-size: 10px;">Webstrom</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/指令/" style="font-size: 16.67px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/模块/" style="font-size: 13.33px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a>
     			</div>
     	</section>
     
