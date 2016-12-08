@@ -217,6 +217,81 @@
 
 
   
+    <article id="post-常用nrm工具命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/08/常用nrm工具命令/">常用nrm工具命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="常用nrm工具命令"><a href="#常用nrm工具命令" class="headerlink" title="常用nrm工具命令"></a>常用nrm工具命令</h2><blockquote>
+<p>mac下安装全局时需要增加sudo</p>
+</blockquote>
+<ul>
+<li>windowns系统安装</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g nrm</div></pre></td></tr></table></figure>
+<ul>
+<li>显示所有可用的源</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm ls</div></pre></td></tr></table></figure>
+<ul>
+<li>切换源</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm use taobao</div></pre></td></tr></table></figure>
+<ul>
+<li>添加源</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm add hello http://172.18.0.199</div></pre></td></tr></table></figure>
+<ul>
+<li>删除源</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm del hello</div></pre></td></tr></table></figure>
+<ul>
+<li>切换到新添加的源上</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm use hello</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/08/常用nrm工具命令/" class="archive-article-date">
+  	<time datetime="2016-12-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-08</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nrm/">nrm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令/">命令</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-常用网站的整理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -483,7 +558,7 @@
 
 
   
-    <article id="post-Angular表达式" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-AngularJS自定义指令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -493,7 +568,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/03/Angular表达式/">AngularJS表达式</a>
+      <a class="article-title" href="/2016/12/03/AngularJS自定义指令/">AngularJS自定义指令</a>
     </h1>
   
 
@@ -501,41 +576,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="AngularJS-是一个JavaScript框架，通过script标签来引入到HTML页面。"><a href="#AngularJS-是一个JavaScript框架，通过script标签来引入到HTML页面。" class="headerlink" title="AngularJS 是一个JavaScript框架，通过script标签来引入到HTML页面。"></a>AngularJS 是一个JavaScript框架，通过script标签来引入到HTML页面。</h3><blockquote>
-<p>angular表达式双大括号内&#123;&#123; &#125;&#125;，&#123;&#123; &#125;&#125;是体现angularJS的重要特性。<br>&#123;&#123; &#125;&#125;可以包含文字、运算符和变量,支持三元表达式。但是不支持条件判断、循环及异常；<br>&#123;&#123; &#125;&#125;中放入’’表示字符串<br>&#123;&#123;name?name:’xiaojie’&#125;&#125;表示为如果name存在的话，就显示xiaojie，当我们输入内容的时候，视图就会跟着我们输入的内容改变；</p>
+        <h1 id="AngularJS自定义指令"><a href="#AngularJS自定义指令" class="headerlink" title="AngularJS自定义指令"></a>AngularJS自定义指令</h1><blockquote>
+<p>指令分为组件式指令和装饰行指令</p>
 </blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input type="text" ng-model="name"&gt;</div><div class="line">&#123;&#123;name?name:'xiaojie'&#125;&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>如果我们把输入框中的内容清空的话，那就会显示xiaojie，可以理解为一个默认值的存在；</p>
-</blockquote>
-<h3 id="AngularJS-数字计算"><a href="#AngularJS-数字计算" class="headerlink" title="AngularJS 数字计算"></a>AngularJS 数字计算</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-init="quantity=1;cost=5"&gt;</div><div class="line">&lt;p&gt;总价:&#123;&#123;quantity*cost&#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>视图上显示为6</p>
-</blockquote>
-<h3 id="AngularJS-字符串"><a href="#AngularJS-字符串" class="headerlink" title="AngularJS 字符串"></a>AngularJS 字符串</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app="" ng-init="firstName='Yang';lastName='xiaojie'"&gt;</div><div class="line">&lt;p&gt;姓名:&#123;&#123;firstName + " " + lastName&#125;&#125;&lt;/p&gt; </div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>视图上显示为Yang xiaojie</p>
-</blockquote>
-<h3 id="AngularJS-对象"><a href="#AngularJS-对象" class="headerlink" title="AngularJS 对象"></a>AngularJS 对象</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app="" ng-init="person=&#123;firstName:'Yang',lastName:'xiaojie'&#125;"&gt;</div><div class="line">&lt;p&gt;姓为&#123;&#123;person.lastName&#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>视图上显示为xiaojie</p>
-</blockquote>
-<h3 id="AngularJS-数组"><a href="#AngularJS-数组" class="headerlink" title="AngularJS 数组"></a>AngularJS 数组</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app="" ng-init="points=[1,15,19,2,40]"&gt;</div><div class="line">&lt;p&gt;第三个值为&#123;&#123;points[2]&#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>视图上边显示为19</p>
-</blockquote>
-
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html ng-app="myApp"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;AngularJS自定义指令&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;!--用于属性名--&gt;</div><div class="line">&lt;div good-name&gt;8岁了&lt;/div&gt;</div><div class="line">&lt;!--用于标签--&gt;</div><div class="line">&lt;good-name&gt;&lt;/good-name&gt;</div><div class="line">&lt;!--用于样式类名--&gt;</div><div class="line">&lt;div class="good-name"&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;!--注释 很少用（必须有replace:true）--&gt;</div><div class="line">&lt;!-- directive:good-name --&gt;</div><div class="line">&lt;!--前后要有空格--&gt;</div><div class="line"></div><div class="line">&lt;script src="../angular.js"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var myApp = angular.module('myApp', []);</div><div class="line">    myApp.directive('goodName',function () &#123;</div><div class="line">	/*定义一个指令,指令的名字叫做 goodName</div><div class="line">	命名的时候是驼峰命名法，使用的时候用 - 分割，将大写转为小写</div><div class="line">	定义的时候goodName 使用的时候  good-name*/</div><div class="line">        return &#123;//声明一个函数，返回一个对象</div><div class="line">            template:'&lt;p&gt;Yang &lt;span ng-transclude&gt;&lt;/span&gt;&lt;/p&gt;',//定义一个模板</div><div class="line">            templateUrl:'url.html',//引入外界的模板，在使用templateUrl时候，template不能存在</div><div class="line">            replace:true,//替换原有的标签</div><div class="line">            restrict:'ECMA',</div><div class="line">			//定义指令可以使用的位置，不写的话，默认值是EA</div><div class="line">			/**</div><div class="line">			 *E  element 用于标签</div><div class="line">			 *C  class   用于样式类名</div><div class="line">			 *M  comment  用于注释</div><div class="line">			 *A  attribute 用于是属性名</div><div class="line">			 */   </div><div class="line">            transclude:true,</div><div class="line">            /*</div><div class="line">            保存原有标签里面的内容</div><div class="line">			和 ng-transclude(会形成自己的作用域)结合使用</div><div class="line">			原有标签里面的内容添加到&lt;span ng-transclude&gt;&lt;/span&gt;中</div><div class="line">             */</div><div class="line">            scope:true,</div><div class="line">			//会形成自己的作用域</div><div class="line">            /**</div><div class="line">             * @param scope :当前模板的作用域，如果当前模板没有形成作用域，会直接找父集的作用域</div><div class="line">             * @param element ：自定义指令所在的DOM元素，是一个jQuery对象，内置的有轻量级的jQuery也就是 jqLite(简化版的jQuery)</div><div class="line">             * @param attrs ：自定义指令所在的DOM元素上的属性存储在attrs对象中</div><div class="line">             */</div><div class="line">            link:function (scope,element,attrs) &#123;//只有link才可以操作DOM</div><div class="line">			//实现和 DOM元素、作用域的链接（链接阶段）</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;)</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/12/03/Angular表达式/" class="archive-article-date">
+      <a href="/2016/12/03/AngularJS自定义指令/" class="archive-article-date">
   	<time datetime="2016-12-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-03</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/表达式/">表达式</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指令/">指令</a></li></ul>
 	</div>
 
       
@@ -608,7 +663,7 @@
 
 
   
-    <article id="post-AngularJS自定义指令" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Angular表达式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -618,7 +673,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/03/AngularJS自定义指令/">AngularJS自定义指令</a>
+      <a class="article-title" href="/2016/12/03/Angular表达式/">AngularJS表达式</a>
     </h1>
   
 
@@ -626,21 +681,41 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="AngularJS自定义指令"><a href="#AngularJS自定义指令" class="headerlink" title="AngularJS自定义指令"></a>AngularJS自定义指令</h1><blockquote>
-<p>指令分为组件式指令和装饰行指令</p>
+        <h3 id="AngularJS-是一个JavaScript框架，通过script标签来引入到HTML页面。"><a href="#AngularJS-是一个JavaScript框架，通过script标签来引入到HTML页面。" class="headerlink" title="AngularJS 是一个JavaScript框架，通过script标签来引入到HTML页面。"></a>AngularJS 是一个JavaScript框架，通过script标签来引入到HTML页面。</h3><blockquote>
+<p>angular表达式双大括号内&#123;&#123; &#125;&#125;，&#123;&#123; &#125;&#125;是体现angularJS的重要特性。<br>&#123;&#123; &#125;&#125;可以包含文字、运算符和变量,支持三元表达式。但是不支持条件判断、循环及异常；<br>&#123;&#123; &#125;&#125;中放入’’表示字符串<br>&#123;&#123;name?name:’xiaojie’&#125;&#125;表示为如果name存在的话，就显示xiaojie，当我们输入内容的时候，视图就会跟着我们输入的内容改变；</p>
 </blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html ng-app="myApp"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;AngularJS自定义指令&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;!--用于属性名--&gt;</div><div class="line">&lt;div good-name&gt;8岁了&lt;/div&gt;</div><div class="line">&lt;!--用于标签--&gt;</div><div class="line">&lt;good-name&gt;&lt;/good-name&gt;</div><div class="line">&lt;!--用于样式类名--&gt;</div><div class="line">&lt;div class="good-name"&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;!--注释 很少用（必须有replace:true）--&gt;</div><div class="line">&lt;!-- directive:good-name --&gt;</div><div class="line">&lt;!--前后要有空格--&gt;</div><div class="line"></div><div class="line">&lt;script src="../angular.js"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var myApp = angular.module('myApp', []);</div><div class="line">    myApp.directive('goodName',function () &#123;</div><div class="line">	/*定义一个指令,指令的名字叫做 goodName</div><div class="line">	命名的时候是驼峰命名法，使用的时候用 - 分割，将大写转为小写</div><div class="line">	定义的时候goodName 使用的时候  good-name*/</div><div class="line">        return &#123;//声明一个函数，返回一个对象</div><div class="line">            template:'&lt;p&gt;Yang &lt;span ng-transclude&gt;&lt;/span&gt;&lt;/p&gt;',//定义一个模板</div><div class="line">            templateUrl:'url.html',//引入外界的模板，在使用templateUrl时候，template不能存在</div><div class="line">            replace:true,//替换原有的标签</div><div class="line">            restrict:'ECMA',</div><div class="line">			//定义指令可以使用的位置，不写的话，默认值是EA</div><div class="line">			/**</div><div class="line">			 *E  element 用于标签</div><div class="line">			 *C  class   用于样式类名</div><div class="line">			 *M  comment  用于注释</div><div class="line">			 *A  attribute 用于是属性名</div><div class="line">			 */   </div><div class="line">            transclude:true,</div><div class="line">            /*</div><div class="line">            保存原有标签里面的内容</div><div class="line">			和 ng-transclude(会形成自己的作用域)结合使用</div><div class="line">			原有标签里面的内容添加到&lt;span ng-transclude&gt;&lt;/span&gt;中</div><div class="line">             */</div><div class="line">            scope:true,</div><div class="line">			//会形成自己的作用域</div><div class="line">            /**</div><div class="line">             * @param scope :当前模板的作用域，如果当前模板没有形成作用域，会直接找父集的作用域</div><div class="line">             * @param element ：自定义指令所在的DOM元素，是一个jQuery对象，内置的有轻量级的jQuery也就是 jqLite(简化版的jQuery)</div><div class="line">             * @param attrs ：自定义指令所在的DOM元素上的属性存储在attrs对象中</div><div class="line">             */</div><div class="line">            link:function (scope,element,attrs) &#123;//只有link才可以操作DOM</div><div class="line">			//实现和 DOM元素、作用域的链接（链接阶段）</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;)</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input type="text" ng-model="name"&gt;</div><div class="line">&#123;&#123;name?name:'xiaojie'&#125;&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如果我们把输入框中的内容清空的话，那就会显示xiaojie，可以理解为一个默认值的存在；</p>
+</blockquote>
+<h3 id="AngularJS-数字计算"><a href="#AngularJS-数字计算" class="headerlink" title="AngularJS 数字计算"></a>AngularJS 数字计算</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-init="quantity=1;cost=5"&gt;</div><div class="line">&lt;p&gt;总价:&#123;&#123;quantity*cost&#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>视图上显示为6</p>
+</blockquote>
+<h3 id="AngularJS-字符串"><a href="#AngularJS-字符串" class="headerlink" title="AngularJS 字符串"></a>AngularJS 字符串</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app="" ng-init="firstName='Yang';lastName='xiaojie'"&gt;</div><div class="line">&lt;p&gt;姓名:&#123;&#123;firstName + " " + lastName&#125;&#125;&lt;/p&gt; </div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>视图上显示为Yang xiaojie</p>
+</blockquote>
+<h3 id="AngularJS-对象"><a href="#AngularJS-对象" class="headerlink" title="AngularJS 对象"></a>AngularJS 对象</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app="" ng-init="person=&#123;firstName:'Yang',lastName:'xiaojie'&#125;"&gt;</div><div class="line">&lt;p&gt;姓为&#123;&#123;person.lastName&#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>视图上显示为xiaojie</p>
+</blockquote>
+<h3 id="AngularJS-数组"><a href="#AngularJS-数组" class="headerlink" title="AngularJS 数组"></a>AngularJS 数组</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app="" ng-init="points=[1,15,19,2,40]"&gt;</div><div class="line">&lt;p&gt;第三个值为&#123;&#123;points[2]&#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>视图上边显示为19</p>
+</blockquote>
+
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/12/03/AngularJS自定义指令/" class="archive-article-date">
+      <a href="/2016/12/03/Angular表达式/" class="archive-article-date">
   	<time datetime="2016-12-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-03</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指令/">指令</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/表达式/">表达式</a></li></ul>
 	</div>
 
       
@@ -747,60 +822,6 @@
 
 
   
-    <article id="post-跑马灯(原生JS版 + 构造函数版)" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/20/跑马灯(原生JS版 + 构造函数版)/">跑马灯(原生JS版 + 构造函数版)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="原生JS普通版-代码如下"><a href="#原生JS普通版-代码如下" class="headerlink" title="原生JS普通版,代码如下;"></a>原生JS普通版,代码如下;</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang="en"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;跑马灯&lt;/title&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        *&#123;</div><div class="line">            margin:0;</div><div class="line">            padding:0;</div><div class="line">            list-style: none;</div><div class="line">        &#125;</div><div class="line">        div&#123;</div><div class="line">            width: 800px;</div><div class="line">            height: 200px;</div><div class="line">            border: 3px dashed lightgreen;</div><div class="line">            position: relative;</div><div class="line">            margin:50px auto;</div><div class="line">            overflow: hidden;</div><div class="line">        &#125;</div><div class="line">        div ul&#123;</div><div class="line">            height: 200px;</div><div class="line">            position: absolute;</div><div class="line">            left:0;</div><div class="line">            top:0;</div><div class="line">        &#125;</div><div class="line">        div ul li&#123;</div><div class="line">            float: left;</div><div class="line">            width:200px;</div><div class="line">            height: 200px;</div><div class="line">        &#125;</div><div class="line">        div ul li img&#123;</div><div class="line">            width: 100%;</div><div class="line">            height: 100%;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div id="div"&gt;</div><div class="line">    &lt;ul&gt;</div><div class="line">        &lt;li&gt;&lt;img src="img/1.jpg" alt=""/&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;img src="img/2.jpg" alt=""/&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;img src="img/3.jpg" alt=""/&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;img src="img/4.jpg" alt=""/&gt;&lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    //实现核心原理：不断改变ul的left;</div><div class="line">    /*</div><div class="line">     * 1.为了防止空白，给ul内容多克隆了一份</div><div class="line">     * 2.为了让所有的li在一行显示，重新设置ul的宽度 一个li的宽度*li的个数</div><div class="line">     * 3.不断减少ul的left，当ul的left&lt;=-800时；让left=0;</div><div class="line">     * */</div><div class="line">    var oDiv=document.getElementById('div');</div><div class="line">    var oUl=oDiv.getElementsByTagName('ul')[0];</div><div class="line">    var aLi=oUl.getElementsByTagName('li');</div><div class="line">    var curLeft=oUl.offsetLeft;//oul的外边框到定位父级的内边框</div><div class="line">    //1.为了防止空白，给ul内容多克隆了一份</div><div class="line">    oUl.innerHTML+=oUl.innerHTML;</div><div class="line">    //2.为了让所有的li在一行显示，重新设置ul的宽度 一个li的宽度*li的个数</div><div class="line">    oUl.style.width=aLi[0].offsetWidth*aLi.length+'px';</div><div class="line">    //3.不断减少ul的left，当ul的left&lt;=-800时；让left=0;</div><div class="line">    clearInterval(timer);</div><div class="line">    var timer=setInterval(autoMove,10);</div><div class="line">    function autoMove()&#123;</div><div class="line">        curLeft--;</div><div class="line">        if(curLeft&lt;=-oUl.offsetWidth/2)&#123;</div><div class="line">            curLeft=0;</div><div class="line">        &#125;</div><div class="line">        oUl.style.left=curLeft+'px';</div><div class="line">    &#125;</div><div class="line">    //4.鼠标移入停止运动，移出继续运动</div><div class="line">    oDiv.onmouseover=function()&#123;</div><div class="line">        clearInterval(timer);</div><div class="line">    &#125;;</div><div class="line">    oDiv.onmouseout=function()&#123;</div><div class="line">        timer=setInterval(autoMove,10)</div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h3 id="原生JS构造函数版-代码如下"><a href="#原生JS构造函数版-代码如下" class="headerlink" title="原生JS构造函数版,代码如下;"></a>原生JS构造函数版,代码如下;</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang="en"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;跑马灯(构造函数版)&lt;/title&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        * &#123;</div><div class="line">            margin: 0;</div><div class="line">            padding: 0;</div><div class="line">            list-style: none;</div><div class="line">        &#125;</div><div class="line">        div &#123;</div><div class="line">            width: 800px;</div><div class="line">            height: 200px;</div><div class="line">            border: 3px dashed lightgreen;</div><div class="line">            position: relative;</div><div class="line">            margin: 50px auto;</div><div class="line">            overflow: hidden;</div><div class="line">        &#125;</div><div class="line">        div ul &#123;</div><div class="line">            height: 200px;</div><div class="line">            position: absolute;</div><div class="line">            left: 0;</div><div class="line">            top: 0;</div><div class="line">        &#125;</div><div class="line">        div ul li &#123;</div><div class="line">            float: left;</div><div class="line">            width: 200px;</div><div class="line">            height: 200px;</div><div class="line">        &#125;</div><div class="line">        div ul li img &#123;</div><div class="line">            width: 100%;</div><div class="line">            height: 100%;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div id="div"&gt;</div><div class="line">    &lt;ul&gt;</div><div class="line">        &lt;li&gt;&lt;img src="img/1.jpg" alt=""/&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;img src="img/2.jpg" alt=""/&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;img src="img/3.jpg" alt=""/&gt;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&lt;img src="img/4.jpg" alt=""/&gt;&lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    //实现核心原理：不断改变ul的left;</div><div class="line">    function Run(idName) &#123;</div><div class="line">        this.oDiv = document.getElementById('div');</div><div class="line">        this.oUl = this.oDiv.getElementsByTagName('ul')[0];</div><div class="line">        this.aLi = this.oUl.getElementsByTagName('li');</div><div class="line">        this.timer = null;</div><div class="line">        this.init();//调用init方法</div><div class="line">    &#125;</div><div class="line">    Run.prototype = &#123;</div><div class="line">        constructor: Run,</div><div class="line">        init: function () &#123;</div><div class="line">            var _this = this;//保证this的指向不变</div><div class="line">            this.curLeft = this.oUl.offsetLeft;//oul的外边框到定位父级的内边框</div><div class="line">            this.oUl.innerHTML += this.oUl.innerHTML;//为了防止空白，给ul内容多克隆了一份</div><div class="line">            this.oUl.style.width = this.aLi[0].offsetWidth * this.aLi.length + 'px';//为了让所有的li在一行显示，重新设置ul的宽度 一个li的宽度*li的个数</div><div class="line">            this.timer = setInterval(function () &#123;</div><div class="line">                _this.autoMove();</div><div class="line">            &#125;, 10);</div><div class="line">            this.autoMove();</div><div class="line">            this.over();</div><div class="line">            this.out();</div><div class="line">        &#125;,</div><div class="line">        //1、自动轮播</div><div class="line">        autoMove: function () &#123;</div><div class="line">            var _this = this;</div><div class="line">            _this.curLeft--;</div><div class="line">            if (_this.curLeft &lt;= -_this.oUl.offsetWidth / 2) &#123;</div><div class="line">                _this.curLeft = 0; //不断减少ul的left，当ul的left&lt;=负一半时；让left=0;</div><div class="line">            &#125;</div><div class="line">            _this.oUl.style.left = _this.curLeft + 'px';</div><div class="line">        &#125;,</div><div class="line">        //2、鼠标移入，停止</div><div class="line">        over: function () &#123;</div><div class="line">            var _this = this;</div><div class="line">            _this.oDiv.onmouseover = function () &#123;</div><div class="line">                clearInterval(_this.timer);</div><div class="line">            &#125;;</div><div class="line">        &#125;,</div><div class="line">        //3、鼠标移出，开始</div><div class="line">        out: function () &#123;</div><div class="line">            var _this = this;</div><div class="line">            _this.oDiv.onmouseout = function () &#123;</div><div class="line">                _this.timer = setInterval(function () &#123;</div><div class="line">                    _this.autoMove();</div><div class="line">                &#125;, 10);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    //创建一个实例，把id传进去</div><div class="line">    var div = new Run('div')</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>在代码种可以通过for循环 <strong>+</strong> 字符串拼接的方式，来构造出所需要的标签和类名，调用时直接调用</p>
-</blockquote>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/11/20/跑马灯(原生JS版 + 构造函数版)/" class="archive-article-date">
-  	<time datetime="2016-11-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-20</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/跑马灯/">跑马灯</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -866,7 +887,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 13.33px;">JS</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 10px;">WebStorm</a> <a href="/tags/Webstrom/" style="font-size: 10px;">Webstrom</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/指令/" style="font-size: 16.67px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a>
+    				<a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 13.33px;">JS</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 10px;">WebStorm</a> <a href="/tags/Webstrom/" style="font-size: 10px;">Webstrom</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/指令/" style="font-size: 16.67px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a>
     			</div>
     	</section>
     
