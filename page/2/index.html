@@ -143,6 +143,146 @@
       <div class="body-wrap">
         
   
+    <article id="post-组件式指令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/03/组件式指令/">组件式指令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###　自定义组件式指令</p>
+<p>在控制器里边定义变量或者方法，在指令返回的对象里边取出定义的变量或者方法，</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html ng-app="hello"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;组件式指令&lt;/title&gt;</div><div class="line">    &lt;link rel="stylesheet" href="../bootstrap.css"&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body ng-controller="myControll"&gt;</div><div class="line">&lt;panel title="title" ng-click="hello()"&gt;&#123;&#123;content&#125;&#125;&lt;/panel&gt;</div><div class="line">&lt;panel title="title1" ng-click="hello()"&gt;&#123;&#123;content1&#125;&#125;&lt;/panel&gt;</div><div class="line">&lt;!--ng-transclude属性会创建一个新的作用域，不会互相影响；指令执行的时候，是看html里边是否有指令的名字，如果有的话就会后边的覆盖前边的，创建一个独立的作用域可以解决这个问题，用scope:true或者是scope：&#123;&#125;--&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script src="../angular.js"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    angular.module('hello',[]).controller('myControll',['$scope', function ($scope) &#123;</div><div class="line">        $scope.title='标题1';</div><div class="line">        $scope.content='内容1';</div><div class="line">        $scope.title1='标题2';</div><div class="line">        $scope.content1='内容2';</div><div class="line">        $scope.hello= function () &#123;</div><div class="line">            alert('hello')</div><div class="line">        &#125;</div><div class="line">    &#125;]).directive('panel', function () &#123;</div><div class="line">        return &#123;</div><div class="line">            transclude:true,</div><div class="line">            //将原有指令中内容保存起来，放到我们想放的地方(标签里边带有ng-transcldue属性)</div><div class="line">            scope:&#123;</div><div class="line">                title:'=',//取出控制器里边定义的字符串</div><div class="line">                hello:'&amp;'//取出控制里边定义的方法</div><div class="line">            &#125;,//取变量，没有省略时的样子title:'=title'</div><div class="line">            //两种方式可以让指令创建新的作用域</div><div class="line">            //1.scope:true不会断绝和根作用域的关系，有些属性仍然可以从$rootScope上边继承</div><div class="line">            //2.scope：&#123;&#125; 完全断绝关系</div><div class="line">            //scope:&#123;&#125;可以有三种方式和控制器进行交互，当前后的名字都是一样的时候，就可以把后边的省略</div><div class="line">            //第一种 @传递字符串</div><div class="line">            //第二种 = 传递变量</div><div class="line">            //第三种 &amp; 传递方法</div><div class="line">            templateUrl:'panel.html',</div><div class="line">            /*link: function (scope, element, attrs) &#123;</div><div class="line">                //在当前的作用域上边声明一个title属性</div><div class="line">                scope.title=attrs.title;</div><div class="line">            &#125;*/</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>panel页面的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;panel panel-default&quot;&gt;</div><div class="line">    &lt;div class=&quot;panel-heading&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;panel-body&quot; ng-transclude&gt;</div><div class="line">        Panel content</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/03/组件式指令/" class="archive-article-date">
+  	<time datetime="2016-12-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-03</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指令/">指令</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/组件/">组件</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-AngularJS事件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/01/AngularJS事件/">AngularJS事件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="ng-click"><a href="#ng-click" class="headerlink" title="ng-click"></a>ng-click</h3><blockquote>
+<p>定义了指令定义了 AngularJS 点击事件。<br>开关灯思想通过这个小例子：<br>核心思想是通过改变flag的值来操作元素的显示和隐藏<br><code>ng-show</code> / <code>ng-hide</code> 第一次初始化时，消耗性能较高; <code>ng-if</code> 当频繁切换时，消耗性能比较高</p>
+</blockquote>
+<pre><code class="python">&lt;!DOCTYPE html&gt;
+&lt;html ng-app="module"&gt;//确定了angular的作用范围，后边的module是模块的名字
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;开关灯&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div ng-controller="myCtrl"&gt;//控制器的作用范围，后边写的是控制器的名字
+    &lt;div ng-click="show()"&gt;{{flag?'打开':'隐藏'}}&lt;/div&gt;
+    //ng-click后边的一定是一个方法，()绝对不能少
+    &lt;div ng-hide="flag"&gt;内容&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;script src="angular.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+    var app=angular.module('module',[]);
+    //创建一个模块
+    app.controller('myCtrl', function ($scope) {
+        //创建一个控制器，第一个是控制器的名字
+        $scope.flag=true;//先在$scope上定义flag的值
+        $scope.show= function () {
+            $scope.flag=!$scope.flag;
+            //每次点击都会改变flag的值
+        }
+    })
+&lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+<blockquote>
+<ul>
+<li>ng-hide控制DOM元素的隐藏和显示，值为true，隐藏；值为false，显示。操作css样式，不会产生作用域</li>
+<li>ng-show控制DOM元素的显示和隐藏，值为true，显示；值为false，隐藏。操作css样式，不会产生作用域</li>
+<li>ng-if控制DOM元素的存在与不存在，当值为true的时候，DOM元素存在，false的时候DOM元素不存在。频繁在操作DOM元素，会产生作用域，不建议使用</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/01/AngularJS事件/" class="archive-article-date">
+  	<time datetime="2016-11-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-01</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/事件/">事件</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-跑马灯(原生JS版 + 构造函数版)" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -464,6 +604,130 @@
 
 
   
+    <article id="post-数组方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/12/数组方法/">angular配合bootstrap实现购物车</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-push"><a href="#1-push" class="headerlink" title="1.push"></a>1.push</h3><ul>
+<li>向数组的末尾添加一个元素，改变原先数组的长度</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var ary=[1,2,3];</div><div class="line">ary.push(5)</div><div class="line">console.log(ary);//[1,2,3,5]</div></pre></td></tr></table></figure>
+<h3 id="2-unshift"><a href="#2-unshift" class="headerlink" title="2.unshift"></a>2.unshift</h3><ul>
+<li>向数组的开头添加一个元素，改变原先数组的长度</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var ary=[1,2,3];</div><div class="line">ary.unshift(5)</div><div class="line">console.log(ary);//[5,1,2,3]</div></pre></td></tr></table></figure>
+<h3 id="3-shift"><a href="#3-shift" class="headerlink" title="3.shift"></a>3.shift</h3><ul>
+<li>数组的第一个元素从其中删除，并返回第一个元素的值</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var ary=[1,2,3];</div><div class="line">console.log(ary.shift());// 1</div><div class="line">console.log(ary);// [2,3]</div></pre></td></tr></table></figure>
+<h3 id="4-pop"><a href="#4-pop" class="headerlink" title="4.pop"></a>4.pop</h3><ul>
+<li>数组的最后一个元素从其中删除，并返回第一个元素的值</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var ary=[1,2,3];</div><div class="line">console.log(ary.pop()); //3</div><div class="line">console.log(ary); //[1,2]</div></pre></td></tr></table></figure>
+<h3 id="5-splice"><a href="#5-splice" class="headerlink" title="5.splice"></a>5.splice</h3><ul>
+<li>从索引n开始，删除m个； 返回值：被删除的数据以一个新数组的形式返回；原数组发生改变；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var ary=[1,2,3];</div><div class="line">console.log(ary.splice(0,2)); //[1,2]</div><div class="line">console.log(ary);[3]</div></pre></td></tr></table></figure>
+<ul>
+<li>从索引n开始，删除0个；添加x的新内容,添加到索引n前边; 返回值：空数组； 原数组发生改变</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var ary=[1,2,3];</div><div class="line">console.log(ary.splice(1,0,5));//[]</div><div class="line">console.log(ary);//[1, 5, 2, 3]</div></pre></td></tr></table></figure>
+<ul>
+<li>从索引n开始(包括n)，删除m个，替换成x新内容；返回值：被删除的数据以一个新数组的形式返回；原数组发生改变；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var ary=[1,2,3,4,5];</div><div class="line">console.log(ary.splice(1,2,5));//[2, 3]</div><div class="line">console.log(ary);//[1, 5, 4, 5]</div></pre></td></tr></table></figure>
+<h3 id="6-slice"><a href="#6-slice" class="headerlink" title="6.slice"></a>6.slice</h3><ul>
+<li>查找索引n到m，但是不包含m,不改变原数组</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var ary=[1,2,3,4,5];</div><div class="line">console.log(ary.slice(1,2));//[2]</div><div class="line">console.log(ary);//1, 2, 3, 4, 5]</div></pre></td></tr></table></figure>
+<h3 id="7-concat"><a href="#7-concat" class="headerlink" title="7.concat"></a>7.concat</h3><ul>
+<li>数组拼接</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a=[1,2,3,4,5];</div><div class="line">var b=[6,7,8];</div><div class="line">var c=a.concat(b);</div><div class="line">console.log(c);//[1, 2, 3, 4, 5, 6, 7, 8]</div></pre></td></tr></table></figure>
+<h3 id="8-sort-function-a-b-return-a-b-数组排序"><a href="#8-sort-function-a-b-return-a-b-数组排序" class="headerlink" title="8.sort ( function ( a,b ) {return a-b } )数组排序"></a>8.sort ( function ( a,b ) {return a-b } )数组排序</h3><ul>
+<li>return a-b为升序，return b-a为降序;原数组发生改变</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var a=[1,21,33,4,5];</div><div class="line">var c=a.sort(function (a,b) &#123;</div><div class="line">    return a-b;</div><div class="line">&#125;);</div><div class="line">console.log(c);//[1, 4, 5, 21, 33]</div><div class="line">console.log(a);//[1, 4, 5, 21, 33]</div></pre></td></tr></table></figure>
+<h3 id="9-reverse"><a href="#9-reverse" class="headerlink" title="9.reverse"></a>9.reverse</h3><ul>
+<li>数组翻转,原数组发生改变</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a=[1,21,33,4,5];</div><div class="line">var c=a.reverse()</div><div class="line">console.log(c);</div><div class="line">console.log(a);</div></pre></td></tr></table></figure>
+<h3 id="10-toString"><a href="#10-toString" class="headerlink" title="10.toString"></a>10.toString</h3><ul>
+<li>把数组转成字符串； 返回值：以逗号分隔的字符串； 原数组没发生改变；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a=[1,21,33,4,5];</div><div class="line">var c=a.toString();</div><div class="line">console.log(c);//1,21,33,4,5</div><div class="line">console.log(a);//[1, 21, 33, 4, 5]</div></pre></td></tr></table></figure>
+<h3 id="11-join-‘字符’"><a href="#11-join-‘字符’" class="headerlink" title="11.join ( ‘字符’)"></a>11.join ( ‘字符’)</h3><ul>
+<li>把数组转成任意形式拼接的字符串； 返回值：任意形式拼接的字符串； 原数组没有发生改变；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a=[1,21,33,4,5];</div><div class="line">var c=a.join(&apos;+&apos;);</div><div class="line">console.log(c);//1+21+33+4+5</div><div class="line">console.log(a);//[1, 21, 33, 4, 5]</div></pre></td></tr></table></figure>
+<h3 id="12-indexOf"><a href="#12-indexOf" class="headerlink" title="12.indexOf ( )"></a>12.indexOf ( )</h3><ul>
+<li>查找对应的内容，没找到对应的内容，返回-1； 找到，返回对应内容的索引；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var a=[1,21,33,4,5];</div><div class="line">var c=a.indexOf(6);</div><div class="line">var d=a.indexOf(21)</div><div class="line">console.log(c);// -1</div><div class="line">console.log(d);// 1</div></pre></td></tr></table></figure>
+<h3 id="13-find"><a href="#13-find" class="headerlink" title="13.find"></a>13.find</h3><ul>
+<li>符合条件时，返回值是找到的那一项</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var arr = [&#123;name:1&#125;,&#123;name:2&#125;,&#123;name:3&#125;];</div><div class="line">    var index = 2;</div><div class="line">    var obj =  arr.find(function (item) &#123;</div><div class="line">        return item.name == index;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    console.log(obj)//&#123;name: 2&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>不符合条件时，返回值是undefined.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var arr = [&#123;name:1&#125;,&#123;name:2&#125;,&#123;name:3&#125;];</div><div class="line">var index = 4;</div><div class="line">var obj =  arr.find(function (item) &#123;</div><div class="line">    return item.name == index;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">console.log(obj)//undefined</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="14-filter"><a href="#14-filter" class="headerlink" title="14.filter"></a>14.filter</h3><ul>
+<li>filter遍历数组中的每一项，把符合条件的挑选出来，作为一个新数组返回，不会改边原数组。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var arr=[12, 5, 8, 130, 44];</div><div class="line">function name(ele) &#123;</div><div class="line">    return ele&gt;12;</div><div class="line">&#125;</div><div class="line">//函数name就是条件，符合name函数条件的返回组成一个新数组</div><div class="line">arr=arr.filter(name);</div><div class="line">console.log(arr);</div></pre></td></tr></table></figure>
+<h3 id="15-forEach"><a href="#15-forEach" class="headerlink" title="15.forEach"></a>15.forEach</h3><ul>
+<li>遍历数组中的每一项，里面是个匿名函数；这个匿名函数中有两个参数：item（数组中的每一项），index（数组中每一项的索引）；他没有返回值；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var ary=[1,2,3];</div><div class="line">var hello=ary.forEach(function (item, index) &#123;</div><div class="line">    console.log(index,item);//索引+当前项</div><div class="line">&#125;);</div><div class="line">console.log(hello);//undefined  没有返回值</div></pre></td></tr></table></figure>
+<h3 id="16-map"><a href="#16-map" class="headerlink" title="16.map"></a>16.map</h3><ul>
+<li>功能和forEach()一样，但是他有返回值；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var ary=[1,2,3];</div><div class="line">var hello=ary.map(function (item, index) &#123;</div><div class="line">    console.log(index,item);//索引+当前项</div><div class="line">    return item*2;</div><div class="line">&#125;);</div><div class="line">console.log(hello);//[2,4,6] 返回的是一个新数组</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/06/12/数组方法/" class="archive-article-date">
+  	<time datetime="2016-06-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-12</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组/">数组</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/方法/">方法</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
@@ -529,7 +793,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 13.33px;">JS</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 10px;">WebStorm</a> <a href="/tags/Webstrom/" style="font-size: 10px;">Webstrom</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/指令/" style="font-size: 16.67px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a>
+    				<a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 16.67px;">JS</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 10px;">WebStorm</a> <a href="/tags/Webstrom/" style="font-size: 10px;">Webstrom</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/指令/" style="font-size: 16.67px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/方法/" style="font-size: 10px;">方法</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/购物车/" style="font-size: 10px;">购物车</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a>
     			</div>
     	</section>
     

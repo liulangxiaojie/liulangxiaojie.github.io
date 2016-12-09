@@ -143,7 +143,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-常用nrm工具命令" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-git跟新" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -153,7 +153,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/08/常用nrm工具命令/">常用nrm工具命令</a>
+      <a class="article-title" href="/2016/12/09/git跟新/">angular配合bootstrap实现购物车</a>
     </h1>
   
 
@@ -161,48 +161,88 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="常用nrm工具命令"><a href="#常用nrm工具命令" class="headerlink" title="常用nrm工具命令"></a>常用nrm工具命令</h2><blockquote>
-<p>mac下安装全局时需要增加sudo</p>
+        <h3 id="在git上跟新别人的仓库"><a href="#在git上跟新别人的仓库" class="headerlink" title="在git上跟新别人的仓库"></a>在git上跟新别人的仓库</h3><blockquote>
+<p>操作时一定注意空格</p>
 </blockquote>
 <ul>
-<li>windowns系统安装</li>
+<li><p>1.登录自己的github</p>
+</li>
+<li><p>2.把目标仓库地址复制到地址栏</p>
+</li>
+<li><p>3.fork</p>
+</li>
+<li><p>4.把自己的仓库下载到本地</p>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g nrm</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git clone 自己的地址</div><div class="line">git remote -v  //查看当前本地都和哪些远程仓库保持了链接</div></pre></td></tr></table></figure>
 <ul>
-<li>显示所有可用的源</li>
+<li>5.在本地增加和目标仓库链接</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm ls</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git remote add name(自定义名字) 目标的仓库地址</div><div class="line">git remote -v  //查看当前本地都和哪些远程仓库保持了链接</div></pre></td></tr></table></figure>
 <ul>
-<li>切换源</li>
+<li>6.拉取目标仓库的最新信息</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm use taobao</div></pre></td></tr></table></figure>
-<ul>
-<li>添加源</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm add hello http://172.18.0.199</div></pre></td></tr></table></figure>
-<ul>
-<li>删除源</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm del hello</div></pre></td></tr></table></figure>
-<ul>
-<li>切换到新添加的源上</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm use hello</div></pre></td></tr></table></figure>
-<ul>
-<li>测试源的响应时间</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm test</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git remote update name //把本地和name的链接通道进行更新</div><div class="line">git pull name master  //把最新的目标代码拉取到本地</div></pre></td></tr></table></figure>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/12/08/常用nrm工具命令/" class="archive-article-date">
-  	<time datetime="2016-12-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-08</time>
+      <a href="/2016/12/09/git跟新/" class="archive-article-date">
+  	<time datetime="2016-12-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-09</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nrm/">nrm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令/">命令</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-angular配合bootstrap实现购物车" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/09/angular配合bootstrap实现购物车/">angular配合bootstrap实现购物车</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="angular小列子之购物车"><a href="#angular小列子之购物车" class="headerlink" title="angular小列子之购物车"></a>angular小列子之购物车</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot; ng-app=&quot;app&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;购物车&lt;/title&gt;</div><div class="line">    &lt;script src=&quot;../../JS/angular.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;../../JS/bootstrap.css&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body ng-controller=&quot;myCtrl&quot;&gt;</div><div class="line">&lt;table class=&quot;table table-bordered&quot;&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;th&gt;&lt;input type=&quot;checkbox&quot; ng-model=&quot;flag&quot; ng-click=&quot;selectAll()&quot;&gt;全选&lt;/th&gt;</div><div class="line">        &lt;th&gt;商品名称&lt;/th&gt;</div><div class="line">        &lt;th&gt;单价&lt;/th&gt;</div><div class="line">        &lt;th&gt;数量&lt;/th&gt;</div><div class="line">        &lt;th&gt;小计&lt;/th&gt;</div><div class="line">        &lt;th&gt;操作&lt;/th&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">    &lt;tr ng-repeat=&quot;p in products track by $index&quot;&gt;</div><div class="line">        &lt;td&gt;&lt;input type=&quot;checkbox&quot; ng-model=&quot;p.isSelected&quot; ng-click=&quot;selectOne()&quot;&gt;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&#123;&#123;p.name&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&#123;&#123;p.price&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;</div><div class="line">            &lt;button class=&quot;btn&quot; ng-click=&quot;p.count=p.count-1&quot; ng-disabled=&quot;p.count&lt;=1&quot;&gt;-&lt;/button&gt;</div><div class="line">            &lt;input type=&quot;text&quot; ng-model=&quot;p.count&quot; ng-readonly=&quot;true&quot;&gt;</div><div class="line">            &lt;button class=&quot;btn&quot; ng-click=&quot;p.count=p.count+1&quot;&gt;+&lt;/button&gt;</div><div class="line">        &lt;/td&gt;</div><div class="line">        &lt;td&gt;&#123;&#123;p.price*p.count | currency:&apos;$&apos;&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;</div><div class="line">            &lt;button class=&quot;btn btn-danger&quot; ng-click=&quot;remove(p)&quot;&gt;删除&lt;/button&gt;</div><div class="line">        &lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;td&gt;总价&#123;&#123;sum() |  currency:&apos;$&apos;&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;</div><div class="line">            &lt;button ng-click=&quot;removeAll()&quot;&gt;删除选中项&lt;/button&gt;</div><div class="line">        &lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line"></div><div class="line">&lt;/table&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var app = angular.module(&apos;app&apos;, []);</div><div class="line">    app.controller(&apos;myCtrl&apos;, [&apos;$scope&apos;, function ($scope) &#123;</div><div class="line">        $scope.products = [</div><div class="line">            &#123;isSelected: true, name: &apos;iphone5s&apos;, price: 99.9, count: 1, id: 1&#125;,</div><div class="line">            &#123;isSelected: true, name: &apos;iphone6s&apos;, price: 88, count: 2, id: 2&#125;,</div><div class="line">            &#123;isSelected: false, name: &apos;iphone7s&apos;, price: 66, count: 7, id: 3&#125;,</div><div class="line">            &#123;isSelected: true, name: &apos;iphone4s&apos;, price: 33, count: 4, id: 4&#125;,</div><div class="line">        ];</div><div class="line"></div><div class="line">        $scope.flag = true;</div><div class="line">        //求总价</div><div class="line">        $scope.sum = function () &#123;</div><div class="line">            var total = 0;</div><div class="line">            $scope.products.forEach(function (item) &#123;</div><div class="line">                if (item.isSelected == true) &#123;</div><div class="line">                    total += item.price * item.count</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">            return total;</div><div class="line">        &#125;;</div><div class="line">        //点击全选/全不选</div><div class="line">        $scope.selectAll = function () &#123;</div><div class="line">            $scope.products.forEach(function (item) &#123;</div><div class="line">                item.isSelected = $scope.flag;//让每一项的值都和全选框的值保持一致</div><div class="line">            &#125;);</div><div class="line">        &#125;;</div><div class="line">        //列表点击时更改全选框状态</div><div class="line">        $scope.selectOne = function () &#123;</div><div class="line">            var all = false;</div><div class="line">            var hello = $scope.products.find(function (item) &#123;</div><div class="line">                return item.isSelected == all;</div><div class="line">            &#125;);</div><div class="line">            $scope.flag = hello == undefined ? true : false;</div><div class="line">        &#125;;</div><div class="line">        $scope.selectOne();//先执行以下函数，确定全选框是否勾选</div><div class="line">        //删除当前项</div><div class="line">        $scope.remove = function (p) &#123;</div><div class="line">            //传进来的P是之前ng-repeat的p</div><div class="line">            $scope.products = $scope.products.filter(function (item) &#123;</div><div class="line">                return item != p;//所有的元素不能等于当前传进来的元素，这样可以实现删除</div><div class="line">            &#125;);</div><div class="line">        &#125;;</div><div class="line">        $scope.removeAll = function () &#123;</div><div class="line">            $scope.products = $scope.products.filter(function (item) &#123;</div><div class="line">                return item.isSelected == false;</div><div class="line">                //把没有选中的作为条件，过滤后保留没有选中的</div><div class="line">            &#125;)</div><div class="line">        &#125;</div><div class="line">    &#125;]);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/09/angular配合bootstrap实现购物车/" class="archive-article-date">
+  	<time datetime="2016-12-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/购物车/">购物车</a></li></ul>
 	</div>
 
       
@@ -277,6 +317,85 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Webstrom/">Webstrom</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-常用nrm工具命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/08/常用nrm工具命令/">常用nrm工具命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="常用nrm工具命令"><a href="#常用nrm工具命令" class="headerlink" title="常用nrm工具命令"></a>常用nrm工具命令</h2><blockquote>
+<p>mac下安装全局时需要增加sudo</p>
+</blockquote>
+<ul>
+<li>windowns系统安装</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g nrm</div></pre></td></tr></table></figure>
+<ul>
+<li>显示所有可用的源</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm ls</div></pre></td></tr></table></figure>
+<ul>
+<li>切换源</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm use taobao</div></pre></td></tr></table></figure>
+<ul>
+<li>添加源</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm add hello http://172.18.0.199</div></pre></td></tr></table></figure>
+<ul>
+<li>删除源</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm del hello</div></pre></td></tr></table></figure>
+<ul>
+<li>切换到新添加的源上</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm use hello</div></pre></td></tr></table></figure>
+<ul>
+<li>测试源的响应时间</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm test</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/08/常用nrm工具命令/" class="archive-article-date">
+  	<time datetime="2016-12-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-08</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nrm/">nrm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令/">命令</a></li></ul>
 	</div>
 
       
@@ -686,146 +805,6 @@
 
 
   
-    <article id="post-组件式指令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/03/组件式指令/">组件式指令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###　自定义组件式指令</p>
-<p>在控制器里边定义变量或者方法，在指令返回的对象里边取出定义的变量或者方法，</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html ng-app="hello"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;组件式指令&lt;/title&gt;</div><div class="line">    &lt;link rel="stylesheet" href="../bootstrap.css"&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body ng-controller="myControll"&gt;</div><div class="line">&lt;panel title="title" ng-click="hello()"&gt;&#123;&#123;content&#125;&#125;&lt;/panel&gt;</div><div class="line">&lt;panel title="title1" ng-click="hello()"&gt;&#123;&#123;content1&#125;&#125;&lt;/panel&gt;</div><div class="line">&lt;!--ng-transclude属性会创建一个新的作用域，不会互相影响；指令执行的时候，是看html里边是否有指令的名字，如果有的话就会后边的覆盖前边的，创建一个独立的作用域可以解决这个问题，用scope:true或者是scope：&#123;&#125;--&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script src="../angular.js"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    angular.module('hello',[]).controller('myControll',['$scope', function ($scope) &#123;</div><div class="line">        $scope.title='标题1';</div><div class="line">        $scope.content='内容1';</div><div class="line">        $scope.title1='标题2';</div><div class="line">        $scope.content1='内容2';</div><div class="line">        $scope.hello= function () &#123;</div><div class="line">            alert('hello')</div><div class="line">        &#125;</div><div class="line">    &#125;]).directive('panel', function () &#123;</div><div class="line">        return &#123;</div><div class="line">            transclude:true,</div><div class="line">            //将原有指令中内容保存起来，放到我们想放的地方(标签里边带有ng-transcldue属性)</div><div class="line">            scope:&#123;</div><div class="line">                title:'=',//取出控制器里边定义的字符串</div><div class="line">                hello:'&amp;'//取出控制里边定义的方法</div><div class="line">            &#125;,//取变量，没有省略时的样子title:'=title'</div><div class="line">            //两种方式可以让指令创建新的作用域</div><div class="line">            //1.scope:true不会断绝和根作用域的关系，有些属性仍然可以从$rootScope上边继承</div><div class="line">            //2.scope：&#123;&#125; 完全断绝关系</div><div class="line">            //scope:&#123;&#125;可以有三种方式和控制器进行交互，当前后的名字都是一样的时候，就可以把后边的省略</div><div class="line">            //第一种 @传递字符串</div><div class="line">            //第二种 = 传递变量</div><div class="line">            //第三种 &amp; 传递方法</div><div class="line">            templateUrl:'panel.html',</div><div class="line">            /*link: function (scope, element, attrs) &#123;</div><div class="line">                //在当前的作用域上边声明一个title属性</div><div class="line">                scope.title=attrs.title;</div><div class="line">            &#125;*/</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<p>panel页面的代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;panel panel-default&quot;&gt;</div><div class="line">    &lt;div class=&quot;panel-heading&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;panel-body&quot; ng-transclude&gt;</div><div class="line">        Panel content</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/03/组件式指令/" class="archive-article-date">
-  	<time datetime="2016-12-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-03</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指令/">指令</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/组件/">组件</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-AngularJS事件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/01/AngularJS事件/">AngularJS事件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="ng-click"><a href="#ng-click" class="headerlink" title="ng-click"></a>ng-click</h3><blockquote>
-<p>定义了指令定义了 AngularJS 点击事件。<br>开关灯思想通过这个小例子：<br>核心思想是通过改变flag的值来操作元素的显示和隐藏<br><code>ng-show</code> / <code>ng-hide</code> 第一次初始化时，消耗性能较高; <code>ng-if</code> 当频繁切换时，消耗性能比较高</p>
-</blockquote>
-<pre><code class="python">&lt;!DOCTYPE html&gt;
-&lt;html ng-app="module"&gt;//确定了angular的作用范围，后边的module是模块的名字
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;开关灯&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div ng-controller="myCtrl"&gt;//控制器的作用范围，后边写的是控制器的名字
-    &lt;div ng-click="show()"&gt;{{flag?'打开':'隐藏'}}&lt;/div&gt;
-    //ng-click后边的一定是一个方法，()绝对不能少
-    &lt;div ng-hide="flag"&gt;内容&lt;/div&gt;
-&lt;/div&gt;
-&lt;/body&gt;
-&lt;script src="angular.js"&gt;&lt;/script&gt;
-&lt;script&gt;
-    var app=angular.module('module',[]);
-    //创建一个模块
-    app.controller('myCtrl', function ($scope) {
-        //创建一个控制器，第一个是控制器的名字
-        $scope.flag=true;//先在$scope上定义flag的值
-        $scope.show= function () {
-            $scope.flag=!$scope.flag;
-            //每次点击都会改变flag的值
-        }
-    })
-&lt;/script&gt;
-&lt;/html&gt;
-</code></pre>
-<blockquote>
-<ul>
-<li>ng-hide控制DOM元素的隐藏和显示，值为true，隐藏；值为false，显示。操作css样式，不会产生作用域</li>
-<li>ng-show控制DOM元素的显示和隐藏，值为true，显示；值为false，隐藏。操作css样式，不会产生作用域</li>
-<li>ng-if控制DOM元素的存在与不存在，当值为true的时候，DOM元素存在，false的时候DOM元素不存在。频繁在操作DOM元素，会产生作用域，不建议使用</li>
-</ul>
-</blockquote>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/01/AngularJS事件/" class="archive-article-date">
-  	<time datetime="2016-11-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-01</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/事件/">事件</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -891,7 +870,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 13.33px;">JS</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 10px;">WebStorm</a> <a href="/tags/Webstrom/" style="font-size: 10px;">Webstrom</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/指令/" style="font-size: 16.67px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a>
+    				<a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 16.67px;">JS</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 10px;">WebStorm</a> <a href="/tags/Webstrom/" style="font-size: 10px;">Webstrom</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/指令/" style="font-size: 16.67px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/方法/" style="font-size: 10px;">方法</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/购物车/" style="font-size: 10px;">购物车</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a>
     			</div>
     	</section>
     
