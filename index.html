@@ -143,6 +143,253 @@
       <div class="body-wrap">
         
   
+    <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/10/git/">git的使用方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##　关于webstrom里边git的操作</p>
+<ul>
+<li>配置</li>
+</ul>
+<blockquote>
+<p>在webstrom里，点击VCS，选择第二项，配置git</p>
+</blockquote>
+<ul>
+<li>点击添加</li>
+</ul>
+<blockquote>
+<p>在文件的根目录右键，选择git，选择add</p>
+</blockquote>
+<ul>
+<li>推送</li>
+</ul>
+<blockquote>
+<p>再次在根目录右键，选择Commit，进入选项后填写跟新的信息，然后在commit选择上边选择commit and push</p>
+</blockquote>
+<ul>
+<li>完成，完成操作后，webstrom左下角会有绿色的提示框出现，便是成功</li>
+</ul>
+<h2 id="关于base命令窗口命令操作"><a href="#关于base命令窗口命令操作" class="headerlink" title="关于base命令窗口命令操作"></a>关于base命令窗口命令操作</h2><ul>
+<li>初始化错误，删除，重新初始化</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -rf .git</div></pre></td></tr></table></figure>
+<ul>
+<li>清屏</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">clear</div></pre></td></tr></table></figure>
+<ul>
+<li>创建文件夹</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir 文件夹的名字</div></pre></td></tr></table></figure>
+<ul>
+<li>进入文件夹</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd test //进入文件夹</div></pre></td></tr></table></figure>
+<ul>
+<li>新建文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">touch index.txt</div></pre></td></tr></table></figure>
+<ul>
+<li>删除文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm index.txt</div></pre></td></tr></table></figure>
+<ul>
+<li>查看文件内容</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat index.txt</div></pre></td></tr></table></figure>
+<ul>
+<li>把历史记录生成一个文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">history &gt;index.txt</div></pre></td></tr></table></figure>
+<ul>
+<li>向文件内写入内容(先把文件清空，再写入,会覆盖原先的内容)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo hello &gt; index.txt</div></pre></td></tr></table></figure>
+<ul>
+<li>向文件追加内容，不会覆盖之前的内容</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo hello &gt;&gt; index.txt</div></pre></td></tr></table></figure>
+<ul>
+<li>编辑文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vi index.txt 编辑文件</div><div class="line">i 按i只读变为可写</div><div class="line">按esc后 :wq保存退出编辑模式</div></pre></td></tr></table></figure>
+<h2 id="配置邮箱和用户名"><a href="#配置邮箱和用户名" class="headerlink" title="配置邮箱和用户名"></a>配置邮箱和用户名</h2><ul>
+<li>先查看配置</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name</div><div class="line">git config --list</div></pre></td></tr></table></figure>
+<ul>
+<li>如果未配置name和邮箱</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &apos;git用户名&apos;//最好使用github的用户名</div><div class="line">git config --global user.email &apos;git邮箱&apos;</div></pre></td></tr></table></figure>
+<ul>
+<li>改变目录</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd change directory</div></pre></td></tr></table></figure>
+<ul>
+<li>初始化git</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure>
+<blockquote>
+<p>.git文件存储着所有内容（提交，版本库，标签），初始化后会给一个分支默认叫master</p>
+</blockquote>
+<ul>
+<li>查看状态</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git status</div></pre></td></tr></table></figure>
+<ul>
+<li>增加暂存区</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add</div></pre></td></tr></table></figure>
+<blockquote>
+<p>没有增加前是红色</p>
+</blockquote>
+<ul>
+<li>提交到历史区</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m &apos;提交成功&apos;</div></pre></td></tr></table></figure>
+<ul>
+<li>查看历史库日志</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git log</div></pre></td></tr></table></figure>
+<h2 id="比较不同"><a href="#比较不同" class="headerlink" title="比较不同"></a>比较不同</h2><ul>
+<li>工作区和暂存区</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git diff</div></pre></td></tr></table></figure>
+<ul>
+<li>工作区和历史区</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git diff 分支的名字（master）</div></pre></td></tr></table></figure>
+<ul>
+<li>暂存区和历史区</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git diff --cached</div></pre></td></tr></table></figure>
+<ul>
+<li>搜索日志</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git log --author/--grep</div></pre></td></tr></table></figure>
+<ul>
+<li>撤回add的内容</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reset HEAD 文件名</div></pre></td></tr></table></figure>
+<blockquote>
+<p>撤回文件,如果工作区有更改 ，我想用暂存区域或者历史区的内容去覆盖掉我们的工作区域<br>先查找暂存区 ，查找不到 查找历史区</p>
+</blockquote>
+<ul>
+<li>用暂存覆盖掉工作区</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout 文件名</div></pre></td></tr></table></figure>
+<ul>
+<li>合并提交<br>如果我们使用git commit 会产生一个新的版本，但是我们此次的提交，还想算作上次的提交 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit --amend //可以选择是否用以前的提交注释</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如果进入编辑模式按esc键 输入:wq</p>
+</blockquote>
+<ul>
+<li>删除缓存区，但是要保证工作区里内容必须不存在</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm</div></pre></td></tr></table></figure>
+<ul>
+<li>只删除缓存区</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm --cached filename</div></pre></td></tr></table></figure>
+<ul>
+<li>同时删除暂存区和工作区</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm -force 文件的名字</div></pre></td></tr></table></figure>
+<h2 id="回滚"><a href="#回滚" class="headerlink" title="回滚"></a>回滚</h2><ul>
+<li>从版本库拉回代码 回滚 回到过去</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git log 查看版本号</div><div class="line">git reset HEAD hello.js 撤回add的内容</div><div class="line">git reset --hard 版本号</div></pre></td></tr></table></figure>
+<ul>
+<li>在回到未来<br>通过git reflog 查看未来的版本，使用reset回到未来</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reflog</div></pre></td></tr></table></figure>
+<ul>
+<li>分支管理</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git reflog</div></pre></td></tr></table></figure>
+<ul>
+<li>查看分支</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch</div></pre></td></tr></table></figure>
+<ul>
+<li>创建分支</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch 分支名</div></pre></td></tr></table></figure>
+<ul>
+<li>切换分支</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout dev</div></pre></td></tr></table></figure>
+<ul>
+<li>切换并指向dev分支</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b dev</div></pre></td></tr></table></figure>
+<ul>
+<li>删除分支(必须切换到别的分支上边才可以删除)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git branch -D 分支名</div></pre></td></tr></table></figure>
+<ul>
+<li>合并分支，要切换到master身上来合并dev&gt;，不能自己删自己</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git merge dev</div></pre></td></tr></table></figure>
+<ul>
+<li>从工作区直接提交到历史区</li>
+</ul>
+<blockquote>
+<p>不支持首次提交，如果文件没有加到过缓存区中是不能使用这种方式的</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -a -m&apos;sliderdev&apos;</div></pre></td></tr></table></figure>
+<h2 id="产生冲突"><a href="#产生冲突" class="headerlink" title="产生冲突"></a>产生冲突</h2><ul>
+<li>1.在dev分支中改变了slider.js<br>改成了sliderdev,进行提交</li>
+<li>2.在master分支中改变slider.js<br>改成 slidermaster,进行提交</li>
+<li>3.合并产生冲突，删除掉&gt;&gt;&gt;&gt;&gt; ======  &lt;&lt;&lt;&lt;&lt;&lt;再次提交</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/10/git/" class="archive-article-date">
+  	<time datetime="2016-12-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-10</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-git跟新" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -262,6 +509,80 @@
 
 
   
+    <article id="post-webstrom总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/08/webstrom总结/">Webstrom设置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装markdown语法提示插件"><a href="#安装markdown语法提示插件" class="headerlink" title="安装markdown语法提示插件"></a>安装markdown语法提示插件</h3><blockquote>
+<p>file-&gt;settings-&gt;plugin-&gt;browse responsitry -&gt; markdown navigator</p>
+</blockquote>
+<h3 id="编码格式"><a href="#编码格式" class="headerlink" title="编码格式"></a>编码格式</h3><blockquote>
+<p>file-&gt;settings-&gt; encoding -&gt; utf-8</p>
+</blockquote>
+<h3 id="npm设置"><a href="#npm设置" class="headerlink" title="npm设置"></a>npm设置</h3><blockquote>
+<p>file-&gt;settings-&gt;npm</p>
+</blockquote>
+<h3 id="代码支持的设置"><a href="#代码支持的设置" class="headerlink" title="代码支持的设置"></a>代码支持的设置</h3><blockquote>
+<p>file-&gt;settings-&gt; language -&gt; ecmascript6</p>
+</blockquote>
+<h3 id="快捷键的设置"><a href="#快捷键的设置" class="headerlink" title="快捷键的设置"></a>快捷键的设置</h3><blockquote>
+<p>file-&gt;settings-&gt; live template-&gt; javascript -&gt; define设置使用范围</p>
+<ul>
+<li>Abbreviation中填写要 设置的快捷键例如 con</li>
+<li>Template中填写 console.log($END$);//$END$ 是光标停留在小括号里边</li>
+</ul>
+</blockquote>
+<h3 id="取消自动保存"><a href="#取消自动保存" class="headerlink" title="取消自动保存"></a>取消自动保存</h3><blockquote>
+<p>file system -&gt; use save-write</p>
+</blockquote>
+<h3 id="设置光标所在行的背景颜色"><a href="#设置光标所在行的背景颜色" class="headerlink" title="设置光标所在行的背景颜色"></a>设置光标所在行的背景颜色</h3><blockquote>
+<p>editor -&gt; general -&gt; caret row</p>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/08/webstrom总结/" class="archive-article-date">
+  	<time datetime="2016-12-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-08</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Webstrom/">Webstrom</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-常用nrm工具命令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -322,80 +643,6 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nrm/">nrm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令/">命令</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-webstrom总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/08/webstrom总结/">Webstrom设置</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="安装markdown语法提示插件"><a href="#安装markdown语法提示插件" class="headerlink" title="安装markdown语法提示插件"></a>安装markdown语法提示插件</h3><blockquote>
-<p>file-&gt;settings-&gt;plugin-&gt;browse responsitry -&gt; markdown navigator</p>
-</blockquote>
-<h3 id="编码格式"><a href="#编码格式" class="headerlink" title="编码格式"></a>编码格式</h3><blockquote>
-<p>file-&gt;settings-&gt; encoding -&gt; utf-8</p>
-</blockquote>
-<h3 id="npm设置"><a href="#npm设置" class="headerlink" title="npm设置"></a>npm设置</h3><blockquote>
-<p>file-&gt;settings-&gt;npm</p>
-</blockquote>
-<h3 id="代码支持的设置"><a href="#代码支持的设置" class="headerlink" title="代码支持的设置"></a>代码支持的设置</h3><blockquote>
-<p>file-&gt;settings-&gt; language -&gt; ecmascript6</p>
-</blockquote>
-<h3 id="快捷键的设置"><a href="#快捷键的设置" class="headerlink" title="快捷键的设置"></a>快捷键的设置</h3><blockquote>
-<p>file-&gt;settings-&gt; live template-&gt; javascript -&gt; define设置使用范围</p>
-<ul>
-<li>Abbreviation中填写要 设置的快捷键例如 con</li>
-<li>Template中填写 console.log($END$);//$END$ 是光标停留在小括号里边</li>
-</ul>
-</blockquote>
-<h3 id="取消自动保存"><a href="#取消自动保存" class="headerlink" title="取消自动保存"></a>取消自动保存</h3><blockquote>
-<p>file system -&gt; use save-write</p>
-</blockquote>
-<h3 id="设置光标所在行的背景颜色"><a href="#设置光标所在行的背景颜色" class="headerlink" title="设置光标所在行的背景颜色"></a>设置光标所在行的背景颜色</h3><blockquote>
-<p>editor -&gt; general -&gt; caret row</p>
-</blockquote>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/08/webstrom总结/" class="archive-article-date">
-  	<time datetime="2016-12-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-08</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Webstrom/">Webstrom</a></li></ul>
 	</div>
 
       
@@ -572,58 +819,6 @@
 
 
   
-    <article id="post-用装饰行(自定义)指令封装一个插件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/04/用装饰行(自定义)指令封装一个插件/">装饰型指令(自定义指令)封装插件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="装饰型指令-自定义指令-封装插件"><a href="#装饰型指令-自定义指令-封装插件" class="headerlink" title="装饰型指令(自定义指令)封装插件"></a>装饰型指令(自定义指令)封装插件</h3><blockquote>
-<p>指令是抽取功能，把所有的公有的逻辑和方法都可以放到指令里边封装起来,在不同的页面中使用,不互相干扰，类似于构造函数封装的拖拽，直接new出来就可以；</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html ng-app="hello"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;装饰型指令&lt;/title&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        div&#123;</div><div class="line">            position: absolute;</div><div class="line">            top:0;</div><div class="line">            left:0;</div><div class="line">            width: 100px;</div><div class="line">            height: 100px;</div><div class="line">            background: red;</div><div class="line">            font-size: 50px;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div drag&gt;1&lt;/div&gt;</div><div class="line">&lt;div drag&gt;2&lt;/div&gt;</div><div class="line">&lt;div drag&gt;3&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script src="../angular.js"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    angular.module('hello',[]).directive('drag', function () &#123;</div><div class="line">        /*定义一个指令,指令的名字叫做 goodName,命名的时候是驼峰命名法，使用的时候用 - 分割，将大写转为小写,定义的时候goodName 使用的时候  good-name*/</div><div class="line">        return &#123;</div><div class="line">            link: function (scope,element,attrs) &#123;</div><div class="line">                //element为jq对象，可以直接使用on方法</div><div class="line">                element.on('mousedown', function (e) &#123;</div><div class="line">                    var disx= e.pageX-this.offsetLeft;</div><div class="line">                    var disy= e.pageY-this.offsetTop;</div><div class="line">                    angular.element(document).on('mousemove', function (e) &#123;</div><div class="line">                        //用document绑定mousemove方法，因为document是原生JS对象，没有on方法，所以给document包装一下变成jq对象</div><div class="line">                        element.css(&#123;</div><div class="line">                            //在jq中css方法是不需要加单位的，这里需要添加</div><div class="line">                            left:(e.pageX-disx)+'px',</div><div class="line">                            top:(e.pageY-disy)+'px'</div><div class="line">                        &#125;)</div><div class="line">                    &#125;);</div><div class="line">                    angular.element(document).on('mouseup', function () &#123;</div><div class="line">                        angular.element(document).off();</div><div class="line">                    &#125;);</div><div class="line">                    e.preventDefault();//阻止默认行为</div><div class="line">                &#125;)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/04/用装饰行(自定义)指令封装一个插件/" class="archive-article-date">
-  	<time datetime="2016-12-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-04</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指令/">指令</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/插件/">插件</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-WebStorm 2016.3激活方式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -662,6 +857,58 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebStorm/">WebStorm</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-用装饰行(自定义)指令封装一个插件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/04/用装饰行(自定义)指令封装一个插件/">装饰型指令(自定义指令)封装插件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="装饰型指令-自定义指令-封装插件"><a href="#装饰型指令-自定义指令-封装插件" class="headerlink" title="装饰型指令(自定义指令)封装插件"></a>装饰型指令(自定义指令)封装插件</h3><blockquote>
+<p>指令是抽取功能，把所有的公有的逻辑和方法都可以放到指令里边封装起来,在不同的页面中使用,不互相干扰，类似于构造函数封装的拖拽，直接new出来就可以；</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html ng-app="hello"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;装饰型指令&lt;/title&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        div&#123;</div><div class="line">            position: absolute;</div><div class="line">            top:0;</div><div class="line">            left:0;</div><div class="line">            width: 100px;</div><div class="line">            height: 100px;</div><div class="line">            background: red;</div><div class="line">            font-size: 50px;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div drag&gt;1&lt;/div&gt;</div><div class="line">&lt;div drag&gt;2&lt;/div&gt;</div><div class="line">&lt;div drag&gt;3&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script src="../angular.js"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    angular.module('hello',[]).directive('drag', function () &#123;</div><div class="line">        /*定义一个指令,指令的名字叫做 goodName,命名的时候是驼峰命名法，使用的时候用 - 分割，将大写转为小写,定义的时候goodName 使用的时候  good-name*/</div><div class="line">        return &#123;</div><div class="line">            link: function (scope,element,attrs) &#123;</div><div class="line">                //element为jq对象，可以直接使用on方法</div><div class="line">                element.on('mousedown', function (e) &#123;</div><div class="line">                    var disx= e.pageX-this.offsetLeft;</div><div class="line">                    var disy= e.pageY-this.offsetTop;</div><div class="line">                    angular.element(document).on('mousemove', function (e) &#123;</div><div class="line">                        //用document绑定mousemove方法，因为document是原生JS对象，没有on方法，所以给document包装一下变成jq对象</div><div class="line">                        element.css(&#123;</div><div class="line">                            //在jq中css方法是不需要加单位的，这里需要添加</div><div class="line">                            left:(e.pageX-disx)+'px',</div><div class="line">                            top:(e.pageY-disy)+'px'</div><div class="line">                        &#125;)</div><div class="line">                    &#125;);</div><div class="line">                    angular.element(document).on('mouseup', function () &#123;</div><div class="line">                        angular.element(document).off();</div><div class="line">                    &#125;);</div><div class="line">                    e.preventDefault();//阻止默认行为</div><div class="line">                &#125;)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/04/用装饰行(自定义)指令封装一个插件/" class="archive-article-date">
+  	<time datetime="2016-12-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-04</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指令/">指令</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/插件/">插件</a></li></ul>
 	</div>
 
       
@@ -753,58 +1000,6 @@
 
 
   
-    <article id="post-AngularJS自定义指令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/03/AngularJS自定义指令/">AngularJS自定义指令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="AngularJS自定义指令"><a href="#AngularJS自定义指令" class="headerlink" title="AngularJS自定义指令"></a>AngularJS自定义指令</h1><blockquote>
-<p>指令分为组件式指令和装饰行指令</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html ng-app="myApp"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;AngularJS自定义指令&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;!--用于属性名--&gt;</div><div class="line">&lt;div good-name&gt;8岁了&lt;/div&gt;</div><div class="line">&lt;!--用于标签--&gt;</div><div class="line">&lt;good-name&gt;&lt;/good-name&gt;</div><div class="line">&lt;!--用于样式类名--&gt;</div><div class="line">&lt;div class="good-name"&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;!--注释 很少用（必须有replace:true）--&gt;</div><div class="line">&lt;!-- directive:good-name --&gt;</div><div class="line">&lt;!--前后要有空格--&gt;</div><div class="line"></div><div class="line">&lt;script src="../angular.js"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var myApp = angular.module('myApp', []);</div><div class="line">    myApp.directive('goodName',function () &#123;</div><div class="line">	/*定义一个指令,指令的名字叫做 goodName</div><div class="line">	命名的时候是驼峰命名法，使用的时候用 - 分割，将大写转为小写</div><div class="line">	定义的时候goodName 使用的时候  good-name*/</div><div class="line">        return &#123;//声明一个函数，返回一个对象</div><div class="line">            template:'&lt;p&gt;Yang &lt;span ng-transclude&gt;&lt;/span&gt;&lt;/p&gt;',//定义一个模板</div><div class="line">            templateUrl:'url.html',//引入外界的模板，在使用templateUrl时候，template不能存在</div><div class="line">            replace:true,//替换原有的标签</div><div class="line">            restrict:'ECMA',</div><div class="line">			//定义指令可以使用的位置，不写的话，默认值是EA</div><div class="line">			/**</div><div class="line">			 *E  element 用于标签</div><div class="line">			 *C  class   用于样式类名</div><div class="line">			 *M  comment  用于注释</div><div class="line">			 *A  attribute 用于是属性名</div><div class="line">			 */   </div><div class="line">            transclude:true,</div><div class="line">            /*</div><div class="line">            保存原有标签里面的内容</div><div class="line">			和 ng-transclude(会形成自己的作用域)结合使用</div><div class="line">			原有标签里面的内容添加到&lt;span ng-transclude&gt;&lt;/span&gt;中</div><div class="line">             */</div><div class="line">            scope:true,</div><div class="line">			//会形成自己的作用域</div><div class="line">            /**</div><div class="line">             * @param scope :当前模板的作用域，如果当前模板没有形成作用域，会直接找父集的作用域</div><div class="line">             * @param element ：自定义指令所在的DOM元素，是一个jQuery对象，内置的有轻量级的jQuery也就是 jqLite(简化版的jQuery)</div><div class="line">             * @param attrs ：自定义指令所在的DOM元素上的属性存储在attrs对象中</div><div class="line">             */</div><div class="line">            link:function (scope,element,attrs) &#123;//只有link才可以操作DOM</div><div class="line">			//实现和 DOM元素、作用域的链接（链接阶段）</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;)</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/03/AngularJS自定义指令/" class="archive-article-date">
-  	<time datetime="2016-12-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-03</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指令/">指令</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -870,7 +1065,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 16.67px;">JS</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 10px;">WebStorm</a> <a href="/tags/Webstrom/" style="font-size: 10px;">Webstrom</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/指令/" style="font-size: 16.67px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/方法/" style="font-size: 10px;">方法</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/购物车/" style="font-size: 10px;">购物车</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a>
+    				<a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 10px;">WebStorm</a> <a href="/tags/Webstrom/" style="font-size: 10px;">Webstrom</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/指令/" style="font-size: 15px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/方法/" style="font-size: 10px;">方法</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/购物车/" style="font-size: 10px;">购物车</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a>
     			</div>
     	</section>
     
