@@ -389,6 +389,55 @@
 
 
   
+    <article id="post-angular配合bootstrap实现购物车" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/09/angular配合bootstrap实现购物车/">angular配合bootstrap实现购物车</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="angular小列子之购物车"><a href="#angular小列子之购物车" class="headerlink" title="angular小列子之购物车"></a>angular小列子之购物车</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot; ng-app=&quot;app&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;购物车&lt;/title&gt;</div><div class="line">    &lt;script src=&quot;../../JS/angular.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;../../JS/bootstrap.css&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body ng-controller=&quot;myCtrl&quot;&gt;</div><div class="line">&lt;table class=&quot;table table-bordered&quot;&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;th&gt;&lt;input type=&quot;checkbox&quot; ng-model=&quot;flag&quot; ng-click=&quot;selectAll()&quot;&gt;全选&lt;/th&gt;</div><div class="line">        &lt;th&gt;商品名称&lt;/th&gt;</div><div class="line">        &lt;th&gt;单价&lt;/th&gt;</div><div class="line">        &lt;th&gt;数量&lt;/th&gt;</div><div class="line">        &lt;th&gt;小计&lt;/th&gt;</div><div class="line">        &lt;th&gt;操作&lt;/th&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">    &lt;tr ng-repeat=&quot;p in products track by $index&quot;&gt;</div><div class="line">        &lt;td&gt;&lt;input type=&quot;checkbox&quot; ng-model=&quot;p.isSelected&quot; ng-click=&quot;selectOne()&quot;&gt;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&#123;&#123;p.name&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&#123;&#123;p.price&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;</div><div class="line">            &lt;button class=&quot;btn&quot; ng-click=&quot;p.count=p.count-1&quot; ng-disabled=&quot;p.count&lt;=1&quot;&gt;-&lt;/button&gt;</div><div class="line">            &lt;input type=&quot;text&quot; ng-model=&quot;p.count&quot; ng-readonly=&quot;true&quot;&gt;</div><div class="line">            &lt;button class=&quot;btn&quot; ng-click=&quot;p.count=p.count+1&quot;&gt;+&lt;/button&gt;</div><div class="line">        &lt;/td&gt;</div><div class="line">        &lt;td&gt;&#123;&#123;p.price*p.count | currency:&apos;$&apos;&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;</div><div class="line">            &lt;button class=&quot;btn btn-danger&quot; ng-click=&quot;remove(p)&quot;&gt;删除&lt;/button&gt;</div><div class="line">        &lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;td&gt;总价&#123;&#123;sum() |  currency:&apos;$&apos;&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;</div><div class="line">            &lt;button ng-click=&quot;removeAll()&quot;&gt;删除选中项&lt;/button&gt;</div><div class="line">        &lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line"></div><div class="line">&lt;/table&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var app = angular.module(&apos;app&apos;, []);</div><div class="line">    app.controller(&apos;myCtrl&apos;, [&apos;$scope&apos;, function ($scope) &#123;</div><div class="line">        $scope.products = [</div><div class="line">            &#123;isSelected: true, name: &apos;iphone5s&apos;, price: 99.9, count: 1, id: 1&#125;,</div><div class="line">            &#123;isSelected: true, name: &apos;iphone6s&apos;, price: 88, count: 2, id: 2&#125;,</div><div class="line">            &#123;isSelected: false, name: &apos;iphone7s&apos;, price: 66, count: 7, id: 3&#125;,</div><div class="line">            &#123;isSelected: true, name: &apos;iphone4s&apos;, price: 33, count: 4, id: 4&#125;,</div><div class="line">        ];</div><div class="line"></div><div class="line">        $scope.flag = true;</div><div class="line">        //求总价</div><div class="line">        $scope.sum = function () &#123;</div><div class="line">            var total = 0;</div><div class="line">            $scope.products.forEach(function (item) &#123;</div><div class="line">                if (item.isSelected == true) &#123;</div><div class="line">                    total += item.price * item.count</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">            return total;</div><div class="line">        &#125;;</div><div class="line">        //点击全选/全不选</div><div class="line">        $scope.selectAll = function () &#123;</div><div class="line">            $scope.products.forEach(function (item) &#123;</div><div class="line">                item.isSelected = $scope.flag;//让每一项的值都和全选框的值保持一致</div><div class="line">            &#125;);</div><div class="line">        &#125;;</div><div class="line">        //列表点击时更改全选框状态</div><div class="line">        $scope.selectOne = function () &#123;</div><div class="line">            var all = false;</div><div class="line">            var hello = $scope.products.find(function (item) &#123;</div><div class="line">                return item.isSelected == all;</div><div class="line">            &#125;);</div><div class="line">            $scope.flag = hello == undefined ? true : false;</div><div class="line">        &#125;;</div><div class="line">        $scope.selectOne();//先执行以下函数，确定全选框是否勾选</div><div class="line">        //删除当前项</div><div class="line">        $scope.remove = function (p) &#123;</div><div class="line">            //传进来的P是之前ng-repeat的p</div><div class="line">            $scope.products = $scope.products.filter(function (item) &#123;</div><div class="line">                return item != p;//所有的元素不能等于当前传进来的元素，这样可以实现删除</div><div class="line">            &#125;);</div><div class="line">        &#125;;</div><div class="line">        $scope.removeAll = function () &#123;</div><div class="line">            $scope.products = $scope.products.filter(function (item) &#123;</div><div class="line">                return item.isSelected == false;</div><div class="line">                //把没有选中的作为条件，过滤后保留没有选中的</div><div class="line">            &#125;)</div><div class="line">        &#125;</div><div class="line">    &#125;]);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/09/angular配合bootstrap实现购物车/" class="archive-article-date">
+  	<time datetime="2016-12-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/购物车/">购物车</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-git跟新" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -399,7 +448,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/09/git跟新/">angular配合bootstrap实现购物车</a>
+      <a class="article-title" href="/2016/12/09/git跟新/">在git上跟新和推送</a>
     </h1>
   
 
@@ -440,55 +489,6 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-angular配合bootstrap实现购物车" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/09/angular配合bootstrap实现购物车/">angular配合bootstrap实现购物车</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="angular小列子之购物车"><a href="#angular小列子之购物车" class="headerlink" title="angular小列子之购物车"></a>angular小列子之购物车</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot; ng-app=&quot;app&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;购物车&lt;/title&gt;</div><div class="line">    &lt;script src=&quot;../../JS/angular.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;../../JS/bootstrap.css&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body ng-controller=&quot;myCtrl&quot;&gt;</div><div class="line">&lt;table class=&quot;table table-bordered&quot;&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;th&gt;&lt;input type=&quot;checkbox&quot; ng-model=&quot;flag&quot; ng-click=&quot;selectAll()&quot;&gt;全选&lt;/th&gt;</div><div class="line">        &lt;th&gt;商品名称&lt;/th&gt;</div><div class="line">        &lt;th&gt;单价&lt;/th&gt;</div><div class="line">        &lt;th&gt;数量&lt;/th&gt;</div><div class="line">        &lt;th&gt;小计&lt;/th&gt;</div><div class="line">        &lt;th&gt;操作&lt;/th&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">    &lt;tr ng-repeat=&quot;p in products track by $index&quot;&gt;</div><div class="line">        &lt;td&gt;&lt;input type=&quot;checkbox&quot; ng-model=&quot;p.isSelected&quot; ng-click=&quot;selectOne()&quot;&gt;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&#123;&#123;p.name&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&#123;&#123;p.price&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;</div><div class="line">            &lt;button class=&quot;btn&quot; ng-click=&quot;p.count=p.count-1&quot; ng-disabled=&quot;p.count&lt;=1&quot;&gt;-&lt;/button&gt;</div><div class="line">            &lt;input type=&quot;text&quot; ng-model=&quot;p.count&quot; ng-readonly=&quot;true&quot;&gt;</div><div class="line">            &lt;button class=&quot;btn&quot; ng-click=&quot;p.count=p.count+1&quot;&gt;+&lt;/button&gt;</div><div class="line">        &lt;/td&gt;</div><div class="line">        &lt;td&gt;&#123;&#123;p.price*p.count | currency:&apos;$&apos;&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;</div><div class="line">            &lt;button class=&quot;btn btn-danger&quot; ng-click=&quot;remove(p)&quot;&gt;删除&lt;/button&gt;</div><div class="line">        &lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;td&gt;总价&#123;&#123;sum() |  currency:&apos;$&apos;&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;</div><div class="line">            &lt;button ng-click=&quot;removeAll()&quot;&gt;删除选中项&lt;/button&gt;</div><div class="line">        &lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line"></div><div class="line">&lt;/table&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var app = angular.module(&apos;app&apos;, []);</div><div class="line">    app.controller(&apos;myCtrl&apos;, [&apos;$scope&apos;, function ($scope) &#123;</div><div class="line">        $scope.products = [</div><div class="line">            &#123;isSelected: true, name: &apos;iphone5s&apos;, price: 99.9, count: 1, id: 1&#125;,</div><div class="line">            &#123;isSelected: true, name: &apos;iphone6s&apos;, price: 88, count: 2, id: 2&#125;,</div><div class="line">            &#123;isSelected: false, name: &apos;iphone7s&apos;, price: 66, count: 7, id: 3&#125;,</div><div class="line">            &#123;isSelected: true, name: &apos;iphone4s&apos;, price: 33, count: 4, id: 4&#125;,</div><div class="line">        ];</div><div class="line"></div><div class="line">        $scope.flag = true;</div><div class="line">        //求总价</div><div class="line">        $scope.sum = function () &#123;</div><div class="line">            var total = 0;</div><div class="line">            $scope.products.forEach(function (item) &#123;</div><div class="line">                if (item.isSelected == true) &#123;</div><div class="line">                    total += item.price * item.count</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">            return total;</div><div class="line">        &#125;;</div><div class="line">        //点击全选/全不选</div><div class="line">        $scope.selectAll = function () &#123;</div><div class="line">            $scope.products.forEach(function (item) &#123;</div><div class="line">                item.isSelected = $scope.flag;//让每一项的值都和全选框的值保持一致</div><div class="line">            &#125;);</div><div class="line">        &#125;;</div><div class="line">        //列表点击时更改全选框状态</div><div class="line">        $scope.selectOne = function () &#123;</div><div class="line">            var all = false;</div><div class="line">            var hello = $scope.products.find(function (item) &#123;</div><div class="line">                return item.isSelected == all;</div><div class="line">            &#125;);</div><div class="line">            $scope.flag = hello == undefined ? true : false;</div><div class="line">        &#125;;</div><div class="line">        $scope.selectOne();//先执行以下函数，确定全选框是否勾选</div><div class="line">        //删除当前项</div><div class="line">        $scope.remove = function (p) &#123;</div><div class="line">            //传进来的P是之前ng-repeat的p</div><div class="line">            $scope.products = $scope.products.filter(function (item) &#123;</div><div class="line">                return item != p;//所有的元素不能等于当前传进来的元素，这样可以实现删除</div><div class="line">            &#125;);</div><div class="line">        &#125;;</div><div class="line">        $scope.removeAll = function () &#123;</div><div class="line">            $scope.products = $scope.products.filter(function (item) &#123;</div><div class="line">                return item.isSelected == false;</div><div class="line">                //把没有选中的作为条件，过滤后保留没有选中的</div><div class="line">            &#125;)</div><div class="line">        &#125;</div><div class="line">    &#125;]);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/09/angular配合bootstrap实现购物车/" class="archive-article-date">
-  	<time datetime="2016-12-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-09</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/购物车/">购物车</a></li></ul>
 	</div>
 
       
@@ -927,7 +927,7 @@
 
 
   
-    <article id="post-AngularJS自定义指令" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Angular表达式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -937,7 +937,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/03/AngularJS自定义指令/">AngularJS自定义指令</a>
+      <a class="article-title" href="/2016/12/03/Angular表达式/">AngularJS表达式</a>
     </h1>
   
 
@@ -945,21 +945,41 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="AngularJS自定义指令"><a href="#AngularJS自定义指令" class="headerlink" title="AngularJS自定义指令"></a>AngularJS自定义指令</h1><blockquote>
-<p>指令分为组件式指令和装饰行指令</p>
+        <h3 id="AngularJS-是一个JavaScript框架，通过script标签来引入到HTML页面。"><a href="#AngularJS-是一个JavaScript框架，通过script标签来引入到HTML页面。" class="headerlink" title="AngularJS 是一个JavaScript框架，通过script标签来引入到HTML页面。"></a>AngularJS 是一个JavaScript框架，通过script标签来引入到HTML页面。</h3><blockquote>
+<p>angular表达式双大括号内&#123;&#123; &#125;&#125;，&#123;&#123; &#125;&#125;是体现angularJS的重要特性。<br>&#123;&#123; &#125;&#125;可以包含文字、运算符和变量,支持三元表达式。但是不支持条件判断、循环及异常；<br>&#123;&#123; &#125;&#125;中放入’’表示字符串<br>&#123;&#123;name?name:’xiaojie’&#125;&#125;表示为如果name存在的话，就显示xiaojie，当我们输入内容的时候，视图就会跟着我们输入的内容改变；</p>
 </blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html ng-app="myApp"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;AngularJS自定义指令&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;!--用于属性名--&gt;</div><div class="line">&lt;div good-name&gt;8岁了&lt;/div&gt;</div><div class="line">&lt;!--用于标签--&gt;</div><div class="line">&lt;good-name&gt;&lt;/good-name&gt;</div><div class="line">&lt;!--用于样式类名--&gt;</div><div class="line">&lt;div class="good-name"&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;!--注释 很少用（必须有replace:true）--&gt;</div><div class="line">&lt;!-- directive:good-name --&gt;</div><div class="line">&lt;!--前后要有空格--&gt;</div><div class="line"></div><div class="line">&lt;script src="../angular.js"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var myApp = angular.module('myApp', []);</div><div class="line">    myApp.directive('goodName',function () &#123;</div><div class="line">	/*定义一个指令,指令的名字叫做 goodName</div><div class="line">	命名的时候是驼峰命名法，使用的时候用 - 分割，将大写转为小写</div><div class="line">	定义的时候goodName 使用的时候  good-name*/</div><div class="line">        return &#123;//声明一个函数，返回一个对象</div><div class="line">            template:'&lt;p&gt;Yang &lt;span ng-transclude&gt;&lt;/span&gt;&lt;/p&gt;',//定义一个模板</div><div class="line">            templateUrl:'url.html',//引入外界的模板，在使用templateUrl时候，template不能存在</div><div class="line">            replace:true,//替换原有的标签</div><div class="line">            restrict:'ECMA',</div><div class="line">			//定义指令可以使用的位置，不写的话，默认值是EA</div><div class="line">			/**</div><div class="line">			 *E  element 用于标签</div><div class="line">			 *C  class   用于样式类名</div><div class="line">			 *M  comment  用于注释</div><div class="line">			 *A  attribute 用于是属性名</div><div class="line">			 */   </div><div class="line">            transclude:true,</div><div class="line">            /*</div><div class="line">            保存原有标签里面的内容</div><div class="line">			和 ng-transclude(会形成自己的作用域)结合使用</div><div class="line">			原有标签里面的内容添加到&lt;span ng-transclude&gt;&lt;/span&gt;中</div><div class="line">             */</div><div class="line">            scope:true,</div><div class="line">			//会形成自己的作用域</div><div class="line">            /**</div><div class="line">             * @param scope :当前模板的作用域，如果当前模板没有形成作用域，会直接找父集的作用域</div><div class="line">             * @param element ：自定义指令所在的DOM元素，是一个jQuery对象，内置的有轻量级的jQuery也就是 jqLite(简化版的jQuery)</div><div class="line">             * @param attrs ：自定义指令所在的DOM元素上的属性存储在attrs对象中</div><div class="line">             */</div><div class="line">            link:function (scope,element,attrs) &#123;//只有link才可以操作DOM</div><div class="line">			//实现和 DOM元素、作用域的链接（链接阶段）</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;)</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input type="text" ng-model="name"&gt;</div><div class="line">&#123;&#123;name?name:'xiaojie'&#125;&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如果我们把输入框中的内容清空的话，那就会显示xiaojie，可以理解为一个默认值的存在；</p>
+</blockquote>
+<h3 id="AngularJS-数字计算"><a href="#AngularJS-数字计算" class="headerlink" title="AngularJS 数字计算"></a>AngularJS 数字计算</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-init="quantity=1;cost=5"&gt;</div><div class="line">&lt;p&gt;总价:&#123;&#123;quantity*cost&#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>视图上显示为6</p>
+</blockquote>
+<h3 id="AngularJS-字符串"><a href="#AngularJS-字符串" class="headerlink" title="AngularJS 字符串"></a>AngularJS 字符串</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app="" ng-init="firstName='Yang';lastName='xiaojie'"&gt;</div><div class="line">&lt;p&gt;姓名:&#123;&#123;firstName + " " + lastName&#125;&#125;&lt;/p&gt; </div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>视图上显示为Yang xiaojie</p>
+</blockquote>
+<h3 id="AngularJS-对象"><a href="#AngularJS-对象" class="headerlink" title="AngularJS 对象"></a>AngularJS 对象</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app="" ng-init="person=&#123;firstName:'Yang',lastName:'xiaojie'&#125;"&gt;</div><div class="line">&lt;p&gt;姓为&#123;&#123;person.lastName&#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>视图上显示为xiaojie</p>
+</blockquote>
+<h3 id="AngularJS-数组"><a href="#AngularJS-数组" class="headerlink" title="AngularJS 数组"></a>AngularJS 数组</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app="" ng-init="points=[1,15,19,2,40]"&gt;</div><div class="line">&lt;p&gt;第三个值为&#123;&#123;points[2]&#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>视图上边显示为19</p>
+</blockquote>
+
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/12/03/AngularJS自定义指令/" class="archive-article-date">
+      <a href="/2016/12/03/Angular表达式/" class="archive-article-date">
   	<time datetime="2016-12-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-03</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指令/">指令</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/表达式/">表达式</a></li></ul>
 	</div>
 
       
