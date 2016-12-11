@@ -143,6 +143,58 @@
       <div class="body-wrap">
         
   
+    <article id="post-用装饰行(自定义)指令封装一个插件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/04/用装饰行(自定义)指令封装一个插件/">装饰型指令(自定义指令)封装插件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="装饰型指令-自定义指令-封装插件"><a href="#装饰型指令-自定义指令-封装插件" class="headerlink" title="装饰型指令(自定义指令)封装插件"></a>装饰型指令(自定义指令)封装插件</h3><blockquote>
+<p>指令是抽取功能，把所有的公有的逻辑和方法都可以放到指令里边封装起来,在不同的页面中使用,不互相干扰，类似于构造函数封装的拖拽，直接new出来就可以；</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html ng-app="hello"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;装饰型指令&lt;/title&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        div&#123;</div><div class="line">            position: absolute;</div><div class="line">            top:0;</div><div class="line">            left:0;</div><div class="line">            width: 100px;</div><div class="line">            height: 100px;</div><div class="line">            background: red;</div><div class="line">            font-size: 50px;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div drag&gt;1&lt;/div&gt;</div><div class="line">&lt;div drag&gt;2&lt;/div&gt;</div><div class="line">&lt;div drag&gt;3&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script src="../angular.js"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    angular.module('hello',[]).directive('drag', function () &#123;</div><div class="line">        /*定义一个指令,指令的名字叫做 goodName,命名的时候是驼峰命名法，使用的时候用 - 分割，将大写转为小写,定义的时候goodName 使用的时候  good-name*/</div><div class="line">        return &#123;</div><div class="line">            link: function (scope,element,attrs) &#123;</div><div class="line">                //element为jq对象，可以直接使用on方法</div><div class="line">                element.on('mousedown', function (e) &#123;</div><div class="line">                    var disx= e.pageX-this.offsetLeft;</div><div class="line">                    var disy= e.pageY-this.offsetTop;</div><div class="line">                    angular.element(document).on('mousemove', function (e) &#123;</div><div class="line">                        //用document绑定mousemove方法，因为document是原生JS对象，没有on方法，所以给document包装一下变成jq对象</div><div class="line">                        element.css(&#123;</div><div class="line">                            //在jq中css方法是不需要加单位的，这里需要添加</div><div class="line">                            left:(e.pageX-disx)+'px',</div><div class="line">                            top:(e.pageY-disy)+'px'</div><div class="line">                        &#125;)</div><div class="line">                    &#125;);</div><div class="line">                    angular.element(document).on('mouseup', function () &#123;</div><div class="line">                        angular.element(document).off();</div><div class="line">                    &#125;);</div><div class="line">                    e.preventDefault();//阻止默认行为</div><div class="line">                &#125;)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/04/用装饰行(自定义)指令封装一个插件/" class="archive-article-date">
+  	<time datetime="2016-12-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-04</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指令/">指令</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/插件/">插件</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-WebStorm 2016.3激活方式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -181,58 +233,6 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebStorm/">WebStorm</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-用装饰行(自定义)指令封装一个插件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/04/用装饰行(自定义)指令封装一个插件/">装饰型指令(自定义指令)封装插件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="装饰型指令-自定义指令-封装插件"><a href="#装饰型指令-自定义指令-封装插件" class="headerlink" title="装饰型指令(自定义指令)封装插件"></a>装饰型指令(自定义指令)封装插件</h3><blockquote>
-<p>指令是抽取功能，把所有的公有的逻辑和方法都可以放到指令里边封装起来,在不同的页面中使用,不互相干扰，类似于构造函数封装的拖拽，直接new出来就可以；</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html ng-app="hello"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;装饰型指令&lt;/title&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        div&#123;</div><div class="line">            position: absolute;</div><div class="line">            top:0;</div><div class="line">            left:0;</div><div class="line">            width: 100px;</div><div class="line">            height: 100px;</div><div class="line">            background: red;</div><div class="line">            font-size: 50px;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div drag&gt;1&lt;/div&gt;</div><div class="line">&lt;div drag&gt;2&lt;/div&gt;</div><div class="line">&lt;div drag&gt;3&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script src="../angular.js"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    angular.module('hello',[]).directive('drag', function () &#123;</div><div class="line">        /*定义一个指令,指令的名字叫做 goodName,命名的时候是驼峰命名法，使用的时候用 - 分割，将大写转为小写,定义的时候goodName 使用的时候  good-name*/</div><div class="line">        return &#123;</div><div class="line">            link: function (scope,element,attrs) &#123;</div><div class="line">                //element为jq对象，可以直接使用on方法</div><div class="line">                element.on('mousedown', function (e) &#123;</div><div class="line">                    var disx= e.pageX-this.offsetLeft;</div><div class="line">                    var disy= e.pageY-this.offsetTop;</div><div class="line">                    angular.element(document).on('mousemove', function (e) &#123;</div><div class="line">                        //用document绑定mousemove方法，因为document是原生JS对象，没有on方法，所以给document包装一下变成jq对象</div><div class="line">                        element.css(&#123;</div><div class="line">                            //在jq中css方法是不需要加单位的，这里需要添加</div><div class="line">                            left:(e.pageX-disx)+'px',</div><div class="line">                            top:(e.pageY-disy)+'px'</div><div class="line">                        &#125;)</div><div class="line">                    &#125;);</div><div class="line">                    angular.element(document).on('mouseup', function () &#123;</div><div class="line">                        angular.element(document).off();</div><div class="line">                    &#125;);</div><div class="line">                    e.preventDefault();//阻止默认行为</div><div class="line">                &#125;)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/04/用装饰行(自定义)指令封装一个插件/" class="archive-article-date">
-  	<time datetime="2016-12-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-04</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指令/">指令</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/插件/">插件</a></li></ul>
 	</div>
 
       
