@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>AngularJS表达式 | 杨小杰的博客</title>
+  <title>Angular常用内置指令 | 杨小杰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="AngularJS 是一个JavaScript框架，通过script标签来引入到HTML页面。
-angular表达式双大括号内&amp;#123;&amp;#123; &amp;#125;&amp;#125;，&amp;#123;&amp;#123; &amp;#125;&amp;#125;是体现angularJS的重要特性。&amp;#123;&amp;#123; &amp;#125;&amp;#125;可以包含文字、运算符和变量,支持三元表达式。但是不支持条件判断、循环及异常；&amp;#123">
+  <meta name="description" content="1、ng-app ( html )1234567&amp;gt; 启动angular程序，指定模块来启动，定义模块。调用run方法,产生 $rootScope### 2、ng\-model&amp;gt; 只能放置变量，不能放运算&amp;gt; 用于表单元素&amp;gt; 如果作用域上没有，则声明&amp;gt; 如果有取值放到输入框中&amp;gt; 如果使用user\.name 则会创建一个对象，将name变成一个变量存入进来
+3、ng">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AngularJS表达式">
-<meta property="og:url" content="http://yoursite.com/2016/12/03/Angular表达式/index.html">
+<meta property="og:title" content="Angular常用内置指令">
+<meta property="og:url" content="http://yoursite.com/2016/11/14/Angular常用内置指令/index.html">
 <meta property="og:site_name" content="杨小杰的博客">
-<meta property="og:description" content="AngularJS 是一个JavaScript框架，通过script标签来引入到HTML页面。
-angular表达式双大括号内&amp;#123;&amp;#123; &amp;#125;&amp;#125;，&amp;#123;&amp;#123; &amp;#125;&amp;#125;是体现angularJS的重要特性。&amp;#123;&amp;#123; &amp;#125;&amp;#125;可以包含文字、运算符和变量,支持三元表达式。但是不支持条件判断、循环及异常；&amp;#123">
-<meta property="og:updated_time" content="2016-12-06T18:19:36.175Z">
+<meta property="og:description" content="1、ng-app ( html )1234567&amp;gt; 启动angular程序，指定模块来启动，定义模块。调用run方法,产生 $rootScope### 2、ng\-model&amp;gt; 只能放置变量，不能放运算&amp;gt; 用于表单元素&amp;gt; 如果作用域上没有，则声明&amp;gt; 如果有取值放到输入框中&amp;gt; 如果使用user\.name 则会创建一个对象，将name变成一个变量存入进来
+3、ng">
+<meta property="og:updated_time" content="2016-12-14T14:36:06.010Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AngularJS表达式">
-<meta name="twitter:description" content="AngularJS 是一个JavaScript框架，通过script标签来引入到HTML页面。
-angular表达式双大括号内&amp;#123;&amp;#123; &amp;#125;&amp;#125;，&amp;#123;&amp;#123; &amp;#125;&amp;#125;是体现angularJS的重要特性。&amp;#123;&amp;#123; &amp;#125;&amp;#125;可以包含文字、运算符和变量,支持三元表达式。但是不支持条件判断、循环及异常；&amp;#123">
+<meta name="twitter:title" content="Angular常用内置指令">
+<meta name="twitter:description" content="1、ng-app ( html )1234567&amp;gt; 启动angular程序，指定模块来启动，定义模块。调用run方法,产生 $rootScope### 2、ng\-model&amp;gt; 只能放置变量，不能放运算&amp;gt; 用于表单元素&amp;gt; 如果作用域上没有，则声明&amp;gt; 如果有取值放到输入框中&amp;gt; 如果使用user\.name 则会创建一个对象，将name变成一个变量存入进来
+3、ng">
   
     <link rel="alternative" href="/atom.xml" title="杨小杰的博客" type="application/atom+xml">
   
@@ -148,7 +148,7 @@ angular表达式双大括号内&amp;#123;&amp;#123; &amp;#125;&amp;#125;，&amp;
 </nav>
 
       <div class="body-wrap">
-        <article id="post-Angular表达式" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Angular常用内置指令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -158,7 +158,7 @@ angular表达式双大括号内&amp;#123;&amp;#123; &amp;#125;&amp;#125;，&amp;
         
   
     <h1 class="article-title" itemprop="name">
-      AngularJS表达式
+      Angular常用内置指令
     </h1>
   
 
@@ -166,41 +166,36 @@ angular表达式双大括号内&amp;#123;&amp;#123; &amp;#125;&amp;#125;，&amp;
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="AngularJS-是一个JavaScript框架，通过script标签来引入到HTML页面。"><a href="#AngularJS-是一个JavaScript框架，通过script标签来引入到HTML页面。" class="headerlink" title="AngularJS 是一个JavaScript框架，通过script标签来引入到HTML页面。"></a>AngularJS 是一个JavaScript框架，通过script标签来引入到HTML页面。</h3><blockquote>
-<p>angular表达式双大括号内&#123;&#123; &#125;&#125;，&#123;&#123; &#125;&#125;是体现angularJS的重要特性。<br>&#123;&#123; &#125;&#125;可以包含文字、运算符和变量,支持三元表达式。但是不支持条件判断、循环及异常；<br>&#123;&#123; &#125;&#125;中放入’’表示字符串<br>&#123;&#123;name?name:’xiaojie’&#125;&#125;表示为如果name存在的话，就显示xiaojie，当我们输入内容的时候，视图就会跟着我们输入的内容改变；</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input type="text" ng-model="name"&gt;</div><div class="line">&#123;&#123;name?name:'xiaojie'&#125;&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>如果我们把输入框中的内容清空的话，那就会显示xiaojie，可以理解为一个默认值的存在；</p>
-</blockquote>
-<h3 id="AngularJS-数字计算"><a href="#AngularJS-数字计算" class="headerlink" title="AngularJS 数字计算"></a>AngularJS 数字计算</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-init="quantity=1;cost=5"&gt;</div><div class="line">&lt;p&gt;总价:&#123;&#123;quantity*cost&#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>视图上显示为6</p>
-</blockquote>
-<h3 id="AngularJS-字符串"><a href="#AngularJS-字符串" class="headerlink" title="AngularJS 字符串"></a>AngularJS 字符串</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app="" ng-init="firstName='Yang';lastName='xiaojie'"&gt;</div><div class="line">&lt;p&gt;姓名:&#123;&#123;firstName + " " + lastName&#125;&#125;&lt;/p&gt; </div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>视图上显示为Yang xiaojie</p>
-</blockquote>
-<h3 id="AngularJS-对象"><a href="#AngularJS-对象" class="headerlink" title="AngularJS 对象"></a>AngularJS 对象</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app="" ng-init="person=&#123;firstName:'Yang',lastName:'xiaojie'&#125;"&gt;</div><div class="line">&lt;p&gt;姓为&#123;&#123;person.lastName&#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>视图上显示为xiaojie</p>
-</blockquote>
-<h3 id="AngularJS-数组"><a href="#AngularJS-数组" class="headerlink" title="AngularJS 数组"></a>AngularJS 数组</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app="" ng-init="points=[1,15,19,2,40]"&gt;</div><div class="line">&lt;p&gt;第三个值为&#123;&#123;points[2]&#125;&#125;&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>视图上边显示为19</p>
-</blockquote>
+        <h3 id="1、ng-app-html"><a href="#1、ng-app-html" class="headerlink" title="1、ng-app ( html )"></a>1、ng-app ( html )</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; 启动angular程序，指定模块来启动，定义模块。调用run方法,产生 $rootScope</div><div class="line">### 2、ng\-model</div><div class="line">&gt; 只能放置变量，不能放运算</div><div class="line">&gt; 用于表单元素</div><div class="line">&gt; 如果作用域上没有，则声明</div><div class="line">&gt; 如果有取值放到输入框中</div><div class="line">&gt; 如果使用user\.name 则会创建一个对象，将name变成一个变量存入进来</div></pre></td></tr></table></figure>
+<h3 id="3、ng-bind"><a href="#3、ng-bind" class="headerlink" title="3、ng-bind"></a>3、ng-bind</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; 和 \&#123;\&#123;\&#125;\&#125;相同，ngbind不会闪烁</div><div class="line">&gt; 不能用于表单元素</div><div class="line">&gt; 可以使用\!/?</div><div class="line">&gt; 原有的内容会被ng\-bind绑定的值替换掉</div></pre></td></tr></table></figure>
+<h3 id="4、ng-cloak"><a href="#4、ng-cloak" class="headerlink" title="4、ng-cloak"></a>4、ng-cloak</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; 用途: 防止闪烁</div><div class="line">&gt; 先声明一个css,找到所有带有ng\-cloak让其隐藏</div><div class="line">&gt; 增加到需要防止闪烁的元素身上</div><div class="line">&gt; 加载后移出掉ng\-cloak属性</div></pre></td></tr></table></figure>
+<h3 id="5、ng-controller"><a href="#5、ng-controller" class="headerlink" title="5、ng-controller"></a>5、ng-controller</h3><p>用途:调度数据的，买一送一送作用域</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; 不能操作dom，dom在link函数操作</div><div class="line">&gt; 管辖范围,和dom平齐</div><div class="line">&gt; 可以将带有ng\-controller的标签嵌套，子继承父 父继承不了子</div><div class="line">&gt; 不能复用</div><div class="line">&gt; 调用ng\-controller后可以执行控制器</div></pre></td></tr></table></figure>
+<h3 id="6、ng-repeat"><a href="#6、ng-repeat" class="headerlink" title="6、ng-repeat"></a>6、ng-repeat</h3><p>用途:循环遍历</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; 要循环谁就写在谁的身上</div><div class="line">&gt; 遍历数组 ng中增加的属性 $index $odd $even $first $last $middle  \(根据索引来遍历 \)</div><div class="line">&gt; 通过 \( key,value \)可以获得索引，默认写一个变量则是value</div><div class="line">&gt; 对象同数组</div></pre></td></tr></table></figure>
+<p><code>ng-repeat 为什么 track by \$index</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; 如果value重复，不能通过相同的value去遍历，通过唯一项来进行遍历。只要是数组就加track by $index</div></pre></td></tr></table></figure>
+<h3 id="7、ng-click"><a href="#7、ng-click" class="headerlink" title="7、ng-click"></a>7、ng-click</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- angular的事件 ng\-click=&quot;a \(\)&quot;</div></pre></td></tr></table></figure>
+<h3 id="8、ng-show-ng-hide"><a href="#8、ng-show-ng-hide" class="headerlink" title="8、ng -show/ng -hide"></a>8、ng -show/ng -hide</h3><p>用途：控制元素的显示隐藏<br>通过css样式进行隐藏，内部命令依然执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; 频繁切换采用ng \-show/ng \-hide</div></pre></td></tr></table></figure>
+<h3 id="9、ng-if"><a href="#9、ng-if" class="headerlink" title="9、ng -if"></a>9、ng -if</h3><p>用途：控制元素的显示隐藏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; 通过删除dom达到隐藏效果，如果为false内部指令不再执行</div><div class="line">&gt; 会产生一个作用域，保留删掉的内容</div><div class="line">&gt; 一般和ng \-repeat连用，如果数据不存在就移出掉dom</div></pre></td></tr></table></figure>
+<h3 id="10、ng-disabled"><a href="#10、ng-disabled" class="headerlink" title="10、ng -disabled"></a>10、ng -disabled</h3><p>用途:ng -disabled=”true” 进入禁用状态</p>
+<h3 id="11、ng-readonly"><a href="#11、ng-readonly" class="headerlink" title="11、ng -readonly"></a>11、ng -readonly</h3><p>用途:ng -readonly=”true” 进入仅读状态</p>
+<h3 id="12、自定义指令"><a href="#12、自定义指令" class="headerlink" title="12、自定义指令"></a>12、自定义指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- 自定义：组件式和装饰型</div><div class="line">&gt; 组件式:Element,看有没有template</div><div class="line">&gt; 装饰型:Attribute,一般没有模板 link函数</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">return &#123;</div><div class="line">    restrict:&apos;EA&apos;, 限制使用范围</div><div class="line">    template/templateUrl, 模板</div><div class="line">    transclude:true,</div><div class="line">    scope:true/&#123;@=&amp;&#125;/不写</div><div class="line">    replace：true 替换</div><div class="line">    /**</div><div class="line">             * @param scope :当前模板的作用域，如果当前模板没有形成作用域，会直接找父集的作用域</div><div class="line">             * @param element ：自定义指令所在的DOM元素，是一个jQuery对象，内置的有轻量级的jQuery也就是 jqLite(简化版的jQuery)</div><div class="line">             * @param attrs ：自定义指令所在的DOM元素上的属性存储在attrs对象中</div><div class="line">             */</div><div class="line">    link:function(scope,element,attrs)&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/12/03/Angular表达式/" class="archive-article-date">
-  	<time datetime="2016-12-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-03</time>
+      <a href="/2016/11/14/Angular常用内置指令/" class="archive-article-date">
+  	<time datetime="2016-11-14T12:39:42.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-14</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/表达式/">表达式</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内置指令/">内置指令</a></li></ul>
 	</div>
 
       
@@ -213,18 +208,18 @@ angular表达式双大括号内&amp;#123;&amp;#123; &amp;#125;&amp;#125;，&amp;
   
 <nav id="article-nav">
   
-    <a href="/2016/12/03/AngularJS自定义指令/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/11/15/关于this指向的的总结/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          AngularJS自定义指令
+          关于6个this指向的总结
         
       </div>
     </a>
   
   
-    <a href="/2016/12/01/AngularJS事件/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">AngularJS事件</div>
+    <a href="/2016/11/11/使用git发布一个项目/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用git发布一个项目</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -270,7 +265,7 @@ angular表达式双大括号内&amp;#123;&amp;#123; &amp;#125;&amp;#125;，&amp;
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Angular表达式" data-title="AngularJS表达式" data-url="http://yoursite.com/2016/12/03/Angular表达式/"></div>
+	<div class="ds-thread" data-thread-key="Angular常用内置指令" data-title="Angular常用内置指令" data-url="http://yoursite.com/2016/11/14/Angular常用内置指令/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

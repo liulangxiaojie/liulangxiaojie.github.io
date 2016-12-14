@@ -143,6 +143,135 @@
       <div class="body-wrap">
         
   
+    <article id="post-AngularJS模块、控制器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/05/AngularJS模块、控制器/">AngularJS模块</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="AngularJS模块"><a href="#AngularJS模块" class="headerlink" title="AngularJS模块"></a>AngularJS模块</h3><p>angular对象中有module这个方法，可以用来创建模块name，requires，confiFn</p>
+<blockquote>
+<p>/<em>*
+ </em>name:模块的名字<br> <em>requires:模块的依赖，默认无依赖要用空数组代替
+ </em>configFn:配置的函数<br> */</p>
+<ul>
+<li>angular.module(name,requires,configFn)</li>
+</ul>
+</blockquote>
+<h3 id="创建一个模块"><a href="#创建一个模块" class="headerlink" title="创建一个模块"></a>创建一个模块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var app=angular.module(<span class="string">'yang'</span>,[])</div></pre></td></tr></table></figure>
+<h3 id="通过模块创建控制器"><a href="#通过模块创建控制器" class="headerlink" title="通过模块创建控制器"></a>通过模块创建控制器</h3><blockquote>
+<p>控制器就是用来控制数据放到哪个模板里，在一个模块下可以声明多个控制器<br>/<em>*
+ </em>name:控制器的名字<br> <em>fn:控制器对应的函数
+ </em>/</p>
+<ul>
+<li>app.controller(name,fn)</li>
+</ul>
+</blockquote>
+ <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-controller='myCtrl'&gt;&lt;/div&gt; //可管理的范围是ng-controller= 'myCtrl'这个div元素</div></pre></td></tr></table></figure>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.controller(<span class="string">'myCtrl'</span>,function($scope)&#123;</div><div class="line">$scope.name=<span class="string">'xiaojie'</span>;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>定义一个控制器，就会自动注入一个对象$scope，定义的变量和方法,都是定义在$scope上的属性</p>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/05/AngularJS模块、控制器/" class="archive-article-date">
+  	<time datetime="2016-12-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-05</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模块/">模块</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-WebStorm 2016.3激活方式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/04/WebStorm 2016.3激活方式/">WebStorm 2016.3激活</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="WebStorm-2016-最新版激活-license-server方式"><a href="#WebStorm-2016-最新版激活-license-server方式" class="headerlink" title="WebStorm 2016 最新版激活(license server方式)"></a>WebStorm 2016 最新版激活(license server方式)</h1><blockquote>
+<p>以前激活webstrom通过 <code>license server</code> 来激活，今天在网上看到一个是通过 <code>license server</code> ,试了一下，相当好用</p>
+<p>安装webstrom之后，注册是选择 <code>activation code</code>,然后在框里把下面的注册码粘贴进去就OK了。</p>
+</blockquote>
+<p><code>43B4A73YYJ-eyJsaWNlbnNlSWQiOiI0M0I0QTczWVlKIiwibGljZW5zZWVOYW1lIjoibGFuIHl1IiwiYXNzaWduZWVOYW1lIjoiIiwiYXNzaWduZWVFbWFpbCI6IiIsImxpY2Vuc2VSZXN0cmljdGlvbiI6IkZvciBlZHVjYXRpb25hbCB1c2Ugb25seSIsImNoZWNrQ29uY3VycmVudFVzZSI6ZmFsc2UsInByb2R1Y3RzIjpbeyJjb2RlIjoiSUkiLCJwYWlkVXBUbyI6IjIwMTctMDItMjUifSx7ImNvZGUiOiJBQyIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9LHsiY29kZSI6IkRQTiIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9LHsiY29kZSI6IlBTIiwicGFpZFVwVG8iOiIyMDE3LTAyLTI1In0seyJjb2RlIjoiRE0iLCJwYWlkVXBUbyI6IjIwMTctMDItMjUifSx7ImNvZGUiOiJDTCIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9LHsiY29kZSI6IlJTMCIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9LHsiY29kZSI6IlJDIiwicGFpZFVwVG8iOiIyMDE3LTAyLTI1In0seyJjb2RlIjoiUEMiLCJwYWlkVXBUbyI6IjIwMTctMDItMjUifSx7ImNvZGUiOiJSTSIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9LHsiY29kZSI6IldTIiwicGFpZFVwVG8iOiIyMDE3LTAyLTI1In0seyJjb2RlIjoiREIiLCJwYWlkVXBUbyI6IjIwMTctMDItMjUifSx7ImNvZGUiOiJEQyIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9XSwiaGFzaCI6IjMzOTgyOTkvMCIsImdyYWNlUGVyaW9kRGF5cyI6MCwiYXV0b1Byb2xvbmdhdGVkIjpmYWxzZSwiaXNBdXRvUHJvbG9uZ2F0ZWQiOmZhbHNlfQ==-keaxIkRgXPKE4BR/ZTs7s7UkP92LBxRe57HvWamu1EHVXTcV1B4f/KNQIrpOpN6dgpjig5eMVMPmo7yMPl+bmwQ8pTZaCGFuLqCHD1ngo6ywHKIQy0nR249sAUVaCl2wGJwaO4JeOh1opUx8chzSBVRZBMz0/MGyygi7duYAff9JQqfH3p/BhDTNM8eKl6z5tnneZ8ZG5bG1XvqFTqWk4FhGsEWdK7B+He44hPjBxKQl2gmZAodb6g9YxfTHhVRKQY5hQ7KPXNvh3ikerHkoaL5apgsVBZJOTDE2KdYTnGLmqxghFx6L0ofqKI6hMr48ergMyflDk6wLNGWJvYHLWw==-MIIEPjCCAiagAwIBAgIBBTANBgkqhkiG9w0BAQsFADAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBMB4XDTE1MTEwMjA4MjE0OFoXDTE4MTEwMTA4MjE0OFowETEPMA0GA1UEAwwGcHJvZDN5MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxcQkq+zdxlR2mmRYBPzGbUNdMN6OaXiXzxIWtMEkrJMO/5oUfQJbLLuMSMK0QHFmaI37WShyxZcfRCidwXjot4zmNBKnlyHodDij/78TmVqFl8nOeD5+07B8VEaIu7c3E1N+e1doC6wht4I4+IEmtsPAdoaj5WCQVQbrI8KeT8M9VcBIWX7fD0fhexfg3ZRt0xqwMcXGNp3DdJHiO0rCdU+Itv7EmtnSVq9jBG1usMSFvMowR25mju2JcPFp1+I4ZI+FqgR8gyG8oiNDyNEoAbsR3lOpI7grUYSvkB/xVy/VoklPCK2h0f0GJxFjnye8NT1PAywoyl7RmiAVRE/EKwIDAQABo4GZMIGWMAkGA1UdEwQCMAAwHQYDVR0OBBYEFGEpG9oZGcfLMGNBkY7SgHiMGgTcMEgGA1UdIwRBMD+AFKOetkhnQhI2Qb1t4Lm0oFKLl/GzoRykGjAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBggkA0myxg7KDeeEwEwYDVR0lBAwwCgYIKwYBBQUHAwEwCwYDVR0PBAQDAgWgMA0GCSqGSIb3DQEBCwUAA4ICAQC9WZuYgQedSuOc5TOUSrRigMw4/+wuC5EtZBfvdl4HT/8vzMW/oUlIP4YCvA0XKyBaCJ2iX+ZCDKoPfiYXiaSiH+HxAPV6J79vvouxKrWg2XV6ShFtPLP+0gPdGq3x9R3+kJbmAm8w+FOdlWqAfJrLvpzMGNeDU14YGXiZ9bVzmIQbwrBA+c/F4tlK/DV07dsNExihqFoibnqDiVNTGombaU2dDup2gwKdL81ua8EIcGNExHe82kjF4zwfadHk3bQVvbfdAwxcDy4xBjs3L4raPLU3yenSzr/OEur1+jfOxnQSmEcMXKXgrAQ9U55gwjcOFKrgOxEdek/Sk1VfOjvS+nuM4eyEruFMfaZHzoQiuw4IqgGc45ohFH0UUyjYcuFxxDSU9lMCv8qdHKm+wnPRb0l9l5vXsCBDuhAGYD6ss+Ga+aDY6f/qXZuUCEUOH3QUNbbCUlviSz6+GiRnt1kA9N2Qachl+2yBfaqUqr8h7Z2gsx5LcIf5kYNsqJ0GavXTVyWh7PYiKX4bs354ZQLUwwa/cG++2+wNWP+HtBhVxMRNTdVhSm38AknZlD+PTAsWGu9GyLmhti2EnVwGybSD2Dxmhxk3IPCkhKAK+pl0eWYGZWG3tJ9mZ7SowcXLWDFAk0lRJnKGFMTggrWjV8GYpw5bq23VmIqqDLgkNzuoog==</code></p>
+<blockquote>
+<p>这个方法是我自己找的，现在把原文地址贴上    <a href="https://www.cnblogs.com/woaic/p/6024975.html" target="_blank" rel="external">https://www.cnblogs.com/woaic/p/6024975.html</a></p>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/04/WebStorm 2016.3激活方式/" class="archive-article-date">
+  	<time datetime="2016-12-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-04</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebStorm/">WebStorm</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-用装饰行(自定义)指令封装一个插件" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -195,7 +324,7 @@
 
 
   
-    <article id="post-WebStorm 2016.3激活方式" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-组件式指令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -205,7 +334,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/04/WebStorm 2016.3激活方式/">WebStorm 2016激活</a>
+      <a class="article-title" href="/2016/12/03/组件式指令/">组件式指令</a>
     </h1>
   
 
@@ -213,26 +342,74 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="WebStorm-2016-最新版激活-license-server方式"><a href="#WebStorm-2016-最新版激活-license-server方式" class="headerlink" title="WebStorm 2016 最新版激活(license server方式)"></a>WebStorm 2016 最新版激活(license server方式)</h1><blockquote>
-<p>以前激活webstrom通过 <code>license server</code> 来激活，今天在网上看到一个是通过 <code>license server</code> ,试了一下，相当好用</p>
-<p>安装webstrom之后，注册是选择 <code>activation code</code>,然后在框里把下面的注册码粘贴进去就OK了。</p>
-</blockquote>
-<p><code>43B4A73YYJ-eyJsaWNlbnNlSWQiOiI0M0I0QTczWVlKIiwibGljZW5zZWVOYW1lIjoibGFuIHl1IiwiYXNzaWduZWVOYW1lIjoiIiwiYXNzaWduZWVFbWFpbCI6IiIsImxpY2Vuc2VSZXN0cmljdGlvbiI6IkZvciBlZHVjYXRpb25hbCB1c2Ugb25seSIsImNoZWNrQ29uY3VycmVudFVzZSI6ZmFsc2UsInByb2R1Y3RzIjpbeyJjb2RlIjoiSUkiLCJwYWlkVXBUbyI6IjIwMTctMDItMjUifSx7ImNvZGUiOiJBQyIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9LHsiY29kZSI6IkRQTiIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9LHsiY29kZSI6IlBTIiwicGFpZFVwVG8iOiIyMDE3LTAyLTI1In0seyJjb2RlIjoiRE0iLCJwYWlkVXBUbyI6IjIwMTctMDItMjUifSx7ImNvZGUiOiJDTCIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9LHsiY29kZSI6IlJTMCIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9LHsiY29kZSI6IlJDIiwicGFpZFVwVG8iOiIyMDE3LTAyLTI1In0seyJjb2RlIjoiUEMiLCJwYWlkVXBUbyI6IjIwMTctMDItMjUifSx7ImNvZGUiOiJSTSIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9LHsiY29kZSI6IldTIiwicGFpZFVwVG8iOiIyMDE3LTAyLTI1In0seyJjb2RlIjoiREIiLCJwYWlkVXBUbyI6IjIwMTctMDItMjUifSx7ImNvZGUiOiJEQyIsInBhaWRVcFRvIjoiMjAxNy0wMi0yNSJ9XSwiaGFzaCI6IjMzOTgyOTkvMCIsImdyYWNlUGVyaW9kRGF5cyI6MCwiYXV0b1Byb2xvbmdhdGVkIjpmYWxzZSwiaXNBdXRvUHJvbG9uZ2F0ZWQiOmZhbHNlfQ==-keaxIkRgXPKE4BR/ZTs7s7UkP92LBxRe57HvWamu1EHVXTcV1B4f/KNQIrpOpN6dgpjig5eMVMPmo7yMPl+bmwQ8pTZaCGFuLqCHD1ngo6ywHKIQy0nR249sAUVaCl2wGJwaO4JeOh1opUx8chzSBVRZBMz0/MGyygi7duYAff9JQqfH3p/BhDTNM8eKl6z5tnneZ8ZG5bG1XvqFTqWk4FhGsEWdK7B+He44hPjBxKQl2gmZAodb6g9YxfTHhVRKQY5hQ7KPXNvh3ikerHkoaL5apgsVBZJOTDE2KdYTnGLmqxghFx6L0ofqKI6hMr48ergMyflDk6wLNGWJvYHLWw==-MIIEPjCCAiagAwIBAgIBBTANBgkqhkiG9w0BAQsFADAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBMB4XDTE1MTEwMjA4MjE0OFoXDTE4MTEwMTA4MjE0OFowETEPMA0GA1UEAwwGcHJvZDN5MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxcQkq+zdxlR2mmRYBPzGbUNdMN6OaXiXzxIWtMEkrJMO/5oUfQJbLLuMSMK0QHFmaI37WShyxZcfRCidwXjot4zmNBKnlyHodDij/78TmVqFl8nOeD5+07B8VEaIu7c3E1N+e1doC6wht4I4+IEmtsPAdoaj5WCQVQbrI8KeT8M9VcBIWX7fD0fhexfg3ZRt0xqwMcXGNp3DdJHiO0rCdU+Itv7EmtnSVq9jBG1usMSFvMowR25mju2JcPFp1+I4ZI+FqgR8gyG8oiNDyNEoAbsR3lOpI7grUYSvkB/xVy/VoklPCK2h0f0GJxFjnye8NT1PAywoyl7RmiAVRE/EKwIDAQABo4GZMIGWMAkGA1UdEwQCMAAwHQYDVR0OBBYEFGEpG9oZGcfLMGNBkY7SgHiMGgTcMEgGA1UdIwRBMD+AFKOetkhnQhI2Qb1t4Lm0oFKLl/GzoRykGjAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBggkA0myxg7KDeeEwEwYDVR0lBAwwCgYIKwYBBQUHAwEwCwYDVR0PBAQDAgWgMA0GCSqGSIb3DQEBCwUAA4ICAQC9WZuYgQedSuOc5TOUSrRigMw4/+wuC5EtZBfvdl4HT/8vzMW/oUlIP4YCvA0XKyBaCJ2iX+ZCDKoPfiYXiaSiH+HxAPV6J79vvouxKrWg2XV6ShFtPLP+0gPdGq3x9R3+kJbmAm8w+FOdlWqAfJrLvpzMGNeDU14YGXiZ9bVzmIQbwrBA+c/F4tlK/DV07dsNExihqFoibnqDiVNTGombaU2dDup2gwKdL81ua8EIcGNExHe82kjF4zwfadHk3bQVvbfdAwxcDy4xBjs3L4raPLU3yenSzr/OEur1+jfOxnQSmEcMXKXgrAQ9U55gwjcOFKrgOxEdek/Sk1VfOjvS+nuM4eyEruFMfaZHzoQiuw4IqgGc45ohFH0UUyjYcuFxxDSU9lMCv8qdHKm+wnPRb0l9l5vXsCBDuhAGYD6ss+Ga+aDY6f/qXZuUCEUOH3QUNbbCUlviSz6+GiRnt1kA9N2Qachl+2yBfaqUqr8h7Z2gsx5LcIf5kYNsqJ0GavXTVyWh7PYiKX4bs354ZQLUwwa/cG++2+wNWP+HtBhVxMRNTdVhSm38AknZlD+PTAsWGu9GyLmhti2EnVwGybSD2Dxmhxk3IPCkhKAK+pl0eWYGZWG3tJ9mZ7SowcXLWDFAk0lRJnKGFMTggrWjV8GYpw5bq23VmIqqDLgkNzuoog==</code></p>
-<blockquote>
-<p>这个方法是我自己找的，现在把原文地址贴上    <a href="https://www.cnblogs.com/woaic/p/6024975.html" target="_blank" rel="external">https://www.cnblogs.com/woaic/p/6024975.html</a></p>
-</blockquote>
-
+        <p>###　自定义组件式指令</p>
+<p>在控制器里边定义变量或者方法，在指令返回的对象里边取出定义的变量或者方法，</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html ng-app="hello"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;组件式指令&lt;/title&gt;</div><div class="line">    &lt;link rel="stylesheet" href="../bootstrap.css"&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body ng-controller="myControll"&gt;</div><div class="line">&lt;panel title="title" ng-click="hello()"&gt;&#123;&#123;content&#125;&#125;&lt;/panel&gt;</div><div class="line">&lt;panel title="title1" ng-click="hello()"&gt;&#123;&#123;content1&#125;&#125;&lt;/panel&gt;</div><div class="line">&lt;!--ng-transclude属性会创建一个新的作用域，不会互相影响；指令执行的时候，是看html里边是否有指令的名字，如果有的话就会后边的覆盖前边的，创建一个独立的作用域可以解决这个问题，用scope:true或者是scope：&#123;&#125;--&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script src="../angular.js"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    angular.module('hello',[]).controller('myControll',['$scope', function ($scope) &#123;</div><div class="line">        $scope.title='标题1';</div><div class="line">        $scope.content='内容1';</div><div class="line">        $scope.title1='标题2';</div><div class="line">        $scope.content1='内容2';</div><div class="line">        $scope.hello= function () &#123;</div><div class="line">            alert('hello')</div><div class="line">        &#125;</div><div class="line">    &#125;]).directive('panel', function () &#123;</div><div class="line">        return &#123;</div><div class="line">            transclude:true,</div><div class="line">            //将原有指令中内容保存起来，放到我们想放的地方(标签里边带有ng-transcldue属性)</div><div class="line">            scope:&#123;</div><div class="line">                title:'=',//取出控制器里边定义的字符串</div><div class="line">                hello:'&amp;'//取出控制里边定义的方法</div><div class="line">            &#125;,//取变量，没有省略时的样子title:'=title'</div><div class="line">            //两种方式可以让指令创建新的作用域</div><div class="line">            //1.scope:true不会断绝和根作用域的关系，有些属性仍然可以从$rootScope上边继承</div><div class="line">            //2.scope：&#123;&#125; 完全断绝关系</div><div class="line">            //scope:&#123;&#125;可以有三种方式和控制器进行交互，当前后的名字都是一样的时候，就可以把后边的省略</div><div class="line">            //第一种 @传递字符串</div><div class="line">            //第二种 = 传递变量</div><div class="line">            //第三种 &amp; 传递方法</div><div class="line">            templateUrl:'panel.html',</div><div class="line">            /*link: function (scope, element, attrs) &#123;</div><div class="line">                //在当前的作用域上边声明一个title属性</div><div class="line">                scope.title=attrs.title;</div><div class="line">            &#125;*/</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>panel页面的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;panel panel-default&quot;&gt;</div><div class="line">    &lt;div class=&quot;panel-heading&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;panel-body&quot; ng-transclude&gt;</div><div class="line">        Panel content</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/12/04/WebStorm 2016.3激活方式/" class="archive-article-date">
-  	<time datetime="2016-12-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-04</time>
+      <a href="/2016/12/03/组件式指令/" class="archive-article-date">
+  	<time datetime="2016-12-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-03</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebStorm/">WebStorm</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指令/">指令</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/组件/">组件</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-AngularJS自定义指令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/03/AngularJS自定义指令/">AngularJS自定义指令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="AngularJS自定义指令"><a href="#AngularJS自定义指令" class="headerlink" title="AngularJS自定义指令"></a>AngularJS自定义指令</h1><blockquote>
+<p>指令分为组件式指令和装饰行指令</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html ng-app="myApp"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;AngularJS自定义指令&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;!--用于属性名--&gt;</div><div class="line">&lt;div good-name&gt;8岁了&lt;/div&gt;</div><div class="line">&lt;!--用于标签--&gt;</div><div class="line">&lt;good-name&gt;&lt;/good-name&gt;</div><div class="line">&lt;!--用于样式类名--&gt;</div><div class="line">&lt;div class="good-name"&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;!--注释 很少用（必须有replace:true）--&gt;</div><div class="line">&lt;!-- directive:good-name --&gt;</div><div class="line">&lt;!--前后要有空格--&gt;</div><div class="line"></div><div class="line">&lt;script src="../angular.js"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var myApp = angular.module('myApp', []);</div><div class="line">    app.run(function ($rootScope) &#123;//程序运行的时候，最先执行的方法</div><div class="line">        </div><div class="line">    &#125;);</div><div class="line">    myApp.directive('goodName',function () &#123;</div><div class="line">	/*定义一个指令,指令的名字叫做 goodName</div><div class="line">	命名的时候是驼峰命名法，使用的时候用 - 分割，将大写转为小写</div><div class="line">	定义的时候goodName 使用的时候  good-name*/</div><div class="line">        return &#123;//声明一个函数，返回一个对象</div><div class="line">            template:'&lt;p&gt;Yang &lt;span ng-transclude&gt;&lt;/span&gt;&lt;/p&gt;',//定义一个模板</div><div class="line">            templateUrl:'url.html',//引入外界的模板，在使用templateUrl时候，template不能存在</div><div class="line">            replace:true,//替换原有的标签</div><div class="line">            restrict:'ECMA',</div><div class="line">			//定义指令可以使用的位置，不写的话，默认值是EA</div><div class="line">			/**</div><div class="line">			 *E  element 用于标签</div><div class="line">			 *C  class   用于样式类名</div><div class="line">			 *M  comment  用于注释</div><div class="line">			 *A  attribute 用于是属性名</div><div class="line">			 */   </div><div class="line">            transclude:true,</div><div class="line">            /*</div><div class="line">            保存原有标签里面的内容</div><div class="line">			和 ng-transclude(会形成自己的作用域)结合使用</div><div class="line">			原有标签里面的内容添加到&lt;span ng-transclude&gt;&lt;/span&gt;中</div><div class="line">             */</div><div class="line"></div><div class="line">             //会形成自己的作用域</div><div class="line">            scope:true,//没有断绝关系</div><div class="line">            /*scope:&#123;//完全断绝关系，不能取到上级作用域的内容，通过属性可以传递数据(数据类型 字符串 变量 函数)</div><div class="line"></div><div class="line">                url:'@path', //当前指令上属性的字符串</div><div class="line">                url:'=path1', //当前指令上属性的变量</div><div class="line">                f:'&amp;fn1'//当前指令上属性的函数</div><div class="line">            &#125;,*/</div><div class="line">			</div><div class="line">            /**</div><div class="line">             * @param scope :当前模板的作用域，如果当前模板没有形成作用域，会直接找父集的作用域</div><div class="line">             * @param element ：自定义指令所在的DOM元素，是一个jQuery对象，内置的有轻量级的jQuery也就是 jqLite(简化版的jQuery)</div><div class="line">             * @param attrs ：自定义指令所在的DOM元素上的属性存储在attrs对象中</div><div class="line">             */</div><div class="line">            link:function (scope,element,attrs) &#123;//只有link才可以操作DOM</div><div class="line">			//实现和 DOM元素、作用域的链接（链接阶段）</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;)</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/03/AngularJS自定义指令/" class="archive-article-date">
+  	<time datetime="2016-12-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-03</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指令/">指令</a></li></ul>
 	</div>
 
       
@@ -305,111 +482,6 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/表达式/">表达式</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-AngularJS自定义指令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/03/AngularJS自定义指令/">AngularJS自定义指令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="AngularJS自定义指令"><a href="#AngularJS自定义指令" class="headerlink" title="AngularJS自定义指令"></a>AngularJS自定义指令</h1><blockquote>
-<p>指令分为组件式指令和装饰行指令</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html ng-app="myApp"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;AngularJS自定义指令&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;!--用于属性名--&gt;</div><div class="line">&lt;div good-name&gt;8岁了&lt;/div&gt;</div><div class="line">&lt;!--用于标签--&gt;</div><div class="line">&lt;good-name&gt;&lt;/good-name&gt;</div><div class="line">&lt;!--用于样式类名--&gt;</div><div class="line">&lt;div class="good-name"&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;!--注释 很少用（必须有replace:true）--&gt;</div><div class="line">&lt;!-- directive:good-name --&gt;</div><div class="line">&lt;!--前后要有空格--&gt;</div><div class="line"></div><div class="line">&lt;script src="../angular.js"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var myApp = angular.module('myApp', []);</div><div class="line">    myApp.directive('goodName',function () &#123;</div><div class="line">	/*定义一个指令,指令的名字叫做 goodName</div><div class="line">	命名的时候是驼峰命名法，使用的时候用 - 分割，将大写转为小写</div><div class="line">	定义的时候goodName 使用的时候  good-name*/</div><div class="line">        return &#123;//声明一个函数，返回一个对象</div><div class="line">            template:'&lt;p&gt;Yang &lt;span ng-transclude&gt;&lt;/span&gt;&lt;/p&gt;',//定义一个模板</div><div class="line">            templateUrl:'url.html',//引入外界的模板，在使用templateUrl时候，template不能存在</div><div class="line">            replace:true,//替换原有的标签</div><div class="line">            restrict:'ECMA',</div><div class="line">			//定义指令可以使用的位置，不写的话，默认值是EA</div><div class="line">			/**</div><div class="line">			 *E  element 用于标签</div><div class="line">			 *C  class   用于样式类名</div><div class="line">			 *M  comment  用于注释</div><div class="line">			 *A  attribute 用于是属性名</div><div class="line">			 */   </div><div class="line">            transclude:true,</div><div class="line">            /*</div><div class="line">            保存原有标签里面的内容</div><div class="line">			和 ng-transclude(会形成自己的作用域)结合使用</div><div class="line">			原有标签里面的内容添加到&lt;span ng-transclude&gt;&lt;/span&gt;中</div><div class="line">             */</div><div class="line">            scope:true,</div><div class="line">			//会形成自己的作用域</div><div class="line">            /**</div><div class="line">             * @param scope :当前模板的作用域，如果当前模板没有形成作用域，会直接找父集的作用域</div><div class="line">             * @param element ：自定义指令所在的DOM元素，是一个jQuery对象，内置的有轻量级的jQuery也就是 jqLite(简化版的jQuery)</div><div class="line">             * @param attrs ：自定义指令所在的DOM元素上的属性存储在attrs对象中</div><div class="line">             */</div><div class="line">            link:function (scope,element,attrs) &#123;//只有link才可以操作DOM</div><div class="line">			//实现和 DOM元素、作用域的链接（链接阶段）</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;)</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/03/AngularJS自定义指令/" class="archive-article-date">
-  	<time datetime="2016-12-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-03</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指令/">指令</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-组件式指令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/03/组件式指令/">组件式指令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###　自定义组件式指令</p>
-<p>在控制器里边定义变量或者方法，在指令返回的对象里边取出定义的变量或者方法，</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html ng-app="hello"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;组件式指令&lt;/title&gt;</div><div class="line">    &lt;link rel="stylesheet" href="../bootstrap.css"&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body ng-controller="myControll"&gt;</div><div class="line">&lt;panel title="title" ng-click="hello()"&gt;&#123;&#123;content&#125;&#125;&lt;/panel&gt;</div><div class="line">&lt;panel title="title1" ng-click="hello()"&gt;&#123;&#123;content1&#125;&#125;&lt;/panel&gt;</div><div class="line">&lt;!--ng-transclude属性会创建一个新的作用域，不会互相影响；指令执行的时候，是看html里边是否有指令的名字，如果有的话就会后边的覆盖前边的，创建一个独立的作用域可以解决这个问题，用scope:true或者是scope：&#123;&#125;--&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script src="../angular.js"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    angular.module('hello',[]).controller('myControll',['$scope', function ($scope) &#123;</div><div class="line">        $scope.title='标题1';</div><div class="line">        $scope.content='内容1';</div><div class="line">        $scope.title1='标题2';</div><div class="line">        $scope.content1='内容2';</div><div class="line">        $scope.hello= function () &#123;</div><div class="line">            alert('hello')</div><div class="line">        &#125;</div><div class="line">    &#125;]).directive('panel', function () &#123;</div><div class="line">        return &#123;</div><div class="line">            transclude:true,</div><div class="line">            //将原有指令中内容保存起来，放到我们想放的地方(标签里边带有ng-transcldue属性)</div><div class="line">            scope:&#123;</div><div class="line">                title:'=',//取出控制器里边定义的字符串</div><div class="line">                hello:'&amp;'//取出控制里边定义的方法</div><div class="line">            &#125;,//取变量，没有省略时的样子title:'=title'</div><div class="line">            //两种方式可以让指令创建新的作用域</div><div class="line">            //1.scope:true不会断绝和根作用域的关系，有些属性仍然可以从$rootScope上边继承</div><div class="line">            //2.scope：&#123;&#125; 完全断绝关系</div><div class="line">            //scope:&#123;&#125;可以有三种方式和控制器进行交互，当前后的名字都是一样的时候，就可以把后边的省略</div><div class="line">            //第一种 @传递字符串</div><div class="line">            //第二种 = 传递变量</div><div class="line">            //第三种 &amp; 传递方法</div><div class="line">            templateUrl:'panel.html',</div><div class="line">            /*link: function (scope, element, attrs) &#123;</div><div class="line">                //在当前的作用域上边声明一个title属性</div><div class="line">                scope.title=attrs.title;</div><div class="line">            &#125;*/</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<p>panel页面的代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;panel panel-default&quot;&gt;</div><div class="line">    &lt;div class=&quot;panel-heading&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;panel-body&quot; ng-transclude&gt;</div><div class="line">        Panel content</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/03/组件式指令/" class="archive-article-date">
-  	<time datetime="2016-12-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-03</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指令/">指令</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/组件/">组件</a></li></ul>
 	</div>
 
       
@@ -630,7 +702,7 @@
 
 
   
-    <article id="post-使用git发布一个项目" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Angular常用内置指令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -640,7 +712,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/11/使用git发布一个项目/">使用git发布一个项目</a>
+      <a class="article-title" href="/2016/11/14/Angular常用内置指令/">Angular常用内置指令</a>
     </h1>
   
 
@@ -648,176 +720,36 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1、创建一个新的仓库"><a href="#1、创建一个新的仓库" class="headerlink" title="1、创建一个新的仓库"></a>1、创建一个新的仓库</h3><blockquote>
-<ul>
-<li>在写完仓库的描述后， <strong>勾选</strong> 格式化 <code>Initialize this repository with a README</code> ,创建一个使用说明。</li>
-</ul>
-</blockquote>
-<h3 id="2、发布页面"><a href="#2、发布页面" class="headerlink" title="2、发布页面"></a>2、发布页面</h3><blockquote>
-<ul>
-<li>创建好仓库后，在设置项–&gt; <code>Options</code> 选项中 <strong>勾选</strong> <code>launch automatic page generator</code>进入到博客的页面后继续发布 <strong>点击</strong>  <code>Continue to Layouts</code> –&gt;选择模板后 <strong>点击</strong>  <code>Public page</code>发布页面。</li>
-</ul>
-</blockquote>
-<h3 id="3、修改仓库的默认分支，然后跟新"><a href="#3、修改仓库的默认分支，然后跟新" class="headerlink" title="3、修改仓库的默认分支，然后跟新"></a>3、修改仓库的默认分支，然后跟新</h3><blockquote>
-<ul>
-<li>发布页面完成后 <strong>点击</strong> <code>Setting</code> 在 <code>Branches</code> 里边把仓库的默认分支更改 <code>master</code> 为 <code>gh-pages</code> 然后 <strong>点击</strong>  <code>updata</code>完成跟新。</li>
-</ul>
-</blockquote>
-<h3 id="4、把gh-pages分支下的内容克隆到本地"><a href="#4、把gh-pages分支下的内容克隆到本地" class="headerlink" title="4、把gh-pages分支下的内容克隆到本地"></a>4、把gh-pages分支下的内容克隆到本地</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone  git<span class="string">"仓库的地址"</span></div></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>把gitHub远程仓库下托管的源文件下载到了本地</li>
-<li>让本地的文件项目和远程仓库保持了一个链接的通道</li>
-<li>下载到本地文件夹里边的【.git】隐藏文件夹不要删除</li>
-</ul>
-</blockquote>
-<h3 id="5、本地仓库和远程仓库关联起来【发布项目非必选可以省略】"><a href="#5、本地仓库和远程仓库关联起来【发布项目非必选可以省略】" class="headerlink" title="5、本地仓库和远程仓库关联起来【发布项目非必选可以省略】"></a>5、本地仓库和远程仓库关联起来【发布项目非必选可以省略】</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git remote add origin 远程仓库的地址</div><div class="line">git remote -v  查看关联状态</div></pre></td></tr></table></figure>
-<h3 id="6、最新文件上传"><a href="#6、最新文件上传" class="headerlink" title="6、最新文件上传"></a>6、最新文件上传</h3><blockquote>
-<ul>
-<li>修改本地的项目文件，把最新的项目文件上传到gh-pages这个分支下。</li>
-</ul>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git add .  //添加所有的文件</div><div class="line">$ git commit -m"备注"  //如果出现 please tell me who you are?的时候按照提示执行git config xxx..两句话，依据话是配置邮箱，一句话是配置用户名(都是gitHub上的邮箱和用户名)，配置完成后重新commit</div><div class="line">$ git push origin gh-pages  //输入gitHub的用户名和密码提交即可</div></pre></td></tr></table></figure>
-<h3 id="7、项目展示的地址"><a href="#7、项目展示的地址" class="headerlink" title="7、项目展示的地址"></a>7、项目展示的地址</h3><blockquote>
-<ul>
-<li>回到你发布项目的仓库，点击Settings,在GitHub Pages就能看到项目展示的地址。</li>
-</ul>
-</blockquote>
-<h3 id="8、移动端项目二维码生成"><a href="#8、移动端项目二维码生成" class="headerlink" title="8、移动端项目二维码生成"></a>8、移动端项目二维码生成</h3><blockquote>
-<ul>
-<li>在线生成地址：<a href="http://cli.im/" target="_blank" rel="external">http://cli.im/</a></li>
-</ul>
-</blockquote>
+        <h3 id="1、ng-app-html"><a href="#1、ng-app-html" class="headerlink" title="1、ng-app ( html )"></a>1、ng-app ( html )</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; 启动angular程序，指定模块来启动，定义模块。调用run方法,产生 $rootScope</div><div class="line">### 2、ng\-model</div><div class="line">&gt; 只能放置变量，不能放运算</div><div class="line">&gt; 用于表单元素</div><div class="line">&gt; 如果作用域上没有，则声明</div><div class="line">&gt; 如果有取值放到输入框中</div><div class="line">&gt; 如果使用user\.name 则会创建一个对象，将name变成一个变量存入进来</div></pre></td></tr></table></figure>
+<h3 id="3、ng-bind"><a href="#3、ng-bind" class="headerlink" title="3、ng-bind"></a>3、ng-bind</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; 和 \&#123;\&#123;\&#125;\&#125;相同，ngbind不会闪烁</div><div class="line">&gt; 不能用于表单元素</div><div class="line">&gt; 可以使用\!/?</div><div class="line">&gt; 原有的内容会被ng\-bind绑定的值替换掉</div></pre></td></tr></table></figure>
+<h3 id="4、ng-cloak"><a href="#4、ng-cloak" class="headerlink" title="4、ng-cloak"></a>4、ng-cloak</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; 用途: 防止闪烁</div><div class="line">&gt; 先声明一个css,找到所有带有ng\-cloak让其隐藏</div><div class="line">&gt; 增加到需要防止闪烁的元素身上</div><div class="line">&gt; 加载后移出掉ng\-cloak属性</div></pre></td></tr></table></figure>
+<h3 id="5、ng-controller"><a href="#5、ng-controller" class="headerlink" title="5、ng-controller"></a>5、ng-controller</h3><p>用途:调度数据的，买一送一送作用域</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; 不能操作dom，dom在link函数操作</div><div class="line">&gt; 管辖范围,和dom平齐</div><div class="line">&gt; 可以将带有ng\-controller的标签嵌套，子继承父 父继承不了子</div><div class="line">&gt; 不能复用</div><div class="line">&gt; 调用ng\-controller后可以执行控制器</div></pre></td></tr></table></figure>
+<h3 id="6、ng-repeat"><a href="#6、ng-repeat" class="headerlink" title="6、ng-repeat"></a>6、ng-repeat</h3><p>用途:循环遍历</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; 要循环谁就写在谁的身上</div><div class="line">&gt; 遍历数组 ng中增加的属性 $index $odd $even $first $last $middle  \(根据索引来遍历 \)</div><div class="line">&gt; 通过 \( key,value \)可以获得索引，默认写一个变量则是value</div><div class="line">&gt; 对象同数组</div></pre></td></tr></table></figure>
+<p><code>ng-repeat 为什么 track by \$index</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; 如果value重复，不能通过相同的value去遍历，通过唯一项来进行遍历。只要是数组就加track by $index</div></pre></td></tr></table></figure>
+<h3 id="7、ng-click"><a href="#7、ng-click" class="headerlink" title="7、ng-click"></a>7、ng-click</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- angular的事件 ng\-click=&quot;a \(\)&quot;</div></pre></td></tr></table></figure>
+<h3 id="8、ng-show-ng-hide"><a href="#8、ng-show-ng-hide" class="headerlink" title="8、ng -show/ng -hide"></a>8、ng -show/ng -hide</h3><p>用途：控制元素的显示隐藏<br>通过css样式进行隐藏，内部命令依然执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; 频繁切换采用ng \-show/ng \-hide</div></pre></td></tr></table></figure>
+<h3 id="9、ng-if"><a href="#9、ng-if" class="headerlink" title="9、ng -if"></a>9、ng -if</h3><p>用途：控制元素的显示隐藏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; 通过删除dom达到隐藏效果，如果为false内部指令不再执行</div><div class="line">&gt; 会产生一个作用域，保留删掉的内容</div><div class="line">&gt; 一般和ng \-repeat连用，如果数据不存在就移出掉dom</div></pre></td></tr></table></figure>
+<h3 id="10、ng-disabled"><a href="#10、ng-disabled" class="headerlink" title="10、ng -disabled"></a>10、ng -disabled</h3><p>用途:ng -disabled=”true” 进入禁用状态</p>
+<h3 id="11、ng-readonly"><a href="#11、ng-readonly" class="headerlink" title="11、ng -readonly"></a>11、ng -readonly</h3><p>用途:ng -readonly=”true” 进入仅读状态</p>
+<h3 id="12、自定义指令"><a href="#12、自定义指令" class="headerlink" title="12、自定义指令"></a>12、自定义指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- 自定义：组件式和装饰型</div><div class="line">&gt; 组件式:Element,看有没有template</div><div class="line">&gt; 装饰型:Attribute,一般没有模板 link函数</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">return &#123;</div><div class="line">    restrict:&apos;EA&apos;, 限制使用范围</div><div class="line">    template/templateUrl, 模板</div><div class="line">    transclude:true,</div><div class="line">    scope:true/&#123;@=&amp;&#125;/不写</div><div class="line">    replace：true 替换</div><div class="line">    /**</div><div class="line">             * @param scope :当前模板的作用域，如果当前模板没有形成作用域，会直接找父集的作用域</div><div class="line">             * @param element ：自定义指令所在的DOM元素，是一个jQuery对象，内置的有轻量级的jQuery也就是 jqLite(简化版的jQuery)</div><div class="line">             * @param attrs ：自定义指令所在的DOM元素上的属性存储在attrs对象中</div><div class="line">             */</div><div class="line">    link:function(scope,element,attrs)&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/11/11/使用git发布一个项目/" class="archive-article-date">
-  	<time datetime="2016-11-11T07:00:42.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-11</time>
+      <a href="/2016/11/14/Angular常用内置指令/" class="archive-article-date">
+  	<time datetime="2016-11-14T12:39:42.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-14</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hexo搭建github博客" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/08/hexo搭建github博客/">Hexo搭建github博客</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Hexo 是一款基于 Node.js 的快速的、简单的博客框架，能够创建一个项目进行编辑后生成一套静态网页，比较适合个人博客搭建。因为 Hexo 生成的网页不依赖数据库和任何 Web 工具，所以可以把它放在 Github上，然后配置好域名以后进行访问，本篇只是针对于<code>window</code>用户。</p>
-<h3 id="1、安装前置条件"><a href="#1、安装前置条件" class="headerlink" title="1、安装前置条件"></a>1、安装前置条件</h3><blockquote>
-<ul>
-<li>安装 Hexo 相当简单。然而在安装前，你必须确定你安装了node.js和git</li>
-</ul>
-</blockquote>
-<h3 id="2、安装hexo"><a href="#2、安装hexo" class="headerlink" title="2、安装hexo"></a>2、安装hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-cli -g</div></pre></td></tr></table></figure>
-<h3 id="3、初始化文博客"><a href="#3、初始化文博客" class="headerlink" title="3、初始化文博客"></a>3、初始化文博客</h3><blockquote>
-<ul>
-<li>初始博客文件夹<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init blog</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<ul>
-<li><p>进入到blog文件夹安装所需模块</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cd blog &amp;&amp; npm install</div></pre></td></tr></table></figure>
-</li>
-<li><p>启动本地服务</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>浏览器输入<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 查看一下默认的主题</p>
-<h3 id="4、发布到git上"><a href="#4、发布到git上" class="headerlink" title="4、发布到git上"></a>4、发布到git上</h3><blockquote>
-<ul>
-<li>下载hexo-deployer-git插件<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<ul>
-<li>在github上新建仓库,github上边新建仓库的时候，直接新建，不要选择</li>
-<li>仓库的名称必须是[账户名].github.io<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">new repository //新建一个github仓库</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<ul>
-<li>修改_config.yml(blog根目录下)，配置repo：</li>
-<li>在github仓库里边点击SSH，复制链接，修改下边配置<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: git@github.com:liulangxiaojie/liulangxiaojie.github.io.git</div><div class="line">  branch: master</div><div class="line">  message: <span class="string">"push"</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<h3 id="5、部署-跟新自己的博客"><a href="#5、部署-跟新自己的博客" class="headerlink" title="5、部署(跟新自己的博客)"></a>5、部署(跟新自己的博客)</h3><blockquote>
-<ul>
-<li><p>添加md格式的文章</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-</li>
-<li><p>每次跟新的时候三部曲</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div><div class="line">$ hexo generate ==&gt;hexo g(简写)</div><div class="line">$ hexo deploy ==&gt;hexo d</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<h3 id="6、新建文章"><a href="#6、新建文章" class="headerlink" title="6、新建文章"></a>6、新建文章</h3><blockquote>
-<ul>
-<li>添加md格式的文章<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new <span class="string">"文章名"</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<h3 id="7、一些常用的命令"><a href="#7、一些常用的命令" class="headerlink" title="7、一些常用的命令"></a>7、一些常用的命令</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"postName"</span> <span class="comment">#新建文章</span></div><div class="line">$ hexo new page <span class="string">"pageName"</span> <span class="comment">#新建页面</span></div><div class="line">$ hexo generate <span class="comment">#生成静态页面至public目录</span></div><div class="line">$ hexo server <span class="comment">#开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span></div><div class="line">$ hexo deploy <span class="comment">#将.deploy目录部署到GitHub</span></div><div class="line">$ hexo help  <span class="comment">#查看帮助</span></div><div class="line">$ hexo version  <span class="comment">#查看Hexo的版本</span></div></pre></td></tr></table></figure>
-<h3 id="8、一些使用心得"><a href="#8、一些使用心得" class="headerlink" title="8、一些使用心得"></a>8、一些使用心得</h3><blockquote>
-<ul>
-<li>你的标签页和你的名字都在blog根目录下边的_config.yml中修改头像在主题文件夹下themes/yilia里边的_config.yml文件中修改</li>
-<li>修改博客标签页图标的时候去主题文件夹hemes/yilia里边的_config.yml中修改favicon: /assets/img/y.ico(最好在source文件夹下创建assets/img)</li>
-</ul>
-</blockquote>
-<h3 id="9、写博客的一些坑-一般进坑超过2小时"><a href="#9、写博客的一些坑-一般进坑超过2小时" class="headerlink" title="9、写博客的一些坑(一般进坑超过2小时)"></a>9、写博客的一些坑(一般进坑超过2小时)</h3><blockquote>
-<ul>
-<li>在贴代码的时候```后边一定不能有空格，否则就会不识别。</li>
-<li>在写博客的时候一定要避免花括号&#123; &#125;的出现，不可避免是用 <code>&amp;#123; &amp;#125;</code> 进行转换，代码框里边可以不用转换。</li>
-</ul>
-</blockquote>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/11/08/hexo搭建github博客/" class="archive-article-date">
-  	<time datetime="2016-11-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-08</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内置指令/">内置指令</a></li></ul>
 	</div>
 
       
@@ -902,7 +834,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 10px;">WebStorm</a> <a href="/tags/Webstrom/" style="font-size: 10px;">Webstrom</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/idoc/" style="font-size: 10px;">idoc</a> <a href="/tags/nodePPT/" style="font-size: 10px;">nodePPT</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/指令/" style="font-size: 15px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/方法/" style="font-size: 10px;">方法</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/购物车/" style="font-size: 10px;">购物车</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a>
+    				<a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 16.67px;">JS</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 13.33px;">WebStorm</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/git/" style="font-size: 16.67px;">git</a> <a href="/tags/idoc/" style="font-size: 10px;">idoc</a> <a href="/tags/nodePPT/" style="font-size: 10px;">nodePPT</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/内置指令/" style="font-size: 10px;">内置指令</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/指令/" style="font-size: 16.67px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/方法/" style="font-size: 10px;">方法</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/购物车/" style="font-size: 10px;">购物车</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a>
     			</div>
     	</section>
     
