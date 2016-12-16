@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>AngularJs过滤器 | 杨小杰的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="filter的两种使用方法1、在模板中使用filter
+我们可以直接在 &amp;#123;&amp;#123;&amp;#125;&amp;#125; 中使用filter，跟在表达式后面用 &amp;#124; 分割
+
+1&amp;#123;&amp;#123; expression | filter &amp;#125;&amp;#125;
+
+也可以多个filter连用，上一个filter的输出将作为下一个filter的输入
+1&amp;#123;&amp;#123; expre">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AngularJs过滤器">
+<meta property="og:url" content="http://yoursite.com/2016/12/16/Angular的过滤器/index.html">
+<meta property="og:site_name" content="杨小杰的博客">
+<meta property="og:description" content="filter的两种使用方法1、在模板中使用filter
+我们可以直接在 &amp;#123;&amp;#123;&amp;#125;&amp;#125; 中使用filter，跟在表达式后面用 &amp;#124; 分割
+
+1&amp;#123;&amp;#123; expression | filter &amp;#125;&amp;#125;
+
+也可以多个filter连用，上一个filter的输出将作为下一个filter的输入
+1&amp;#123;&amp;#123; expre">
+<meta property="og:updated_time" content="2016-12-16T11:06:28.330Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AngularJs过滤器">
+<meta name="twitter:description" content="filter的两种使用方法1、在模板中使用filter
+我们可以直接在 &amp;#123;&amp;#123;&amp;#125;&amp;#125; 中使用filter，跟在表达式后面用 &amp;#124; 分割
+
+1&amp;#123;&amp;#123; expression | filter &amp;#125;&amp;#125;
+
+也可以多个filter连用，上一个filter的输出将作为下一个filter的输入
+1&amp;#123;&amp;#123; expre">
+  
+    <link rel="alternative" href="/atom.xml" title="杨小杰的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/assets/img/y.ico">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://awb.img.xmtbang.com/img/uploadnew/201510/23/94d7bfd74ec74104b63961b53b488093.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">杨小杰</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives">所有文章</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">实用链接</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/liulangxiaojie" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">杨小杰</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://awb.img.xmtbang.com/img/uploadnew/201510/23/94d7bfd74ec74104b63961b53b488093.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">杨小杰</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/liulangxiaojie" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Angular的过滤器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      AngularJs过滤器
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="filter的两种使用方法"><a href="#filter的两种使用方法" class="headerlink" title="filter的两种使用方法"></a>filter的两种使用方法</h1><h3 id="1、在模板中使用filter"><a href="#1、在模板中使用filter" class="headerlink" title="1、在模板中使用filter"></a>1、在模板中使用filter</h3><ul>
+<li>我们可以直接在 &#123;&#123;&#125;&#125; 中使用filter，跟在表达式后面用 &#124; 分割</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; expression | filter &#125;&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>也可以多个filter连用，上一个filter的输出将作为下一个filter的输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; expression | filter1 | filter2 | ... &#125;&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>filter可以接收参数，参数用 : 进行分割</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; expression | filter:argument1:argument2:... &#125;&#125;</div></pre></td></tr></table></figure>
+<h3 id="2、在控制器controller、指令directive和服务service中使用filter"><a href="#2、在控制器controller、指令directive和服务service中使用filter" class="headerlink" title="2、在控制器controller、指令directive和服务service中使用filter"></a>2、在控制器controller、指令directive和服务service中使用filter</h3><ul>
+<li>在指令中使用filter，例如先对数组array进行过滤处理，然后再循环输出</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;span ng-repeat=&quot;a in array | filter &quot;&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>controller中使用currency过滤器，只需将它注入到该controller中即可</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.controller(&apos;testC&apos;,function($scope,currencyFilter)&#123;</div><div class="line">    $scope.num = currencyFilter(123534);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在页面中使用 &#123;&#123;num&#125;&#125; 就可以直接输出 $123,534.00了</p>
+<ul>
+<li>在controller中使用多个filter,ng提供了一个$filter服务可以来调用所需的filter，你只需注入一个$filter可以达到同样的效果</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">app.controller(&apos;testC&apos;,function($scope,$filter)&#123;</div><div class="line">    $scope.num = $filter(&apos;currency&apos;)(123534);</div><div class="line">　　$scope.date = $filter(&apos;date&apos;)(new Date());  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="ng的内置过滤器"><a href="#ng的内置过滤器" class="headerlink" title="ng的内置过滤器"></a>ng的内置过滤器</h1><ul>
+<li>1、currency</li>
+</ul>
+<blockquote>
+<p>使用currency可以将数字格式化为货币，默认是美元符号，你可以自己传入所需的符号</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123;num | currency : &apos;￥&apos;&#125;&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>2、date</li>
+</ul>
+<blockquote>
+<p>原生的js对日期的格式化能力有限，ng提供的date过滤器基本可以满足一般的格式化要求</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123;date | date : &apos;yyyy-MM-dd hh:mm:ss EEEE&apos;&#125;&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>3、filter<blockquote>
+<p>用来处理一个数组，然后可以过滤出含有某个子串的元素，作为一个子数组来返回。可以是字符串数组，也可以是对象数组。如果是对象数组，可以匹配属性的值。它接收一个参数，用来定义子串的匹配规则</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$scope.childrenArray = [</div><div class="line">    &#123;name:&apos;kimi&apos;,age:3&#125;,</div><div class="line">    &#123;name:&apos;cindy&apos;,age:4&#125;,</div><div class="line">    &#123;name:&apos;anglar&apos;,age:4&#125;,</div><div class="line">    &#123;name:&apos;shitou&apos;,age:6&#125;,</div><div class="line">    &#123;name:&apos;tiantian&apos;,age:5&#125;</div><div class="line">];</div><div class="line">$scope.func = function(e)&#123;return e.age&gt;4;&#125;</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; childrenArray | filter : &apos;a&apos; &#125;&#125; //匹配属性值中含有a的</div><div class="line">&#123;&#123; childrenArray | filter : 4 &#125;&#125;  //匹配属性值中含有4的</div><div class="line">&#123;&#123; childrenArray | filter : &#123;name : &apos;i&apos;&#125; &#125;&#125; //参数是对象，匹配name属性中含有i的</div><div class="line">&#123;&#123;childrenArray | filter : func &#125;&#125;  //参数是函数，指定返回age&gt;4的</div></pre></td></tr></table></figure>
+<ul>
+<li>4、json<blockquote>
+<p>可以把一个js对象格式化为json字符串，没有参数。也可以用在js中使用，作用就和我们熟悉的JSON . stringify （）一样。</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; jsonTest | json&#125;&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>5、limitTo</li>
+</ul>
+<blockquote>
+<p>用来截取数组或字符串，接收一个参数用来指定截取的长度，如果参数是负值，则从数组尾部开始截取。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; childrenArray | limitTo : 2 &#125;&#125;  //将会显示数组中的前两项</div></pre></td></tr></table></figure>
+<ul>
+<li>6、lowercase</li>
+</ul>
+<blockquote>
+<p>把数据转化为全部小写,没有参数，只能把整个字符串变为小写，不能指定字母。</p>
+</blockquote>
+<ul>
+<li>7、uppercase</li>
+</ul>
+<blockquote>
+<p>同上。</p>
+</blockquote>
+<ul>
+<li>8、number</li>
+</ul>
+<blockquote>
+<p>可以为一个数字加上千位分割，像这样，123,456,789。同时接收一个参数，可以指定float类型保留几位小数,num这个变量必须是数字，不是数组</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; num | number : 2 &#125;&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>9、orderBy<blockquote>
+<p>orderBy过滤器可以将一个数组中的元素进行排序，接收一个参数来指定排序规则，参数可以是一个字符串，表示以该属性名称进行排序。可以是一个函数，定义排序属性。还可以是一个数组，表示依次按数组中的属性值进行排序（若按第一项比较的值相等，再按第二项比较）</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$scope.childrenArray = [</div><div class="line">    &#123;name:&apos;kimi&apos;,age:3&#125;,</div><div class="line">    &#123;name:&apos;cindy&apos;,age:4&#125;,</div><div class="line">    &#123;name:&apos;anglar&apos;,age:4&#125;,</div><div class="line">    &#123;name:&apos;shitou&apos;,age:6&#125;,</div><div class="line">    &#123;name:&apos;tiantian&apos;,age:5&#125;</div><div class="line">];</div></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&#123;&#123; childrenArray | orderBy : &apos;age&apos; &#125;&#125;&lt;/div&gt;      //按age属性值进行排序，若是-age，则倒序</div><div class="line">&lt;div&gt;&#123;&#123; childrenArray | orderBy : orderFunc &#125;&#125;&lt;/div&gt;   //按照函数的返回值进行排序</div><div class="line">&lt;div&gt;&#123;&#123; childrenArray | orderBy : [&apos;age&apos;,&apos;name&apos;] &#125;&#125;&lt;/div&gt;  //如果age相同，按照name进行排序</div></pre></td></tr></table></figure>
+<h1 id="自定义过滤器"><a href="#自定义过滤器" class="headerlink" title="自定义过滤器"></a>自定义过滤器</h1><blockquote>
+<p>使用module的filter方法，返回一个函数，该函数接收输入值，并返回处理后的结果。</p>
+</blockquote>
+<ul>
+<li><p>字符串的首字母大写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;&#123;&apos;welcome       to    beijing&apos; | capitalize&#125;&#125;//Welcome To Beijing</div><div class="line"></div><div class="line">var app = angular.module(&apos;appModule&apos;,[]);  //通过模块创建过滤器</div><div class="line"></div><div class="line">app.filter(&apos;capitalize&apos;,function (uppercaseFilter) &#123;</div><div class="line">    return function (data, param1, param2) &#123;</div><div class="line">        var reg=/^[a-z]| [a-z]/g;</div><div class="line">        data=data.replace(reg,function (item, index) &#123;</div><div class="line">            return uppercaseFilter(item);</div><div class="line">         &#125;);</div><div class="line">        return data;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>一个数组中下标为奇数的元素</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">app.filter(&apos;odditems&apos;,function()&#123;</div><div class="line">    return function(inputArray)&#123;</div><div class="line">        var array = [];</div><div class="line">        for(var i=0;i&lt;inputArray.length;i++)&#123;</div><div class="line">            if(i%2!==0)&#123;</div><div class="line">                array.push(inputArray[i]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return array;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/16/Angular的过滤器/" class="archive-article-date">
+  	<time datetime="2016-12-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-16</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJs/">AngularJs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/过滤器/">过滤器</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/12/16/Angular作用域之间的通信/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Angular作用域之间的通信</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+<div class="share_addthis share_jia">
+  <div class="sharing addthis_toolbox share">
+  	<span class="jiathis_txt">Share to: &nbsp; </span>
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Angular的过滤器" data-title="AngularJs过滤器" data-url="http://yoursite.com/2016/12/16/Angular的过滤器/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 杨小杰
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/broadcast/" style="font-size: 10px;">$broadcast</a> <a href="/tags/emit/" style="font-size: 10px;">$emit</a> <a href="/tags/on/" style="font-size: 10px;">$on</a> <a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/AngularJs/" style="font-size: 16.67px;">AngularJs</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 16.67px;">JS</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 13.33px;">WebStorm</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/git/" style="font-size: 16.67px;">git</a> <a href="/tags/idoc/" style="font-size: 10px;">idoc</a> <a href="/tags/nodePPT/" style="font-size: 10px;">nodePPT</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/内置指令/" style="font-size: 10px;">内置指令</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/指令/" style="font-size: 16.67px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/方法/" style="font-size: 10px;">方法</a> <a href="/tags/服务/" style="font-size: 10px;">服务</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/购物车/" style="font-size: 10px;">购物车</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a> <a href="/tags/过滤器/" style="font-size: 10px;">过滤器</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.zybuluo.com/mdeditor">Markdown语法参考链接</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.itheima.com/webmap">前端学习路线图</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;我只是一直年幼的程序员&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
