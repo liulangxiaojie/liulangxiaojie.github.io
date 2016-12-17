@@ -871,7 +871,7 @@ body {
 }
 
 .article-entry .highlight .line {
-  color: #fff
+  color: #000;
 }
 
 .article-entry .gist {
