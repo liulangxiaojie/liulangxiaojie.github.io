@@ -37,7 +37,7 @@ html {
 body {
   margin: 0;
   font-size: 14px;
-  font-family:ff-tisa-web-pro-1, ff-tisa-web-pro-2, Lucida Grande, Hiragino Sans GB, Hiragino Sans GB W3, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
+  font-family:"ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   line-height: 1.5;
   color: #333;
   background-color: #fff;
@@ -515,7 +515,7 @@ i {
 
 body, button, input, select, textarea {
   color: #1a1a1a;
-  font-family: lucida grande, lucida sans unicode, lucida, helvetica, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
+  font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.75
@@ -1993,9 +1993,9 @@ body.archive-inner .archive-article-date .icon-clock {
   content: "";
   width: 6px;
   height: 6px;
-  border: 1px solid #999;
+  border: 1px solid #000;
   border-radius: 10px;
-  background: #aaa;
+  background: #000;
   display: inline-block;
   margin-right: 10px;
   float: left;
