@@ -37,11 +37,12 @@ html {
 body {
   margin: 0;
   font-size: 14px;
-  font-family: Helvetica Neue, Helvetica, STHeiTi, Arial, sans-serif;
+  font-family:ff-tisa-web-pro-1, ff-tisa-web-pro-2, Lucida Grande, Hiragino Sans GB, Hiragino Sans GB W3, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
   line-height: 1.5;
   color: #333;
   background-color: #fff;
-  min-height: 100%
+  min-height: 100%;
+  font-weight: lighter;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
@@ -790,8 +791,8 @@ body {
 }
 
 .article-entry .highlight, .article-entry pre {
-  /*background: #272822;*/
-  background: #eee;
+  background: #e8f2fb;
+  border: 1px solid #c9e1f6;
   margin: 10px 0;
   padding: 10px;
   overflow: auto;
@@ -1971,12 +1972,12 @@ body.archive-inner .archive-article-date .icon-clock {
 }
 
 .article-entry blockquote {
-  background: #ddd;
   border-left: 5px solid #ccc;
   padding: 15px 20px;
   margin-top: 10px;
-  border-left: 5px solid #657b83;
-  background: #f6f6f6
+  background: #B9D3EE;
+  box-shadow: 0px 5px 5px #9FB6CD;
+  border-left: 6px solid #1874CD;
 }
 
 .article-entry blockquote p {
@@ -2056,7 +2057,7 @@ body.archive-inner .archive-article-date .icon-clock {
   margin-top: 10px;
   padding: 5px 15px;
   overflow-x: auto;
-  color: #657b83;
+  color: #000;
   border: 1px solid #ccc;
   text-shadow: 0 1px #444;
   font-family: Menlo, Monaco, Andale Mono, lucida console, Courier New, monospace
