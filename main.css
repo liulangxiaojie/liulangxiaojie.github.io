@@ -1812,9 +1812,10 @@ body.archive-inner .archive-article-date .icon-clock {
 }
 
 .article-inner h1.article-title, .article-title {
-  color: #696969;
+  color: #000;
   margin-left: 0;
   font-weight: 300;
+  font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   line-height: 35px;
   margin-bottom: 20px;
   font-size: 26px;
