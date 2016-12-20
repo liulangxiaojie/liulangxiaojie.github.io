@@ -18,7 +18,7 @@
 <meta property="og:description" content="path是Node的一个核心模块引入方式1var path = require(&amp;apos;path&amp;apos;);
 路径的拼接123//将两个或者多个路径连接到一起var pathJoin = path.join(__dirname,&amp;apos;views&amp;apos;,&amp;apos;..&amp;apos;);// console.log(pathJoin);//拼出完整的绝对路径
 返回指定的文件名123">
-<meta property="og:updated_time" content="2016-12-20T15:39:29.212Z">
+<meta property="og:updated_time" content="2016-12-20T15:49:59.372Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node之path">
 <meta name="twitter:description" content="path是Node的一个核心模块引入方式1var path = require(&amp;apos;path&amp;apos;);
@@ -173,8 +173,6 @@
 <h3 id="路径的拼接"><a href="#路径的拼接" class="headerlink" title="路径的拼接"></a>路径的拼接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//将两个或者多个路径连接到一起</div><div class="line">var pathJoin = path.join(__dirname,&apos;views&apos;,&apos;..&apos;);</div><div class="line">// console.log(pathJoin);//拼出完整的绝对路径</div></pre></td></tr></table></figure>
 <h3 id="返回指定的文件名"><a href="#返回指定的文件名" class="headerlink" title="返回指定的文件名"></a>返回指定的文件名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">path.basename(&apos;/foo/bar/baz/asdf/quux.html&apos;)</div><div class="line">=&gt;&apos;quux.html&apos;</div><div class="line"> </div><div class="line">path.basename(&apos;/foo/bar/baz/asdf/quux.html&apos;, &apos;.html&apos;)</div><div class="line">=&gt;&apos;quux&apos;</div></pre></td></tr></table></figure>
 <h3 id="返回指定文件名的扩展名称"><a href="#返回指定文件名的扩展名称" class="headerlink" title="返回指定文件名的扩展名称"></a>返回指定文件名的扩展名称</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">path.extname(&apos;index.html&apos;)</div><div class="line">=&gt;&apos;.html&apos;</div><div class="line"> </div><div class="line">path.extname(&apos;index.&apos;)</div><div class="line">=&gt;&apos;.&apos;</div><div class="line"> </div><div class="line">path.extname(&apos;index&apos;)</div><div class="line">=&gt;&apos;&apos;</div></pre></td></tr></table></figure>
-<p>console.log(path.join(base,ext));</p>
-<p>var sep = path.sep;// 可以判断当前操作系统<br>console.log(sep);  // /user/bin  //E:\<br>var de = path.delimiter;<br>console.log(de);<br>console.log(de);//环境变量分隔符  ：</p>
 <h3 id="格式化路径"><a href="#格式化路径" class="headerlink" title="格式化路径"></a>格式化路径</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var normal=path.normalize(&apos;/foo/bar//baz/asdf/quux/..&apos;);</div><div class="line">=&gt; &apos;/foo/bar/baz/asdf&apos;</div></pre></td></tr></table></figure>
 <h3 id="路径解析"><a href="#路径解析" class="headerlink" title="路径解析"></a>路径解析</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var resolve = path.resolve(&apos;///../a////vv//./c/&apos;);</div><div class="line">console.log(resolve);//\a\vv\c</div></pre></td></tr></table></figure>
 <h3 id="当前目录的上一级"><a href="#当前目录的上一级" class="headerlink" title="当前目录的上一级"></a>当前目录的上一级</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var  = path.dirname(&apos;a/v/c&apos;)</div><div class="line">console.log(myPath);</div></pre></td></tr></table></figure>
@@ -204,9 +202,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2016/12/20/Node之fs/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Node之fs
+        
+      </div>
+    </a>
   
-    <a href="/2016/12/20/Node之fs/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Node之fs</div>
+  
+    <a href="/2016/12/16/Angular的五种服务/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Angular的五种服务</div>
       <i class="icon-circle-right"></i>
     </a>
   
