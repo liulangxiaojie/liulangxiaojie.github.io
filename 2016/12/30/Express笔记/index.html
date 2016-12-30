@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>Express笔记 | 杨小杰的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1、倒入模块12var express = require(&amp;apos;express&amp;apos;);var app = express();
+2、启动http服务器，监听一个端口123app.listen(8080,function () &amp;#123;    console.log(8080);&amp;#125;)
+3、路由定义一个路由 当客户端以GET的请求方式访问/路径的时候执行回应的回调函数
+1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Express笔记">
+<meta property="og:url" content="http://yoursite.com/2016/12/30/Express笔记/index.html">
+<meta property="og:site_name" content="杨小杰的博客">
+<meta property="og:description" content="1、倒入模块12var express = require(&amp;apos;express&amp;apos;);var app = express();
+2、启动http服务器，监听一个端口123app.listen(8080,function () &amp;#123;    console.log(8080);&amp;#125;)
+3、路由定义一个路由 当客户端以GET的请求方式访问/路径的时候执行回应的回调函数
+1">
+<meta property="og:updated_time" content="2016-12-30T14:49:02.123Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Express笔记">
+<meta name="twitter:description" content="1、倒入模块12var express = require(&amp;apos;express&amp;apos;);var app = express();
+2、启动http服务器，监听一个端口123app.listen(8080,function () &amp;#123;    console.log(8080);&amp;#125;)
+3、路由定义一个路由 当客户端以GET的请求方式访问/路径的时候执行回应的回调函数
+1">
+  
+    <link rel="alternative" href="/atom.xml" title="杨小杰的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/assets/img/y.ico">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://awb.img.xmtbang.com/img/uploadnew/201510/23/94d7bfd74ec74104b63961b53b488093.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">杨小杰</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives">所有文章</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">实用链接</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/liulangxiaojie" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">杨小杰</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://awb.img.xmtbang.com/img/uploadnew/201510/23/94d7bfd74ec74104b63961b53b488093.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">杨小杰</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/liulangxiaojie" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-Express笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Express笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1、倒入模块"><a href="#1、倒入模块" class="headerlink" title="1、倒入模块"></a>1、倒入模块</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var app = express();</div></pre></td></tr></table></figure>
+<h3 id="2、启动http服务器，监听一个端口"><a href="#2、启动http服务器，监听一个端口" class="headerlink" title="2、启动http服务器，监听一个端口"></a>2、启动http服务器，监听一个端口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.listen(8080,function () &#123;</div><div class="line">    console.log(8080);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="3、路由"><a href="#3、路由" class="headerlink" title="3、路由"></a>3、路由</h3><p>定义一个路由 当客户端以GET的请求方式访问/路径的时候执行回应的回调函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">app.get(&apos;/&apos;,function(req,res)&#123;</div><div class="line">    res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=utf-8&apos;);//设置响应头的文件类型个编码格式</div><div class="line">    res.end(&apos;首页&apos;);</div><div class="line">&#125;);</div><div class="line">app.get(&apos;/login&apos;,function(req,res)&#123;</div><div class="line">    res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=utf-8&apos;);</div><div class="line">    res.end(&apos;登录&apos;);</div><div class="line">&#125;);</div><div class="line">app.get(&apos;/user&apos;,function(req,res)&#123;</div><div class="line">    res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=utf-8&apos;);</div><div class="line">    res.end(&apos;用户主页&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>all能匹配所有的方法 * 能匹配所有的路径,当访问的路径不存在的话，就会匹配到all方法</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">app.all(&apos;*&apos;,function(req,res)&#123;</div><div class="line">    res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=utf-8&apos;);</div><div class="line">    res.end(&apos;你访问的页面不存在&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="4、查看某个用户的信息"><a href="#4、查看某个用户的信息" class="headerlink" title="4、查看某个用户的信息"></a>4、查看某个用户的信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">如何获取请求的参数</div><div class="line"></div><div class="line">app.get(&apos;/login&apos;,function(req,res)&#123;</div><div class="line">  console.log(req.method);</div><div class="line">  // /login?name=zfpx&amp;age=8</div><div class="line">  console.log(req.url);//获取完整的URL地址</div><div class="line">  console.log(req.path);//获取路径名，其实就是？前面的部分</div><div class="line">  console.log(req.query);//查询字符串对象</div><div class="line">  console.log(req.headers);//获取请求头对象</div><div class="line">  res.end(&apos;query&apos;);</div><div class="line">&#125;);</div><div class="line">//我要查看某个用户的信息</div><div class="line">var users = [</div><div class="line">    &#123;id:1,name:&apos;zfpx1&apos;&#125;,</div><div class="line">    &#123;id:2,name:&apos;zfpx2&apos;&#125;,</div><div class="line">    &#123;id:3,name:&apos;zfpx3&apos;&#125;,</div><div class="line">    &#123;id:4,name:&apos;zfpx3&apos;&#125;</div><div class="line">];</div><div class="line"></div><div class="line">app.get(/\/user\/\d+/,function(req,res)&#123;</div><div class="line">    res.end(req.url);</div><div class="line">&#125;);</div><div class="line">//路径参数</div><div class="line">app.get(&apos;/user/:id/:name&apos;,function(req,res)&#123;</div><div class="line">    var id = req.params.id;</div><div class="line">    var name = req.params.name;</div><div class="line">    var user = users.find(function(item)&#123;</div><div class="line">        return item.id == id;</div><div class="line">    &#125;);</div><div class="line">    //write end 只能接收字符串或者buffer</div><div class="line">    res.end(JSON.stringify(user));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="5、中间件"><a href="#5、中间件" class="headerlink" title="5、中间件"></a>5、中间件</h3><p>中间件就是在执行路由函数之前的函数<br>next也是一个函数，中间件里的请求对象和响应对象和路由中的是同一个；</p>
+<ul>
+<li><ol>
+<li>执行一些公共的逻辑，比如设置内容类型</li>
+</ol>
+</li>
+<li><ol>
+<li>添加一些公共的方法和属性 req.query req.path req.send</li>
+</ol>
+</li>
+<li><ol>
+<li>还可以覆盖一些原有方法，插入我们自己的逻辑<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//app.use就是一个中间件，回调函数里边三个参数req,res,next，只有中间件里边调用next方法的时候，才行执行下边的函数；</div><div class="line">//在中间件里边设置响应头的类型和编码格式，就不用在路由里边再设置了，减少代码重复</div><div class="line"></div><div class="line">app.use(function(req,res,next)&#123;</div><div class="line">    res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=utf8&apos;);</div><div class="line">    next();</div><div class="line">&#125;);</div><div class="line">app.get(&apos;/&apos;,function(req,res)&#123;</div><div class="line">    res.end(&apos;首页&apos;);</div><div class="line">&#125;);</div><div class="line">app.get(&apos;/login&apos;,function(req,res)&#123;</div><div class="line">    res.end(&apos;登录&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">for(var i=0;i&lt;wares.length;i++)&#123;</div><div class="line">    app.use(wares[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>中间价的执行</p>
+</blockquote>
+<p>执行完成后必须调用next方法，如果不调用的话就不能执行下边的中间价</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">app.use(function(req,res,next)&#123;</div><div class="line">    console.log(1);</div><div class="line">    next();</div><div class="line">&#125;);</div><div class="line">app.use(function(req,res,next)&#123;</div><div class="line">    console.log(2);</div><div class="line">    next();</div><div class="line">&#125;);</div><div class="line">app.use(function(req,res,next)&#123;</div><div class="line">    console.log(3);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>中间件里可以放路径，但这个路径的含义是只要请求的URL以这个路径开头就可以</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">app.use(&apos;/user&apos;,function(req,res,next)&#123;</div><div class="line">   req.money = 100;</div><div class="line">   next();</div><div class="line">&#125;);</div><div class="line">app.use(&apos;/user&apos;,function(req,res,next)&#123;</div><div class="line">    req.money -=50;</div><div class="line">    next();</div><div class="line">&#125;);</div><div class="line">app.use(&apos;/user&apos;,function(req,res,next)&#123;</div><div class="line">    req.money -=30;</div><div class="line">    next(&apos;err&apos;);//next函数里边可以传参，传参代表错误中间件</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//错误处理中间件</div><div class="line">app.use(&apos;/user&apos;,function(err,req,res,next)&#123;</div><div class="line">   console.log(err);</div><div class="line">   res.end(&apos;错误:&apos;+err);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="6、中间件搭配路由"><a href="#6、中间件搭配路由" class="headerlink" title="6、中间件搭配路由"></a>6、中间件搭配路由</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//倒入模块</div><div class="line">var user = require(&apos;./routes/user&apos;);</div><div class="line">如果客户端访问的路径是以/article开头的话，</div><div class="line">app.use(&apos;/user&apos;,user); //路由的配置</div><div class="line">// /article/add  发表文章 /article/delete 删除文章</div><div class="line"></div><div class="line">``` </div><div class="line"></div><div class="line">&gt; router是一个中间件函数，不使用app.get,直接使用router.get</div></pre></td></tr></table></figure>
+<p>var router = express.Router();<br>//增加文章<br>router.get(‘/add’,function(req,res){<br>  res.end(‘增加文章’);<br>});<br>//删除文章<br>router.get(‘/delete’,function(req,res){<br>    res.end(‘删除文章’);<br>});<br>module.exports = router;//导出路由模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 7、模板引擎的设置</div></pre></td></tr></table></figure></p>
+<p>/**</p>
+<ul>
+<li>1.拼出来模板绝对路径</li>
+<li>2.从硬盘上读出此模板，得到模板字符串</li>
+<li>3.把模板字符串中的变量替换真实的值，真实的值从对象而来</li>
+<li>4.把替换后的字符串返回给客户端<br>*/<br>var express = require(‘express’);<br>var path = require(‘path’);<br>var fs = require(‘fs’);<br>var app = express();<br>//设置模板引擎 ejs<br>app.set(‘view engine’,’ejs’);<br>//模板的存放目录的绝对路径<br>app.set(‘views’,path.resolve(‘views’));<br>//静态文件中间件，也是express自己亲自的一个唯一中间件<br>//参数指定的是静态文件根目录<br>//可以指定多个静态文件根目录<br>app.use(express.static(path.join(__dirname,’public’)));<br>app.use(express.static(path.resolve(‘../node_modules’)));</li>
+</ul>
+<p>app.get(‘/users’,function(req,res){<br>    //1 参数是模板的相对路径 2 参数是数据对象<br>    //模板中的变量会从数据对象的属性取值<br>    //模板的渲染把静态模板里的变量用数据对象的属性替换掉<br>   res.render(‘user’,{users:users});<br>});</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 8、重定向</div><div class="line"></div><div class="line">redirect方法允许网址的重定向,跳转到指定的url并且可以指定status，默认为302方式。 语法</div></pre></td></tr></table></figure>
+<p>res.redirect([status], url);</p>
+<p>//所有匹配到的全都定向到/这个路径下边<br>app.all(‘*’,function(req,res){<br>    res.redirect(‘/‘);<br>})<br>```</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/30/Express笔记/" class="archive-article-date">
+  	<time datetime="2016-12-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-30</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/12/30/gulp的总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          gulp总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/20/Node之fs/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Node之fs</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+<div class="share_addthis share_jia">
+  <div class="sharing addthis_toolbox share">
+  	<span class="jiathis_txt">Share to: &nbsp; </span>
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Express笔记" data-title="Express笔记" data-url="http://yoursite.com/2016/12/30/Express笔记/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 杨小杰
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/broadcast/" style="font-size: 10px;">$broadcast</a> <a href="/tags/emit/" style="font-size: 10px;">$emit</a> <a href="/tags/on/" style="font-size: 10px;">$on</a> <a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/AngularJs/" style="font-size: 12.5px;">AngularJs</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/Node/" style="font-size: 17.5px;">Node</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 12.5px;">WebStorm</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/express/" style="font-size: 12.5px;">express</a> <a href="/tags/fs/" style="font-size: 10px;">fs</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/idoc/" style="font-size: 10px;">idoc</a> <a href="/tags/inherits/" style="font-size: 10px;">inherits</a> <a href="/tags/nodePPT/" style="font-size: 10px;">nodePPT</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/path/" style="font-size: 10px;">path</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/内置指令/" style="font-size: 10px;">内置指令</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/指令/" style="font-size: 15px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/方法/" style="font-size: 10px;">方法</a> <a href="/tags/服务/" style="font-size: 10px;">服务</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/购物车/" style="font-size: 10px;">购物车</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a> <a href="/tags/过滤器/" style="font-size: 10px;">过滤器</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.zybuluo.com/mdeditor">Markdown语法参考链接</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.itheima.com/webmap">前端学习路线图</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;我只是一直年幼的程序员&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
