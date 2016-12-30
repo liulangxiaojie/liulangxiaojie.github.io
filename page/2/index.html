@@ -143,7 +143,7 @@
       <div class="body-wrap">
         
   
-    <article id="post-nodeppt" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-idoc文档生成" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -153,7 +153,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/11/nodeppt/">nodePPT的使用</a>
+      <a class="article-title" href="/2016/12/11/idoc文档生成/">idoc博客</a>
     </h1>
   
 
@@ -161,75 +161,50 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="nodePPT的使用"><a href="#nodePPT的使用" class="headerlink" title="nodePPT的使用"></a>nodePPT的使用</h2><ul>
-<li><p>nodeppt是基于nodejs写的支持 <strong>Markdown!</strong> 语法的网页PPT,语法和 <strong>Markdown!</strong> 一样</p>
-</li>
-<li><p>多种模式：<code>overview模式</code> ， <code>双屏模式</code>， <code>socket远程控制</code> ，使用手机或者ipad摇一摇换页更加炫酷！</p>
-</li>
-</ul>
-<h3 id="安装nodePPT"><a href="#安装nodePPT" class="headerlink" title="安装nodePPT"></a>安装nodePPT</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install nodeppt -g</div></pre></td></tr></table></figure>
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node start -p 8000</div></pre></td></tr></table></figure>
-<h3 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodeppt start -h</div></pre></td></tr></table></figure>
-<h3 id="单页面的动画"><a href="#单页面的动画" class="headerlink" title="单页面的动画"></a>单页面的动画</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[slide data-transition=&quot;vertical3d&quot;]</div></pre></td></tr></table></figure>
-<h3 id="单页面的背景图片"><a href="#单页面的背景图片" class="headerlink" title="单页面的背景图片"></a>单页面的背景图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[slide style=&quot;background-image:url(&apos;/img/bg1.png&apos;)&quot;]</div></pre></td></tr></table></figure>
-<h3 id="支持的转场动画"><a href="#支持的转场动画" class="headerlink" title="支持的转场动画"></a>支持的转场动画</h3><ul>
-<li><p>kontext</p>
-</li>
-<li><p>vkontext</p>
-</li>
-<li><p>circle</p>
-</li>
-<li><p>earthquake</p>
-</li>
-<li><p>cards</p>
-</li>
-<li><p>glue</p>
-</li>
-<li><p>stick</p>
-</li>
-<li><p>move</p>
-</li>
-<li><p>newspaper</p>
-</li>
-<li><p>slide</p>
-</li>
-<li><p>slide2</p>
-</li>
-<li><p>slide3</p>
-</li>
-<li><p>horizontal3d</p>
-</li>
-<li><p>horizontal</p>
-</li>
-<li><p>vertical3d</p>
-</li>
-<li><p>zoomin</p>
-</li>
-<li><p>zoomout</p>
-</li>
-<li><p>pulse</p>
-</li>
-</ul>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><blockquote>
-<p>启动的时候确保当前文件夹下有md格式的文件</p>
-<p>md文件的格式</p>
+        <h2 id="idoc文档生成"><a href="#idoc文档生成" class="headerlink" title="idoc文档生成"></a>idoc文档生成</h2><blockquote>
+<p>idoc类似于hexo生成博客，然后推送到github上边，和hexo相比，idoc更加的简单，可以生成的博客页面也没有hexo那样有数量的限制；</p>
+<p>操作的时候，一个文件夹就生成一个分类，只需把相应的md文件放到文件夹下就可以；</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[slide] </div><div class="line">## 主页面样式 </div><div class="line">### </div><div class="line">----是上下分界线 </div><div class="line">----</div></pre></td></tr></table></figure>
-<h2 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h2><blockquote>
-<p>地址 <a href="https://github.com/ksky521/nodePPT" target="_blank" rel="external">https://github.com/ksky521/nodePPT</a></p>
+<ul>
+<li>1.安装idoc文档</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install fandoc/idoc -g</div></pre></td></tr></table></figure>
+<ul>
+<li>2.初始化</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fandoc init</div></pre></td></tr></table></figure>
+<ul>
+<li>3.构建</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fandoc build</div></pre></td></tr></table></figure>
+<ul>
+<li>4.启动服务</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fandoc server</div></pre></td></tr></table></figure>
+<ul>
+<li>5.推送</li>
+</ul>
+<blockquote>
+<p>在git上边新建的仓库分支必须是gh-pages</p>
+</blockquote>
+<ul>
+<li>原文地址</li>
+</ul>
+<blockquote>
+<p><a href="https://github.com/jaywcjlove/idoc" target="_blank" rel="external">https://github.com/jaywcjlove/idoc</a></p>
 </blockquote>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/12/11/nodeppt/" class="archive-article-date">
+      <a href="/2016/12/11/idoc文档生成/" class="archive-article-date">
   	<time datetime="2016-12-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-11</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodePPT/">nodePPT</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/idoc/">idoc</a></li></ul>
 	</div>
 
       
@@ -615,6 +590,83 @@
 
 
   
+    <article id="post-webstrom总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/08/webstrom总结/">WebStorm设置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装markdown语法提示插件"><a href="#安装markdown语法提示插件" class="headerlink" title="安装markdown语法提示插件"></a>安装markdown语法提示插件</h3><blockquote>
+<p>file-&gt;settings-&gt;plugin-&gt;browse responsitry -&gt; markdown navigator</p>
+</blockquote>
+<h3 id="编码格式"><a href="#编码格式" class="headerlink" title="编码格式"></a>编码格式</h3><blockquote>
+<p>file-&gt;settings-&gt; encoding -&gt; utf-8</p>
+</blockquote>
+<h3 id="npm设置"><a href="#npm设置" class="headerlink" title="npm设置"></a>npm设置</h3><blockquote>
+<p>file-&gt;settings-&gt;npm</p>
+</blockquote>
+<h3 id="代码支持的设置"><a href="#代码支持的设置" class="headerlink" title="代码支持的设置"></a>代码支持的设置</h3><blockquote>
+<p>file-&gt;settings-&gt; language -&gt; ecmascript6</p>
+</blockquote>
+<h3 id="快捷键的设置"><a href="#快捷键的设置" class="headerlink" title="快捷键的设置"></a>快捷键的设置</h3><blockquote>
+<p>file-&gt;settings-&gt; live template-&gt; javascript -&gt; define设置使用范围</p>
+<ul>
+<li>Abbreviation中填写要 设置的快捷键例如 con</li>
+<li>Template中填写 console.log($END$);//$END$ 是光标停留在小括号里边</li>
+</ul>
+</blockquote>
+<h3 id="取消自动保存"><a href="#取消自动保存" class="headerlink" title="取消自动保存"></a>取消自动保存</h3><blockquote>
+<p>file system -&gt; use save-write</p>
+</blockquote>
+<h3 id="设置光标所在行的背景颜色"><a href="#设置光标所在行的背景颜色" class="headerlink" title="设置光标所在行的背景颜色"></a>设置光标所在行的背景颜色</h3><blockquote>
+<p>editor -&gt; general -&gt; caret row</p>
+</blockquote>
+<h3 id="代码行号宽度的调整"><a href="#代码行号宽度的调整" class="headerlink" title="代码行号宽度的调整"></a>代码行号宽度的调整</h3><blockquote>
+<p>Editor -&gt; General -&gt;Gutter Icons -&gt; Ghow gutter icons</p>
+</blockquote>
+<h3 id="最新的激活码生成地址"><a href="#最新的激活码生成地址" class="headerlink" title="最新的激活码生成地址"></a>最新的激活码生成地址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://idea.lanyus.com/</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/08/webstrom总结/" class="archive-article-date">
+  	<time datetime="2016-12-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-08</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebStorm/">WebStorm</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-常用nrm工具命令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -675,83 +727,6 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nrm/">nrm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令/">命令</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-webstrom总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/08/webstrom总结/">WebStorm设置</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="安装markdown语法提示插件"><a href="#安装markdown语法提示插件" class="headerlink" title="安装markdown语法提示插件"></a>安装markdown语法提示插件</h3><blockquote>
-<p>file-&gt;settings-&gt;plugin-&gt;browse responsitry -&gt; markdown navigator</p>
-</blockquote>
-<h3 id="编码格式"><a href="#编码格式" class="headerlink" title="编码格式"></a>编码格式</h3><blockquote>
-<p>file-&gt;settings-&gt; encoding -&gt; utf-8</p>
-</blockquote>
-<h3 id="npm设置"><a href="#npm设置" class="headerlink" title="npm设置"></a>npm设置</h3><blockquote>
-<p>file-&gt;settings-&gt;npm</p>
-</blockquote>
-<h3 id="代码支持的设置"><a href="#代码支持的设置" class="headerlink" title="代码支持的设置"></a>代码支持的设置</h3><blockquote>
-<p>file-&gt;settings-&gt; language -&gt; ecmascript6</p>
-</blockquote>
-<h3 id="快捷键的设置"><a href="#快捷键的设置" class="headerlink" title="快捷键的设置"></a>快捷键的设置</h3><blockquote>
-<p>file-&gt;settings-&gt; live template-&gt; javascript -&gt; define设置使用范围</p>
-<ul>
-<li>Abbreviation中填写要 设置的快捷键例如 con</li>
-<li>Template中填写 console.log($END$);//$END$ 是光标停留在小括号里边</li>
-</ul>
-</blockquote>
-<h3 id="取消自动保存"><a href="#取消自动保存" class="headerlink" title="取消自动保存"></a>取消自动保存</h3><blockquote>
-<p>file system -&gt; use save-write</p>
-</blockquote>
-<h3 id="设置光标所在行的背景颜色"><a href="#设置光标所在行的背景颜色" class="headerlink" title="设置光标所在行的背景颜色"></a>设置光标所在行的背景颜色</h3><blockquote>
-<p>editor -&gt; general -&gt; caret row</p>
-</blockquote>
-<h3 id="代码行号宽度的调整"><a href="#代码行号宽度的调整" class="headerlink" title="代码行号宽度的调整"></a>代码行号宽度的调整</h3><blockquote>
-<p>Editor -&gt; General -&gt;Gutter Icons -&gt; Ghow gutter icons</p>
-</blockquote>
-<h3 id="最新的激活码生成地址"><a href="#最新的激活码生成地址" class="headerlink" title="最新的激活码生成地址"></a>最新的激活码生成地址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://idea.lanyus.com/</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/08/webstrom总结/" class="archive-article-date">
-  	<time datetime="2016-12-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-08</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebStorm/">WebStorm</a></li></ul>
 	</div>
 
       
@@ -928,6 +903,58 @@
 
 
   
+    <article id="post-用装饰行(自定义)指令封装一个插件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/04/用装饰行(自定义)指令封装一个插件/">装饰型指令(自定义指令)封装插件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="装饰型指令-自定义指令-封装插件"><a href="#装饰型指令-自定义指令-封装插件" class="headerlink" title="装饰型指令(自定义指令)封装插件"></a>装饰型指令(自定义指令)封装插件</h3><blockquote>
+<p>指令是抽取功能，把所有的公有的逻辑和方法都可以放到指令里边封装起来,在不同的页面中使用,不互相干扰，类似于构造函数封装的拖拽，直接new出来就可以；</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html ng-app="hello"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;装饰型指令&lt;/title&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        div&#123;</div><div class="line">            position: absolute;</div><div class="line">            top:0;</div><div class="line">            left:0;</div><div class="line">            width: 100px;</div><div class="line">            height: 100px;</div><div class="line">            background: red;</div><div class="line">            font-size: 50px;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div drag&gt;1&lt;/div&gt;</div><div class="line">&lt;div drag&gt;2&lt;/div&gt;</div><div class="line">&lt;div drag&gt;3&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script src="../angular.js"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    angular.module('hello',[]).directive('drag', function () &#123;</div><div class="line">        /*定义一个指令,指令的名字叫做 goodName,命名的时候是驼峰命名法，使用的时候用 - 分割，将大写转为小写,定义的时候goodName 使用的时候  good-name*/</div><div class="line">        return &#123;</div><div class="line">            link: function (scope,element,attrs) &#123;</div><div class="line">                //element为jq对象，可以直接使用on方法</div><div class="line">                element.on('mousedown', function (e) &#123;</div><div class="line">                    var disx= e.pageX-this.offsetLeft;</div><div class="line">                    var disy= e.pageY-this.offsetTop;</div><div class="line">                    angular.element(document).on('mousemove', function (e) &#123;</div><div class="line">                        //用document绑定mousemove方法，因为document是原生JS对象，没有on方法，所以给document包装一下变成jq对象</div><div class="line">                        element.css(&#123;</div><div class="line">                            //在jq中css方法是不需要加单位的，这里需要添加</div><div class="line">                            left:(e.pageX-disx)+'px',</div><div class="line">                            top:(e.pageY-disy)+'px'</div><div class="line">                        &#125;)</div><div class="line">                    &#125;);</div><div class="line">                    angular.element(document).on('mouseup', function () &#123;</div><div class="line">                        angular.element(document).off();</div><div class="line">                    &#125;);</div><div class="line">                    e.preventDefault();//阻止默认行为</div><div class="line">                &#125;)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/04/用装饰行(自定义)指令封装一个插件/" class="archive-article-date">
+  	<time datetime="2016-12-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-04</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指令/">指令</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/插件/">插件</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-WebStorm 2016.3激活方式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -966,58 +993,6 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebStorm/">WebStorm</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-用装饰行(自定义)指令封装一个插件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/04/用装饰行(自定义)指令封装一个插件/">装饰型指令(自定义指令)封装插件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="装饰型指令-自定义指令-封装插件"><a href="#装饰型指令-自定义指令-封装插件" class="headerlink" title="装饰型指令(自定义指令)封装插件"></a>装饰型指令(自定义指令)封装插件</h3><blockquote>
-<p>指令是抽取功能，把所有的公有的逻辑和方法都可以放到指令里边封装起来,在不同的页面中使用,不互相干扰，类似于构造函数封装的拖拽，直接new出来就可以；</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html ng-app="hello"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;装饰型指令&lt;/title&gt;</div><div class="line">    &lt;style&gt;</div><div class="line">        div&#123;</div><div class="line">            position: absolute;</div><div class="line">            top:0;</div><div class="line">            left:0;</div><div class="line">            width: 100px;</div><div class="line">            height: 100px;</div><div class="line">            background: red;</div><div class="line">            font-size: 50px;</div><div class="line">        &#125;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div drag&gt;1&lt;/div&gt;</div><div class="line">&lt;div drag&gt;2&lt;/div&gt;</div><div class="line">&lt;div drag&gt;3&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script src="../angular.js"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    angular.module('hello',[]).directive('drag', function () &#123;</div><div class="line">        /*定义一个指令,指令的名字叫做 goodName,命名的时候是驼峰命名法，使用的时候用 - 分割，将大写转为小写,定义的时候goodName 使用的时候  good-name*/</div><div class="line">        return &#123;</div><div class="line">            link: function (scope,element,attrs) &#123;</div><div class="line">                //element为jq对象，可以直接使用on方法</div><div class="line">                element.on('mousedown', function (e) &#123;</div><div class="line">                    var disx= e.pageX-this.offsetLeft;</div><div class="line">                    var disy= e.pageY-this.offsetTop;</div><div class="line">                    angular.element(document).on('mousemove', function (e) &#123;</div><div class="line">                        //用document绑定mousemove方法，因为document是原生JS对象，没有on方法，所以给document包装一下变成jq对象</div><div class="line">                        element.css(&#123;</div><div class="line">                            //在jq中css方法是不需要加单位的，这里需要添加</div><div class="line">                            left:(e.pageX-disx)+'px',</div><div class="line">                            top:(e.pageY-disy)+'px'</div><div class="line">                        &#125;)</div><div class="line">                    &#125;);</div><div class="line">                    angular.element(document).on('mouseup', function () &#123;</div><div class="line">                        angular.element(document).off();</div><div class="line">                    &#125;);</div><div class="line">                    e.preventDefault();//阻止默认行为</div><div class="line">                &#125;)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/04/用装饰行(自定义)指令封装一个插件/" class="archive-article-date">
-  	<time datetime="2016-12-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-04</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指令/">指令</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/插件/">插件</a></li></ul>
 	</div>
 
       
