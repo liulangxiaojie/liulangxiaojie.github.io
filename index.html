@@ -170,7 +170,7 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm init -y</div></pre></td></tr></table></figure>
 <p>执行后生成一个 <code>package.json</code> 文件，里边记录项目所依赖的文件</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"name"</span>: <span class="string">"learngulp"</span>,</div><div class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</div><div class="line">  <span class="string">"description"</span>: <span class="string">""</span>,</div><div class="line">  <span class="string">"main"</span>: <span class="string">"gulpfile.js"</span>,</div><div class="line">  <span class="string">"scripts"</span>: &#123;</div><div class="line">    <span class="string">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"keywords"</span>: [],</div><div class="line">  <span class="string">"author"</span>: <span class="string">""</span>,</div><div class="line">  <span class="string">"license"</span>: <span class="string">"ISC"</span>,</div><div class="line">  <span class="string">"devDependencies"</span>: &#123;</div><div class="line">    <span class="string">"gulp"</span>: <span class="string">"^3.9.1"</span>,</div><div class="line">    <span class="string">"gulp-concat"</span>: <span class="string">"^2.6.1"</span>,</div><div class="line">    <span class="string">"gulp-less"</span>: <span class="string">"^3.3.0"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="string">"dependencies"</span>: &#123;</div><div class="line">    <span class="string">"babel-preset-es2015"</span>: <span class="string">"^6.14.0"</span>,</div><div class="line">    <span class="string">"gulp"</span>: <span class="string">"^3.9.1"</span>,</div><div class="line">    <span class="string">"gulp-babel"</span>: <span class="string">"^6.1.2"</span>,</div><div class="line">    <span class="string">"gulp-concat"</span>: <span class="string">"^2.6.0"</span>,</div><div class="line">    <span class="string">"gulp-connect"</span>: <span class="string">"^5.0.0"</span>,</div><div class="line">    <span class="string">"gulp-inject"</span>: <span class="string">"^4.1.0"</span>,</div><div class="line">    <span class="string">"gulp-less"</span>: <span class="string">"^3.1.0"</span>,</div><div class="line">    <span class="string">"gulp-minify-css"</span>: <span class="string">"^1.2.4"</span>,</div><div class="line">    <span class="string">"gulp-minify-html"</span>: <span class="string">"^1.0.6"</span>,</div><div class="line">    <span class="string">"gulp-plumber"</span>: <span class="string">"^1.1.0"</span>,</div><div class="line">    <span class="string">"gulp-rename"</span>: <span class="string">"^1.2.2"</span>,</div><div class="line">    <span class="string">"gulp-uglify"</span>: <span class="string">"^2.0.0"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;name&quot;: &quot;learngulp&quot;,</div><div class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</div><div class="line">  &quot;description&quot;: &quot;&quot;,</div><div class="line">  &quot;main&quot;: &quot;gulpfile.js&quot;,</div><div class="line">  &quot;scripts&quot;: &#123;</div><div class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</div><div class="line">  &#125;,</div><div class="line">  &quot;keywords&quot;: [],</div><div class="line">  &quot;author&quot;: &quot;&quot;,</div><div class="line">  &quot;license&quot;: &quot;ISC&quot;,</div><div class="line">  &quot;devDependencies&quot;: &#123;</div><div class="line">    &quot;gulp&quot;: &quot;^3.9.1&quot;,</div><div class="line">    &quot;gulp-concat&quot;: &quot;^2.6.1&quot;,</div><div class="line">    &quot;gulp-less&quot;: &quot;^3.3.0&quot;</div><div class="line">  &#125;,</div><div class="line">  &quot;dependencies&quot;: &#123;</div><div class="line">    &quot;babel-preset-es2015&quot;: &quot;^6.14.0&quot;,</div><div class="line">    &quot;gulp&quot;: &quot;^3.9.1&quot;,</div><div class="line">    &quot;gulp-babel&quot;: &quot;^6.1.2&quot;,</div><div class="line">    &quot;gulp-concat&quot;: &quot;^2.6.0&quot;,</div><div class="line">    &quot;gulp-connect&quot;: &quot;^5.0.0&quot;,</div><div class="line">    &quot;gulp-inject&quot;: &quot;^4.1.0&quot;,</div><div class="line">    &quot;gulp-less&quot;: &quot;^3.1.0&quot;,</div><div class="line">    &quot;gulp-minify-css&quot;: &quot;^1.2.4&quot;,</div><div class="line">    &quot;gulp-minify-html&quot;: &quot;^1.0.6&quot;,</div><div class="line">    &quot;gulp-plumber&quot;: &quot;^1.1.0&quot;,</div><div class="line">    &quot;gulp-rename&quot;: &quot;^1.2.2&quot;,</div><div class="line">    &quot;gulp-uglify&quot;: &quot;^2.0.0&quot;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="在项目下安装gulp"><a href="#在项目下安装gulp" class="headerlink" title="在项目下安装gulp"></a>在项目下安装gulp</h4><blockquote>
 <p>项目文件夹一定不能叫做gulp</p>
 </blockquote>
@@ -352,6 +352,64 @@
 
 
   
+    <article id="post-Node之path" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/20/Node之path/">Node之path</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="path是Node的一个核心模块"><a href="#path是Node的一个核心模块" class="headerlink" title="path是Node的一个核心模块"></a>path是Node的一个核心模块</h1><h3 id="引入方式"><a href="#引入方式" class="headerlink" title="引入方式"></a>引入方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var path = require(&apos;path&apos;);</div></pre></td></tr></table></figure>
+<h3 id="路径的拼接"><a href="#路径的拼接" class="headerlink" title="路径的拼接"></a>路径的拼接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//将两个或者多个路径连接到一起</div><div class="line">var pathJoin = path.join(__dirname,&apos;views&apos;,&apos;..&apos;);</div><div class="line">// console.log(pathJoin);//拼出完整的绝对路径</div></pre></td></tr></table></figure>
+<h3 id="返回指定的文件名"><a href="#返回指定的文件名" class="headerlink" title="返回指定的文件名"></a>返回指定的文件名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">path.basename(&apos;/foo/bar/baz/asdf/quux.html&apos;)</div><div class="line">=&gt;&apos;quux.html&apos;</div><div class="line"> </div><div class="line">path.basename(&apos;/foo/bar/baz/asdf/quux.html&apos;, &apos;.html&apos;)</div><div class="line">=&gt;&apos;quux&apos;</div></pre></td></tr></table></figure>
+<h3 id="返回指定文件名的扩展名称"><a href="#返回指定文件名的扩展名称" class="headerlink" title="返回指定文件名的扩展名称"></a>返回指定文件名的扩展名称</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">path.extname(&apos;index.html&apos;)</div><div class="line">=&gt;&apos;.html&apos;</div><div class="line"> </div><div class="line">path.extname(&apos;index.&apos;)</div><div class="line">=&gt;&apos;.&apos;</div><div class="line"> </div><div class="line">path.extname(&apos;index&apos;)</div><div class="line">=&gt;&apos;&apos;</div></pre></td></tr></table></figure>
+<h3 id="格式化路径"><a href="#格式化路径" class="headerlink" title="格式化路径"></a>格式化路径</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var normal=path.normalize(&apos;/foo/bar//baz/asdf/quux/..&apos;);</div><div class="line">=&gt; &apos;/foo/bar/baz/asdf&apos;</div></pre></td></tr></table></figure>
+<h3 id="路径解析"><a href="#路径解析" class="headerlink" title="路径解析"></a>路径解析</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var resolve = path.resolve(&apos;///../a////vv//./c/&apos;);</div><div class="line">console.log(resolve);//\a\vv\c</div></pre></td></tr></table></figure>
+<h3 id="当前目录的上一级"><a href="#当前目录的上一级" class="headerlink" title="当前目录的上一级"></a>当前目录的上一级</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var  = path.dirname(&apos;a/v/c&apos;)</div><div class="line">console.log(myPath);</div></pre></td></tr></table></figure>
+<h3 id="获取绝对路径"><a href="#获取绝对路径" class="headerlink" title="获取绝对路径"></a>获取绝对路径</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//path.resolve(path1, [path2]..[pathn]);</div><div class="line"></div><div class="line">//以应用程序为起点，根据参数字符串解析出一个绝对路径</div><div class="line"></div><div class="line">/**</div><div class="line"> * path 必须至少一个路径字符串值</div><div class="line"> * [pathn] 可选路径字符串</div><div class="line"> */</div><div class="line"></div><div class="line">var myPath = path.resolve(&apos;path1&apos;, &apos;path2&apos;, &apos;a/b\\c/&apos;);</div><div class="line">console.log(myPath);//E:\workspace\NodeJS\path1\path2\a\b\c</div></pre></td></tr></table></figure>
+<h3 id="获取相对路径"><a href="#获取相对路径" class="headerlink" title="获取相对路径"></a>获取相对路径</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//path.relative(from, to);</div><div class="line">//获取两路径之间的相对关系</div><div class="line"></div><div class="line">/**</div><div class="line"> * from 当前路径，并且方法返回值是基于from指定到to的相对路径</div><div class="line"> * to   到哪路径，</div><div class="line"> */</div><div class="line"></div><div class="line">var from = &apos;c:\\from\\a\\&apos;,</div><div class="line">    to = &apos;c:/test/b&apos;;</div><div class="line"></div><div class="line">var _path = path.relative(from, to);</div><div class="line">console.log(_path); //..\..\test\b; 表示从from到to的相对路径</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/20/Node之path/" class="archive-article-date">
+  	<time datetime="2016-12-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-20</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/path/">path</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-NodeJs中使用util.inherits继承" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -412,7 +470,7 @@
 
 
   
-    <article id="post-Node之path" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Angular作用域之间的通信" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -422,7 +480,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/20/Node之path/">Node之path</a>
+      <a class="article-title" href="/2016/12/16/Angular作用域之间的通信/">Angular作用域之间的通信</a>
     </h1>
   
 
@@ -430,27 +488,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="path是Node的一个核心模块"><a href="#path是Node的一个核心模块" class="headerlink" title="path是Node的一个核心模块"></a>path是Node的一个核心模块</h1><h3 id="引入方式"><a href="#引入方式" class="headerlink" title="引入方式"></a>引入方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var path = require(&apos;path&apos;);</div></pre></td></tr></table></figure>
-<h3 id="路径的拼接"><a href="#路径的拼接" class="headerlink" title="路径的拼接"></a>路径的拼接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//将两个或者多个路径连接到一起</div><div class="line">var pathJoin = path.join(__dirname,&apos;views&apos;,&apos;..&apos;);</div><div class="line">// console.log(pathJoin);//拼出完整的绝对路径</div></pre></td></tr></table></figure>
-<h3 id="返回指定的文件名"><a href="#返回指定的文件名" class="headerlink" title="返回指定的文件名"></a>返回指定的文件名</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">path.basename(&apos;/foo/bar/baz/asdf/quux.html&apos;)</div><div class="line">=&gt;&apos;quux.html&apos;</div><div class="line"> </div><div class="line">path.basename(&apos;/foo/bar/baz/asdf/quux.html&apos;, &apos;.html&apos;)</div><div class="line">=&gt;&apos;quux&apos;</div></pre></td></tr></table></figure>
-<h3 id="返回指定文件名的扩展名称"><a href="#返回指定文件名的扩展名称" class="headerlink" title="返回指定文件名的扩展名称"></a>返回指定文件名的扩展名称</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">path.extname(&apos;index.html&apos;)</div><div class="line">=&gt;&apos;.html&apos;</div><div class="line"> </div><div class="line">path.extname(&apos;index.&apos;)</div><div class="line">=&gt;&apos;.&apos;</div><div class="line"> </div><div class="line">path.extname(&apos;index&apos;)</div><div class="line">=&gt;&apos;&apos;</div></pre></td></tr></table></figure>
-<h3 id="格式化路径"><a href="#格式化路径" class="headerlink" title="格式化路径"></a>格式化路径</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var normal=path.normalize(&apos;/foo/bar//baz/asdf/quux/..&apos;);</div><div class="line">=&gt; &apos;/foo/bar/baz/asdf&apos;</div></pre></td></tr></table></figure>
-<h3 id="路径解析"><a href="#路径解析" class="headerlink" title="路径解析"></a>路径解析</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var resolve = path.resolve(&apos;///../a////vv//./c/&apos;);</div><div class="line">console.log(resolve);//\a\vv\c</div></pre></td></tr></table></figure>
-<h3 id="当前目录的上一级"><a href="#当前目录的上一级" class="headerlink" title="当前目录的上一级"></a>当前目录的上一级</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var  = path.dirname(&apos;a/v/c&apos;)</div><div class="line">console.log(myPath);</div></pre></td></tr></table></figure>
-<h3 id="获取绝对路径"><a href="#获取绝对路径" class="headerlink" title="获取绝对路径"></a>获取绝对路径</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//path.resolve(path1, [path2]..[pathn]);</div><div class="line"></div><div class="line">//以应用程序为起点，根据参数字符串解析出一个绝对路径</div><div class="line"></div><div class="line">/**</div><div class="line"> * path 必须至少一个路径字符串值</div><div class="line"> * [pathn] 可选路径字符串</div><div class="line"> */</div><div class="line"></div><div class="line">var myPath = path.resolve(&apos;path1&apos;, &apos;path2&apos;, &apos;a/b\\c/&apos;);</div><div class="line">console.log(myPath);//E:\workspace\NodeJS\path1\path2\a\b\c</div></pre></td></tr></table></figure>
-<h3 id="获取相对路径"><a href="#获取相对路径" class="headerlink" title="获取相对路径"></a>获取相对路径</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//path.relative(from, to);</div><div class="line">//获取两路径之间的相对关系</div><div class="line"></div><div class="line">/**</div><div class="line"> * from 当前路径，并且方法返回值是基于from指定到to的相对路径</div><div class="line"> * to   到哪路径，</div><div class="line"> */</div><div class="line"></div><div class="line">var from = &apos;c:\\from\\a\\&apos;,</div><div class="line">    to = &apos;c:/test/b&apos;;</div><div class="line"></div><div class="line">var _path = path.relative(from, to);</div><div class="line">console.log(_path); //..\..\test\b; 表示从from到to的相对路径</div></pre></td></tr></table></figure>
-
+        <ul>
+<li>$on方法负责监听数据的变化</li>
+<li>$broadcast 向下广播（自己也能听到），父级作用域向子集作用域传递</li>
+<li>$emit 向上发射（自己也能听到），子集作用域向父级作用域传递</li>
+</ul>
+<p>-$broadcast、$emit事件必须依靠其他事件（ng-click等）进行触发，而不能单纯写一个</p>
+<p>下面是一个小例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot; ng-app=&quot;appModule&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Title&lt;/title&gt;</div><div class="line">    &lt;script src=&quot;js/angular.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div ng-controller=&quot;dad&quot;&gt;</div><div class="line">    总价 &lt;input type=&quot;text&quot; ng-model=&quot;total&quot; ng-change=&quot;fn()&quot;&gt;</div><div class="line">    &lt;div ng-controller=&quot;son&quot;&gt;</div><div class="line">        单价 30 &lt;br&gt;</div><div class="line">        数量 &lt;input type=&quot;text&quot; ng-model=&quot;count&quot;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">    app.controller(&apos;dad&apos;,function ($scope) &#123;//父级控制器</div><div class="line">        $scope.total = 30;</div><div class="line">        //2、父级监控数量的变化，饭后修改数据</div><div class="line">        $scope.$on(&apos;toDad&apos;,function (e,data) &#123;</div><div class="line">            //e是事件源，data代表的是听到的内容</div><div class="line">            $scope.total = data;</div><div class="line">        &#125;);</div><div class="line">        //3、父级代码运行 向子集广播</div><div class="line">        $scope.fn = function () &#123;</div><div class="line">            $scope.$broadcast(&apos;toSon&apos;,$scope.total);</div><div class="line">        &#125;;</div><div class="line">    &#125;);</div><div class="line">    app.controller(&apos;son&apos;,function ($scope) &#123;//子集控制器</div><div class="line">        $scope.count = 1;</div><div class="line">        //1、子集监控数量count的变化，然后发送到父级</div><div class="line">        $scope.$watch(&apos;count&apos;,function (newVal) &#123;</div><div class="line">            $scope.$emit(&apos;toDad&apos;,newVal*30);</div><div class="line">        &#125;);</div><div class="line">        //4、子集收到后更改自己的数量</div><div class="line">        $scope.$on(&apos;toSon&apos;,function (e,data) &#123;</div><div class="line">            $scope.count = data/30;</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">    // $on方法负责监听</div><div class="line">    // $broadcast需要向下广播（自己也能听到）</div><div class="line">    // $emit向上广播emit（自己也能听到）</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/12/20/Node之path/" class="archive-article-date">
-  	<time datetime="2016-12-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-20</time>
+      <a href="/2016/12/16/Angular作用域之间的通信/" class="archive-article-date">
+  	<time datetime="2016-12-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-16</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/path/">path</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/broadcast/">$broadcast</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emit/">$emit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/on/">$on</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJs/">AngularJs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/通信/">通信</a></li></ul>
 	</div>
 
       
@@ -519,62 +575,6 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务/">服务</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Angular作用域之间的通信" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/16/Angular作用域之间的通信/">Angular作用域之间的通信</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>$on方法负责监听数据的变化</li>
-<li>$broadcast 向下广播（自己也能听到），父级作用域向子集作用域传递</li>
-<li>$emit 向上发射（自己也能听到），子集作用域向父级作用域传递</li>
-</ul>
-<p>-$broadcast、$emit事件必须依靠其他事件（ng-click等）进行触发，而不能单纯写一个</p>
-<p>下面是一个小例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot; ng-app=&quot;appModule&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Title&lt;/title&gt;</div><div class="line">    &lt;script src=&quot;js/angular.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div ng-controller=&quot;dad&quot;&gt;</div><div class="line">    总价 &lt;input type=&quot;text&quot; ng-model=&quot;total&quot; ng-change=&quot;fn()&quot;&gt;</div><div class="line">    &lt;div ng-controller=&quot;son&quot;&gt;</div><div class="line">        单价 30 &lt;br&gt;</div><div class="line">        数量 &lt;input type=&quot;text&quot; ng-model=&quot;count&quot;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">    app.controller(&apos;dad&apos;,function ($scope) &#123;//父级控制器</div><div class="line">        $scope.total = 30;</div><div class="line">        //2、父级监控数量的变化，饭后修改数据</div><div class="line">        $scope.$on(&apos;toDad&apos;,function (e,data) &#123;</div><div class="line">            //e是事件源，data代表的是听到的内容</div><div class="line">            $scope.total = data;</div><div class="line">        &#125;);</div><div class="line">        //3、父级代码运行 向子集广播</div><div class="line">        $scope.fn = function () &#123;</div><div class="line">            $scope.$broadcast(&apos;toSon&apos;,$scope.total);</div><div class="line">        &#125;;</div><div class="line">    &#125;);</div><div class="line">    app.controller(&apos;son&apos;,function ($scope) &#123;//子集控制器</div><div class="line">        $scope.count = 1;</div><div class="line">        //1、子集监控数量count的变化，然后发送到父级</div><div class="line">        $scope.$watch(&apos;count&apos;,function (newVal) &#123;</div><div class="line">            $scope.$emit(&apos;toDad&apos;,newVal*30);</div><div class="line">        &#125;);</div><div class="line">        //4、子集收到后更改自己的数量</div><div class="line">        $scope.$on(&apos;toSon&apos;,function (e,data) &#123;</div><div class="line">            $scope.count = data/30;</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">    // $on方法负责监听</div><div class="line">    // $broadcast需要向下广播（自己也能听到）</div><div class="line">    // $emit向上广播emit（自己也能听到）</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/16/Angular作用域之间的通信/" class="archive-article-date">
-  	<time datetime="2016-12-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-16</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/broadcast/">$broadcast</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emit/">$emit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/on/">$on</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJs/">AngularJs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/通信/">通信</a></li></ul>
 	</div>
 
       
@@ -928,7 +928,7 @@
 
 
   
-    <article id="post-nodeppt" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-idoc文档生成" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -938,7 +938,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/11/nodeppt/">nodePPT的使用</a>
+      <a class="article-title" href="/2016/12/11/idoc文档生成/">idoc博客</a>
     </h1>
   
 
@@ -946,75 +946,50 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="nodePPT的使用"><a href="#nodePPT的使用" class="headerlink" title="nodePPT的使用"></a>nodePPT的使用</h2><ul>
-<li><p>nodeppt是基于nodejs写的支持 <strong>Markdown!</strong> 语法的网页PPT,语法和 <strong>Markdown!</strong> 一样</p>
-</li>
-<li><p>多种模式：<code>overview模式</code> ， <code>双屏模式</code>， <code>socket远程控制</code> ，使用手机或者ipad摇一摇换页更加炫酷！</p>
-</li>
-</ul>
-<h3 id="安装nodePPT"><a href="#安装nodePPT" class="headerlink" title="安装nodePPT"></a>安装nodePPT</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install nodeppt -g</div></pre></td></tr></table></figure>
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node start -p 8000</div></pre></td></tr></table></figure>
-<h3 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodeppt start -h</div></pre></td></tr></table></figure>
-<h3 id="单页面的动画"><a href="#单页面的动画" class="headerlink" title="单页面的动画"></a>单页面的动画</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[slide data-transition=&quot;vertical3d&quot;]</div></pre></td></tr></table></figure>
-<h3 id="单页面的背景图片"><a href="#单页面的背景图片" class="headerlink" title="单页面的背景图片"></a>单页面的背景图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[slide style=&quot;background-image:url(&apos;/img/bg1.png&apos;)&quot;]</div></pre></td></tr></table></figure>
-<h3 id="支持的转场动画"><a href="#支持的转场动画" class="headerlink" title="支持的转场动画"></a>支持的转场动画</h3><ul>
-<li><p>kontext</p>
-</li>
-<li><p>vkontext</p>
-</li>
-<li><p>circle</p>
-</li>
-<li><p>earthquake</p>
-</li>
-<li><p>cards</p>
-</li>
-<li><p>glue</p>
-</li>
-<li><p>stick</p>
-</li>
-<li><p>move</p>
-</li>
-<li><p>newspaper</p>
-</li>
-<li><p>slide</p>
-</li>
-<li><p>slide2</p>
-</li>
-<li><p>slide3</p>
-</li>
-<li><p>horizontal3d</p>
-</li>
-<li><p>horizontal</p>
-</li>
-<li><p>vertical3d</p>
-</li>
-<li><p>zoomin</p>
-</li>
-<li><p>zoomout</p>
-</li>
-<li><p>pulse</p>
-</li>
-</ul>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><blockquote>
-<p>启动的时候确保当前文件夹下有md格式的文件</p>
-<p>md文件的格式</p>
+        <h2 id="idoc文档生成"><a href="#idoc文档生成" class="headerlink" title="idoc文档生成"></a>idoc文档生成</h2><blockquote>
+<p>idoc类似于hexo生成博客，然后推送到github上边，和hexo相比，idoc更加的简单，可以生成的博客页面也没有hexo那样有数量的限制；</p>
+<p>操作的时候，一个文件夹就生成一个分类，只需把相应的md文件放到文件夹下就可以；</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[slide] </div><div class="line">## 主页面样式 </div><div class="line">### </div><div class="line">----是上下分界线 </div><div class="line">----</div></pre></td></tr></table></figure>
-<h2 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h2><blockquote>
-<p>地址 <a href="https://github.com/ksky521/nodePPT" target="_blank" rel="external">https://github.com/ksky521/nodePPT</a></p>
+<ul>
+<li>1.安装idoc文档</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install fandoc/idoc -g</div></pre></td></tr></table></figure>
+<ul>
+<li>2.初始化</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fandoc init</div></pre></td></tr></table></figure>
+<ul>
+<li>3.构建</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fandoc build</div></pre></td></tr></table></figure>
+<ul>
+<li>4.启动服务</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fandoc server</div></pre></td></tr></table></figure>
+<ul>
+<li>5.推送</li>
+</ul>
+<blockquote>
+<p>在git上边新建的仓库分支必须是gh-pages</p>
+</blockquote>
+<ul>
+<li>原文地址</li>
+</ul>
+<blockquote>
+<p><a href="https://github.com/jaywcjlove/idoc" target="_blank" rel="external">https://github.com/jaywcjlove/idoc</a></p>
 </blockquote>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/12/11/nodeppt/" class="archive-article-date">
+      <a href="/2016/12/11/idoc文档生成/" class="archive-article-date">
   	<time datetime="2016-12-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-11</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodePPT/">nodePPT</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/idoc/">idoc</a></li></ul>
 	</div>
 
       
