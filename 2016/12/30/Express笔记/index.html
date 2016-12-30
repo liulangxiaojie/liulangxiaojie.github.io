@@ -20,7 +20,7 @@
 2、启动http服务器，监听一个端口123app.listen(8080,function () &amp;#123;    console.log(8080);&amp;#125;)
 3、路由定义一个路由 当客户端以GET的请求方式访问/路径的时候执行回应的回调函数
 1">
-<meta property="og:updated_time" content="2016-12-30T14:49:02.123Z">
+<meta property="og:updated_time" content="2016-12-30T14:51:03.452Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Express笔记">
 <meta name="twitter:description" content="1、倒入模块12var express = require(&amp;apos;express&amp;apos;);var app = express();
@@ -192,11 +192,11 @@
 </ol>
 </li>
 <li><ol>
-<li>还可以覆盖一些原有方法，插入我们自己的逻辑<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//app.use就是一个中间件，回调函数里边三个参数req,res,next，只有中间件里边调用next方法的时候，才行执行下边的函数；</div><div class="line">//在中间件里边设置响应头的类型和编码格式，就不用在路由里边再设置了，减少代码重复</div><div class="line"></div><div class="line">app.use(function(req,res,next)&#123;</div><div class="line">    res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=utf8&apos;);</div><div class="line">    next();</div><div class="line">&#125;);</div><div class="line">app.get(&apos;/&apos;,function(req,res)&#123;</div><div class="line">    res.end(&apos;首页&apos;);</div><div class="line">&#125;);</div><div class="line">app.get(&apos;/login&apos;,function(req,res)&#123;</div><div class="line">    res.end(&apos;登录&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">for(var i=0;i&lt;wares.length;i++)&#123;</div><div class="line">    app.use(wares[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
+<li>还可以覆盖一些原有方法，插入我们自己的逻辑</li>
 </ol>
 </li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//app.use就是一个中间件，回调函数里边三个参数req,res,next，只有中间件里边调用next方法的时候，才行执行下边的函数；</div><div class="line">//在中间件里边设置响应头的类型和编码格式，就不用在路由里边再设置了，减少代码重复</div><div class="line"></div><div class="line">app.use(function(req,res,next)&#123;</div><div class="line">    res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=utf8&apos;);</div><div class="line">    next();</div><div class="line">&#125;);</div><div class="line">app.get(&apos;/&apos;,function(req,res)&#123;</div><div class="line">    res.end(&apos;首页&apos;);</div><div class="line">&#125;);</div><div class="line">app.get(&apos;/login&apos;,function(req,res)&#123;</div><div class="line">    res.end(&apos;登录&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">for(var i=0;i&lt;wares.length;i++)&#123;</div><div class="line">    app.use(wares[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
 <p>中间价的执行</p>
 </blockquote>
@@ -243,18 +243,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/12/30/gulp的总结/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/12/30/bodyParser中间件/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          gulp总结
+          bodyParser中间件
         
       </div>
     </a>
   
   
-    <a href="/2016/12/20/Node之fs/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Node之fs</div>
+    <a href="/2016/12/20/Node之path/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Node之path</div>
       <i class="icon-circle-right"></i>
     </a>
   
