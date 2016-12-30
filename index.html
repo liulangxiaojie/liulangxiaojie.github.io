@@ -174,79 +174,56 @@
 <h4 id="在项目下安装gulp"><a href="#在项目下安装gulp" class="headerlink" title="在项目下安装gulp"></a>在项目下安装gulp</h4><blockquote>
 <p>项目文件夹一定不能叫做gulp</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">npm install gulp --save</div><div class="line">``` </div><div class="line"></div><div class="line">### 2、gulp的运行</div><div class="line"></div><div class="line">gulp要执行任务的代码是放在项目目录下边 `gulpfile.js` 的JS文件夹里边</div><div class="line"></div><div class="line">&gt; 文件里边首先要引入gulp</div></pre></td></tr></table></figure>
-<p>var gulp = require(‘gulp’);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 3、gulp的运行</div><div class="line"></div><div class="line">- 使用gulp的task方法 创建一个叫 hello 的任务，在控制台上输出 &quot;您好&quot; 这两个字</div><div class="line"></div><div class="line">在gulpfile.js的代码</div></pre></td></tr></table></figure></p>
-<p> gulp.task(‘hello’, function () {<br>   console.log(‘yang’);<br> });<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">进入到项目所在的目录，打开命令行工具，然后输入：</div></pre></td></tr></table></figure></p>
-<p>gulp hello<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&gt; gulp后面跟着的是任务的名称 不输入任务名称的话会默认找default任务，找不到会报错</div><div class="line"></div><div class="line">控制台的显示结果</div></pre></td></tr></table></figure></p>
-<p>[20:45:54] Using gulpfile ~\Desktop\learngu<br>[20:45:54] Starting ‘hello’…<br>yang<br>[20:45:54] Finished ‘hello’ after 139 μs<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 4、gulp的工作方式</div><div class="line"></div><div class="line">- 首先通过`gulp.src()``方法获取到想要处理的文件流</div><div class="line"></div><div class="line">- 然后把文件流通过pipe方法导入到gulp的插件中</div><div class="line"></div><div class="line">- 最后把经过插件处理后的流再通过pipe方法导入到`gulp.dest()``中</div><div class="line"></div><div class="line">- `gulp.dest()``方法则把流中的内容写入到文件中</div><div class="line"></div><div class="line">### 5、gulp插件</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">#### **less**  把less文件编译成css</div><div class="line"></div><div class="line">插件的安装</div></pre></td></tr></table></figure></p>
-<p>npm install gulp-less –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
-<p>var gulp = require(‘gulp’);<br>var less = require(‘gulp-less’);</p>
-<p>gulp.task(‘less’,function(){<br>    return gulp.src(‘src/less/*.less’)//在src/less目录下边所有的less文件<br>        .pipe(less())//文件流通过pipe方法导入到gulp的less插件中<br>        .pipe(gulp.dest(‘src/css’));//把流中的内容写入到src/css目录下边<br>});</p>
-<p>gulp.task(‘default’,[‘less’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在窗口命令工具中，无论是gulp less 还是gulp default ，也可以在webstrom里边运行gulpfile文件都可以把less文件转换成css文件</div><div class="line"></div><div class="line">#### **gulp-concat**  这个插件可以把几个文件合并到一块</div></pre></td></tr></table></figure></p>
-<p>npm install gulp-concat –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
-<p>var gulp = require(‘gulp’);<br>var concat = require(‘gulp-concat’);</p>
-<p>gulp.task(‘concat’,function(){</p>
-<pre><code>return gulp.src(&apos;src/css/*.css&apos;)//指定要合并的css文件
-
-    .pipe(concat(&apos;app.css&apos;))//进行合并并指定合并后的css文件名
-
-    .pipe(gulp.dest(&apos;dist/js&apos;));//输出到目标路径
-</code></pre><p>});</p>
-<p>gulp.task(‘default’,[‘concat’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### **gulp-uglify**  合并后我们可以对文件进行压缩,最小化处理</div></pre></td></tr></table></figure></p>
-<p>npm install gulp-uglify –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
-<p>var gulp = require(‘gulp’);<br>var uglify = require(‘gulp-uglify’);</p>
-<p>gulp.task(‘uglify’,function(){<br>    return gulp.src([‘app/js/<em>.js’,’!app/js/</em>.tmp.js’])//多个js文件的路径</p>
-<pre><code>.pipe(concat(&apos;app.js&apos;))//合并成一个文件
-
-.pipe(uglify())//对合并后的app.js文件进行压缩
-
-.pipe(gulp.dest(&apos;dist/js&apos;));//输出到目标路径
-</code></pre><p>});</p>
-<p>gulp.task(‘default’,[‘uglify’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">#### **gulp-rename**  合并后我们可以对文件进行压缩,最小化处理</div></pre></td></tr></table></figure></p>
-<p>npm install gulp-rename –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
-<p>var gulp = require(‘gulp’);<br>var concat = require(‘gulp-concat’);<br>var uglify = require(‘gulp-uglify’);<br>var rename = require(‘gulp-rename’);<br>gulp.task(‘uglify’,function(){</p>
-<pre><code>return gulp.src([&apos;app/js/*.js&apos;,&apos;!app/js/*.tmp.js&apos;])//多个js文件的路径
-
-    .pipe(concat(&apos;app.js&apos;))//合并成一个文件
-
-    .pipe(gulp.dest(&apos;dist/js&apos;))//保存此文件
-
-    .pipe(uglify())//进行压缩
-
-    .pipe(rename(&apos;app.min.js&apos;))//对此文件进行重命名
-
-    .pipe(gulp.dest(&apos;dist/js&apos;));//再输出一次
-</code></pre><p>});</p>
-<p>gulp.task(‘default’,[‘uglify’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### **gulp-clean-css**  css文件压缩</div></pre></td></tr></table></figure></p>
-<p>npm install gulp-clean-css –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
-<p>var gulp = require(‘gulp’);<br>var less = require(‘gulp-less’);<br>//在文件的顶部去包含这个插件，起个名字，叫做 minify<br>var cleanCss = require(‘gulp-minify-css’);<br>var rename = require(‘gulp-rename’);<br>gulp.task(‘minify’,function(){<br>    return gulp.src(‘app/less/page.less’)//指定 less文件<br>        .pipe(less())//把less编译成css<br>        .pipe(gulp.dest(‘dist/css’))//输出到目的地<br>        .pipe(cleanCss())//对 css再进行压缩<br>        .pipe(rename(‘page.min.css’))//重命名<br>        .pipe(gulp.dest(‘dist/css’));//输出到目的地<br>});</p>
-<p>gulp.task(‘default’,[‘less’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### **gulp-minify-html**  html文件压缩</div></pre></td></tr></table></figure></p>
-<p>npm install gulp-minify-html –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
-<p>var gulp = require(‘gulp’);<br>var minifyHtml = require(“gulp-minify-html”);</p>
-<p>gulp.task(‘minify-html’, function () {<br>    gulp.src(‘src/*.html’) // 要压缩的html文件<br>    .pipe(minifyHtml())    //压缩<br>    .pipe(gulp.dest(‘dist/html’));//输出到目的地<br>});</p>
-<p>gulp.task(‘default’,[‘less’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### **gulp-inject**  动态自动插入生成后的js和css文件到html</div></pre></td></tr></table></figure></p>
-<p>npm install gulp-inject –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在html文件里边要插入的位置</div></pre></td></tr></table></figure></p>
-<p> &lt;!DOCTYPE html&gt;</p>
-<p><html></html></p>
-<p><head><br>  <title>My index</title><br>  <!-- inject:css -->  //css文件插入的位置<br>  <!-- endinject --><br></head></p>
-<body>
-
-  <!-- inject:js -->  //js文件插入的位置<br>  <!-- endinject -->
-<p></p></body><br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure><p></p>
-<p>var gulp = require(‘gulp’);<br>var inject = require(‘gulp-inject’);</p>
-<p>gulp.task(‘index’, function () {<br>  var target = gulp.src(‘./src/index.html’);<br>  var sources = gulp.src([‘build/<strong>/*.js’, ‘build/</strong>/*.css’]);<br>  return target.pipe(inject(sources,{ignorePath: ‘build’, addRootSlash: false}))<br>    .pipe(gulp.dest(‘./build’));<br>});</p>
-<p>gulp.task(‘default’,[‘index’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### **gulp-babel**  把es6的代码编译成es5的代码</div></pre></td></tr></table></figure></p>
-<p>npm install gulp-babel gulp-plumber –save<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
-<p>gulp.task(‘js’, function () {<br>  return gulp.src(‘src/js/*.js’)//指定要处理的文件<br>      .pipe(plumber())<br>      .pipe(babel({presets:[‘es2015’]}))<br>      .pipe(concat(‘all.js’))//合并成一个文件<br>      .pipe(gulp.dest(‘build/js’))//保存此文件<br>      .pipe(uglify())//进行压缩<br>      .pipe(rename(‘all.min.js’))//对此文件进行重命名<br>      .pipe(gulp.dest(‘build/js’));//再输出一次<br>});</p>
-<p>gulp.task(‘default’,[‘js’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### **gulp-connect **  把文件放到本地服务器上去预览</div></pre></td></tr></table></figure></p>
-<p>npm install gulp-connect –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
-<p>var gulp = require(‘gulp’);<br>var connect = require(‘gulp-connect’);</p>
-<p>gulp.task(‘server’,function(){<br>   connect.server({<br>       root:’dist’,//服务器的根目录<br>       port:8080 //服务器的地址，没有此配置项默认也是 8080<br>   });<br>});<br>//运行此任务的时候会在8080上启动服务器，<br>gulp.task(‘default’,[‘server’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### 自动刷新</div></pre></td></tr></table></figure></p>
-<p>var gulp = require(‘gulp’);<br>var connect = require(‘gulp-connect’);</p>
-<p>gulp.task(‘copy-html’,function(){<br>     gulp.src(‘app/index.html’)//指定源文件<br>         .pipe(gulp.dest(‘dist’))//拷贝到dist目录<br>         .pipe(connect.reload());//通知浏览器重启<br>});</p>
-<p>gulp.task(‘watch’,function(){<br>  //当index.html文件变化时执行copy-html任务<br>    gulp.watch(‘app/index.html’,[‘copy-html’]);<br>});</p>
-<p>gulp.task(‘server’,function(){<br>    connect.server({<br>        root:’dist’,//服务器的根目录<br>        port:8080, //服务器的地址，没有此配置项默认也是 8080<br>        livereload:true//启用实时刷新的功能<br>    });<br>});<br>//运行此任务的时候会在8080上启动服务器，<br>gulp.task(‘default’,[‘server’,’watch’]);<br>```</p>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp --save</div></pre></td></tr></table></figure>
+<h3 id="2、gulp的运行"><a href="#2、gulp的运行" class="headerlink" title="2、gulp的运行"></a>2、gulp的运行</h3><p>gulp要执行任务的代码是放在项目目录下边 <code>gulpfile.js</code> 的JS文件夹里边</p>
+<blockquote>
+<p>文件里边首先要引入gulp</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var gulp = require(&apos;gulp&apos;);</div></pre></td></tr></table></figure>
+<h3 id="3、gulp的运行"><a href="#3、gulp的运行" class="headerlink" title="3、gulp的运行"></a>3、gulp的运行</h3><ul>
+<li>使用gulp的task方法 创建一个叫 hello 的任务，在控制台上输出 “您好” 这两个字</li>
+</ul>
+<p>在gulpfile.js的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gulp.task(&apos;hello&apos;, function () &#123;</div><div class="line">  console.log(&apos;yang&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>进入到项目所在的目录，打开命令行工具，然后输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gulp hello</div></pre></td></tr></table></figure>
+<blockquote>
+<p>gulp后面跟着的是任务的名称 不输入任务名称的话会默认找default任务，找不到会报错</p>
+</blockquote>
+<p>控制台的显示结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[20:45:54] Using gulpfile ~\Desktop\learngu</div><div class="line">[20:45:54] Starting &apos;hello&apos;...</div><div class="line">yang</div><div class="line">[20:45:54] Finished &apos;hello&apos; after 139 μs</div></pre></td></tr></table></figure>
+<h3 id="4、gulp的工作方式"><a href="#4、gulp的工作方式" class="headerlink" title="4、gulp的工作方式"></a>4、gulp的工作方式</h3><ul>
+<li><p>首先通过`gulp.src()``方法获取到想要处理的文件流</p>
+</li>
+<li><p>然后把文件流通过pipe方法导入到gulp的插件中</p>
+</li>
+<li><p>最后把经过插件处理后的流再通过pipe方法导入到`gulp.dest()``中</p>
+</li>
+<li><p>`gulp.dest()``方法则把流中的内容写入到文件中</p>
+</li>
+</ul>
+<h3 id="5、gulp插件"><a href="#5、gulp插件" class="headerlink" title="5、gulp插件"></a>5、gulp插件</h3><h4 id="less-把less文件编译成css"><a href="#less-把less文件编译成css" class="headerlink" title="less  把less文件编译成css"></a><strong>less</strong>  把less文件编译成css</h4><p>插件的安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp-less --save-dev</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var gulp = require(&apos;gulp&apos;);</div><div class="line">var less = require(&apos;gulp-less&apos;);</div><div class="line"></div><div class="line">gulp.task(&apos;less&apos;,function()&#123;</div><div class="line">    return gulp.src(&apos;src/less/*.less&apos;)//在src/less目录下边所有的less文件</div><div class="line">        .pipe(less())//文件流通过pipe方法导入到gulp的less插件中</div><div class="line">        .pipe(gulp.dest(&apos;src/css&apos;));//把流中的内容写入到src/css目录下边</div><div class="line">&#125;);</div><div class="line"></div><div class="line">gulp.task(&apos;default&apos;,[&apos;less&apos;]);</div></pre></td></tr></table></figure>
+<p>在窗口命令工具中，无论是gulp less 还是gulp default ，也可以在webstrom里边运行gulpfile文件都可以把less文件转换成css文件</p>
+<h4 id="gulp-concat-这个插件可以把几个文件合并到一块"><a href="#gulp-concat-这个插件可以把几个文件合并到一块" class="headerlink" title="gulp-concat  这个插件可以把几个文件合并到一块"></a><strong>gulp-concat</strong>  这个插件可以把几个文件合并到一块</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp-concat --save-dev</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var gulp = require(&apos;gulp&apos;);</div><div class="line">var concat = require(&apos;gulp-concat&apos;);</div><div class="line"></div><div class="line">gulp.task(&apos;concat&apos;,function()&#123;</div><div class="line">    </div><div class="line">    return gulp.src(&apos;src/css/*.css&apos;)//指定要合并的css文件</div><div class="line">    </div><div class="line">        .pipe(concat(&apos;app.css&apos;))//进行合并并指定合并后的css文件名</div><div class="line">        </div><div class="line">        .pipe(gulp.dest(&apos;dist/js&apos;));//输出到目标路径</div><div class="line">&#125;);</div><div class="line"></div><div class="line">gulp.task(&apos;default&apos;,[&apos;concat&apos;]);</div></pre></td></tr></table></figure>
+<h4 id="gulp-uglify-合并后我们可以对文件进行压缩-最小化处理"><a href="#gulp-uglify-合并后我们可以对文件进行压缩-最小化处理" class="headerlink" title="gulp-uglify  合并后我们可以对文件进行压缩,最小化处理"></a><strong>gulp-uglify</strong>  合并后我们可以对文件进行压缩,最小化处理</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp-uglify --save-dev</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var gulp = require(&apos;gulp&apos;);</div><div class="line">var uglify = require(&apos;gulp-uglify&apos;);</div><div class="line"></div><div class="line">gulp.task(&apos;uglify&apos;,function()&#123;</div><div class="line">    return gulp.src([&apos;app/js/*.js&apos;,&apos;!app/js/*.tmp.js&apos;])//多个js文件的路径</div><div class="line">      </div><div class="line">        .pipe(concat(&apos;app.js&apos;))//合并成一个文件</div><div class="line">        </div><div class="line">        .pipe(uglify())//对合并后的app.js文件进行压缩</div><div class="line">        </div><div class="line">        .pipe(gulp.dest(&apos;dist/js&apos;));//输出到目标路径</div><div class="line">&#125;);</div><div class="line"></div><div class="line">gulp.task(&apos;default&apos;,[&apos;uglify&apos;]);</div></pre></td></tr></table></figure>
+<h4 id="gulp-rename-合并后我们可以对文件进行压缩-最小化处理"><a href="#gulp-rename-合并后我们可以对文件进行压缩-最小化处理" class="headerlink" title="gulp-rename  合并后我们可以对文件进行压缩,最小化处理"></a><strong>gulp-rename</strong>  合并后我们可以对文件进行压缩,最小化处理</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp-rename --save-dev</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">var gulp = require(&apos;gulp&apos;);</div><div class="line">var concat = require(&apos;gulp-concat&apos;);</div><div class="line">var uglify = require(&apos;gulp-uglify&apos;);</div><div class="line">var rename = require(&apos;gulp-rename&apos;);</div><div class="line">gulp.task(&apos;uglify&apos;,function()&#123;</div><div class="line"></div><div class="line">    return gulp.src([&apos;app/js/*.js&apos;,&apos;!app/js/*.tmp.js&apos;])//多个js文件的路径</div><div class="line"></div><div class="line">        .pipe(concat(&apos;app.js&apos;))//合并成一个文件</div><div class="line">        </div><div class="line">        .pipe(gulp.dest(&apos;dist/js&apos;))//保存此文件</div><div class="line">        </div><div class="line">        .pipe(uglify())//进行压缩</div><div class="line">        </div><div class="line">        .pipe(rename(&apos;app.min.js&apos;))//对此文件进行重命名</div><div class="line">        </div><div class="line">        .pipe(gulp.dest(&apos;dist/js&apos;));//再输出一次</div><div class="line">&#125;);</div><div class="line"></div><div class="line">gulp.task(&apos;default&apos;,[&apos;uglify&apos;]);</div></pre></td></tr></table></figure>
+<h4 id="gulp-clean-css-css文件压缩"><a href="#gulp-clean-css-css文件压缩" class="headerlink" title="gulp-clean-css  css文件压缩"></a><strong>gulp-clean-css</strong>  css文件压缩</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp-clean-css --save-dev</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var gulp = require(&apos;gulp&apos;);</div><div class="line">var less = require(&apos;gulp-less&apos;);</div><div class="line">//在文件的顶部去包含这个插件，起个名字，叫做 minify</div><div class="line">var cleanCss = require(&apos;gulp-minify-css&apos;);</div><div class="line">var rename = require(&apos;gulp-rename&apos;);</div><div class="line">gulp.task(&apos;minify&apos;,function()&#123;</div><div class="line">    return gulp.src(&apos;app/less/page.less&apos;)//指定 less文件</div><div class="line">        .pipe(less())//把less编译成css</div><div class="line">        .pipe(gulp.dest(&apos;dist/css&apos;))//输出到目的地</div><div class="line">        .pipe(cleanCss())//对 css再进行压缩</div><div class="line">        .pipe(rename(&apos;page.min.css&apos;))//重命名</div><div class="line">        .pipe(gulp.dest(&apos;dist/css&apos;));//输出到目的地</div><div class="line">&#125;);</div><div class="line"></div><div class="line">gulp.task(&apos;default&apos;,[&apos;less&apos;]);</div></pre></td></tr></table></figure>
+<h4 id="gulp-minify-html-html文件压缩"><a href="#gulp-minify-html-html文件压缩" class="headerlink" title="gulp-minify-html  html文件压缩"></a><strong>gulp-minify-html</strong>  html文件压缩</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp-minify-html --save-dev</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var gulp = require(&apos;gulp&apos;);</div><div class="line">var minifyHtml = require(&quot;gulp-minify-html&quot;);</div><div class="line"></div><div class="line">gulp.task(&apos;minify-html&apos;, function () &#123;</div><div class="line">    gulp.src(&apos;src/*.html&apos;) // 要压缩的html文件</div><div class="line">    .pipe(minifyHtml())    //压缩</div><div class="line">    .pipe(gulp.dest(&apos;dist/html&apos;));//输出到目的地</div><div class="line">&#125;);</div><div class="line"></div><div class="line">gulp.task(&apos;default&apos;,[&apos;less&apos;]);</div></pre></td></tr></table></figure>
+<h4 id="gulp-inject-动态自动插入生成后的js和css文件到html"><a href="#gulp-inject-动态自动插入生成后的js和css文件到html" class="headerlink" title="gulp-inject  动态自动插入生成后的js和css文件到html"></a><strong>gulp-inject</strong>  动态自动插入生成后的js和css文件到html</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp-inject --save-dev</div></pre></td></tr></table></figure>
+<p>在html文件里边要插入的位置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"> &lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">  &lt;title&gt;My index&lt;/title&gt;</div><div class="line">  &lt;!-- inject:css --&gt;  //css文件插入的位置</div><div class="line">  &lt;!-- endinject --&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">  &lt;!-- inject:js --&gt;  //js文件插入的位置</div><div class="line">  &lt;!-- endinject --&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var gulp = require(&apos;gulp&apos;);</div><div class="line">var inject = require(&apos;gulp-inject&apos;);</div><div class="line"></div><div class="line">gulp.task(&apos;index&apos;, function () &#123;</div><div class="line">  var target = gulp.src(&apos;./src/index.html&apos;);</div><div class="line">  var sources = gulp.src([&apos;build/**/*.js&apos;, &apos;build/**/*.css&apos;]);</div><div class="line">  return target.pipe(inject(sources,&#123;ignorePath: &apos;build&apos;, addRootSlash: false&#125;))</div><div class="line">    .pipe(gulp.dest(&apos;./build&apos;));</div><div class="line">&#125;);</div><div class="line"></div><div class="line">gulp.task(&apos;default&apos;,[&apos;index&apos;]);</div></pre></td></tr></table></figure>
+<h4 id="gulp-babel-把es6的代码编译成es5的代码"><a href="#gulp-babel-把es6的代码编译成es5的代码" class="headerlink" title="gulp-babel  把es6的代码编译成es5的代码"></a><strong>gulp-babel</strong>  把es6的代码编译成es5的代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp-babel gulp-plumber --save</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">gulp.task(&apos;js&apos;, function () &#123;</div><div class="line">  return gulp.src(&apos;src/js/*.js&apos;)//指定要处理的文件</div><div class="line">      .pipe(plumber())</div><div class="line">      .pipe(babel(&#123;presets:[&apos;es2015&apos;]&#125;))</div><div class="line">      .pipe(concat(&apos;all.js&apos;))//合并成一个文件</div><div class="line">      .pipe(gulp.dest(&apos;build/js&apos;))//保存此文件</div><div class="line">      .pipe(uglify())//进行压缩</div><div class="line">      .pipe(rename(&apos;all.min.js&apos;))//对此文件进行重命名</div><div class="line">      .pipe(gulp.dest(&apos;build/js&apos;));//再输出一次</div><div class="line">&#125;);</div><div class="line"></div><div class="line">gulp.task(&apos;default&apos;,[&apos;js&apos;]);</div></pre></td></tr></table></figure>
+<h4 id="gulp-connect-把文件放到本地服务器上去预览"><a href="#gulp-connect-把文件放到本地服务器上去预览" class="headerlink" title="gulp-connect   把文件放到本地服务器上去预览"></a><strong>gulp-connect </strong>  把文件放到本地服务器上去预览</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp-connect --save-dev</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var gulp = require(&apos;gulp&apos;);</div><div class="line">var connect = require(&apos;gulp-connect&apos;);</div><div class="line"></div><div class="line">gulp.task(&apos;server&apos;,function()&#123;</div><div class="line">   connect.server(&#123;</div><div class="line">       root:&apos;dist&apos;,//服务器的根目录</div><div class="line">       port:8080 //服务器的地址，没有此配置项默认也是 8080</div><div class="line">   &#125;);</div><div class="line">&#125;);</div><div class="line">//运行此任务的时候会在8080上启动服务器，</div><div class="line">gulp.task(&apos;default&apos;,[&apos;server&apos;]);</div></pre></td></tr></table></figure>
+<h4 id="自动刷新"><a href="#自动刷新" class="headerlink" title="自动刷新"></a>自动刷新</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">var gulp = require(&apos;gulp&apos;);</div><div class="line">var connect = require(&apos;gulp-connect&apos;);</div><div class="line"></div><div class="line">gulp.task(&apos;copy-html&apos;,function()&#123;</div><div class="line">     gulp.src(&apos;app/index.html&apos;)//指定源文件</div><div class="line">         .pipe(gulp.dest(&apos;dist&apos;))//拷贝到dist目录</div><div class="line">         .pipe(connect.reload());//通知浏览器重启</div><div class="line">&#125;);</div><div class="line"></div><div class="line">gulp.task(&apos;watch&apos;,function()&#123;</div><div class="line">  //当index.html文件变化时执行copy-html任务</div><div class="line">    gulp.watch(&apos;app/index.html&apos;,[&apos;copy-html&apos;]);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">gulp.task(&apos;server&apos;,function()&#123;</div><div class="line">    connect.server(&#123;</div><div class="line">        root:&apos;dist&apos;,//服务器的根目录</div><div class="line">        port:8080, //服务器的地址，没有此配置项默认也是 8080</div><div class="line">        livereload:true//启用实时刷新的功能</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line">//运行此任务的时候会在8080上启动服务器，</div><div class="line">gulp.task(&apos;default&apos;,[&apos;server&apos;,&apos;watch&apos;]);</div></pre></td></tr></table></figure>
       
     </div>
     <div class="article-info article-info-index">
@@ -258,6 +235,104 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Node之fs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/20/Node之fs/">Node之fs</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="file-system文件系统"><a href="#file-system文件系统" class="headerlink" title="file system文件系统"></a>file system文件系统</h1><ul>
+<li>fs是node的核心模块，专门处理文件读写的,基本上所有方法，都是异步和同步 <strong>（带sync都是同步）</strong>同时出现，<br>异步是通过回调函数，同步通过返回值；</li>
+</ul>
+<h3 id="Node-导入文件系统模块"><a href="#Node-导入文件系统模块" class="headerlink" title="Node 导入文件系统模块"></a>Node 导入文件系统模块</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var fs = require(&quot;fs&quot;)</div></pre></td></tr></table></figure>
+<h3 id="1、文件的读取"><a href="#1、文件的读取" class="headerlink" title="1、文件的读取"></a>1、文件的读取</h3><ul>
+<li>异步读取文件</li>
+</ul>
+<p>path 文件路径<br>options 该参数是一个对象，默认编码为 utf8<br>callback 回调函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fs.readFile(filename, options, callback)</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>异步方法必须要有callback</li>
+<li>回调函数中拥有error，必须先判断一下err(error first)</li>
+<li>不能省略error</li>
+<li>默认只要是读取的操作编码格式都是buffer</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var fs = require(&quot;fs&quot;);</div><div class="line"></div><div class="line">// 异步读取</div><div class="line">fs.readFile(&apos;input.txt&apos;, function (err, data) &#123;</div><div class="line">   if (err) &#123;</div><div class="line">       return console.error(err);</div><div class="line">   &#125;</div><div class="line">   console.log(&quot;异步读取: &quot; + data.toString());</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 同步读取</div><div class="line">var data = fs.readFileSync(&apos;input.txt&apos;);</div><div class="line">console.log(&quot;同步读取: &quot; + data.toString());</div><div class="line"></div><div class="line">console.log(&quot;程序执行完毕。&quot;);</div></pre></td></tr></table></figure>
+<h3 id="2、文件的写入"><a href="#2、文件的写入" class="headerlink" title="2、文件的写入"></a>2、文件的写入</h3><ul>
+<li>异步</li>
+</ul>
+<p>path 文件路径<br>data 要写入文件的数据，可以是 String(字符串) 或 Buffer(流) 对象<br>options 该参数是一个对象，默认编码为 utf8<br>callback 回调函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fs.writeFile(filename, data,[options], callback)</div></pre></td></tr></table></figure>
+<p>实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var fs = require(&quot;fs&quot;);</div><div class="line"></div><div class="line">console.log(&quot;准备写入文件&quot;);</div><div class="line">fs.writeFile(&apos;input.txt&apos;, &apos;我是通过写入的文件内容！&apos;,  function(err) &#123;</div><div class="line">   if (err) &#123;</div><div class="line">       return console.error(err);</div><div class="line">   &#125;</div><div class="line">   console.log(&quot;数据写入成功！&quot;);</div><div class="line">   console.log(&quot;--------我是分割线-------------&quot;)</div><div class="line">   console.log(&quot;读取写入的数据！&quot;);</div><div class="line">   fs.readFile(&apos;input.txt&apos;, function (err, data) &#123;</div><div class="line">      if (err) &#123;</div><div class="line">         return console.error(err);</div><div class="line">      &#125;</div><div class="line">      console.log(&quot;异步读取文件数据: &quot; + data.toString());</div><div class="line">   &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="3、文件的copy"><a href="#3、文件的copy" class="headerlink" title="3、文件的copy"></a>3、文件的copy</h3><ul>
+<li>先将文件读出来，在将文件写回去</li>
+<li><p>全部采用同步 全部采用异步</p>
+</li>
+<li><p>source源文件</p>
+</li>
+<li>target目标文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var fs = require(&apos;fs&apos;);</div><div class="line">//异步</div><div class="line">function copy(source,target) &#123;</div><div class="line">    //先读出内容在来写</div><div class="line">    fs.readFile(source,function (err,data) &#123;</div><div class="line">        if(err)console.log(err);</div><div class="line">        fs.writeFile(target,data,function (err) &#123;</div><div class="line">            if(err)console.log(err);</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line">//同步</div><div class="line">function copySync(source,target) &#123;</div><div class="line">    var result = fs.readFileSync(source);</div><div class="line">    fs.writeFileSync(target,result);</div><div class="line">&#125;</div><div class="line">copy(&apos;./name1.txt&apos;,&apos;./name3.txt&apos;);</div></pre></td></tr></table></figure>
+<h3 id="4、目录的创建"><a href="#4、目录的创建" class="headerlink" title="4、目录的创建"></a>4、目录的创建</h3><ul>
+<li>单集目录创建的创建</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fs.mkdir(path[, mode], callback)</div></pre></td></tr></table></figure>
+<p>path 文件路径<br>callback 回调函数，没有参数</p>
+<p> <strong>实例</strong></p>
+<ul>
+<li>需要注意的是a文件夹必须存在才可以创建b文件夹</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var fs = require(&quot;fs&quot;);</div><div class="line"></div><div class="line">console.log(&quot;创建目录 /a/b/&quot;);</div><div class="line">fs.mkdir(&quot;/a/b/&quot;,function(err)&#123;</div><div class="line">   if (err) &#123;</div><div class="line">       return console.error(err);</div><div class="line">   &#125;</div><div class="line">   console.log(&quot;目录创建成功。&quot;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="多级目录创建"><a href="#多级目录创建" class="headerlink" title="多级目录创建"></a>多级目录创建</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var fs = require(&apos;fs&apos;);</div><div class="line">//创建目录时要保证目录父级目录存在</div><div class="line">function makep(path) &#123;</div><div class="line">    var paths = path.split(&apos;\\&apos;);//[a,b,c,d]</div><div class="line">    for(var i = 0; i&lt;paths.length;i++)&#123;</div><div class="line">        var dir = paths.slice(0,i+1).join(&apos;/&apos;);</div><div class="line">        //创建目录时 先判断文件是否存在</div><div class="line">        var flag = fs.existsSync(dir);</div><div class="line">        if(!flag)fs.mkdirSync(dir);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">makep(&apos;b\\c\\d&apos;);</div></pre></td></tr></table></figure>
+<h4 id="递归创建多级目录"><a href="#递归创建多级目录" class="headerlink" title="递归创建多级目录"></a>递归创建多级目录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">var fs = require(&quot;fs&quot;);</div><div class="line">var path = require(&quot;path&quot;); </div><div class="line">//递归创建目录 异步方法</div><div class="line">function mkdirs(dirname, mode, callback)&#123;</div><div class="line">    fs.exists(dirname, function (exists)&#123;</div><div class="line">        if(exists)&#123;</div><div class="line">            callback();</div><div class="line">        &#125;else&#123;</div><div class="line">            console.log(path.dirname(dirname));</div><div class="line">            mkdirs(path.dirname(dirname), mode, function ()&#123;</div><div class="line">            //path.dirname当前目录的上一级</div><div class="line">                fs.mkdir(dirname, mode, callback);</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line">//递归创建目录 同步方法</div><div class="line">function mkdirsSync(dirname, mode)&#123;</div><div class="line">    console.log(dirname);</div><div class="line">    if(fs.existsSync(dirname))&#123;</div><div class="line">        return true;</div><div class="line">    &#125;else&#123;</div><div class="line">        if(mkdirsSync(path.dirname(dirname), mode))&#123;</div><div class="line">            fs.mkdirSync(dirname, mode);</div><div class="line">            return true;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="5、测试当前路径下的文件是否存在"><a href="#5、测试当前路径下的文件是否存在" class="headerlink" title="5、测试当前路径下的文件是否存在"></a>5、测试当前路径下的文件是否存在</h3><p>path 路径</p>
+<p>callback 回调函数,回调函数的返回值是一个布尔值，路径存在返回true否则false</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fs.exists(path, function(exists)&#123;</div><div class="line">  console.log(exists)// true或者 false</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/20/Node之fs/" class="archive-article-date">
+  	<time datetime="2016-12-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-20</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fs/">fs</a></li></ul>
 	</div>
 
       
@@ -395,7 +470,7 @@
 
 
   
-    <article id="post-Node之fs" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Angular的五种服务" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -405,7 +480,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/20/Node之fs/">Node之fs</a>
+      <a class="article-title" href="/2016/12/16/Angular的五种服务/">Angular的五种服务</a>
     </h1>
   
 
@@ -413,67 +488,37 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="file-system文件系统"><a href="#file-system文件系统" class="headerlink" title="file system文件系统"></a>file system文件系统</h1><ul>
-<li>fs是node的核心模块，专门处理文件读写的,基本上所有方法，都是异步和同步 <strong>（带sync都是同步）</strong>同时出现，<br>异步是通过回调函数，同步通过返回值；</li>
-</ul>
-<h3 id="Node-导入文件系统模块"><a href="#Node-导入文件系统模块" class="headerlink" title="Node 导入文件系统模块"></a>Node 导入文件系统模块</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var fs = require(&quot;fs&quot;)</div></pre></td></tr></table></figure>
-<h3 id="1、文件的读取"><a href="#1、文件的读取" class="headerlink" title="1、文件的读取"></a>1、文件的读取</h3><ul>
-<li>异步读取文件</li>
-</ul>
-<p>path 文件路径<br>options 该参数是一个对象，默认编码为 utf8<br>callback 回调函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fs.readFile(filename, options, callback)</div></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>异步方法必须要有callback</li>
-<li>回调函数中拥有error，必须先判断一下err(error first)</li>
-<li>不能省略error</li>
-<li>默认只要是读取的操作编码格式都是buffer</li>
-</ul>
+        <h3 id="1、provider"><a href="#1、provider" class="headerlink" title="1、provider"></a>1、provider</h3><blockquote>
+<p>唯一一个可以配置的服务</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var fs = require(&quot;fs&quot;);</div><div class="line"></div><div class="line">// 异步读取</div><div class="line">fs.readFile(&apos;input.txt&apos;, function (err, data) &#123;</div><div class="line">   if (err) &#123;</div><div class="line">       return console.error(err);</div><div class="line">   &#125;</div><div class="line">   console.log(&quot;异步读取: &quot; + data.toString());</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// 同步读取</div><div class="line">var data = fs.readFileSync(&apos;input.txt&apos;);</div><div class="line">console.log(&quot;同步读取: &quot; + data.toString());</div><div class="line"></div><div class="line">console.log(&quot;程序执行完毕。&quot;);</div></pre></td></tr></table></figure>
-<h3 id="2、文件的写入"><a href="#2、文件的写入" class="headerlink" title="2、文件的写入"></a>2、文件的写入</h3><ul>
-<li>异步</li>
-</ul>
-<p>path 文件路径<br>data 要写入文件的数据，可以是 String(字符串) 或 Buffer(流) 对象<br>options 该参数是一个对象，默认编码为 utf8<br>callback 回调函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fs.writeFile(filename, data,[options], callback)</div></pre></td></tr></table></figure>
-<p>实例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var fs = require(&quot;fs&quot;);</div><div class="line"></div><div class="line">console.log(&quot;准备写入文件&quot;);</div><div class="line">fs.writeFile(&apos;input.txt&apos;, &apos;我是通过写入的文件内容！&apos;,  function(err) &#123;</div><div class="line">   if (err) &#123;</div><div class="line">       return console.error(err);</div><div class="line">   &#125;</div><div class="line">   console.log(&quot;数据写入成功！&quot;);</div><div class="line">   console.log(&quot;--------我是分割线-------------&quot;)</div><div class="line">   console.log(&quot;读取写入的数据！&quot;);</div><div class="line">   fs.readFile(&apos;input.txt&apos;, function (err, data) &#123;</div><div class="line">      if (err) &#123;</div><div class="line">         return console.error(err);</div><div class="line">      &#125;</div><div class="line">      console.log(&quot;异步读取文件数据: &quot; + data.toString());</div><div class="line">   &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="3、文件的copy"><a href="#3、文件的copy" class="headerlink" title="3、文件的copy"></a>3、文件的copy</h3><ul>
-<li>先将文件读出来，在将文件写回去</li>
-<li><p>全部采用同步 全部采用异步</p>
-</li>
-<li><p>source源文件</p>
-</li>
-<li>target目标文件</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var fs = require(&apos;fs&apos;);</div><div class="line">//异步</div><div class="line">function copy(source,target) &#123;</div><div class="line">    //先读出内容在来写</div><div class="line">    fs.readFile(source,function (err,data) &#123;</div><div class="line">        if(err)console.log(err);</div><div class="line">        fs.writeFile(target,data,function (err) &#123;</div><div class="line">            if(err)console.log(err);</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line">//同步</div><div class="line">function copySync(source,target) &#123;</div><div class="line">    var result = fs.readFileSync(source);</div><div class="line">    fs.writeFileSync(target,result);</div><div class="line">&#125;</div><div class="line">copy(&apos;./name1.txt&apos;,&apos;./name3.txt&apos;);</div></pre></td></tr></table></figure>
-<h3 id="4、目录的创建"><a href="#4、目录的创建" class="headerlink" title="4、目录的创建"></a>4、目录的创建</h3><ul>
-<li>单集目录创建的创建</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fs.mkdir(path[, mode], callback)</div></pre></td></tr></table></figure>
-<p>path 文件路径<br>callback 回调函数，没有参数</p>
-<p> <strong>实例</strong></p>
+<p>基本结构样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">app.provider(&apos;pname&apos;,function()&#123;</div><div class="line">    this.$get = function()&#123;</div><div class="line">        return &#123;</div><div class="line">            name:function()&#123;&#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <ul>
-<li>需要注意的是a文件夹必须存在才可以创建b文件夹</li>
+<li>小例子</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var fs = require(&quot;fs&quot;);</div><div class="line"></div><div class="line">console.log(&quot;创建目录 /a/b/&quot;);</div><div class="line">fs.mkdir(&quot;/a/b/&quot;,function(err)&#123;</div><div class="line">   if (err) &#123;</div><div class="line">       return console.error(err);</div><div class="line">   &#125;</div><div class="line">   console.log(&quot;目录创建成功。&quot;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h4 id="多级目录创建"><a href="#多级目录创建" class="headerlink" title="多级目录创建"></a>多级目录创建</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var fs = require(&apos;fs&apos;);</div><div class="line">//创建目录时要保证目录父级目录存在</div><div class="line">function makep(path) &#123;</div><div class="line">    var paths = path.split(&apos;\\&apos;);//[a,b,c,d]</div><div class="line">    for(var i = 0; i&lt;paths.length;i++)&#123;</div><div class="line">        var dir = paths.slice(0,i+1).join(&apos;/&apos;);</div><div class="line">        //创建目录时 先判断文件是否存在</div><div class="line">        var flag = fs.existsSync(dir);</div><div class="line">        if(!flag)fs.mkdirSync(dir);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">makep(&apos;b\\c\\d&apos;);</div></pre></td></tr></table></figure>
-<h4 id="递归创建多级目录"><a href="#递归创建多级目录" class="headerlink" title="递归创建多级目录"></a>递归创建多级目录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">var fs = require(&quot;fs&quot;);</div><div class="line">var path = require(&quot;path&quot;); </div><div class="line">//递归创建目录 异步方法</div><div class="line">function mkdirs(dirname, mode, callback)&#123;</div><div class="line">    fs.exists(dirname, function (exists)&#123;</div><div class="line">        if(exists)&#123;</div><div class="line">            callback();</div><div class="line">        &#125;else&#123;</div><div class="line">            console.log(path.dirname(dirname));</div><div class="line">            mkdirs(path.dirname(dirname), mode, function ()&#123;</div><div class="line">            //path.dirname当前目录的上一级</div><div class="line">                fs.mkdir(dirname, mode, callback);</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line">//递归创建目录 同步方法</div><div class="line">function mkdirsSync(dirname, mode)&#123;</div><div class="line">    console.log(dirname);</div><div class="line">    if(fs.existsSync(dirname))&#123;</div><div class="line">        return true;</div><div class="line">    &#125;else&#123;</div><div class="line">        if(mkdirsSync(path.dirname(dirname), mode))&#123;</div><div class="line">            fs.mkdirSync(dirname, mode);</div><div class="line">            return true;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="5、测试当前路径下的文件是否存在"><a href="#5、测试当前路径下的文件是否存在" class="headerlink" title="5、测试当前路径下的文件是否存在"></a>5、测试当前路径下的文件是否存在</h3><p>path 路径</p>
-<p>callback 回调函数,回调函数的返回值是一个布尔值，路径存在返回true否则false</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fs.exists(path, function(exists)&#123;</div><div class="line">  console.log(exists)// true或者 false</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;!--HTML--&gt;</div><div class="line"></div><div class="line">&lt;div ng-controller=&quot;myCtrl1&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div ng-controller=&quot;myCtrl2&quot;&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">//js</div><div class="line"></div><div class="line">//provider 唯一一个可以配置的服务</div><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">//config用来配置服务的</div><div class="line">app.config(function (calcProvider) &#123;//在需要配置的provider后面加Provider，calcProvider代表的就是函数中的this</div><div class="line">    calcProvider.currency = &apos;$&apos;;</div><div class="line">&#125;);</div><div class="line">app.provider(&apos;calc&apos;,function () &#123;</div><div class="line">    this.currency = &apos;￡&apos;;</div><div class="line">    this.$get = function () &#123;</div><div class="line">        return &#123;</div><div class="line">            //这里的this都是calc</div><div class="line">            &apos;+&apos;:(a,b)=&gt; this.currency+(a+b),</div><div class="line">            &apos;-&apos;:(a,b)=&gt; this.currency+(a-b),</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="2、factory"><a href="#2、factory" class="headerlink" title="2、factory"></a>2、factory</h3><p>pname为服务的名字,第二个参数传入一个函数,函数需要有一个返回值obj,返回一个对象.实际被注入的服务就是这个对象.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">app.factory(&apos;pname&apos;,function()&#123;</div><div class="line">    return &#123;</div><div class="line">        name:function()&#123;&#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>小例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">//factory中直接后面的函数就是$get,factory是通过provider衍生出来的</div><div class="line">app.factory(&apos;calc&apos;, function () &#123;//就是$get方法</div><div class="line">    return &#123;</div><div class="line">        &apos;+&apos;:function (a,b) &#123;return (a+b)&#125;,</div><div class="line">        &apos;-&apos;:function (a,b) &#123;return (a-b)&#125;,</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="3、service"><a href="#3、service" class="headerlink" title="3、service"></a>3、service</h3><p>name为服务的名字,function是一个构造函数.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app,service(&apos;pname&apos;,function()&#123;</div><div class="line">    this.name = function()&#123;&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>小例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">app.service(&apos;calc&apos;, function () &#123;//就是$get方法</div><div class="line">    //这个构造函数是factory返回对象的构造函数</div><div class="line">    this[&apos;+&apos;] = function (a,b) &#123;return (a+b)&#125;;</div><div class="line">    this[&apos;-&apos;] = function (a,b) &#123;return (a-b)&#125;;</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout,calc ) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="4、value-5、constant"><a href="#4、value-5、constant" class="headerlink" title="4、value/5、constant"></a>4、value/5、constant</h3><p>‘app.value/constant(‘name’,obj)’<br>name为服务的名字,obj为一个json对象,用法相同</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.value(&apos;pname&apos;,&#123;</div><div class="line">  name:function()&#123;&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>小例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">    app.constant(&apos;calc&apos;,&#123; //这个对象是factory返回后的对象</div><div class="line">        &apos;+&apos;:function (a,b) &#123;return (a+b)&#125;,</div><div class="line">        &apos;-&apos;:function (a,b) &#123;return (a-b)&#125;,</div><div class="line">    &#125;);</div><div class="line">    app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">        console.log(calc[&apos;+&apos;](1,2));</div><div class="line">    &#125;);</div><div class="line">    app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout,calc ) &#123;</div><div class="line">        console.log(calc[&apos;+&apos;](1,2));</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/12/20/Node之fs/" class="archive-article-date">
-  	<time datetime="2016-12-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-20</time>
+      <a href="/2016/12/16/Angular的五种服务/" class="archive-article-date">
+  	<time datetime="2016-12-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-16</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fs/">fs</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务/">服务</a></li></ul>
 	</div>
 
       
@@ -641,74 +686,6 @@
 
 
   
-    <article id="post-Angular的五种服务" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/16/Angular的五种服务/">Angular的五种服务</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1、provider"><a href="#1、provider" class="headerlink" title="1、provider"></a>1、provider</h3><blockquote>
-<p>唯一一个可以配置的服务</p>
-</blockquote>
-<p>基本结构样式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">app.provider(&apos;pname&apos;,function()&#123;</div><div class="line">    this.$get = function()&#123;</div><div class="line">        return &#123;</div><div class="line">            name:function()&#123;&#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<ul>
-<li>小例子</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;!--HTML--&gt;</div><div class="line"></div><div class="line">&lt;div ng-controller=&quot;myCtrl1&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div ng-controller=&quot;myCtrl2&quot;&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">//js</div><div class="line"></div><div class="line">//provider 唯一一个可以配置的服务</div><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">//config用来配置服务的</div><div class="line">app.config(function (calcProvider) &#123;//在需要配置的provider后面加Provider，calcProvider代表的就是函数中的this</div><div class="line">    calcProvider.currency = &apos;$&apos;;</div><div class="line">&#125;);</div><div class="line">app.provider(&apos;calc&apos;,function () &#123;</div><div class="line">    this.currency = &apos;￡&apos;;</div><div class="line">    this.$get = function () &#123;</div><div class="line">        return &#123;</div><div class="line">            //这里的this都是calc</div><div class="line">            &apos;+&apos;:(a,b)=&gt; this.currency+(a+b),</div><div class="line">            &apos;-&apos;:(a,b)=&gt; this.currency+(a-b),</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="2、factory"><a href="#2、factory" class="headerlink" title="2、factory"></a>2、factory</h3><p>pname为服务的名字,第二个参数传入一个函数,函数需要有一个返回值obj,返回一个对象.实际被注入的服务就是这个对象.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">app.factory(&apos;pname&apos;,function()&#123;</div><div class="line">    return &#123;</div><div class="line">        name:function()&#123;&#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>小例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">//factory中直接后面的函数就是$get,factory是通过provider衍生出来的</div><div class="line">app.factory(&apos;calc&apos;, function () &#123;//就是$get方法</div><div class="line">    return &#123;</div><div class="line">        &apos;+&apos;:function (a,b) &#123;return (a+b)&#125;,</div><div class="line">        &apos;-&apos;:function (a,b) &#123;return (a-b)&#125;,</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="3、service"><a href="#3、service" class="headerlink" title="3、service"></a>3、service</h3><p>name为服务的名字,function是一个构造函数.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app,service(&apos;pname&apos;,function()&#123;</div><div class="line">    this.name = function()&#123;&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>小例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">app.service(&apos;calc&apos;, function () &#123;//就是$get方法</div><div class="line">    //这个构造函数是factory返回对象的构造函数</div><div class="line">    this[&apos;+&apos;] = function (a,b) &#123;return (a+b)&#125;;</div><div class="line">    this[&apos;-&apos;] = function (a,b) &#123;return (a-b)&#125;;</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout,calc ) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="4、value-5、constant"><a href="#4、value-5、constant" class="headerlink" title="4、value/5、constant"></a>4、value/5、constant</h3><p>‘app.value/constant(‘name’,obj)’<br>name为服务的名字,obj为一个json对象,用法相同</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.value(&apos;pname&apos;,&#123;</div><div class="line">  name:function()&#123;&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>小例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">    app.constant(&apos;calc&apos;,&#123; //这个对象是factory返回后的对象</div><div class="line">        &apos;+&apos;:function (a,b) &#123;return (a+b)&#125;,</div><div class="line">        &apos;-&apos;:function (a,b) &#123;return (a-b)&#125;,</div><div class="line">    &#125;);</div><div class="line">    app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">        console.log(calc[&apos;+&apos;](1,2));</div><div class="line">    &#125;);</div><div class="line">    app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout,calc ) &#123;</div><div class="line">        console.log(calc[&apos;+&apos;](1,2));</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/16/Angular的五种服务/" class="archive-article-date">
-  	<time datetime="2016-12-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-16</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务/">服务</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-Angular作用域之间的通信" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -804,112 +781,6 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/">windows</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-nodeppt" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/11/nodeppt/">nodePPT的使用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="nodePPT的使用"><a href="#nodePPT的使用" class="headerlink" title="nodePPT的使用"></a>nodePPT的使用</h2><ul>
-<li><p>nodeppt是基于nodejs写的支持 <strong>Markdown!</strong> 语法的网页PPT,语法和 <strong>Markdown!</strong> 一样</p>
-</li>
-<li><p>多种模式：<code>overview模式</code> ， <code>双屏模式</code>， <code>socket远程控制</code> ，使用手机或者ipad摇一摇换页更加炫酷！</p>
-</li>
-</ul>
-<h3 id="安装nodePPT"><a href="#安装nodePPT" class="headerlink" title="安装nodePPT"></a>安装nodePPT</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install nodeppt -g</div></pre></td></tr></table></figure>
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node start -p 8000</div></pre></td></tr></table></figure>
-<h3 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodeppt start -h</div></pre></td></tr></table></figure>
-<h3 id="单页面的动画"><a href="#单页面的动画" class="headerlink" title="单页面的动画"></a>单页面的动画</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[slide data-transition=&quot;vertical3d&quot;]</div></pre></td></tr></table></figure>
-<h3 id="单页面的背景图片"><a href="#单页面的背景图片" class="headerlink" title="单页面的背景图片"></a>单页面的背景图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[slide style=&quot;background-image:url(&apos;/img/bg1.png&apos;)&quot;]</div></pre></td></tr></table></figure>
-<h3 id="支持的转场动画"><a href="#支持的转场动画" class="headerlink" title="支持的转场动画"></a>支持的转场动画</h3><ul>
-<li><p>kontext</p>
-</li>
-<li><p>vkontext</p>
-</li>
-<li><p>circle</p>
-</li>
-<li><p>earthquake</p>
-</li>
-<li><p>cards</p>
-</li>
-<li><p>glue</p>
-</li>
-<li><p>stick</p>
-</li>
-<li><p>move</p>
-</li>
-<li><p>newspaper</p>
-</li>
-<li><p>slide</p>
-</li>
-<li><p>slide2</p>
-</li>
-<li><p>slide3</p>
-</li>
-<li><p>horizontal3d</p>
-</li>
-<li><p>horizontal</p>
-</li>
-<li><p>vertical3d</p>
-</li>
-<li><p>zoomin</p>
-</li>
-<li><p>zoomout</p>
-</li>
-<li><p>pulse</p>
-</li>
-</ul>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><blockquote>
-<p>启动的时候确保当前文件夹下有md格式的文件</p>
-<p>md文件的格式</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[slide] </div><div class="line">## 主页面样式 </div><div class="line">### </div><div class="line">----是上下分界线 </div><div class="line">----</div></pre></td></tr></table></figure>
-<h2 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h2><blockquote>
-<p>地址 <a href="https://github.com/ksky521/nodePPT" target="_blank" rel="external">https://github.com/ksky521/nodePPT</a></p>
-</blockquote>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/11/nodeppt/" class="archive-article-date">
-  	<time datetime="2016-12-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-11</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodePPT/">nodePPT</a></li></ul>
 	</div>
 
       
@@ -1038,6 +909,87 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-idoc文档生成" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/11/idoc文档生成/">idoc博客</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="idoc文档生成"><a href="#idoc文档生成" class="headerlink" title="idoc文档生成"></a>idoc文档生成</h2><blockquote>
+<p>idoc类似于hexo生成博客，然后推送到github上边，和hexo相比，idoc更加的简单，可以生成的博客页面也没有hexo那样有数量的限制；</p>
+<p>操作的时候，一个文件夹就生成一个分类，只需把相应的md文件放到文件夹下就可以；</p>
+</blockquote>
+<ul>
+<li>1.安装idoc文档</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install fandoc/idoc -g</div></pre></td></tr></table></figure>
+<ul>
+<li>2.初始化</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fandoc init</div></pre></td></tr></table></figure>
+<ul>
+<li>3.构建</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fandoc build</div></pre></td></tr></table></figure>
+<ul>
+<li>4.启动服务</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fandoc server</div></pre></td></tr></table></figure>
+<ul>
+<li>5.推送</li>
+</ul>
+<blockquote>
+<p>在git上边新建的仓库分支必须是gh-pages</p>
+</blockquote>
+<ul>
+<li>原文地址</li>
+</ul>
+<blockquote>
+<p><a href="https://github.com/jaywcjlove/idoc" target="_blank" rel="external">https://github.com/jaywcjlove/idoc</a></p>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/11/idoc文档生成/" class="archive-article-date">
+  	<time datetime="2016-12-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-11</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/idoc/">idoc</a></li></ul>
 	</div>
 
       
