@@ -33,7 +33,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img src="http://awb.img.xmtbang.com/img/uploadnew/201510/23/94d7bfd74ec74104b63961b53b488093.jpg" class="js-avatar">
+			<img src="/assets/img/touxiang.jpg" class="js-avatar">
 			
 		</a>
 
@@ -105,7 +105,7 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 				
-					<img src="http://awb.img.xmtbang.com/img/uploadnew/201510/23/94d7bfd74ec74104b63961b53b488093.jpg" class="js-avatar">
+					<img src="/assets/img/touxiang.jpg" class="js-avatar">
 				
 			</div>
 			<hgroup>
@@ -142,6 +142,74 @@
 
       <div class="body-wrap">
         
+  
+    <article id="post-bodyParser中间件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/30/bodyParser中间件/">bodyParser中间件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="bodyParser中间件"><a href="#bodyParser中间件" class="headerlink" title="bodyParser中间件"></a>bodyParser中间件</h3><p>bodyParser中间件用来解析http请求体，是express默认使用的中间件之一。</p>
+<ul>
+<li><p>bodyParser.json是用来解析json数据格式的</p>
+</li>
+<li><p>bodyParser.urlencoded则是用来解析我们通常的form表单提交的数据，也就是请求头中包含这样的信息： <code>Content-Type: application/x-www-form-urlencoded</code></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">app.use(bodyParser.json());</div><div class="line">app.use(bodyParser.urlencoded(&#123; extended: false &#125;));</div></pre></td></tr></table></figure>
+<blockquote>
+<p>extended选项允许配置使用querystring(false)或qs(true)来解析数据，默认值是true<br>false 代表querystring解析数据<br>true 代表qs解析数据</p>
+</blockquote>
+<p>querystring就是nodejs内建的对象之一，用来字符串化对象或解析字符串。如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">querystring.parse(&quot;name=henry&amp;age=30&quot;) =&gt; &#123; name: &apos;henry&apos;, age: &apos;30&apos; &#125;</div></pre></td></tr></table></figure>
+<h3 id="qs介绍"><a href="#qs介绍" class="headerlink" title="qs介绍"></a>qs介绍</h3><p>qs是一个querystring的库，在querystring的功能基础上，还支持更多的功能并优化了一些安全性。比如，对象解析的支持：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">// 内建对象 querystring</div><div class="line">querystring.parse(&quot;info[name]=henry&amp;info[age]=30&amp;hobby[1]=sport&amp;hobby[2]=coding&quot;) =&gt; </div><div class="line">  &#123; </div><div class="line">    &apos;info[name]&apos;: &apos;henry&apos;,</div><div class="line">    &apos;info[age]&apos;: &apos;30&apos;,</div><div class="line">    &apos;hobby[1]&apos;: &apos;sport&apos;,</div><div class="line">    &apos;hobby[2]&apos;: &apos;coding&apos;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">// 第三方插件 qs</div><div class="line">qs.parse(&quot;info[name]=henry&amp;info[age]=30&amp;hobby[1]=sport&amp;hobby[2]=coding&quot;) =&gt; </div><div class="line">  &#123;</div><div class="line">    info: &#123;</div><div class="line">      name: &apos;henry&apos;,</div><div class="line">      age: &apos;30&apos;</div><div class="line">    &#125;,</div><div class="line">    hobby: [ &apos;sport&apos;, &apos;coding&apos; ]</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>querystring并不能正确的解析复杂对象（多级嵌套），而qs却可以做到</p>
+</blockquote>
+<h3 id="复杂嵌套解决方案"><a href="#复杂嵌套解决方案" class="headerlink" title="复杂嵌套解决方案"></a>复杂嵌套解决方案</h3><p>form的形式去提交了一个json数据,jquery默认的 <code>content-Type</code> 配置的是 <code>application/x-www-form-urlencoded</code><br>因此更改ajax请求参数：<code>contentType: &quot;application/json&quot;</code>,并将数据转成json提交，问题就解决了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// 浏览器端post一个对象</div><div class="line">$.ajax(&#123;</div><div class="line">    url: &quot;/save&quot;,</div><div class="line">    type: &quot;post&quot;,</div><div class="line">    contentType: &quot;application/json&quot;,</div><div class="line">    data: JSON.stringify(&#123;</div><div class="line">        name: &quot;henry&quot;,</div><div class="line">        age: 30,</div><div class="line">        hobby: [ &quot;sport&quot;, &quot;coding&quot; ]</div><div class="line">    &#125;)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// express接收这个对象</div><div class="line">router.post(&quot;/save&quot;, function (req, res, next) &#123;</div><div class="line">    console.log(req.body); // =&gt; &#123; name: &apos;henry&apos;, age: 30, hobby: [ &apos;sport&apos;, &apos;coding&apos; ] &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/30/bodyParser中间件/" class="archive-article-date">
+  	<time datetime="2016-12-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-30</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-Express笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -208,74 +276,6 @@
     <div class="article-info article-info-index">
       
       <a href="/2016/12/30/Express笔记/" class="archive-article-date">
-  	<time datetime="2016-12-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-30</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-bodyParser中间件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/30/bodyParser中间件/">bodyParser中间件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="bodyParser中间件"><a href="#bodyParser中间件" class="headerlink" title="bodyParser中间件"></a>bodyParser中间件</h3><p>bodyParser中间件用来解析http请求体，是express默认使用的中间件之一。</p>
-<ul>
-<li><p>bodyParser.json是用来解析json数据格式的</p>
-</li>
-<li><p>bodyParser.urlencoded则是用来解析我们通常的form表单提交的数据，也就是请求头中包含这样的信息： <code>Content-Type: application/x-www-form-urlencoded</code></p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">app.use(bodyParser.json());</div><div class="line">app.use(bodyParser.urlencoded(&#123; extended: false &#125;));</div></pre></td></tr></table></figure>
-<blockquote>
-<p>extended选项允许配置使用querystring(false)或qs(true)来解析数据，默认值是true<br>false 代表querystring解析数据<br>true 代表qs解析数据</p>
-</blockquote>
-<p>querystring就是nodejs内建的对象之一，用来字符串化对象或解析字符串。如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">querystring.parse(&quot;name=henry&amp;age=30&quot;) =&gt; &#123; name: &apos;henry&apos;, age: &apos;30&apos; &#125;</div></pre></td></tr></table></figure>
-<h3 id="qs介绍"><a href="#qs介绍" class="headerlink" title="qs介绍"></a>qs介绍</h3><p>qs是一个querystring的库，在querystring的功能基础上，还支持更多的功能并优化了一些安全性。比如，对象解析的支持：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">// 内建对象 querystring</div><div class="line">querystring.parse(&quot;info[name]=henry&amp;info[age]=30&amp;hobby[1]=sport&amp;hobby[2]=coding&quot;) =&gt; </div><div class="line">  &#123; </div><div class="line">    &apos;info[name]&apos;: &apos;henry&apos;,</div><div class="line">    &apos;info[age]&apos;: &apos;30&apos;,</div><div class="line">    &apos;hobby[1]&apos;: &apos;sport&apos;,</div><div class="line">    &apos;hobby[2]&apos;: &apos;coding&apos;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">// 第三方插件 qs</div><div class="line">qs.parse(&quot;info[name]=henry&amp;info[age]=30&amp;hobby[1]=sport&amp;hobby[2]=coding&quot;) =&gt; </div><div class="line">  &#123;</div><div class="line">    info: &#123;</div><div class="line">      name: &apos;henry&apos;,</div><div class="line">      age: &apos;30&apos;</div><div class="line">    &#125;,</div><div class="line">    hobby: [ &apos;sport&apos;, &apos;coding&apos; ]</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>querystring并不能正确的解析复杂对象（多级嵌套），而qs却可以做到</p>
-</blockquote>
-<h3 id="复杂嵌套解决方案"><a href="#复杂嵌套解决方案" class="headerlink" title="复杂嵌套解决方案"></a>复杂嵌套解决方案</h3><p>form的形式去提交了一个json数据,jquery默认的 <code>content-Type</code> 配置的是 <code>application/x-www-form-urlencoded</code><br>因此更改ajax请求参数：<code>contentType: &quot;application/json&quot;</code>,并将数据转成json提交，问题就解决了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// 浏览器端post一个对象</div><div class="line">$.ajax(&#123;</div><div class="line">    url: &quot;/save&quot;,</div><div class="line">    type: &quot;post&quot;,</div><div class="line">    contentType: &quot;application/json&quot;,</div><div class="line">    data: JSON.stringify(&#123;</div><div class="line">        name: &quot;henry&quot;,</div><div class="line">        age: 30,</div><div class="line">        hobby: [ &quot;sport&quot;, &quot;coding&quot; ]</div><div class="line">    &#125;)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// express接收这个对象</div><div class="line">router.post(&quot;/save&quot;, function (req, res, next) &#123;</div><div class="line">    console.log(req.body); // =&gt; &#123; name: &apos;henry&apos;, age: 30, hobby: [ &apos;sport&apos;, &apos;coding&apos; ] &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/30/bodyParser中间件/" class="archive-article-date">
   	<time datetime="2016-12-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-30</time>
 </a>
       
@@ -1023,7 +1023,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/broadcast/" style="font-size: 10px;">$broadcast</a> <a href="/tags/emit/" style="font-size: 10px;">$emit</a> <a href="/tags/on/" style="font-size: 10px;">$on</a> <a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/AngularJs/" style="font-size: 12.5px;">AngularJs</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/Node/" style="font-size: 17.5px;">Node</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 12.5px;">WebStorm</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/express/" style="font-size: 12.5px;">express</a> <a href="/tags/fs/" style="font-size: 10px;">fs</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/idoc/" style="font-size: 10px;">idoc</a> <a href="/tags/inherits/" style="font-size: 10px;">inherits</a> <a href="/tags/nodePPT/" style="font-size: 10px;">nodePPT</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/path/" style="font-size: 10px;">path</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/内置指令/" style="font-size: 10px;">内置指令</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/指令/" style="font-size: 15px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/方法/" style="font-size: 10px;">方法</a> <a href="/tags/服务/" style="font-size: 10px;">服务</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/购物车/" style="font-size: 10px;">购物车</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a> <a href="/tags/过滤器/" style="font-size: 10px;">过滤器</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
+    				<a href="/tags/broadcast/" style="font-size: 10px;">$broadcast</a> <a href="/tags/emit/" style="font-size: 10px;">$emit</a> <a href="/tags/on/" style="font-size: 10px;">$on</a> <a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/AngularJs/" style="font-size: 12px;">AngularJs</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 16px;">JS</a> <a href="/tags/Node/" style="font-size: 18px;">Node</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 12px;">WebStorm</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/dom/" style="font-size: 10px;">dom</a> <a href="/tags/express/" style="font-size: 12px;">express</a> <a href="/tags/fs/" style="font-size: 10px;">fs</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/idoc/" style="font-size: 10px;">idoc</a> <a href="/tags/inherits/" style="font-size: 10px;">inherits</a> <a href="/tags/nodePPT/" style="font-size: 10px;">nodePPT</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/path/" style="font-size: 10px;">path</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/内置指令/" style="font-size: 10px;">内置指令</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/指令/" style="font-size: 14px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/方法/" style="font-size: 10px;">方法</a> <a href="/tags/服务/" style="font-size: 10px;">服务</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/购物车/" style="font-size: 10px;">购物车</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a> <a href="/tags/过滤器/" style="font-size: 10px;">过滤器</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
     			</div>
     	</section>
     
