@@ -20,7 +20,7 @@
 2、启动http服务器，监听一个端口123app.listen(8080,function () &amp;#123;    console.log(8080);&amp;#125;)
 3、路由定义一个路由 当客户端以GET的请求方式访问/路径的时候执行回应的回调函数
 1">
-<meta property="og:updated_time" content="2016-12-30T14:51:03.452Z">
+<meta property="og:updated_time" content="2016-12-30T14:52:02.182Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Express笔记">
 <meta name="twitter:description" content="1、倒入模块12var express = require(&amp;apos;express&amp;apos;);var app = express();
@@ -206,20 +206,14 @@
 <p>中间件里可以放路径，但这个路径的含义是只要请求的URL以这个路径开头就可以</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">app.use(&apos;/user&apos;,function(req,res,next)&#123;</div><div class="line">   req.money = 100;</div><div class="line">   next();</div><div class="line">&#125;);</div><div class="line">app.use(&apos;/user&apos;,function(req,res,next)&#123;</div><div class="line">    req.money -=50;</div><div class="line">    next();</div><div class="line">&#125;);</div><div class="line">app.use(&apos;/user&apos;,function(req,res,next)&#123;</div><div class="line">    req.money -=30;</div><div class="line">    next(&apos;err&apos;);//next函数里边可以传参，传参代表错误中间件</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//错误处理中间件</div><div class="line">app.use(&apos;/user&apos;,function(err,req,res,next)&#123;</div><div class="line">   console.log(err);</div><div class="line">   res.end(&apos;错误:&apos;+err);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="6、中间件搭配路由"><a href="#6、中间件搭配路由" class="headerlink" title="6、中间件搭配路由"></a>6、中间件搭配路由</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//倒入模块</div><div class="line">var user = require(&apos;./routes/user&apos;);</div><div class="line">如果客户端访问的路径是以/article开头的话，</div><div class="line">app.use(&apos;/user&apos;,user); //路由的配置</div><div class="line">// /article/add  发表文章 /article/delete 删除文章</div><div class="line"></div><div class="line">``` </div><div class="line"></div><div class="line">&gt; router是一个中间件函数，不使用app.get,直接使用router.get</div></pre></td></tr></table></figure>
-<p>var router = express.Router();<br>//增加文章<br>router.get(‘/add’,function(req,res){<br>  res.end(‘增加文章’);<br>});<br>//删除文章<br>router.get(‘/delete’,function(req,res){<br>    res.end(‘删除文章’);<br>});<br>module.exports = router;//导出路由模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 7、模板引擎的设置</div></pre></td></tr></table></figure></p>
-<p>/**</p>
-<ul>
-<li>1.拼出来模板绝对路径</li>
-<li>2.从硬盘上读出此模板，得到模板字符串</li>
-<li>3.把模板字符串中的变量替换真实的值，真实的值从对象而来</li>
-<li>4.把替换后的字符串返回给客户端<br>*/<br>var express = require(‘express’);<br>var path = require(‘path’);<br>var fs = require(‘fs’);<br>var app = express();<br>//设置模板引擎 ejs<br>app.set(‘view engine’,’ejs’);<br>//模板的存放目录的绝对路径<br>app.set(‘views’,path.resolve(‘views’));<br>//静态文件中间件，也是express自己亲自的一个唯一中间件<br>//参数指定的是静态文件根目录<br>//可以指定多个静态文件根目录<br>app.use(express.static(path.join(__dirname,’public’)));<br>app.use(express.static(path.resolve(‘../node_modules’)));</li>
-</ul>
-<p>app.get(‘/users’,function(req,res){<br>    //1 参数是模板的相对路径 2 参数是数据对象<br>    //模板中的变量会从数据对象的属性取值<br>    //模板的渲染把静态模板里的变量用数据对象的属性替换掉<br>   res.render(‘user’,{users:users});<br>});</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 8、重定向</div><div class="line"></div><div class="line">redirect方法允许网址的重定向,跳转到指定的url并且可以指定status，默认为302方式。 语法</div></pre></td></tr></table></figure>
-<p>res.redirect([status], url);</p>
-<p>//所有匹配到的全都定向到/这个路径下边<br>app.all(‘*’,function(req,res){<br>    res.redirect(‘/‘);<br>})<br>```</p>
-
+<h3 id="6、中间件搭配路由"><a href="#6、中间件搭配路由" class="headerlink" title="6、中间件搭配路由"></a>6、中间件搭配路由</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//倒入模块</div><div class="line">var user = require(&apos;./routes/user&apos;);</div><div class="line">如果客户端访问的路径是以/article开头的话，</div><div class="line">app.use(&apos;/user&apos;,user); //路由的配置</div><div class="line">// /article/add  发表文章 /article/delete 删除文章</div></pre></td></tr></table></figure>
+<blockquote>
+<p>router是一个中间件函数，不使用app.get,直接使用router.get</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var router = express.Router();</div><div class="line">//增加文章</div><div class="line">router.get(&apos;/add&apos;,function(req,res)&#123;</div><div class="line">  res.end(&apos;增加文章&apos;);</div><div class="line">&#125;);</div><div class="line">//删除文章</div><div class="line">router.get(&apos;/delete&apos;,function(req,res)&#123;</div><div class="line">    res.end(&apos;删除文章&apos;);</div><div class="line">&#125;);</div><div class="line">module.exports = router;//导出路由模块</div></pre></td></tr></table></figure>
+<h3 id="7、模板引擎的设置"><a href="#7、模板引擎的设置" class="headerlink" title="7、模板引擎的设置"></a>7、模板引擎的设置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 1.拼出来模板绝对路径</div><div class="line"> * 2.从硬盘上读出此模板，得到模板字符串</div><div class="line"> * 3.把模板字符串中的变量替换真实的值，真实的值从对象而来</div><div class="line"> * 4.把替换后的字符串返回给客户端</div><div class="line"> */</div><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var path = require(&apos;path&apos;);</div><div class="line">var fs = require(&apos;fs&apos;);</div><div class="line">var app = express();</div><div class="line">//设置模板引擎 ejs</div><div class="line">app.set(&apos;view engine&apos;,&apos;ejs&apos;);</div><div class="line">//模板的存放目录的绝对路径</div><div class="line">app.set(&apos;views&apos;,path.resolve(&apos;views&apos;));</div><div class="line">//静态文件中间件，也是express自己亲自的一个唯一中间件</div><div class="line">//参数指定的是静态文件根目录</div><div class="line">//可以指定多个静态文件根目录</div><div class="line">app.use(express.static(path.join(__dirname,&apos;public&apos;)));</div><div class="line">app.use(express.static(path.resolve(&apos;../node_modules&apos;)));</div><div class="line"></div><div class="line">app.get(&apos;/users&apos;,function(req,res)&#123;</div><div class="line">    //1 参数是模板的相对路径 2 参数是数据对象</div><div class="line">    //模板中的变量会从数据对象的属性取值</div><div class="line">    //模板的渲染把静态模板里的变量用数据对象的属性替换掉</div><div class="line">   res.render(&apos;user&apos;,&#123;users:users&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="8、重定向"><a href="#8、重定向" class="headerlink" title="8、重定向"></a>8、重定向</h3><p>redirect方法允许网址的重定向,跳转到指定的url并且可以指定status，默认为302方式。 语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">res.redirect([status], url);</div><div class="line"></div><div class="line">//所有匹配到的全都定向到/这个路径下边</div><div class="line">app.all(&apos;*&apos;,function(req,res)&#123;</div><div class="line">    res.redirect(&apos;/&apos;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
       
     </div>
     <div class="article-info article-info-index">
@@ -243,18 +237,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/12/30/bodyParser中间件/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          bodyParser中间件
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/12/20/Node之path/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Node之path</div>
+    <a href="/2016/12/30/bodyParser中间件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">bodyParser中间件</div>
       <i class="icon-circle-right"></i>
     </a>
   
