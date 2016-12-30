@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>gulp总结 | 杨小杰的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1、gulp的安装
+gulp的全局安装
+
+1npm install gulp -g
+
+在项目目录下初始化项目配置文件
+
+1npm init -y
+执行后生成一个 package.json 文件，里边记录项目所依赖的文件
+12345678910111213141516171819202122232425262728293031&amp;#123;  &amp;quot;name&amp;quot;: &amp;quot;learn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gulp总结">
+<meta property="og:url" content="http://yoursite.com/2016/12/30/gulp的总结/index.html">
+<meta property="og:site_name" content="杨小杰的博客">
+<meta property="og:description" content="1、gulp的安装
+gulp的全局安装
+
+1npm install gulp -g
+
+在项目目录下初始化项目配置文件
+
+1npm init -y
+执行后生成一个 package.json 文件，里边记录项目所依赖的文件
+12345678910111213141516171819202122232425262728293031&amp;#123;  &amp;quot;name&amp;quot;: &amp;quot;learn">
+<meta property="og:updated_time" content="2016-12-30T14:27:35.124Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gulp总结">
+<meta name="twitter:description" content="1、gulp的安装
+gulp的全局安装
+
+1npm install gulp -g
+
+在项目目录下初始化项目配置文件
+
+1npm init -y
+执行后生成一个 package.json 文件，里边记录项目所依赖的文件
+12345678910111213141516171819202122232425262728293031&amp;#123;  &amp;quot;name&amp;quot;: &amp;quot;learn">
+  
+    <link rel="alternative" href="/atom.xml" title="杨小杰的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/assets/img/y.ico">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://awb.img.xmtbang.com/img/uploadnew/201510/23/94d7bfd74ec74104b63961b53b488093.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">杨小杰</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives">所有文章</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">实用链接</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/liulangxiaojie" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">杨小杰</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://awb.img.xmtbang.com/img/uploadnew/201510/23/94d7bfd74ec74104b63961b53b488093.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">杨小杰</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/liulangxiaojie" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-gulp的总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      gulp总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1、gulp的安装"><a href="#1、gulp的安装" class="headerlink" title="1、gulp的安装"></a>1、gulp的安装</h3><ul>
+<li>gulp的全局安装</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp -g</div></pre></td></tr></table></figure>
+<ul>
+<li>在项目目录下初始化项目配置文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm init -y</div></pre></td></tr></table></figure>
+<p>执行后生成一个 <code>package.json</code> 文件，里边记录项目所依赖的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;name&quot;: &quot;learngulp&quot;,</div><div class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</div><div class="line">  &quot;description&quot;: &quot;&quot;,</div><div class="line">  &quot;main&quot;: &quot;gulpfile.js&quot;,</div><div class="line">  &quot;scripts&quot;: &#123;</div><div class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</div><div class="line">  &#125;,</div><div class="line">  &quot;keywords&quot;: [],</div><div class="line">  &quot;author&quot;: &quot;&quot;,</div><div class="line">  &quot;license&quot;: &quot;ISC&quot;,</div><div class="line">  &quot;devDependencies&quot;: &#123;</div><div class="line">    &quot;gulp&quot;: &quot;^3.9.1&quot;,</div><div class="line">    &quot;gulp-concat&quot;: &quot;^2.6.1&quot;,</div><div class="line">    &quot;gulp-less&quot;: &quot;^3.3.0&quot;</div><div class="line">  &#125;,</div><div class="line">  &quot;dependencies&quot;: &#123;</div><div class="line">    &quot;babel-preset-es2015&quot;: &quot;^6.14.0&quot;,</div><div class="line">    &quot;gulp&quot;: &quot;^3.9.1&quot;,</div><div class="line">    &quot;gulp-babel&quot;: &quot;^6.1.2&quot;,</div><div class="line">    &quot;gulp-concat&quot;: &quot;^2.6.0&quot;,</div><div class="line">    &quot;gulp-connect&quot;: &quot;^5.0.0&quot;,</div><div class="line">    &quot;gulp-inject&quot;: &quot;^4.1.0&quot;,</div><div class="line">    &quot;gulp-less&quot;: &quot;^3.1.0&quot;,</div><div class="line">    &quot;gulp-minify-css&quot;: &quot;^1.2.4&quot;,</div><div class="line">    &quot;gulp-minify-html&quot;: &quot;^1.0.6&quot;,</div><div class="line">    &quot;gulp-plumber&quot;: &quot;^1.1.0&quot;,</div><div class="line">    &quot;gulp-rename&quot;: &quot;^1.2.2&quot;,</div><div class="line">    &quot;gulp-uglify&quot;: &quot;^2.0.0&quot;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>在项目下安装gulp</li>
+</ul>
+<blockquote>
+<p>项目文件夹一定不能叫做gulp</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">npm install gulp --save</div><div class="line">``` </div><div class="line"></div><div class="line">### 2、gulp的运行</div><div class="line"></div><div class="line">gulp要执行任务的代码是放在项目目录下边 `gulpfile.js` 的JS文件夹里边</div><div class="line"></div><div class="line">&gt; 文件里边首先要引入gulp</div></pre></td></tr></table></figure>
+<p>var gulp = require(‘gulp’);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 3、gulp的运行</div><div class="line"></div><div class="line">- 使用gulp的task方法 创建一个叫 hello 的任务，在控制台上输出 &quot;您好&quot; 这两个字</div><div class="line"></div><div class="line">在gulpfile.js的代码</div></pre></td></tr></table></figure></p>
+<p> gulp.task(‘hello’, function () {<br>   console.log(‘yang’);<br> });<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">进入到项目所在的目录，打开命令行工具，然后输入：</div></pre></td></tr></table></figure></p>
+<p>gulp hello<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&gt; gulp后面跟着的是任务的名称 不输入任务名称的话会默认找default任务，找不到会报错</div><div class="line"></div><div class="line">控制台的显示结果</div></pre></td></tr></table></figure></p>
+<p>[20:45:54] Using gulpfile ~\Desktop\learngu<br>[20:45:54] Starting ‘hello’…<br>yang<br>[20:45:54] Finished ‘hello’ after 139 μs<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 4、gulp的工作方式</div><div class="line"></div><div class="line">- 首先通过`gulp.src()``方法获取到想要处理的文件流</div><div class="line"></div><div class="line">- 然后把文件流通过pipe方法导入到gulp的插件中</div><div class="line"></div><div class="line">- 最后把经过插件处理后的流再通过pipe方法导入到`gulp.dest()``中</div><div class="line"></div><div class="line">- `gulp.dest()``方法则把流中的内容写入到文件中</div><div class="line"></div><div class="line">### 5、gulp插件</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">#### **less**  把less文件编译成css</div><div class="line"></div><div class="line">插件的安装</div></pre></td></tr></table></figure></p>
+<p>npm install gulp-less –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>var gulp = require(‘gulp’);<br>var less = require(‘gulp-less’);</p>
+<p>gulp.task(‘less’,function(){<br>    return gulp.src(‘src/less/*.less’)//在src/less目录下边所有的less文件<br>        .pipe(less())//文件流通过pipe方法导入到gulp的less插件中<br>        .pipe(gulp.dest(‘src/css’));//把流中的内容写入到src/css目录下边<br>});</p>
+<p>gulp.task(‘default’,[‘less’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在窗口命令工具中，无论是gulp less 还是gulp default ，也可以在webstrom里边运行gulpfile文件都可以把less文件转换成css文件</div><div class="line"></div><div class="line">#### **gulp-concat**  这个插件可以把几个文件合并到一块</div></pre></td></tr></table></figure></p>
+<p>npm install gulp-concat –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>var gulp = require(‘gulp’);<br>var concat = require(‘gulp-concat’);</p>
+<p>gulp.task(‘concat’,function(){</p>
+<pre><code>return gulp.src(&apos;src/css/*.css&apos;)//指定要合并的css文件
+
+    .pipe(concat(&apos;app.css&apos;))//进行合并并指定合并后的css文件名
+
+    .pipe(gulp.dest(&apos;dist/js&apos;));//输出到目标路径
+</code></pre><p>});</p>
+<p>gulp.task(‘default’,[‘concat’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### **gulp-uglify**  合并后我们可以对文件进行压缩,最小化处理</div></pre></td></tr></table></figure></p>
+<p>npm install gulp-uglify –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>var gulp = require(‘gulp’);<br>var uglify = require(‘gulp-uglify’);</p>
+<p>gulp.task(‘uglify’,function(){<br>    return gulp.src([‘app/js/<em>.js’,’!app/js/</em>.tmp.js’])//多个js文件的路径</p>
+<pre><code>.pipe(concat(&apos;app.js&apos;))//合并成一个文件
+
+.pipe(uglify())//对合并后的app.js文件进行压缩
+
+.pipe(gulp.dest(&apos;dist/js&apos;));//输出到目标路径
+</code></pre><p>});</p>
+<p>gulp.task(‘default’,[‘uglify’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">#### **gulp-rename**  合并后我们可以对文件进行压缩,最小化处理</div></pre></td></tr></table></figure></p>
+<p>npm install gulp-rename –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>var gulp = require(‘gulp’);<br>var concat = require(‘gulp-concat’);<br>var uglify = require(‘gulp-uglify’);<br>var rename = require(‘gulp-rename’);<br>gulp.task(‘uglify’,function(){</p>
+<pre><code>return gulp.src([&apos;app/js/*.js&apos;,&apos;!app/js/*.tmp.js&apos;])//多个js文件的路径
+
+    .pipe(concat(&apos;app.js&apos;))//合并成一个文件
+
+    .pipe(gulp.dest(&apos;dist/js&apos;))//保存此文件
+
+    .pipe(uglify())//进行压缩
+
+    .pipe(rename(&apos;app.min.js&apos;))//对此文件进行重命名
+
+    .pipe(gulp.dest(&apos;dist/js&apos;));//再输出一次
+</code></pre><p>});</p>
+<p>gulp.task(‘default’,[‘uglify’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### **gulp-clean-css**  css文件压缩</div></pre></td></tr></table></figure></p>
+<p>npm install gulp-clean-css –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>var gulp = require(‘gulp’);<br>var less = require(‘gulp-less’);<br>//在文件的顶部去包含这个插件，起个名字，叫做 minify<br>var cleanCss = require(‘gulp-minify-css’);<br>var rename = require(‘gulp-rename’);<br>gulp.task(‘minify’,function(){<br>    return gulp.src(‘app/less/page.less’)//指定 less文件<br>        .pipe(less())//把less编译成css<br>        .pipe(gulp.dest(‘dist/css’))//输出到目的地<br>        .pipe(cleanCss())//对 css再进行压缩<br>        .pipe(rename(‘page.min.css’))//重命名<br>        .pipe(gulp.dest(‘dist/css’));//输出到目的地<br>});</p>
+<p>gulp.task(‘default’,[‘less’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### **gulp-minify-html**  html文件压缩</div></pre></td></tr></table></figure></p>
+<p>npm install gulp-minify-html –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>var gulp = require(‘gulp’);<br>var minifyHtml = require(“gulp-minify-html”);</p>
+<p>gulp.task(‘minify-html’, function () {<br>    gulp.src(‘src/*.html’) // 要压缩的html文件<br>    .pipe(minifyHtml())    //压缩<br>    .pipe(gulp.dest(‘dist/html’));//输出到目的地<br>});</p>
+<p>gulp.task(‘default’,[‘less’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### **gulp-inject**  动态自动插入生成后的js和css文件到html</div></pre></td></tr></table></figure></p>
+<p>npm install gulp-inject –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在html文件里边要插入的位置</div></pre></td></tr></table></figure></p>
+<p> &lt;!DOCTYPE html&gt;</p>
+<p><html></html></p>
+<p><head><br>  <title>My index</title><br>  <!-- inject:css -->  //css文件插入的位置<br>  <!-- endinject --><br></head></p>
+<body>
+
+  <!-- inject:js -->  //js文件插入的位置<br>  <!-- endinject -->
+<p></p></body><br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure><p></p>
+<p>var gulp = require(‘gulp’);<br>var inject = require(‘gulp-inject’);</p>
+<p>gulp.task(‘index’, function () {<br>  var target = gulp.src(‘./src/index.html’);<br>  var sources = gulp.src([‘build/<strong>/*.js’, ‘build/</strong>/*.css’]);<br>  return target.pipe(inject(sources,{ignorePath: ‘build’, addRootSlash: false}))<br>    .pipe(gulp.dest(‘./build’));<br>});</p>
+<p>gulp.task(‘default’,[‘index’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### **gulp-babel**  把es6的代码编译成es5的代码</div></pre></td></tr></table></figure></p>
+<p>npm install gulp-babel gulp-plumber –save<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>gulp.task(‘js’, function () {<br>  return gulp.src(‘src/js/*.js’)//指定要处理的文件<br>      .pipe(plumber())<br>      .pipe(babel({presets:[‘es2015’]}))<br>      .pipe(concat(‘all.js’))//合并成一个文件<br>      .pipe(gulp.dest(‘build/js’))//保存此文件<br>      .pipe(uglify())//进行压缩<br>      .pipe(rename(‘all.min.js’))//对此文件进行重命名<br>      .pipe(gulp.dest(‘build/js’));//再输出一次<br>});</p>
+<p>gulp.task(‘default’,[‘js’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### **gulp-connect **  把文件放到本地服务器上去预览</div></pre></td></tr></table></figure></p>
+<p>npm install gulp-connect –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>var gulp = require(‘gulp’);<br>var connect = require(‘gulp-connect’);</p>
+<p>gulp.task(‘server’,function(){<br>   connect.server({<br>       root:’dist’,//服务器的根目录<br>       port:8080 //服务器的地址，没有此配置项默认也是 8080<br>   });<br>});<br>//运行此任务的时候会在8080上启动服务器，<br>gulp.task(‘default’,[‘server’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### 自动刷新</div></pre></td></tr></table></figure></p>
+<p>var gulp = require(‘gulp’);<br>var connect = require(‘gulp-connect’);</p>
+<p>gulp.task(‘copy-html’,function(){<br>     gulp.src(‘app/index.html’)//指定源文件<br>         .pipe(gulp.dest(‘dist’))//拷贝到dist目录<br>         .pipe(connect.reload());//通知浏览器重启<br>});</p>
+<p>gulp.task(‘watch’,function(){<br>  //当index.html文件变化时执行copy-html任务<br>    gulp.watch(‘app/index.html’,[‘copy-html’]);<br>});</p>
+<p>gulp.task(‘server’,function(){<br>    connect.server({<br>        root:’dist’,//服务器的根目录<br>        port:8080, //服务器的地址，没有此配置项默认也是 8080<br>        livereload:true//启用实时刷新的功能<br>    });<br>});<br>//运行此任务的时候会在8080上启动服务器，<br>gulp.task(‘default’,[‘server’,’watch’]);<br>```</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/30/gulp的总结/" class="archive-article-date">
+  	<time datetime="2016-12-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-30</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/12/20/NodeJs中使用util.inherits继承/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">util.inherits继承</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+<div class="share_addthis share_jia">
+  <div class="sharing addthis_toolbox share">
+  	<span class="jiathis_txt">Share to: &nbsp; </span>
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="gulp的总结" data-title="gulp总结" data-url="http://yoursite.com/2016/12/30/gulp的总结/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 杨小杰
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/broadcast/" style="font-size: 10px;">$broadcast</a> <a href="/tags/emit/" style="font-size: 10px;">$emit</a> <a href="/tags/on/" style="font-size: 10px;">$on</a> <a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/AngularJs/" style="font-size: 13.33px;">AngularJs</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 16.67px;">JS</a> <a href="/tags/Node/" style="font-size: 16.67px;">Node</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 13.33px;">WebStorm</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/fs/" style="font-size: 10px;">fs</a> <a href="/tags/git/" style="font-size: 16.67px;">git</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/idoc/" style="font-size: 10px;">idoc</a> <a href="/tags/inherits/" style="font-size: 10px;">inherits</a> <a href="/tags/nodePPT/" style="font-size: 10px;">nodePPT</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/path/" style="font-size: 10px;">path</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/内置指令/" style="font-size: 10px;">内置指令</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/指令/" style="font-size: 16.67px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/方法/" style="font-size: 10px;">方法</a> <a href="/tags/服务/" style="font-size: 10px;">服务</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/购物车/" style="font-size: 10px;">购物车</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a> <a href="/tags/过滤器/" style="font-size: 10px;">过滤器</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.zybuluo.com/mdeditor">Markdown语法参考链接</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.itheima.com/webmap">前端学习路线图</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;我只是一直年幼的程序员&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

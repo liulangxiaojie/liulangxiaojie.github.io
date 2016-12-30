@@ -143,6 +143,143 @@
       <div class="body-wrap">
         
   
+    <article id="post-gulp的总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/30/gulp的总结/">gulp总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1、gulp的安装"><a href="#1、gulp的安装" class="headerlink" title="1、gulp的安装"></a>1、gulp的安装</h3><ul>
+<li>gulp的全局安装</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install gulp -g</div></pre></td></tr></table></figure>
+<ul>
+<li>在项目目录下初始化项目配置文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm init -y</div></pre></td></tr></table></figure>
+<p>执行后生成一个 <code>package.json</code> 文件，里边记录项目所依赖的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;name&quot;: &quot;learngulp&quot;,</div><div class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</div><div class="line">  &quot;description&quot;: &quot;&quot;,</div><div class="line">  &quot;main&quot;: &quot;gulpfile.js&quot;,</div><div class="line">  &quot;scripts&quot;: &#123;</div><div class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</div><div class="line">  &#125;,</div><div class="line">  &quot;keywords&quot;: [],</div><div class="line">  &quot;author&quot;: &quot;&quot;,</div><div class="line">  &quot;license&quot;: &quot;ISC&quot;,</div><div class="line">  &quot;devDependencies&quot;: &#123;</div><div class="line">    &quot;gulp&quot;: &quot;^3.9.1&quot;,</div><div class="line">    &quot;gulp-concat&quot;: &quot;^2.6.1&quot;,</div><div class="line">    &quot;gulp-less&quot;: &quot;^3.3.0&quot;</div><div class="line">  &#125;,</div><div class="line">  &quot;dependencies&quot;: &#123;</div><div class="line">    &quot;babel-preset-es2015&quot;: &quot;^6.14.0&quot;,</div><div class="line">    &quot;gulp&quot;: &quot;^3.9.1&quot;,</div><div class="line">    &quot;gulp-babel&quot;: &quot;^6.1.2&quot;,</div><div class="line">    &quot;gulp-concat&quot;: &quot;^2.6.0&quot;,</div><div class="line">    &quot;gulp-connect&quot;: &quot;^5.0.0&quot;,</div><div class="line">    &quot;gulp-inject&quot;: &quot;^4.1.0&quot;,</div><div class="line">    &quot;gulp-less&quot;: &quot;^3.1.0&quot;,</div><div class="line">    &quot;gulp-minify-css&quot;: &quot;^1.2.4&quot;,</div><div class="line">    &quot;gulp-minify-html&quot;: &quot;^1.0.6&quot;,</div><div class="line">    &quot;gulp-plumber&quot;: &quot;^1.1.0&quot;,</div><div class="line">    &quot;gulp-rename&quot;: &quot;^1.2.2&quot;,</div><div class="line">    &quot;gulp-uglify&quot;: &quot;^2.0.0&quot;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>在项目下安装gulp</li>
+</ul>
+<blockquote>
+<p>项目文件夹一定不能叫做gulp</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">npm install gulp --save</div><div class="line">``` </div><div class="line"></div><div class="line">### 2、gulp的运行</div><div class="line"></div><div class="line">gulp要执行任务的代码是放在项目目录下边 `gulpfile.js` 的JS文件夹里边</div><div class="line"></div><div class="line">&gt; 文件里边首先要引入gulp</div></pre></td></tr></table></figure>
+<p>var gulp = require(‘gulp’);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 3、gulp的运行</div><div class="line"></div><div class="line">- 使用gulp的task方法 创建一个叫 hello 的任务，在控制台上输出 &quot;您好&quot; 这两个字</div><div class="line"></div><div class="line">在gulpfile.js的代码</div></pre></td></tr></table></figure></p>
+<p> gulp.task(‘hello’, function () {<br>   console.log(‘yang’);<br> });<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">进入到项目所在的目录，打开命令行工具，然后输入：</div></pre></td></tr></table></figure></p>
+<p>gulp hello<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&gt; gulp后面跟着的是任务的名称 不输入任务名称的话会默认找default任务，找不到会报错</div><div class="line"></div><div class="line">控制台的显示结果</div></pre></td></tr></table></figure></p>
+<p>[20:45:54] Using gulpfile ~\Desktop\learngu<br>[20:45:54] Starting ‘hello’…<br>yang<br>[20:45:54] Finished ‘hello’ after 139 μs<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 4、gulp的工作方式</div><div class="line"></div><div class="line">- 首先通过`gulp.src()``方法获取到想要处理的文件流</div><div class="line"></div><div class="line">- 然后把文件流通过pipe方法导入到gulp的插件中</div><div class="line"></div><div class="line">- 最后把经过插件处理后的流再通过pipe方法导入到`gulp.dest()``中</div><div class="line"></div><div class="line">- `gulp.dest()``方法则把流中的内容写入到文件中</div><div class="line"></div><div class="line">### 5、gulp插件</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">#### **less**  把less文件编译成css</div><div class="line"></div><div class="line">插件的安装</div></pre></td></tr></table></figure></p>
+<p>npm install gulp-less –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>var gulp = require(‘gulp’);<br>var less = require(‘gulp-less’);</p>
+<p>gulp.task(‘less’,function(){<br>    return gulp.src(‘src/less/*.less’)//在src/less目录下边所有的less文件<br>        .pipe(less())//文件流通过pipe方法导入到gulp的less插件中<br>        .pipe(gulp.dest(‘src/css’));//把流中的内容写入到src/css目录下边<br>});</p>
+<p>gulp.task(‘default’,[‘less’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在窗口命令工具中，无论是gulp less 还是gulp default ，也可以在webstrom里边运行gulpfile文件都可以把less文件转换成css文件</div><div class="line"></div><div class="line">#### **gulp-concat**  这个插件可以把几个文件合并到一块</div></pre></td></tr></table></figure></p>
+<p>npm install gulp-concat –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>var gulp = require(‘gulp’);<br>var concat = require(‘gulp-concat’);</p>
+<p>gulp.task(‘concat’,function(){</p>
+<pre><code>return gulp.src(&apos;src/css/*.css&apos;)//指定要合并的css文件
+
+    .pipe(concat(&apos;app.css&apos;))//进行合并并指定合并后的css文件名
+
+    .pipe(gulp.dest(&apos;dist/js&apos;));//输出到目标路径
+</code></pre><p>});</p>
+<p>gulp.task(‘default’,[‘concat’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### **gulp-uglify**  合并后我们可以对文件进行压缩,最小化处理</div></pre></td></tr></table></figure></p>
+<p>npm install gulp-uglify –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>var gulp = require(‘gulp’);<br>var uglify = require(‘gulp-uglify’);</p>
+<p>gulp.task(‘uglify’,function(){<br>    return gulp.src([‘app/js/<em>.js’,’!app/js/</em>.tmp.js’])//多个js文件的路径</p>
+<pre><code>.pipe(concat(&apos;app.js&apos;))//合并成一个文件
+
+.pipe(uglify())//对合并后的app.js文件进行压缩
+
+.pipe(gulp.dest(&apos;dist/js&apos;));//输出到目标路径
+</code></pre><p>});</p>
+<p>gulp.task(‘default’,[‘uglify’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">#### **gulp-rename**  合并后我们可以对文件进行压缩,最小化处理</div></pre></td></tr></table></figure></p>
+<p>npm install gulp-rename –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>var gulp = require(‘gulp’);<br>var concat = require(‘gulp-concat’);<br>var uglify = require(‘gulp-uglify’);<br>var rename = require(‘gulp-rename’);<br>gulp.task(‘uglify’,function(){</p>
+<pre><code>return gulp.src([&apos;app/js/*.js&apos;,&apos;!app/js/*.tmp.js&apos;])//多个js文件的路径
+
+    .pipe(concat(&apos;app.js&apos;))//合并成一个文件
+
+    .pipe(gulp.dest(&apos;dist/js&apos;))//保存此文件
+
+    .pipe(uglify())//进行压缩
+
+    .pipe(rename(&apos;app.min.js&apos;))//对此文件进行重命名
+
+    .pipe(gulp.dest(&apos;dist/js&apos;));//再输出一次
+</code></pre><p>});</p>
+<p>gulp.task(‘default’,[‘uglify’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### **gulp-clean-css**  css文件压缩</div></pre></td></tr></table></figure></p>
+<p>npm install gulp-clean-css –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>var gulp = require(‘gulp’);<br>var less = require(‘gulp-less’);<br>//在文件的顶部去包含这个插件，起个名字，叫做 minify<br>var cleanCss = require(‘gulp-minify-css’);<br>var rename = require(‘gulp-rename’);<br>gulp.task(‘minify’,function(){<br>    return gulp.src(‘app/less/page.less’)//指定 less文件<br>        .pipe(less())//把less编译成css<br>        .pipe(gulp.dest(‘dist/css’))//输出到目的地<br>        .pipe(cleanCss())//对 css再进行压缩<br>        .pipe(rename(‘page.min.css’))//重命名<br>        .pipe(gulp.dest(‘dist/css’));//输出到目的地<br>});</p>
+<p>gulp.task(‘default’,[‘less’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### **gulp-minify-html**  html文件压缩</div></pre></td></tr></table></figure></p>
+<p>npm install gulp-minify-html –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>var gulp = require(‘gulp’);<br>var minifyHtml = require(“gulp-minify-html”);</p>
+<p>gulp.task(‘minify-html’, function () {<br>    gulp.src(‘src/*.html’) // 要压缩的html文件<br>    .pipe(minifyHtml())    //压缩<br>    .pipe(gulp.dest(‘dist/html’));//输出到目的地<br>});</p>
+<p>gulp.task(‘default’,[‘less’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### **gulp-inject**  动态自动插入生成后的js和css文件到html</div></pre></td></tr></table></figure></p>
+<p>npm install gulp-inject –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在html文件里边要插入的位置</div></pre></td></tr></table></figure></p>
+<p> &lt;!DOCTYPE html&gt;</p>
+<p><html></html></p>
+<p><head><br>  <title>My index</title><br>  <!-- inject:css -->  //css文件插入的位置<br>  <!-- endinject --><br></head></p>
+<body>
+
+  <!-- inject:js -->  //js文件插入的位置<br>  <!-- endinject -->
+<p></p></body><br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure><p></p>
+<p>var gulp = require(‘gulp’);<br>var inject = require(‘gulp-inject’);</p>
+<p>gulp.task(‘index’, function () {<br>  var target = gulp.src(‘./src/index.html’);<br>  var sources = gulp.src([‘build/<strong>/*.js’, ‘build/</strong>/*.css’]);<br>  return target.pipe(inject(sources,{ignorePath: ‘build’, addRootSlash: false}))<br>    .pipe(gulp.dest(‘./build’));<br>});</p>
+<p>gulp.task(‘default’,[‘index’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### **gulp-babel**  把es6的代码编译成es5的代码</div></pre></td></tr></table></figure></p>
+<p>npm install gulp-babel gulp-plumber –save<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>gulp.task(‘js’, function () {<br>  return gulp.src(‘src/js/*.js’)//指定要处理的文件<br>      .pipe(plumber())<br>      .pipe(babel({presets:[‘es2015’]}))<br>      .pipe(concat(‘all.js’))//合并成一个文件<br>      .pipe(gulp.dest(‘build/js’))//保存此文件<br>      .pipe(uglify())//进行压缩<br>      .pipe(rename(‘all.min.js’))//对此文件进行重命名<br>      .pipe(gulp.dest(‘build/js’));//再输出一次<br>});</p>
+<p>gulp.task(‘default’,[‘js’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### **gulp-connect **  把文件放到本地服务器上去预览</div></pre></td></tr></table></figure></p>
+<p>npm install gulp-connect –save-dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>var gulp = require(‘gulp’);<br>var connect = require(‘gulp-connect’);</p>
+<p>gulp.task(‘server’,function(){<br>   connect.server({<br>       root:’dist’,//服务器的根目录<br>       port:8080 //服务器的地址，没有此配置项默认也是 8080<br>   });<br>});<br>//运行此任务的时候会在8080上启动服务器，<br>gulp.task(‘default’,[‘server’]);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### 自动刷新</div></pre></td></tr></table></figure></p>
+<p>var gulp = require(‘gulp’);<br>var connect = require(‘gulp-connect’);</p>
+<p>gulp.task(‘copy-html’,function(){<br>     gulp.src(‘app/index.html’)//指定源文件<br>         .pipe(gulp.dest(‘dist’))//拷贝到dist目录<br>         .pipe(connect.reload());//通知浏览器重启<br>});</p>
+<p>gulp.task(‘watch’,function(){<br>  //当index.html文件变化时执行copy-html任务<br>    gulp.watch(‘app/index.html’,[‘copy-html’]);<br>});</p>
+<p>gulp.task(‘server’,function(){<br>    connect.server({<br>        root:’dist’,//服务器的根目录<br>        port:8080, //服务器的地址，没有此配置项默认也是 8080<br>        livereload:true//启用实时刷新的功能<br>    });<br>});<br>//运行此任务的时候会在8080上启动服务器，<br>gulp.task(‘default’,[‘server’,’watch’]);<br>```</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/30/gulp的总结/" class="archive-article-date">
+  	<time datetime="2016-12-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-30</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-NodeJs中使用util.inherits继承" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -427,6 +564,62 @@
 
 
   
+    <article id="post-Angular作用域之间的通信" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/16/Angular作用域之间的通信/">Angular作用域之间的通信</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>$on方法负责监听数据的变化</li>
+<li>$broadcast 向下广播（自己也能听到），父级作用域向子集作用域传递</li>
+<li>$emit 向上发射（自己也能听到），子集作用域向父级作用域传递</li>
+</ul>
+<p>-$broadcast、$emit事件必须依靠其他事件（ng-click等）进行触发，而不能单纯写一个</p>
+<p>下面是一个小例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot; ng-app=&quot;appModule&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Title&lt;/title&gt;</div><div class="line">    &lt;script src=&quot;js/angular.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div ng-controller=&quot;dad&quot;&gt;</div><div class="line">    总价 &lt;input type=&quot;text&quot; ng-model=&quot;total&quot; ng-change=&quot;fn()&quot;&gt;</div><div class="line">    &lt;div ng-controller=&quot;son&quot;&gt;</div><div class="line">        单价 30 &lt;br&gt;</div><div class="line">        数量 &lt;input type=&quot;text&quot; ng-model=&quot;count&quot;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">    app.controller(&apos;dad&apos;,function ($scope) &#123;//父级控制器</div><div class="line">        $scope.total = 30;</div><div class="line">        //2、父级监控数量的变化，饭后修改数据</div><div class="line">        $scope.$on(&apos;toDad&apos;,function (e,data) &#123;</div><div class="line">            //e是事件源，data代表的是听到的内容</div><div class="line">            $scope.total = data;</div><div class="line">        &#125;);</div><div class="line">        //3、父级代码运行 向子集广播</div><div class="line">        $scope.fn = function () &#123;</div><div class="line">            $scope.$broadcast(&apos;toSon&apos;,$scope.total);</div><div class="line">        &#125;;</div><div class="line">    &#125;);</div><div class="line">    app.controller(&apos;son&apos;,function ($scope) &#123;//子集控制器</div><div class="line">        $scope.count = 1;</div><div class="line">        //1、子集监控数量count的变化，然后发送到父级</div><div class="line">        $scope.$watch(&apos;count&apos;,function (newVal) &#123;</div><div class="line">            $scope.$emit(&apos;toDad&apos;,newVal*30);</div><div class="line">        &#125;);</div><div class="line">        //4、子集收到后更改自己的数量</div><div class="line">        $scope.$on(&apos;toSon&apos;,function (e,data) &#123;</div><div class="line">            $scope.count = data/30;</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">    // $on方法负责监听</div><div class="line">    // $broadcast需要向下广播（自己也能听到）</div><div class="line">    // $emit向上广播emit（自己也能听到）</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/16/Angular作用域之间的通信/" class="archive-article-date">
+  	<time datetime="2016-12-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-16</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/broadcast/">$broadcast</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emit/">$emit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/on/">$on</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJs/">AngularJs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/通信/">通信</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Angular的过滤器" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -575,62 +768,6 @@
 
 
   
-    <article id="post-Angular作用域之间的通信" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/16/Angular作用域之间的通信/">Angular作用域之间的通信</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>$on方法负责监听数据的变化</li>
-<li>$broadcast 向下广播（自己也能听到），父级作用域向子集作用域传递</li>
-<li>$emit 向上发射（自己也能听到），子集作用域向父级作用域传递</li>
-</ul>
-<p>-$broadcast、$emit事件必须依靠其他事件（ng-click等）进行触发，而不能单纯写一个</p>
-<p>下面是一个小例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot; ng-app=&quot;appModule&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Title&lt;/title&gt;</div><div class="line">    &lt;script src=&quot;js/angular.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div ng-controller=&quot;dad&quot;&gt;</div><div class="line">    总价 &lt;input type=&quot;text&quot; ng-model=&quot;total&quot; ng-change=&quot;fn()&quot;&gt;</div><div class="line">    &lt;div ng-controller=&quot;son&quot;&gt;</div><div class="line">        单价 30 &lt;br&gt;</div><div class="line">        数量 &lt;input type=&quot;text&quot; ng-model=&quot;count&quot;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">    app.controller(&apos;dad&apos;,function ($scope) &#123;//父级控制器</div><div class="line">        $scope.total = 30;</div><div class="line">        //2、父级监控数量的变化，饭后修改数据</div><div class="line">        $scope.$on(&apos;toDad&apos;,function (e,data) &#123;</div><div class="line">            //e是事件源，data代表的是听到的内容</div><div class="line">            $scope.total = data;</div><div class="line">        &#125;);</div><div class="line">        //3、父级代码运行 向子集广播</div><div class="line">        $scope.fn = function () &#123;</div><div class="line">            $scope.$broadcast(&apos;toSon&apos;,$scope.total);</div><div class="line">        &#125;;</div><div class="line">    &#125;);</div><div class="line">    app.controller(&apos;son&apos;,function ($scope) &#123;//子集控制器</div><div class="line">        $scope.count = 1;</div><div class="line">        //1、子集监控数量count的变化，然后发送到父级</div><div class="line">        $scope.$watch(&apos;count&apos;,function (newVal) &#123;</div><div class="line">            $scope.$emit(&apos;toDad&apos;,newVal*30);</div><div class="line">        &#125;);</div><div class="line">        //4、子集收到后更改自己的数量</div><div class="line">        $scope.$on(&apos;toSon&apos;,function (e,data) &#123;</div><div class="line">            $scope.count = data/30;</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">    // $on方法负责监听</div><div class="line">    // $broadcast需要向下广播（自己也能听到）</div><div class="line">    // $emit向上广播emit（自己也能听到）</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/16/Angular作用域之间的通信/" class="archive-article-date">
-  	<time datetime="2016-12-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-16</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/broadcast/">$broadcast</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emit/">$emit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/on/">$on</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJs/">AngularJs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/通信/">通信</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-windows系统重装" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -670,215 +807,6 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/">windows</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-npm" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/11/npm/">npm的使用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="npm的使用"><a href="#npm的使用" class="headerlink" title="npm的使用"></a>npm的使用</h2><ul>
-<li>npm是安装node后给我们提供的一个包管理工具</li>
-</ul>
-<h3 id="安装，卸载，发布"><a href="#安装，卸载，发布" class="headerlink" title="安装，卸载，发布"></a>安装，卸载，发布</h3><ul>
-<li>1.全局安装 安装时增加-g参数</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install nodeppt -g</div></pre></td></tr></table></figure>
-<ul>
-<li>2.全局卸载 </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm uninstall gulp -g</div></pre></td></tr></table></figure>
-<blockquote>
-<p>只要全局安装后就会在命令行下有一个nodeppt的命令</p>
-</blockquote>
-<h3 id="本地安装"><a href="#本地安装" class="headerlink" title="本地安装"></a>本地安装</h3><p>可以在代码中使用</p>
-<ul>
-<li>1.初始化package.json(记住依赖使用过哪些文件)</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm init -y</div></pre></td></tr></table></figure>
-<ul>
-<li>2.开发依赖</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install/uninstall gulp --save-dev</div></pre></td></tr></table></figure>
-<ul>
-<li>3.发布依赖</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install/uninstall jquery@3.0.0 --save</div></pre></td></tr></table></figure>
-<blockquote>
-<p>4.json文件中不能写注释，不能多逗号</p>
-</blockquote>
-<ul>
-<li>5.安装所需要的依赖</li>
-</ul>
-<p>别人打开安装的时候不需要一一安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure>
-<h2 id="发布-包到-npm上"><a href="#发布-包到-npm上" class="headerlink" title="发布 包到 npm上"></a>发布 <strong>包到</strong> npm上</h2><ul>
-<li>0.发布的名字不能用人家已有的</li>
-<li>1.创建带有package.json的包</li>
-<li>2.增加index.js</li>
-<li>3.使用官方npm</li>
-<li>4.登陆你的账号进行发布</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm adduser</div></pre></td></tr></table></figure>
-<ul>
-<li>5.发布</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm publish</div></pre></td></tr></table></figure>
-<h2 id="源的使用"><a href="#源的使用" class="headerlink" title="源的使用"></a>源的使用</h2><ul>
-<li>1.配置内网</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm config set registry &quot;http://172.18.0.199&quot;</div></pre></td></tr></table></figure>
-<ul>
-<li>2.切换源nrm</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install nrm -g</div></pre></td></tr></table></figure>
-<ul>
-<li>3.添加珠峰源</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm add TB http://172.18.0.199</div></pre></td></tr></table></figure>
-<ul>
-<li>4.使用源</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm use TB</div></pre></td></tr></table></figure>
-<ul>
-<li>5.显示所有源</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm ls</div></pre></td></tr></table></figure>
-<ul>
-<li>6.测试速度</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm test</div></pre></td></tr></table></figure>
-<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><ul>
-<li><p>文件模块(两个模块之间的关系)，引用时要增加路径./ /../,引用时可以不添加后缀名，默认会增加.js后缀，.json后缀,.node后缀</p>
-</li>
-<li><p>第三方模块(模块和包(别人的)之间的关系),引用的时候直接引用包的名字，找不到像上找，只能找到根目录为止，找到后找到package.json文件中，main对应的文件执行</p>
-</li>
-<li><p>核心模块(直接引用即可)</p>
-</li>
-</ul>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/11/npm/" class="archive-article-date">
-  	<time datetime="2016-12-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-11</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-idoc文档生成" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/11/idoc文档生成/">idoc博客</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="idoc文档生成"><a href="#idoc文档生成" class="headerlink" title="idoc文档生成"></a>idoc文档生成</h2><blockquote>
-<p>idoc类似于hexo生成博客，然后推送到github上边，和hexo相比，idoc更加的简单，可以生成的博客页面也没有hexo那样有数量的限制；</p>
-<p>操作的时候，一个文件夹就生成一个分类，只需把相应的md文件放到文件夹下就可以；</p>
-</blockquote>
-<ul>
-<li>1.安装idoc文档</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install fandoc/idoc -g</div></pre></td></tr></table></figure>
-<ul>
-<li>2.初始化</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fandoc init</div></pre></td></tr></table></figure>
-<ul>
-<li>3.构建</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fandoc build</div></pre></td></tr></table></figure>
-<ul>
-<li>4.启动服务</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fandoc server</div></pre></td></tr></table></figure>
-<ul>
-<li>5.推送</li>
-</ul>
-<blockquote>
-<p>在git上边新建的仓库分支必须是gh-pages</p>
-</blockquote>
-<ul>
-<li>原文地址</li>
-</ul>
-<blockquote>
-<p><a href="https://github.com/jaywcjlove/idoc" target="_blank" rel="external">https://github.com/jaywcjlove/idoc</a></p>
-</blockquote>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/11/idoc文档生成/" class="archive-article-date">
-  	<time datetime="2016-12-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-11</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/idoc/">idoc</a></li></ul>
 	</div>
 
       
@@ -1004,6 +932,87 @@
 
 
   
+    <article id="post-idoc文档生成" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/11/idoc文档生成/">idoc博客</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="idoc文档生成"><a href="#idoc文档生成" class="headerlink" title="idoc文档生成"></a>idoc文档生成</h2><blockquote>
+<p>idoc类似于hexo生成博客，然后推送到github上边，和hexo相比，idoc更加的简单，可以生成的博客页面也没有hexo那样有数量的限制；</p>
+<p>操作的时候，一个文件夹就生成一个分类，只需把相应的md文件放到文件夹下就可以；</p>
+</blockquote>
+<ul>
+<li>1.安装idoc文档</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install fandoc/idoc -g</div></pre></td></tr></table></figure>
+<ul>
+<li>2.初始化</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fandoc init</div></pre></td></tr></table></figure>
+<ul>
+<li>3.构建</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fandoc build</div></pre></td></tr></table></figure>
+<ul>
+<li>4.启动服务</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fandoc server</div></pre></td></tr></table></figure>
+<ul>
+<li>5.推送</li>
+</ul>
+<blockquote>
+<p>在git上边新建的仓库分支必须是gh-pages</p>
+</blockquote>
+<ul>
+<li>原文地址</li>
+</ul>
+<blockquote>
+<p><a href="https://github.com/jaywcjlove/idoc" target="_blank" rel="external">https://github.com/jaywcjlove/idoc</a></p>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/11/idoc文档生成/" class="archive-article-date">
+  	<time datetime="2016-12-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-11</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/idoc/">idoc</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1069,7 +1078,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/broadcast/" style="font-size: 10px;">$broadcast</a> <a href="/tags/emit/" style="font-size: 10px;">$emit</a> <a href="/tags/on/" style="font-size: 10px;">$on</a> <a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/AngularJs/" style="font-size: 13.33px;">AngularJs</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 16.67px;">JS</a> <a href="/tags/Node/" style="font-size: 16.67px;">Node</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 13.33px;">WebStorm</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/fs/" style="font-size: 10px;">fs</a> <a href="/tags/git/" style="font-size: 16.67px;">git</a> <a href="/tags/idoc/" style="font-size: 10px;">idoc</a> <a href="/tags/inherits/" style="font-size: 10px;">inherits</a> <a href="/tags/nodePPT/" style="font-size: 10px;">nodePPT</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/path/" style="font-size: 10px;">path</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/内置指令/" style="font-size: 10px;">内置指令</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/指令/" style="font-size: 16.67px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/方法/" style="font-size: 10px;">方法</a> <a href="/tags/服务/" style="font-size: 10px;">服务</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/购物车/" style="font-size: 10px;">购物车</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a> <a href="/tags/过滤器/" style="font-size: 10px;">过滤器</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
+    				<a href="/tags/broadcast/" style="font-size: 10px;">$broadcast</a> <a href="/tags/emit/" style="font-size: 10px;">$emit</a> <a href="/tags/on/" style="font-size: 10px;">$on</a> <a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/AngularJs/" style="font-size: 13.33px;">AngularJs</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 16.67px;">JS</a> <a href="/tags/Node/" style="font-size: 16.67px;">Node</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 13.33px;">WebStorm</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/fs/" style="font-size: 10px;">fs</a> <a href="/tags/git/" style="font-size: 16.67px;">git</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/idoc/" style="font-size: 10px;">idoc</a> <a href="/tags/inherits/" style="font-size: 10px;">inherits</a> <a href="/tags/nodePPT/" style="font-size: 10px;">nodePPT</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/path/" style="font-size: 10px;">path</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/内置指令/" style="font-size: 10px;">内置指令</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/指令/" style="font-size: 16.67px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/方法/" style="font-size: 10px;">方法</a> <a href="/tags/服务/" style="font-size: 10px;">服务</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/购物车/" style="font-size: 10px;">购物车</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a> <a href="/tags/过滤器/" style="font-size: 10px;">过滤器</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
     			</div>
     	</section>
     
