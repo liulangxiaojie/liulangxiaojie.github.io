@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>React笔记 | 杨小杰的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="bower1、安装bower1npm install bower -g
+2、初始化bower,会在当前目录下生成bower.json文件1bower init
+3、bower的使用1bower install  xxx
+reactreact是一个用于构建用户界面的JavaScript的 MVVM库
+1、安装reactreact是一个前端库，所以安装的时候不用npm安装而直接用bower安装
+123">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React笔记">
+<meta property="og:url" content="http://yoursite.com/2017/01/06/React笔记/index.html">
+<meta property="og:site_name" content="杨小杰的博客">
+<meta property="og:description" content="bower1、安装bower1npm install bower -g
+2、初始化bower,会在当前目录下生成bower.json文件1bower init
+3、bower的使用1bower install  xxx
+reactreact是一个用于构建用户界面的JavaScript的 MVVM库
+1、安装reactreact是一个前端库，所以安装的时候不用npm安装而直接用bower安装
+123">
+<meta property="og:updated_time" content="2017-01-06T14:26:19.130Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React笔记">
+<meta name="twitter:description" content="bower1、安装bower1npm install bower -g
+2、初始化bower,会在当前目录下生成bower.json文件1bower init
+3、bower的使用1bower install  xxx
+reactreact是一个用于构建用户界面的JavaScript的 MVVM库
+1、安装reactreact是一个前端库，所以安装的时候不用npm安装而直接用bower安装
+123">
+  
+    <link rel="alternative" href="/atom.xml" title="杨小杰的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/assets/img/y.ico">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="/assets/img/touxiang.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">杨小杰</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives">所有文章</a></li>
+	        
+				<li><a href="/tags/随笔">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">实用链接</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="3" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/liulangxiaojie" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">杨小杰</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="/assets/img/touxiang.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">杨小杰</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/liulangxiaojie" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-React笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="bower"><a href="#bower" class="headerlink" title="bower"></a>bower</h1><h3 id="1、安装bower"><a href="#1、安装bower" class="headerlink" title="1、安装bower"></a>1、安装bower</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install bower -g</div></pre></td></tr></table></figure>
+<h3 id="2、初始化bower-会在当前目录下生成bower-json文件"><a href="#2、初始化bower-会在当前目录下生成bower-json文件" class="headerlink" title="2、初始化bower,会在当前目录下生成bower.json文件"></a>2、初始化bower,会在当前目录下生成bower.json文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bower init</div></pre></td></tr></table></figure>
+<h3 id="3、bower的使用"><a href="#3、bower的使用" class="headerlink" title="3、bower的使用"></a>3、bower的使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bower install  xxx</div></pre></td></tr></table></figure>
+<h1 id="react"><a href="#react" class="headerlink" title="react"></a>react</h1><p>react是一个用于构建用户界面的JavaScript的 MVVM库</p>
+<h3 id="1、安装react"><a href="#1、安装react" class="headerlink" title="1、安装react"></a>1、安装react</h3><p>react是一个前端库，所以安装的时候不用npm安装而直接用bower安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">bower install react babel --save</div><div class="line"></div><div class="line">bower init</div></pre></td></tr></table></figure>
+<h3 id="2、直接在浏览器在浏览器中使用react"><a href="#2、直接在浏览器在浏览器中使用react" class="headerlink" title="2、直接在浏览器在浏览器中使用react"></a>2、直接在浏览器在浏览器中使用react</h3><ul>
+<li><p>react.js 是 React 的核心库</p>
+</li>
+<li><p>react-dom.js 是提供与DOM相关的功能,会在window下增加ReactDOM属性</p>
+</li>
+<li><p>browser.js 的作用是将JSX语法转为JavaScript语法</p>
+</li>
+<li><p>script中的type属性为text/babel,因为React独有的JSX语法,跟JavaScript不兼容</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;../bower_components/react/react.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;../bower_components/react/react-dom.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script src=&quot;../bower_components/babel/browser.js&quot;&gt;&lt;/script&gt;&lt;!-- 将JSX语法转为JavaScript语法 --&gt;</div><div class="line">&lt;script type=&quot;text/babel&quot; src=&quot;index.js&quot;&gt;&lt;/script&gt;&lt;!-- 这个是用来写自己的js代码的 --&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>以上文件需按照顺序来引入</p>
+</blockquote>
+<h3 id="3、JSX语法"><a href="#3、JSX语法" class="headerlink" title="3、JSX语法"></a>3、JSX语法</h3><ul>
+<li>遇到HTML标签 (以 \&lt; 开头 )，就用HTML规则解析</li>
+<li>遇到代码块 (以 { 开头 )，就用JavaScript规则解析</li>
+<li>使用样式时可以让style等于一个样式对象</li>
+<li>使用样式类时只能使用className=类名,因为class是Javascript关键字</li>
+</ul>
+<p>html页面的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>js代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/babel&quot;&gt;</div><div class="line"></div><div class="line">	ReactDOM.render(</div><div class="line">	    &lt;h1&gt;hello world&lt;/h1&gt;,</div><div class="line">	        document.getElementById(&apos;app&apos;)</div><div class="line">	    );</div><div class="line">// h1标签是虚拟的dom元素</div><div class="line"></div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>上面代码将一个h1标题，插入app元素内部</p>
+</blockquote>
+<ul>
+<li>react使用map遍历</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">persons.map(function (person,index) </div><div class="line">	&#123;</div><div class="line">		return &lt;div key=&#123;index&#125; style=&#123;style&#125;&gt;Hello, &#123;person&#125;!&lt;/div&gt;</div><div class="line">	&#125;)</div><div class="line">```  </div><div class="line"></div><div class="line">- angular遍历</div></pre></td></tr></table></figure>
+<p><div ng-repeat="person in presons track by $index"><br>    <div></div><br></div><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>var persons = [‘刘德华’, ‘范冰冰’, ‘郭跃’];<br>var style = {color:’red’};<br>ReactDOM.render(<br>  <div><br>  {<br>    persons.map(function (person,index) {//类似于angular的track by $index 防止出现同样的内容而报错<br>      return <div key="{index}" style="{style}">Hello, {person}!</div><br>    })<br>  }<br>  </div>,<br>  document.getElementById(‘app’)<br>);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 4、定义组件</div><div class="line"></div><div class="line">React允许将代码封装成组件，然后像插入普通HTML标签一样，在网页中插入这个组件</div><div class="line"></div><div class="line">- 组件类的第一个字母必须大写</div><div class="line"></div><div class="line">- 组件类能且只能包含一个顶层标签</div></pre></td></tr></table></figure></p>
+<!-- 首字母必须大写 小写开头会被react当做内置组件处理 -->
+<p>var Message = React.createClass({<br>// 表示此组件会被如何渲染<br>    render: function() {<br>    <!-- return 后边只能有一个顶级元素 --><br>        return </p><h1>Hello</h1>;<br>    }<br>});<br>ReactDOM.render(<br>    <message>,<br>    document.getElementById(‘app’)<br>);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 5、组件的属性</div><div class="line"></div><div class="line">- 每个组件都有自己的属性,一般用来存放组件初始后不变的数据，属性一般 **用作** 组件的数据源，一般由父组件传入</div><div class="line"></div><div class="line">- 属性可以通过this.props取出</div><div class="line"></div><div class="line">- propTypes可以用来定义传入组件属性的名称和类型</div><div class="line"></div><div class="line">- getDefaultProps函数可以用来定会引起组件的默认属性</div><div class="line"></div><div class="line">- react是单向数据流，只能是父级传递到子级</div></pre></td></tr></table></figure><p></p>
+<p>var Person = React.createClass({<br>    //类似于约定了一个接口文档,用于这是验证传递给组件的属性，<br>    propTypes: {<br>        //定义msg的属性类型为字符串，必须传入<br>        name: React.PropTypes.string.isRequired,<br>        gender: React.PropTypes.string.isRequired,<br>        age:React.PropTypes.number.isRequired<br>    },<br>    getDefaultProps:function(){<br>        return {name:’无名氏’}<br>    },<br>    render: function() {<br>        //属性可以通过属性对象this.props中取出<br>        return (</p><h1> {this.props.name}<br>                     {this.props.gender}<br>                     {this.props.age}<br>                </h1>);<br>    }<br>});<p></p>
+<p>var props = {<br>    gender:’男’,<br>    age:18<br>}</p>
+<p>ReactDOM.render(<br>    <person {...props}="">,//属性可以在使用组件时传入<br>    document.getElementById(‘app’)<br>);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 6、复合组件</div></pre></td></tr></table></figure></person></p>
+<p>var Panel = React.createClass({<br>    render: function () {<br>        return (<br>            <div classname="panel panel-default"><br>                <panelhead head="{this.props.head}/"><br>                <panelbody body="{this.props.body}/"><br>            </panelbody></panelhead></div><br>        );<br>    }<br>});</p>
+<p>var PanelHead = React.createClass({<br>    render: function () {<br>        return (<br>            <div classname="panel-heading"><br>                {this.props.head}<br>            </div><br>        );<br>    }<br>});</p>
+<p>var PanelBody = React.createClass({<br>    render: function () {<br>        return (<br>            <div classname="panel-body"><br>                {this.props.body}<br>            </div><br>        );<br>    }<br>});</p>
+<p>ReactDOM.render(<br>    <panel head="头部" body="正文">,<br>    document.getElementById(‘app’)<br>);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 7、this.props.children</div><div class="line"></div><div class="line">- this.props对象的属性与组件实例的属性一一对应,但this.props.children属性表示组件的所有子节点 React.Children.map是一个工具方法，用于实现对数组元素的映射</div></pre></td></tr></table></figure></panel></p>
+<p>var Person = React.createClass({<br>    render: function() {<br>      return (<br>            <ol><br>                {<br>                    React.Children.map(this.props.children,<br>                      function (child) {<br>                        return <li>{child}</li>;<br>                    })<br>                }<br>            </ol><br>      );<br>    }<br>});</p>
+<p>ReactDOM.render(<br>    <person><br>        <span>大毛</span><br>        <span>二毛</span><br>        <span>三毛</span><br>    </person>,<br>    document.getElementById(‘app’)<br>);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 8、state状态</div><div class="line"></div><div class="line">- 状态只能由内部初始化，只能由组件内部改变</div><div class="line"></div><div class="line">- `getInitialState`用来定义初始状态</div></pre></td></tr></table></figure></p>
+<p>var Person = React.createClass({<br>    //内部初始化状态<br>    getInitialState: function() {<br>        return {happy: true};<br>    },</p>
+<pre><code>getDefaultProps:function(){
+    return {name:&apos;无名氏&apos;};
+},
+handleClick: function(event) {
+    //修改状态，调用完此方法，react会自动调用render方法重新绘制页面
+    this.setState({happy: !this.state.happy});
+},
+render: function() {
+    var heart = this.state.happy ? &apos;开心&apos; : &apos;不开心&apos;;
+    return (
+        &lt;p &gt;
+             {this.props.name} {heart} &lt;br/&gt;
+
+             //绑定点击事件，指向handleClick
+             &lt;button onClick={this.handleClick}&gt;变心&lt;/button&gt;
+        &lt;/p&gt;
+    );
+}
+</code></pre><p>});</p>
+<p>ReactDOM.render(<br>    <person name="林志玲">,<br>    document.getElementById(‘app’)<br>);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 9、常用的事件</div></pre></td></tr></table></figure></person></p>
+<p>剪贴板事件 onKeyDown onKeyPress onKeyUp<br>键盘事件 onFocus onBlur<br>焦点事件 onChange onInput onSubmit<br>鼠标事件 onClick onDoubleClick onMouseDown onMouseEnter onMouseLeave<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 10、DOM操作</div><div class="line"></div><div class="line">给组件加上 `ref=&quot;xxx&quot;` 后，可在父组件中通过 `this.refs.xxx` 获取该DOM元素</div></pre></td></tr></table></figure></p>
+<p>var Focus = React.createClass({<br>    handleClick: function() {<br>        //refs是一个对象 key是msg对应的dom元素<br>        this.refs.msg.focus();<br>    },<br>    render: function() {<br>        return (<br>            <div><br>                <input type="text" ref="msg"><br>                <input type="button" value="获得焦点" onclick="{this.handleClick}"><br>            </div><br>        );<br>    }<br>});</p>
+<p>ReactDOM.render(<br>    <focus>,<br>    document.getElementById(‘app’)<br>);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 11、react百度搜索框</div></pre></td></tr></table></figure></focus></p>
+<p>let Suggest = React.createClass({<br>    getInitialState(){<br>      return {words:[],currentIndex:-1,word:’’};<br>    },<br>    // 上=38 下=40<br>    handleKeyUp(event){<br>        let code = event.keyCode;<br>        if(code == 40 || code == 38){<br>            var newIndex;<br>            if(code == 40){//焦点下移<br>                 newIndex = this.state.currentIndex+1;<br>                if(newIndex &gt;= this.state.words.length){<br>                    newIndex = 0;<br>                }<br>            }else if(code == 38){//焦点上移<br>                 newIndex = this.state.currentIndex-1;<br>                if(newIndex &lt; 0){<br>                    newIndex = this.state.words.length-1;<br>                }<br>            }<br>            this.setState({currentIndex:newIndex},()=&gt;{<br>                let selectedWord = this.state.words[this.state.currentIndex];<br>                this.setState({word:selectedWord},()=&gt;{<br>                    if(this.timer){<br>                        clearTimeout(this.timer);<br>                    }<br>                    this.timer = setTimeout(function(wd){<br>                        window.location.href=<code>https://www.baidu.com/s?wd=${selectedWord}</code>;<br>                    },2000);<br>                });<br>            });</p>
+<pre><code>    } else{
+        //取得输入框的值
+        var word = event.target.value;
+        // https://www.baidu.com/su?wd=a&amp;cb=md
+        /**
+         * 1.外面暂存this,里面使用
+         * 2.箭头函数
+         * 3.context
+         */
+        //调用百度的jsonp接口获取联想词
+        $.ajax({
+            url:&apos;http://www.baidu.com/su&apos;,
+            method:&apos;GET&apos;,//请求方法
+            jsonp:&apos;cb&apos;,//指定传递回调方法名字的参数名
+            //jsonp会把外层的方法调用给去掉，把里面的对象转成JSON传递给success回调函数
+            dataType:&apos;jsonp&apos;,//返回的数据类型是jsonp
+            //https://www.baidu.com/su?cb=jQuery111107917659857405164_1483005925993&amp;wd=a&amp;name=zfpx&amp;_=1483005925994
+            data:{wd:word,name:&apos;zfpx&apos;},//发送的数据，如果get请求会转成查询字符串追加到url后面
+            context:this,//用于绑定回调函数中this指针
+            success(result){//成功的回调
+                var words = result.s;
+                this.setState({words});
+            }
+        })
+    }
+
+},
+handleChange(event){
+  this.setState({word:event.target.value});
+},
+render(){
+    return (
+        &lt;div className=&quot;panel panel-default&quot;&gt;
+            &lt;div className=&quot;panel-heading&quot;&gt;
+                &lt;input type=&quot;text&quot; value={this.state.word} className=&quot;form-control&quot; onKeyUp={this.handleKeyUp} onChange={this.handleChange}/&gt;
+            &lt;/div&gt;
+            &lt;div className=&quot;panel-body&quot;&gt;
+                &lt;ul className=&quot;list-group&quot;&gt;
+                    {
+                        this.state.words.map((item,index)=&gt;{
+        return &lt;li key={index} className={&quot;list-group-item &quot;+(this.state.currentIndex==index?&apos;active&apos;:&apos;&apos;)}&gt;{item}&lt;/li&gt;
+                        })
+                    }
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    )
+}
+</code></pre><p>});<br>ReactDOM.render(<suggest>,document.querySelector(‘#container’));<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 12、插件实现双向数据绑定</div><div class="line"></div><div class="line">- 在html页面里边引入插件</div></pre></td></tr></table></figure></suggest></p>
+<p><script src="lib/react/react-with-addons.js"></script><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- js代码实现</div></pre></td></tr></table></figure></p>
+<p>var Input = React.createClass({<br>    mixins:[React.addons.LinkedStateMixin],<br>    getInitialState: function() {//获取初始状态<br>        return {msg: ‘珠峰培训’};<br>    },<br>    render: function () {<br>        var msg = this.state.msg;<br>        return (<br>            <div><br>                <input type="text" valuelink="{this.linkState('msg')}"><br>                <p>{msg}</p><br>            </div><br>        );<br>    }<br>});</p>
+<p>ReactDOM.render(<input>, document.getElementById(‘app’));<br>```</p>
+</message>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/01/06/React笔记/" class="archive-article-date">
+  	<time datetime="2017-01-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-01-06</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bower/">bower</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/01/06/常见错误的总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">常见错误的总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+<div class="share_addthis share_jia">
+  <div class="sharing addthis_toolbox share">
+  	<span class="jiathis_txt">Share to: &nbsp; </span>
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="React笔记" data-title="React笔记" data-url="http://yoursite.com/2017/01/06/React笔记/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 杨小杰
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+      <li data-hook="tools-section-friends"><span class="text">友链</span><i class="icon-link"></i></li>
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/broadcast/" style="font-size: 10px;">$broadcast</a> <a href="/tags/emit/" style="font-size: 10px;">$emit</a> <a href="/tags/on/" style="font-size: 10px;">$on</a> <a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/AngularJs/" style="font-size: 12px;">AngularJs</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 16px;">JS</a> <a href="/tags/Node/" style="font-size: 18px;">Node</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 12px;">WebStorm</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/dom/" style="font-size: 10px;">dom</a> <a href="/tags/express/" style="font-size: 12px;">express</a> <a href="/tags/fs/" style="font-size: 10px;">fs</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/idoc/" style="font-size: 10px;">idoc</a> <a href="/tags/inherits/" style="font-size: 10px;">inherits</a> <a href="/tags/nodePPT/" style="font-size: 10px;">nodePPT</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/path/" style="font-size: 10px;">path</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/内置指令/" style="font-size: 10px;">内置指令</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/常见错误/" style="font-size: 10px;">常见错误</a> <a href="/tags/指令/" style="font-size: 14px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/方法/" style="font-size: 10px;">方法</a> <a href="/tags/服务/" style="font-size: 10px;">服务</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/购物车/" style="font-size: 10px;">购物车</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a> <a href="/tags/过滤器/" style="font-size: 10px;">过滤器</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
+    			</div>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends">
+  		
+  			<div class="friends-wrap" id="js-friends">
+  			
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.zybuluo.com/mdeditor">Markdown语法参考链接</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.itheima.com/webmap">前端学习路线图</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.36zhen.com/t?id=3448">前端书籍资料</a>
+  	        
+  	        </div>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;我只是一直年幼的程序员&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

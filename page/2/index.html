@@ -143,6 +143,74 @@
       <div class="body-wrap">
         
   
+    <article id="post-Angular的五种服务" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/16/Angular的五种服务/">Angular的五种服务</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1、provider"><a href="#1、provider" class="headerlink" title="1、provider"></a>1、provider</h3><blockquote>
+<p>唯一一个可以配置的服务</p>
+</blockquote>
+<p>基本结构样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">app.provider(&apos;pname&apos;,function()&#123;</div><div class="line">    this.$get = function()&#123;</div><div class="line">        return &#123;</div><div class="line">            name:function()&#123;&#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>小例子</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;!--HTML--&gt;</div><div class="line"></div><div class="line">&lt;div ng-controller=&quot;myCtrl1&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div ng-controller=&quot;myCtrl2&quot;&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">//js</div><div class="line"></div><div class="line">//provider 唯一一个可以配置的服务</div><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">//config用来配置服务的</div><div class="line">app.config(function (calcProvider) &#123;//在需要配置的provider后面加Provider，calcProvider代表的就是函数中的this</div><div class="line">    calcProvider.currency = &apos;$&apos;;</div><div class="line">&#125;);</div><div class="line">app.provider(&apos;calc&apos;,function () &#123;</div><div class="line">    this.currency = &apos;￡&apos;;</div><div class="line">    this.$get = function () &#123;</div><div class="line">        return &#123;</div><div class="line">            //这里的this都是calc</div><div class="line">            &apos;+&apos;:(a,b)=&gt; this.currency+(a+b),</div><div class="line">            &apos;-&apos;:(a,b)=&gt; this.currency+(a-b),</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="2、factory"><a href="#2、factory" class="headerlink" title="2、factory"></a>2、factory</h3><p>pname为服务的名字,第二个参数传入一个函数,函数需要有一个返回值obj,返回一个对象.实际被注入的服务就是这个对象.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">app.factory(&apos;pname&apos;,function()&#123;</div><div class="line">    return &#123;</div><div class="line">        name:function()&#123;&#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>小例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">//factory中直接后面的函数就是$get,factory是通过provider衍生出来的</div><div class="line">app.factory(&apos;calc&apos;, function () &#123;//就是$get方法</div><div class="line">    return &#123;</div><div class="line">        &apos;+&apos;:function (a,b) &#123;return (a+b)&#125;,</div><div class="line">        &apos;-&apos;:function (a,b) &#123;return (a-b)&#125;,</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="3、service"><a href="#3、service" class="headerlink" title="3、service"></a>3、service</h3><p>name为服务的名字,function是一个构造函数.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app,service(&apos;pname&apos;,function()&#123;</div><div class="line">    this.name = function()&#123;&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>小例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">app.service(&apos;calc&apos;, function () &#123;//就是$get方法</div><div class="line">    //这个构造函数是factory返回对象的构造函数</div><div class="line">    this[&apos;+&apos;] = function (a,b) &#123;return (a+b)&#125;;</div><div class="line">    this[&apos;-&apos;] = function (a,b) &#123;return (a-b)&#125;;</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout,calc ) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="4、value-5、constant"><a href="#4、value-5、constant" class="headerlink" title="4、value/5、constant"></a>4、value/5、constant</h3><p>‘app.value/constant(‘name’,obj)’<br>name为服务的名字,obj为一个json对象,用法相同</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.value(&apos;pname&apos;,&#123;</div><div class="line">  name:function()&#123;&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>小例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">    app.constant(&apos;calc&apos;,&#123; //这个对象是factory返回后的对象</div><div class="line">        &apos;+&apos;:function (a,b) &#123;return (a+b)&#125;,</div><div class="line">        &apos;-&apos;:function (a,b) &#123;return (a-b)&#125;,</div><div class="line">    &#125;);</div><div class="line">    app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">        console.log(calc[&apos;+&apos;](1,2));</div><div class="line">    &#125;);</div><div class="line">    app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout,calc ) &#123;</div><div class="line">        console.log(calc[&apos;+&apos;](1,2));</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/16/Angular的五种服务/" class="archive-article-date">
+  	<time datetime="2016-12-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-16</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务/">服务</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Angular作用域之间的通信" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -938,85 +1006,6 @@
 
 
   
-    <article id="post-常用nrm工具命令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/08/常用nrm工具命令/">常用nrm工具命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="常用nrm工具命令"><a href="#常用nrm工具命令" class="headerlink" title="常用nrm工具命令"></a>常用nrm工具命令</h2><blockquote>
-<p>mac下安装全局时需要增加sudo</p>
-</blockquote>
-<ul>
-<li>windowns系统安装</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g nrm</div></pre></td></tr></table></figure>
-<ul>
-<li>显示所有可用的源</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm ls</div></pre></td></tr></table></figure>
-<ul>
-<li>切换源</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm use taobao</div></pre></td></tr></table></figure>
-<ul>
-<li>添加源</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm add hello http://172.18.0.199</div></pre></td></tr></table></figure>
-<ul>
-<li>删除源</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm del hello</div></pre></td></tr></table></figure>
-<ul>
-<li>切换到新添加的源上</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm use hello</div></pre></td></tr></table></figure>
-<ul>
-<li>测试源的响应时间</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm test</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/08/常用nrm工具命令/" class="archive-article-date">
-  	<time datetime="2016-12-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-08</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nrm/">nrm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令/">命令</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-webstrom总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1159,7 +1148,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/broadcast/" style="font-size: 10px;">$broadcast</a> <a href="/tags/emit/" style="font-size: 10px;">$emit</a> <a href="/tags/on/" style="font-size: 10px;">$on</a> <a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/AngularJs/" style="font-size: 12px;">AngularJs</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 16px;">JS</a> <a href="/tags/Node/" style="font-size: 18px;">Node</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 12px;">WebStorm</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/dom/" style="font-size: 10px;">dom</a> <a href="/tags/express/" style="font-size: 12px;">express</a> <a href="/tags/fs/" style="font-size: 10px;">fs</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/idoc/" style="font-size: 10px;">idoc</a> <a href="/tags/inherits/" style="font-size: 10px;">inherits</a> <a href="/tags/nodePPT/" style="font-size: 10px;">nodePPT</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/path/" style="font-size: 10px;">path</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/内置指令/" style="font-size: 10px;">内置指令</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/常见错误/" style="font-size: 10px;">常见错误</a> <a href="/tags/指令/" style="font-size: 14px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/方法/" style="font-size: 10px;">方法</a> <a href="/tags/服务/" style="font-size: 10px;">服务</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/购物车/" style="font-size: 10px;">购物车</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a> <a href="/tags/过滤器/" style="font-size: 10px;">过滤器</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
+    				<a href="/tags/broadcast/" style="font-size: 10px;">$broadcast</a> <a href="/tags/emit/" style="font-size: 10px;">$emit</a> <a href="/tags/on/" style="font-size: 10px;">$on</a> <a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/AngularJs/" style="font-size: 12px;">AngularJs</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 16px;">JS</a> <a href="/tags/Node/" style="font-size: 18px;">Node</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 12px;">WebStorm</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/dom/" style="font-size: 10px;">dom</a> <a href="/tags/express/" style="font-size: 12px;">express</a> <a href="/tags/fs/" style="font-size: 10px;">fs</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/idoc/" style="font-size: 10px;">idoc</a> <a href="/tags/inherits/" style="font-size: 10px;">inherits</a> <a href="/tags/nodePPT/" style="font-size: 10px;">nodePPT</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/path/" style="font-size: 10px;">path</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/内置指令/" style="font-size: 10px;">内置指令</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/常见错误/" style="font-size: 10px;">常见错误</a> <a href="/tags/指令/" style="font-size: 14px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/方法/" style="font-size: 10px;">方法</a> <a href="/tags/服务/" style="font-size: 10px;">服务</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/购物车/" style="font-size: 10px;">购物车</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a> <a href="/tags/过滤器/" style="font-size: 10px;">过滤器</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
     			</div>
     	</section>
     
