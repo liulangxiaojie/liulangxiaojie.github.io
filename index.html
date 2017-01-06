@@ -197,98 +197,57 @@
 <ul>
 <li>react使用map遍历</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">persons.map(function (person,index) </div><div class="line">	&#123;</div><div class="line">		return &lt;div key=&#123;index&#125; style=&#123;style&#125;&gt;Hello, &#123;person&#125;!&lt;/div&gt;</div><div class="line">	&#125;)</div><div class="line">```  </div><div class="line"></div><div class="line">- angular遍历</div></pre></td></tr></table></figure>
-<p><div ng-repeat="person in presons track by $index"><br>    <div></div><br></div><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
-<p>var persons = [‘刘德华’, ‘范冰冰’, ‘郭跃’];<br>var style = {color:’red’};<br>ReactDOM.render(<br>  <div><br>  {<br>    persons.map(function (person,index) {//类似于angular的track by $index 防止出现同样的内容而报错<br>      return <div key="{index}" style="{style}">Hello, {person}!</div><br>    })<br>  }<br>  </div>,<br>  document.getElementById(‘app’)<br>);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 4、定义组件</div><div class="line"></div><div class="line">React允许将代码封装成组件，然后像插入普通HTML标签一样，在网页中插入这个组件</div><div class="line"></div><div class="line">- 组件类的第一个字母必须大写</div><div class="line"></div><div class="line">- 组件类能且只能包含一个顶层标签</div></pre></td></tr></table></figure></p>
-<!-- 首字母必须大写 小写开头会被react当做内置组件处理 -->
-<p>var Message = React.createClass({<br>// 表示此组件会被如何渲染<br>    render: function() {<br>    <!-- return 后边只能有一个顶级元素 --><br>        return </p><h1>Hello</h1>;<br>    }<br>});<br>ReactDOM.render(<br>    <message>,<br>    document.getElementById(‘app’)<br>);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 5、组件的属性</div><div class="line"></div><div class="line">- 每个组件都有自己的属性,一般用来存放组件初始后不变的数据，属性一般 **用作** 组件的数据源，一般由父组件传入</div><div class="line"></div><div class="line">- 属性可以通过this.props取出</div><div class="line"></div><div class="line">- propTypes可以用来定义传入组件属性的名称和类型</div><div class="line"></div><div class="line">- getDefaultProps函数可以用来定会引起组件的默认属性</div><div class="line"></div><div class="line">- react是单向数据流，只能是父级传递到子级</div></pre></td></tr></table></figure><p></p>
-<p>var Person = React.createClass({<br>    //类似于约定了一个接口文档,用于这是验证传递给组件的属性，<br>    propTypes: {<br>        //定义msg的属性类型为字符串，必须传入<br>        name: React.PropTypes.string.isRequired,<br>        gender: React.PropTypes.string.isRequired,<br>        age:React.PropTypes.number.isRequired<br>    },<br>    getDefaultProps:function(){<br>        return {name:’无名氏’}<br>    },<br>    render: function() {<br>        //属性可以通过属性对象this.props中取出<br>        return (</p><h1> {this.props.name}<br>                     {this.props.gender}<br>                     {this.props.age}<br>                </h1>);<br>    }<br>});<p></p>
-<p>var props = {<br>    gender:’男’,<br>    age:18<br>}</p>
-<p>ReactDOM.render(<br>    <person {...props}="">,//属性可以在使用组件时传入<br>    document.getElementById(‘app’)<br>);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 6、复合组件</div></pre></td></tr></table></figure></person></p>
-<p>var Panel = React.createClass({<br>    render: function () {<br>        return (<br>            <div classname="panel panel-default"><br>                <panelhead head="{this.props.head}/"><br>                <panelbody body="{this.props.body}/"><br>            </panelbody></panelhead></div><br>        );<br>    }<br>});</p>
-<p>var PanelHead = React.createClass({<br>    render: function () {<br>        return (<br>            <div classname="panel-heading"><br>                {this.props.head}<br>            </div><br>        );<br>    }<br>});</p>
-<p>var PanelBody = React.createClass({<br>    render: function () {<br>        return (<br>            <div classname="panel-body"><br>                {this.props.body}<br>            </div><br>        );<br>    }<br>});</p>
-<p>ReactDOM.render(<br>    <panel head="头部" body="正文">,<br>    document.getElementById(‘app’)<br>);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 7、this.props.children</div><div class="line"></div><div class="line">- this.props对象的属性与组件实例的属性一一对应,但this.props.children属性表示组件的所有子节点 React.Children.map是一个工具方法，用于实现对数组元素的映射</div></pre></td></tr></table></figure></panel></p>
-<p>var Person = React.createClass({<br>    render: function() {<br>      return (<br>            <ol><br>                {<br>                    React.Children.map(this.props.children,<br>                      function (child) {<br>                        return <li>{child}</li>;<br>                    })<br>                }<br>            </ol><br>      );<br>    }<br>});</p>
-<p>ReactDOM.render(<br>    <person><br>        <span>大毛</span><br>        <span>二毛</span><br>        <span>三毛</span><br>    </person>,<br>    document.getElementById(‘app’)<br>);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 8、state状态</div><div class="line"></div><div class="line">- 状态只能由内部初始化，只能由组件内部改变</div><div class="line"></div><div class="line">- `getInitialState`用来定义初始状态</div></pre></td></tr></table></figure></p>
-<p>var Person = React.createClass({<br>    //内部初始化状态<br>    getInitialState: function() {<br>        return {happy: true};<br>    },</p>
-<pre><code>getDefaultProps:function(){
-    return {name:&apos;无名氏&apos;};
-},
-handleClick: function(event) {
-    //修改状态，调用完此方法，react会自动调用render方法重新绘制页面
-    this.setState({happy: !this.state.happy});
-},
-render: function() {
-    var heart = this.state.happy ? &apos;开心&apos; : &apos;不开心&apos;;
-    return (
-        &lt;p &gt;
-             {this.props.name} {heart} &lt;br/&gt;
-
-             //绑定点击事件，指向handleClick
-             &lt;button onClick={this.handleClick}&gt;变心&lt;/button&gt;
-        &lt;/p&gt;
-    );
-}
-</code></pre><p>});</p>
-<p>ReactDOM.render(<br>    <person name="林志玲">,<br>    document.getElementById(‘app’)<br>);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 9、常用的事件</div></pre></td></tr></table></figure></person></p>
-<p>剪贴板事件 onKeyDown onKeyPress onKeyUp<br>键盘事件 onFocus onBlur<br>焦点事件 onChange onInput onSubmit<br>鼠标事件 onClick onDoubleClick onMouseDown onMouseEnter onMouseLeave<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 10、DOM操作</div><div class="line"></div><div class="line">给组件加上 `ref=&quot;xxx&quot;` 后，可在父组件中通过 `this.refs.xxx` 获取该DOM元素</div></pre></td></tr></table></figure></p>
-<p>var Focus = React.createClass({<br>    handleClick: function() {<br>        //refs是一个对象 key是msg对应的dom元素<br>        this.refs.msg.focus();<br>    },<br>    render: function() {<br>        return (<br>            <div><br>                <input type="text" ref="msg"><br>                <input type="button" value="获得焦点" onclick="{this.handleClick}"><br>            </div><br>        );<br>    }<br>});</p>
-<p>ReactDOM.render(<br>    <focus>,<br>    document.getElementById(‘app’)<br>);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 11、react百度搜索框</div></pre></td></tr></table></figure></focus></p>
-<p>let Suggest = React.createClass({<br>    getInitialState(){<br>      return {words:[],currentIndex:-1,word:’’};<br>    },<br>    // 上=38 下=40<br>    handleKeyUp(event){<br>        let code = event.keyCode;<br>        if(code == 40 || code == 38){<br>            var newIndex;<br>            if(code == 40){//焦点下移<br>                 newIndex = this.state.currentIndex+1;<br>                if(newIndex &gt;= this.state.words.length){<br>                    newIndex = 0;<br>                }<br>            }else if(code == 38){//焦点上移<br>                 newIndex = this.state.currentIndex-1;<br>                if(newIndex &lt; 0){<br>                    newIndex = this.state.words.length-1;<br>                }<br>            }<br>            this.setState({currentIndex:newIndex},()=&gt;{<br>                let selectedWord = this.state.words[this.state.currentIndex];<br>                this.setState({word:selectedWord},()=&gt;{<br>                    if(this.timer){<br>                        clearTimeout(this.timer);<br>                    }<br>                    this.timer = setTimeout(function(wd){<br>                        window.location.href=<code>https://www.baidu.com/s?wd=${selectedWord}</code>;<br>                    },2000);<br>                });<br>            });</p>
-<pre><code>    } else{
-        //取得输入框的值
-        var word = event.target.value;
-        // https://www.baidu.com/su?wd=a&amp;cb=md
-        /**
-         * 1.外面暂存this,里面使用
-         * 2.箭头函数
-         * 3.context
-         */
-        //调用百度的jsonp接口获取联想词
-        $.ajax({
-            url:&apos;http://www.baidu.com/su&apos;,
-            method:&apos;GET&apos;,//请求方法
-            jsonp:&apos;cb&apos;,//指定传递回调方法名字的参数名
-            //jsonp会把外层的方法调用给去掉，把里面的对象转成JSON传递给success回调函数
-            dataType:&apos;jsonp&apos;,//返回的数据类型是jsonp
-            //https://www.baidu.com/su?cb=jQuery111107917659857405164_1483005925993&amp;wd=a&amp;name=zfpx&amp;_=1483005925994
-            data:{wd:word,name:&apos;zfpx&apos;},//发送的数据，如果get请求会转成查询字符串追加到url后面
-            context:this,//用于绑定回调函数中this指针
-            success(result){//成功的回调
-                var words = result.s;
-                this.setState({words});
-            }
-        })
-    }
-
-},
-handleChange(event){
-  this.setState({word:event.target.value});
-},
-render(){
-    return (
-        &lt;div className=&quot;panel panel-default&quot;&gt;
-            &lt;div className=&quot;panel-heading&quot;&gt;
-                &lt;input type=&quot;text&quot; value={this.state.word} className=&quot;form-control&quot; onKeyUp={this.handleKeyUp} onChange={this.handleChange}/&gt;
-            &lt;/div&gt;
-            &lt;div className=&quot;panel-body&quot;&gt;
-                &lt;ul className=&quot;list-group&quot;&gt;
-                    {
-                        this.state.words.map((item,index)=&gt;{
-        return &lt;li key={index} className={&quot;list-group-item &quot;+(this.state.currentIndex==index?&apos;active&apos;:&apos;&apos;)}&gt;{item}&lt;/li&gt;
-                        })
-                    }
-                &lt;/ul&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    )
-}
-</code></pre><p>});<br>ReactDOM.render(<suggest>,document.querySelector(‘#container’));<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 12、插件实现双向数据绑定</div><div class="line"></div><div class="line">- 在html页面里边引入插件</div></pre></td></tr></table></figure></suggest></p>
-<p><script src="lib/react/react-with-addons.js"></script><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- js代码实现</div></pre></td></tr></table></figure></p>
-<p>var Input = React.createClass({<br>    mixins:[React.addons.LinkedStateMixin],<br>    getInitialState: function() {//获取初始状态<br>        return {msg: ‘珠峰培训’};<br>    },<br>    render: function () {<br>        var msg = this.state.msg;<br>        return (<br>            <div><br>                <input type="text" valuelink="{this.linkState('msg')}"><br>                <p>{msg}</p><br>            </div><br>        );<br>    }<br>});</p>
-<p>ReactDOM.render(<input>, document.getElementById(‘app’));<br>```</p>
-</message>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">persons.map(function (person,index) </div><div class="line">	&#123;</div><div class="line">		return &lt;div key=&#123;index&#125; style=&#123;style&#125;&gt;Hello, &#123;person&#125;!&lt;/div&gt;</div><div class="line">	&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>angular遍历 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-repeat=&quot;person in presons track by $index&quot;&gt;</div><div class="line">	&lt;div&gt;&#123;&#123;person&#125;&#125;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var persons = [&apos;刘德华&apos;, &apos;范冰冰&apos;, &apos;郭跃&apos;];</div><div class="line">var style = &#123;color:&apos;red&apos;&#125;;</div><div class="line">ReactDOM.render(</div><div class="line">  &lt;div&gt;</div><div class="line">  &#123;</div><div class="line">    persons.map(function (person,index) &#123;//类似于angular的track by $index 防止出现同样的内容而报错</div><div class="line">      return &lt;div key=&#123;index&#125; style=&#123;style&#125;&gt;Hello, &#123;person&#125;!&lt;/div&gt;</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line">  &lt;/div&gt;,</div><div class="line">  document.getElementById(&apos;app&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<h3 id="4、定义组件"><a href="#4、定义组件" class="headerlink" title="4、定义组件"></a>4、定义组件</h3><p>React允许将代码封装成组件，然后像插入普通HTML标签一样，在网页中插入这个组件</p>
+<ul>
+<li><p>组件类的第一个字母必须大写</p>
+</li>
+<li><p>组件类能且只能包含一个顶层标签</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 首字母必须大写 小写开头会被react当做内置组件处理 --&gt;</div><div class="line"></div><div class="line">var Message = React.createClass(&#123;</div><div class="line">// 表示此组件会被如何渲染</div><div class="line">    render: function() &#123;</div><div class="line">    &lt;!-- return 后边只能有一个顶级元素 --&gt;</div><div class="line">        return &lt;h1&gt;Hello&lt;/h1&gt;;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">ReactDOM.render(</div><div class="line">    &lt;Message/&gt;,</div><div class="line">    document.getElementById(&apos;app&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<h3 id="5、组件的属性"><a href="#5、组件的属性" class="headerlink" title="5、组件的属性"></a>5、组件的属性</h3><ul>
+<li><p>每个组件都有自己的属性,一般用来存放组件初始后不变的数据，属性一般 <strong>用作</strong> 组件的数据源，一般由父组件传入</p>
+</li>
+<li><p>属性可以通过this.props取出</p>
+</li>
+<li><p>propTypes可以用来定义传入组件属性的名称和类型</p>
+</li>
+<li><p>getDefaultProps函数可以用来定会引起组件的默认属性</p>
+</li>
+<li><p>react是单向数据流，只能是父级传递到子级</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">var Person = React.createClass(&#123;</div><div class="line">    //类似于约定了一个接口文档,用于这是验证传递给组件的属性，</div><div class="line">    propTypes: &#123;</div><div class="line">        //定义msg的属性类型为字符串，必须传入</div><div class="line">        name: React.PropTypes.string.isRequired,</div><div class="line">        gender: React.PropTypes.string.isRequired,</div><div class="line">        age:React.PropTypes.number.isRequired</div><div class="line">    &#125;,</div><div class="line">    getDefaultProps:function()&#123;</div><div class="line">        return &#123;name:&apos;无名氏&apos;&#125;</div><div class="line">    &#125;,</div><div class="line">    render: function() &#123;</div><div class="line">        //属性可以通过属性对象this.props中取出</div><div class="line">        return (&lt;h1&gt; &#123;this.props.name&#125;</div><div class="line">                     &#123;this.props.gender&#125;</div><div class="line">                     &#123;this.props.age&#125;</div><div class="line">                &lt;/h1&gt;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">var props = &#123;</div><div class="line">    gender:&apos;男&apos;,</div><div class="line">    age:18</div><div class="line">&#125;</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">    &lt;Person &#123;...props&#125; /&gt;,//属性可以在使用组件时传入</div><div class="line">    document.getElementById(&apos;app&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<h3 id="6、复合组件"><a href="#6、复合组件" class="headerlink" title="6、复合组件"></a>6、复合组件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">var Panel = React.createClass(&#123;</div><div class="line">    render: function () &#123;</div><div class="line">        return (</div><div class="line">            &lt;div className=&quot;panel panel-default&quot;&gt;</div><div class="line">                &lt;PanelHead head=&#123;this.props.head&#125;/&gt;</div><div class="line">                &lt;PanelBody body=&#123;this.props.body&#125;/&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">var PanelHead = React.createClass(&#123;</div><div class="line">    render: function () &#123;</div><div class="line">        return (</div><div class="line">            &lt;div className=&quot;panel-heading&quot;&gt;</div><div class="line">                &#123;this.props.head&#125;</div><div class="line">            &lt;/div&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">var PanelBody = React.createClass(&#123;</div><div class="line">    render: function () &#123;</div><div class="line">        return (</div><div class="line">            &lt;div className=&quot;panel-body&quot;&gt;</div><div class="line">                &#123;this.props.body&#125;</div><div class="line">            &lt;/div&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">    &lt;Panel</div><div class="line">        head=&quot;头部&quot;</div><div class="line">        body=&quot;正文&quot;</div><div class="line">    /&gt;,</div><div class="line">    document.getElementById(&apos;app&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<h3 id="7、this-props-children"><a href="#7、this-props-children" class="headerlink" title="7、this.props.children"></a>7、this.props.children</h3><ul>
+<li>this.props对象的属性与组件实例的属性一一对应,但this.props.children属性表示组件的所有子节点 React.Children.map是一个工具方法，用于实现对数组元素的映射</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">var Person = React.createClass(&#123;</div><div class="line">    render: function() &#123;</div><div class="line">      return (</div><div class="line">            &lt;ol&gt;</div><div class="line">                &#123;</div><div class="line">                    React.Children.map(this.props.children,</div><div class="line">                      function (child) &#123;</div><div class="line">                        return &lt;li&gt;&#123;child&#125;&lt;/li&gt;;</div><div class="line">                    &#125;)</div><div class="line">                &#125;</div><div class="line">            &lt;/ol&gt;</div><div class="line">      );</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">    &lt;Person&gt;</div><div class="line">        &lt;span&gt;大毛&lt;/span&gt;</div><div class="line">        &lt;span&gt;二毛&lt;/span&gt;</div><div class="line">        &lt;span&gt;三毛&lt;/span&gt;</div><div class="line">    &lt;/Person&gt;,</div><div class="line">    document.getElementById(&apos;app&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<h3 id="8、state状态"><a href="#8、state状态" class="headerlink" title="8、state状态"></a>8、state状态</h3><ul>
+<li><p>状态只能由内部初始化，只能由组件内部改变</p>
+</li>
+<li><p><code>getInitialState</code>用来定义初始状态</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">var Person = React.createClass(&#123;</div><div class="line">	//内部初始化状态</div><div class="line">    getInitialState: function() &#123;</div><div class="line">        return &#123;happy: true&#125;;</div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    getDefaultProps:function()&#123;</div><div class="line">        return &#123;name:&apos;无名氏&apos;&#125;;</div><div class="line">    &#125;,</div><div class="line">    handleClick: function(event) &#123;</div><div class="line">    	//修改状态，调用完此方法，react会自动调用render方法重新绘制页面</div><div class="line">        this.setState(&#123;happy: !this.state.happy&#125;);</div><div class="line">    &#125;,</div><div class="line">    render: function() &#123;</div><div class="line">        var heart = this.state.happy ? &apos;开心&apos; : &apos;不开心&apos;;</div><div class="line">        return (</div><div class="line">            &lt;p &gt;</div><div class="line">                 &#123;this.props.name&#125; &#123;heart&#125; &lt;br/&gt;</div><div class="line"></div><div class="line">                 //绑定点击事件，指向handleClick</div><div class="line">                 &lt;button onClick=&#123;this.handleClick&#125;&gt;变心&lt;/button&gt;</div><div class="line">            &lt;/p&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">    &lt;Person name=&quot;林志玲&quot; /&gt;,</div><div class="line">    document.getElementById(&apos;app&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<h3 id="9、常用的事件"><a href="#9、常用的事件" class="headerlink" title="9、常用的事件"></a>9、常用的事件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">剪贴板事件 onKeyDown onKeyPress onKeyUp</div><div class="line">键盘事件 onFocus onBlur</div><div class="line">焦点事件 onChange onInput onSubmit</div><div class="line">鼠标事件 onClick onDoubleClick onMouseDown onMouseEnter onMouseLeave</div></pre></td></tr></table></figure>
+<h3 id="10、DOM操作"><a href="#10、DOM操作" class="headerlink" title="10、DOM操作"></a>10、DOM操作</h3><p>给组件加上 <code>ref=&quot;xxx&quot;</code> 后，可在父组件中通过 <code>this.refs.xxx</code> 获取该DOM元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">var Focus = React.createClass(&#123;</div><div class="line">    handleClick: function() &#123;</div><div class="line">    	//refs是一个对象 key是msg对应的dom元素</div><div class="line">        this.refs.msg.focus();</div><div class="line">    &#125;,</div><div class="line">    render: function() &#123;</div><div class="line">        return (</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;input type=&quot;text&quot; ref=&quot;msg&quot; /&gt;</div><div class="line">                &lt;input type=&quot;button&quot; value=&quot;获得焦点&quot;</div><div class="line">                onClick=&#123;this.handleClick&#125; /&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">    &lt;Focus /&gt;,</div><div class="line">    document.getElementById(&apos;app&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
+<h3 id="11、react百度搜索框"><a href="#11、react百度搜索框" class="headerlink" title="11、react百度搜索框"></a>11、react百度搜索框</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line">let Suggest = React.createClass(&#123;</div><div class="line">    getInitialState()&#123;</div><div class="line">      return &#123;words:[],currentIndex:-1,word:&apos;&apos;&#125;;</div><div class="line">    &#125;,</div><div class="line">    // 上=38 下=40</div><div class="line">    handleKeyUp(event)&#123;</div><div class="line">        let code = event.keyCode;</div><div class="line">        if(code == 40 || code == 38)&#123;</div><div class="line">            var newIndex;</div><div class="line">            if(code == 40)&#123;//焦点下移</div><div class="line">                 newIndex = this.state.currentIndex+1;</div><div class="line">                if(newIndex &gt;= this.state.words.length)&#123;</div><div class="line">                    newIndex = 0;</div><div class="line">                &#125;</div><div class="line">            &#125;else if(code == 38)&#123;//焦点上移</div><div class="line">                 newIndex = this.state.currentIndex-1;</div><div class="line">                if(newIndex &lt; 0)&#123;</div><div class="line">                    newIndex = this.state.words.length-1;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            this.setState(&#123;currentIndex:newIndex&#125;,()=&gt;&#123;</div><div class="line">                let selectedWord = this.state.words[this.state.currentIndex];</div><div class="line">                this.setState(&#123;word:selectedWord&#125;,()=&gt;&#123;</div><div class="line">                    if(this.timer)&#123;</div><div class="line">                        clearTimeout(this.timer);</div><div class="line">                    &#125;</div><div class="line">                    this.timer = setTimeout(function(wd)&#123;</div><div class="line">                        window.location.href=`https://www.baidu.com/s?wd=$&#123;selectedWord&#125;`;</div><div class="line">                    &#125;,2000);</div><div class="line">                &#125;);</div><div class="line">            &#125;);</div><div class="line"></div><div class="line">        &#125; else&#123;</div><div class="line">            //取得输入框的值</div><div class="line">            var word = event.target.value;</div><div class="line">            // https://www.baidu.com/su?wd=a&amp;cb=md</div><div class="line">            /**</div><div class="line">             * 1.外面暂存this,里面使用</div><div class="line">             * 2.箭头函数</div><div class="line">             * 3.context</div><div class="line">             */</div><div class="line">            //调用百度的jsonp接口获取联想词</div><div class="line">            $.ajax(&#123;</div><div class="line">                url:&apos;http://www.baidu.com/su&apos;,</div><div class="line">                method:&apos;GET&apos;,//请求方法</div><div class="line">                jsonp:&apos;cb&apos;,//指定传递回调方法名字的参数名</div><div class="line">                //jsonp会把外层的方法调用给去掉，把里面的对象转成JSON传递给success回调函数</div><div class="line">                dataType:&apos;jsonp&apos;,//返回的数据类型是jsonp</div><div class="line">                //https://www.baidu.com/su?cb=jQuery111107917659857405164_1483005925993&amp;wd=a&amp;name=zfpx&amp;_=1483005925994</div><div class="line">                data:&#123;wd:word,name:&apos;zfpx&apos;&#125;,//发送的数据，如果get请求会转成查询字符串追加到url后面</div><div class="line">                context:this,//用于绑定回调函数中this指针</div><div class="line">                success(result)&#123;//成功的回调</div><div class="line">                    var words = result.s;</div><div class="line">                    this.setState(&#123;words&#125;);</div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;,</div><div class="line">    handleChange(event)&#123;</div><div class="line">      this.setState(&#123;word:event.target.value&#125;);</div><div class="line">    &#125;,</div><div class="line">    render()&#123;</div><div class="line">        return (</div><div class="line">            &lt;div className=&quot;panel panel-default&quot;&gt;</div><div class="line">                &lt;div className=&quot;panel-heading&quot;&gt;</div><div class="line">                    &lt;input type=&quot;text&quot; value=&#123;this.state.word&#125; className=&quot;form-control&quot; onKeyUp=&#123;this.handleKeyUp&#125; onChange=&#123;this.handleChange&#125;/&gt;</div><div class="line">                &lt;/div&gt;</div><div class="line">                &lt;div className=&quot;panel-body&quot;&gt;</div><div class="line">                    &lt;ul className=&quot;list-group&quot;&gt;</div><div class="line">                        &#123;</div><div class="line">                            this.state.words.map((item,index)=&gt;&#123;</div><div class="line">            return &lt;li key=&#123;index&#125; className=&#123;&quot;list-group-item &quot;+(this.state.currentIndex==index?&apos;active&apos;:&apos;&apos;)&#125;&gt;&#123;item&#125;&lt;/li&gt;</div><div class="line">                            &#125;)</div><div class="line">                        &#125;</div><div class="line">                    &lt;/ul&gt;</div><div class="line">                &lt;/div&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">ReactDOM.render(&lt;Suggest/&gt;,document.querySelector(&apos;#container&apos;));</div></pre></td></tr></table></figure>
+<h3 id="12、插件实现双向数据绑定"><a href="#12、插件实现双向数据绑定" class="headerlink" title="12、插件实现双向数据绑定"></a>12、插件实现双向数据绑定</h3><ul>
+<li>在html页面里边引入插件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;lib/react/react-with-addons.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>js代码实现</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var Input = React.createClass(&#123;</div><div class="line">    mixins:[React.addons.LinkedStateMixin],</div><div class="line">    getInitialState: function() &#123;//获取初始状态</div><div class="line">        return &#123;msg: &apos;珠峰培训&apos;&#125;;</div><div class="line">    &#125;,</div><div class="line">    render: function () &#123;</div><div class="line">        var msg = this.state.msg;</div><div class="line">        return (</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;input type=&quot;text&quot; valueLink=&#123;this.linkState(&apos;msg&apos;)&#125; /&gt;</div><div class="line">                &lt;p&gt;&#123;msg&#125;&lt;/p&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">ReactDOM.render(&lt;Input/&gt;, document.getElementById(&apos;app&apos;));</div></pre></td></tr></table></figure>
       
     </div>
     <div class="article-info article-info-index">
@@ -441,164 +400,6 @@ render(){
 
 
   
-    <article id="post-Express笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/30/Express笔记/">Express笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1、倒入模块"><a href="#1、倒入模块" class="headerlink" title="1、倒入模块"></a>1、倒入模块</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var app = express();</div></pre></td></tr></table></figure>
-<h3 id="2、启动http服务器，监听一个端口"><a href="#2、启动http服务器，监听一个端口" class="headerlink" title="2、启动http服务器，监听一个端口"></a>2、启动http服务器，监听一个端口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.listen(8080,function () &#123;</div><div class="line">    console.log(8080);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h3 id="3、路由"><a href="#3、路由" class="headerlink" title="3、路由"></a>3、路由</h3><p>定义一个路由 当客户端以GET的请求方式访问/路径的时候执行回应的回调函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">app.get(&apos;/&apos;,function(req,res)&#123;</div><div class="line">    res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=utf-8&apos;);//设置响应头的文件类型个编码格式</div><div class="line">    res.end(&apos;首页&apos;);</div><div class="line">&#125;);</div><div class="line">app.get(&apos;/login&apos;,function(req,res)&#123;</div><div class="line">    res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=utf-8&apos;);</div><div class="line">    res.end(&apos;登录&apos;);</div><div class="line">&#125;);</div><div class="line">app.get(&apos;/user&apos;,function(req,res)&#123;</div><div class="line">    res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=utf-8&apos;);</div><div class="line">    res.end(&apos;用户主页&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<blockquote>
-<p>all能匹配所有的方法 * 能匹配所有的路径,当访问的路径不存在的话，就会匹配到all方法</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">app.all(&apos;*&apos;,function(req,res)&#123;</div><div class="line">    res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=utf-8&apos;);</div><div class="line">    res.end(&apos;你访问的页面不存在&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="4、查看某个用户的信息"><a href="#4、查看某个用户的信息" class="headerlink" title="4、查看某个用户的信息"></a>4、查看某个用户的信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">如何获取请求的参数</div><div class="line"></div><div class="line">app.get(&apos;/login&apos;,function(req,res)&#123;</div><div class="line">  console.log(req.method);</div><div class="line">  // /login?name=zfpx&amp;age=8</div><div class="line">  console.log(req.url);//获取完整的URL地址</div><div class="line">  console.log(req.path);//获取路径名，其实就是？前面的部分</div><div class="line">  console.log(req.query);//查询字符串对象</div><div class="line">  console.log(req.headers);//获取请求头对象</div><div class="line">  res.end(&apos;query&apos;);</div><div class="line">&#125;);</div><div class="line">//我要查看某个用户的信息</div><div class="line">var users = [</div><div class="line">    &#123;id:1,name:&apos;zfpx1&apos;&#125;,</div><div class="line">    &#123;id:2,name:&apos;zfpx2&apos;&#125;,</div><div class="line">    &#123;id:3,name:&apos;zfpx3&apos;&#125;,</div><div class="line">    &#123;id:4,name:&apos;zfpx3&apos;&#125;</div><div class="line">];</div><div class="line"></div><div class="line">app.get(/\/user\/\d+/,function(req,res)&#123;</div><div class="line">    res.end(req.url);</div><div class="line">&#125;);</div><div class="line">//路径参数</div><div class="line">app.get(&apos;/user/:id/:name&apos;,function(req,res)&#123;</div><div class="line">    var id = req.params.id;</div><div class="line">    var name = req.params.name;</div><div class="line">    var user = users.find(function(item)&#123;</div><div class="line">        return item.id == id;</div><div class="line">    &#125;);</div><div class="line">    //write end 只能接收字符串或者buffer</div><div class="line">    res.end(JSON.stringify(user));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="5、中间件"><a href="#5、中间件" class="headerlink" title="5、中间件"></a>5、中间件</h3><p>中间件就是在执行路由函数之前的函数<br>next也是一个函数，中间件里的请求对象和响应对象和路由中的是同一个；</p>
-<ul>
-<li><ol>
-<li>执行一些公共的逻辑，比如设置内容类型</li>
-</ol>
-</li>
-<li><ol>
-<li>添加一些公共的方法和属性 req.query req.path req.send</li>
-</ol>
-</li>
-<li><ol>
-<li>还可以覆盖一些原有方法，插入我们自己的逻辑</li>
-</ol>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//app.use就是一个中间件，回调函数里边三个参数req,res,next，只有中间件里边调用next方法的时候，才行执行下边的函数；</div><div class="line">//在中间件里边设置响应头的类型和编码格式，就不用在路由里边再设置了，减少代码重复</div><div class="line"></div><div class="line">app.use(function(req,res,next)&#123;</div><div class="line">    res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=utf8&apos;);</div><div class="line">    next();</div><div class="line">&#125;);</div><div class="line">app.get(&apos;/&apos;,function(req,res)&#123;</div><div class="line">    res.end(&apos;首页&apos;);</div><div class="line">&#125;);</div><div class="line">app.get(&apos;/login&apos;,function(req,res)&#123;</div><div class="line">    res.end(&apos;登录&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">for(var i=0;i&lt;wares.length;i++)&#123;</div><div class="line">    app.use(wares[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>中间价的执行</p>
-</blockquote>
-<p>执行完成后必须调用next方法，如果不调用的话就不能执行下边的中间价</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">app.use(function(req,res,next)&#123;</div><div class="line">    console.log(1);</div><div class="line">    next();</div><div class="line">&#125;);</div><div class="line">app.use(function(req,res,next)&#123;</div><div class="line">    console.log(2);</div><div class="line">    next();</div><div class="line">&#125;);</div><div class="line">app.use(function(req,res,next)&#123;</div><div class="line">    console.log(3);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<blockquote>
-<p>中间件里可以放路径，但这个路径的含义是只要请求的URL以这个路径开头就可以</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">app.use(&apos;/user&apos;,function(req,res,next)&#123;</div><div class="line">   req.money = 100;</div><div class="line">   next();</div><div class="line">&#125;);</div><div class="line">app.use(&apos;/user&apos;,function(req,res,next)&#123;</div><div class="line">    req.money -=50;</div><div class="line">    next();</div><div class="line">&#125;);</div><div class="line">app.use(&apos;/user&apos;,function(req,res,next)&#123;</div><div class="line">    req.money -=30;</div><div class="line">    next(&apos;err&apos;);//next函数里边可以传参，传参代表错误中间件</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//错误处理中间件</div><div class="line">app.use(&apos;/user&apos;,function(err,req,res,next)&#123;</div><div class="line">   console.log(err);</div><div class="line">   res.end(&apos;错误:&apos;+err);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="6、中间件搭配路由"><a href="#6、中间件搭配路由" class="headerlink" title="6、中间件搭配路由"></a>6、中间件搭配路由</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//倒入模块</div><div class="line">var user = require(&apos;./routes/user&apos;);</div><div class="line">如果客户端访问的路径是以/article开头的话，</div><div class="line">app.use(&apos;/user&apos;,user); //路由的配置</div><div class="line">// /article/add  发表文章 /article/delete 删除文章</div></pre></td></tr></table></figure>
-<blockquote>
-<p>router是一个中间件函数，不使用app.get,直接使用router.get</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var router = express.Router();</div><div class="line">//增加文章</div><div class="line">router.get(&apos;/add&apos;,function(req,res)&#123;</div><div class="line">  res.end(&apos;增加文章&apos;);</div><div class="line">&#125;);</div><div class="line">//删除文章</div><div class="line">router.get(&apos;/delete&apos;,function(req,res)&#123;</div><div class="line">    res.end(&apos;删除文章&apos;);</div><div class="line">&#125;);</div><div class="line">module.exports = router;//导出路由模块</div></pre></td></tr></table></figure>
-<h3 id="7、模板引擎的设置"><a href="#7、模板引擎的设置" class="headerlink" title="7、模板引擎的设置"></a>7、模板引擎的设置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 1.拼出来模板绝对路径</div><div class="line"> * 2.从硬盘上读出此模板，得到模板字符串</div><div class="line"> * 3.把模板字符串中的变量替换真实的值，真实的值从对象而来</div><div class="line"> * 4.把替换后的字符串返回给客户端</div><div class="line"> */</div><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var path = require(&apos;path&apos;);</div><div class="line">var fs = require(&apos;fs&apos;);</div><div class="line">var app = express();</div><div class="line">//设置模板引擎 ejs</div><div class="line">app.set(&apos;view engine&apos;,&apos;ejs&apos;);</div><div class="line">//模板的存放目录的绝对路径</div><div class="line">app.set(&apos;views&apos;,path.resolve(&apos;views&apos;));</div><div class="line">//静态文件中间件，也是express自己亲自的一个唯一中间件</div><div class="line">//参数指定的是静态文件根目录</div><div class="line">//可以指定多个静态文件根目录</div><div class="line">app.use(express.static(path.join(__dirname,&apos;public&apos;)));</div><div class="line">app.use(express.static(path.resolve(&apos;../node_modules&apos;)));</div><div class="line"></div><div class="line">app.get(&apos;/users&apos;,function(req,res)&#123;</div><div class="line">    //1 参数是模板的相对路径 2 参数是数据对象</div><div class="line">    //模板中的变量会从数据对象的属性取值</div><div class="line">    //模板的渲染把静态模板里的变量用数据对象的属性替换掉</div><div class="line">   res.render(&apos;user&apos;,&#123;users:users&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="8、重定向"><a href="#8、重定向" class="headerlink" title="8、重定向"></a>8、重定向</h3><p>redirect方法允许网址的重定向,跳转到指定的url并且可以指定status，默认为302方式。 语法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">res.redirect([status], url);</div><div class="line"></div><div class="line">//所有匹配到的全都定向到/这个路径下边</div><div class="line">app.all(&apos;*&apos;,function(req,res)&#123;</div><div class="line">    res.redirect(&apos;/&apos;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/30/Express笔记/" class="archive-article-date">
-  	<time datetime="2016-12-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-30</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-bodyParser中间件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/30/bodyParser中间件/">bodyParser中间件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="bodyParser中间件"><a href="#bodyParser中间件" class="headerlink" title="bodyParser中间件"></a>bodyParser中间件</h3><p>bodyParser中间件用来解析http请求体，是express默认使用的中间件之一。</p>
-<ul>
-<li><p>bodyParser.json是用来解析json数据格式的</p>
-</li>
-<li><p>bodyParser.urlencoded则是用来解析我们通常的form表单提交的数据，也就是请求头中包含这样的信息： <code>Content-Type: application/x-www-form-urlencoded</code></p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">app.use(bodyParser.json());</div><div class="line">app.use(bodyParser.urlencoded(&#123; extended: false &#125;));</div></pre></td></tr></table></figure>
-<blockquote>
-<p>extended选项允许配置使用querystring(false)或qs(true)来解析数据，默认值是true<br>false 代表querystring解析数据<br>true 代表qs解析数据</p>
-</blockquote>
-<p>querystring就是nodejs内建的对象之一，用来字符串化对象或解析字符串。如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">querystring.parse(&quot;name=henry&amp;age=30&quot;) =&gt; &#123; name: &apos;henry&apos;, age: &apos;30&apos; &#125;</div></pre></td></tr></table></figure>
-<h3 id="qs介绍"><a href="#qs介绍" class="headerlink" title="qs介绍"></a>qs介绍</h3><p>qs是一个querystring的库，在querystring的功能基础上，还支持更多的功能并优化了一些安全性。比如，对象解析的支持：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">// 内建对象 querystring</div><div class="line">querystring.parse(&quot;info[name]=henry&amp;info[age]=30&amp;hobby[1]=sport&amp;hobby[2]=coding&quot;) =&gt; </div><div class="line">  &#123; </div><div class="line">    &apos;info[name]&apos;: &apos;henry&apos;,</div><div class="line">    &apos;info[age]&apos;: &apos;30&apos;,</div><div class="line">    &apos;hobby[1]&apos;: &apos;sport&apos;,</div><div class="line">    &apos;hobby[2]&apos;: &apos;coding&apos;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">// 第三方插件 qs</div><div class="line">qs.parse(&quot;info[name]=henry&amp;info[age]=30&amp;hobby[1]=sport&amp;hobby[2]=coding&quot;) =&gt; </div><div class="line">  &#123;</div><div class="line">    info: &#123;</div><div class="line">      name: &apos;henry&apos;,</div><div class="line">      age: &apos;30&apos;</div><div class="line">    &#125;,</div><div class="line">    hobby: [ &apos;sport&apos;, &apos;coding&apos; ]</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>querystring并不能正确的解析复杂对象（多级嵌套），而qs却可以做到</p>
-</blockquote>
-<h3 id="复杂嵌套解决方案"><a href="#复杂嵌套解决方案" class="headerlink" title="复杂嵌套解决方案"></a>复杂嵌套解决方案</h3><p>form的形式去提交了一个json数据,jquery默认的 <code>content-Type</code> 配置的是 <code>application/x-www-form-urlencoded</code><br>因此更改ajax请求参数：<code>contentType: &quot;application/json&quot;</code>,并将数据转成json提交，问题就解决了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// 浏览器端post一个对象</div><div class="line">$.ajax(&#123;</div><div class="line">    url: &quot;/save&quot;,</div><div class="line">    type: &quot;post&quot;,</div><div class="line">    contentType: &quot;application/json&quot;,</div><div class="line">    data: JSON.stringify(&#123;</div><div class="line">        name: &quot;henry&quot;,</div><div class="line">        age: 30,</div><div class="line">        hobby: [ &quot;sport&quot;, &quot;coding&quot; ]</div><div class="line">    &#125;)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// express接收这个对象</div><div class="line">router.post(&quot;/save&quot;, function (req, res, next) &#123;</div><div class="line">    console.log(req.body); // =&gt; &#123; name: &apos;henry&apos;, age: 30, hobby: [ &apos;sport&apos;, &apos;coding&apos; ] &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/30/bodyParser中间件/" class="archive-article-date">
-  	<time datetime="2016-12-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-30</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-gulp的总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -691,6 +492,224 @@ render(){
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-bodyParser中间件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/30/bodyParser中间件/">bodyParser中间件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="bodyParser中间件"><a href="#bodyParser中间件" class="headerlink" title="bodyParser中间件"></a>bodyParser中间件</h3><p>bodyParser中间件用来解析http请求体，是express默认使用的中间件之一。</p>
+<ul>
+<li><p>bodyParser.json是用来解析json数据格式的</p>
+</li>
+<li><p>bodyParser.urlencoded则是用来解析我们通常的form表单提交的数据，也就是请求头中包含这样的信息： <code>Content-Type: application/x-www-form-urlencoded</code></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">app.use(bodyParser.json());</div><div class="line">app.use(bodyParser.urlencoded(&#123; extended: false &#125;));</div></pre></td></tr></table></figure>
+<blockquote>
+<p>extended选项允许配置使用querystring(false)或qs(true)来解析数据，默认值是true<br>false 代表querystring解析数据<br>true 代表qs解析数据</p>
+</blockquote>
+<p>querystring就是nodejs内建的对象之一，用来字符串化对象或解析字符串。如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">querystring.parse(&quot;name=henry&amp;age=30&quot;) =&gt; &#123; name: &apos;henry&apos;, age: &apos;30&apos; &#125;</div></pre></td></tr></table></figure>
+<h3 id="qs介绍"><a href="#qs介绍" class="headerlink" title="qs介绍"></a>qs介绍</h3><p>qs是一个querystring的库，在querystring的功能基础上，还支持更多的功能并优化了一些安全性。比如，对象解析的支持：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">// 内建对象 querystring</div><div class="line">querystring.parse(&quot;info[name]=henry&amp;info[age]=30&amp;hobby[1]=sport&amp;hobby[2]=coding&quot;) =&gt; </div><div class="line">  &#123; </div><div class="line">    &apos;info[name]&apos;: &apos;henry&apos;,</div><div class="line">    &apos;info[age]&apos;: &apos;30&apos;,</div><div class="line">    &apos;hobby[1]&apos;: &apos;sport&apos;,</div><div class="line">    &apos;hobby[2]&apos;: &apos;coding&apos;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">// 第三方插件 qs</div><div class="line">qs.parse(&quot;info[name]=henry&amp;info[age]=30&amp;hobby[1]=sport&amp;hobby[2]=coding&quot;) =&gt; </div><div class="line">  &#123;</div><div class="line">    info: &#123;</div><div class="line">      name: &apos;henry&apos;,</div><div class="line">      age: &apos;30&apos;</div><div class="line">    &#125;,</div><div class="line">    hobby: [ &apos;sport&apos;, &apos;coding&apos; ]</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>querystring并不能正确的解析复杂对象（多级嵌套），而qs却可以做到</p>
+</blockquote>
+<h3 id="复杂嵌套解决方案"><a href="#复杂嵌套解决方案" class="headerlink" title="复杂嵌套解决方案"></a>复杂嵌套解决方案</h3><p>form的形式去提交了一个json数据,jquery默认的 <code>content-Type</code> 配置的是 <code>application/x-www-form-urlencoded</code><br>因此更改ajax请求参数：<code>contentType: &quot;application/json&quot;</code>,并将数据转成json提交，问题就解决了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// 浏览器端post一个对象</div><div class="line">$.ajax(&#123;</div><div class="line">    url: &quot;/save&quot;,</div><div class="line">    type: &quot;post&quot;,</div><div class="line">    contentType: &quot;application/json&quot;,</div><div class="line">    data: JSON.stringify(&#123;</div><div class="line">        name: &quot;henry&quot;,</div><div class="line">        age: 30,</div><div class="line">        hobby: [ &quot;sport&quot;, &quot;coding&quot; ]</div><div class="line">    &#125;)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// express接收这个对象</div><div class="line">router.post(&quot;/save&quot;, function (req, res, next) &#123;</div><div class="line">    console.log(req.body); // =&gt; &#123; name: &apos;henry&apos;, age: 30, hobby: [ &apos;sport&apos;, &apos;coding&apos; ] &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/30/bodyParser中间件/" class="archive-article-date">
+  	<time datetime="2016-12-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-30</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Express笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/30/Express笔记/">Express笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1、倒入模块"><a href="#1、倒入模块" class="headerlink" title="1、倒入模块"></a>1、倒入模块</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var app = express();</div></pre></td></tr></table></figure>
+<h3 id="2、启动http服务器，监听一个端口"><a href="#2、启动http服务器，监听一个端口" class="headerlink" title="2、启动http服务器，监听一个端口"></a>2、启动http服务器，监听一个端口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.listen(8080,function () &#123;</div><div class="line">    console.log(8080);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="3、路由"><a href="#3、路由" class="headerlink" title="3、路由"></a>3、路由</h3><p>定义一个路由 当客户端以GET的请求方式访问/路径的时候执行回应的回调函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">app.get(&apos;/&apos;,function(req,res)&#123;</div><div class="line">    res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=utf-8&apos;);//设置响应头的文件类型个编码格式</div><div class="line">    res.end(&apos;首页&apos;);</div><div class="line">&#125;);</div><div class="line">app.get(&apos;/login&apos;,function(req,res)&#123;</div><div class="line">    res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=utf-8&apos;);</div><div class="line">    res.end(&apos;登录&apos;);</div><div class="line">&#125;);</div><div class="line">app.get(&apos;/user&apos;,function(req,res)&#123;</div><div class="line">    res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=utf-8&apos;);</div><div class="line">    res.end(&apos;用户主页&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>all能匹配所有的方法 * 能匹配所有的路径,当访问的路径不存在的话，就会匹配到all方法</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">app.all(&apos;*&apos;,function(req,res)&#123;</div><div class="line">    res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=utf-8&apos;);</div><div class="line">    res.end(&apos;你访问的页面不存在&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="4、查看某个用户的信息"><a href="#4、查看某个用户的信息" class="headerlink" title="4、查看某个用户的信息"></a>4、查看某个用户的信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">如何获取请求的参数</div><div class="line"></div><div class="line">app.get(&apos;/login&apos;,function(req,res)&#123;</div><div class="line">  console.log(req.method);</div><div class="line">  // /login?name=zfpx&amp;age=8</div><div class="line">  console.log(req.url);//获取完整的URL地址</div><div class="line">  console.log(req.path);//获取路径名，其实就是？前面的部分</div><div class="line">  console.log(req.query);//查询字符串对象</div><div class="line">  console.log(req.headers);//获取请求头对象</div><div class="line">  res.end(&apos;query&apos;);</div><div class="line">&#125;);</div><div class="line">//我要查看某个用户的信息</div><div class="line">var users = [</div><div class="line">    &#123;id:1,name:&apos;zfpx1&apos;&#125;,</div><div class="line">    &#123;id:2,name:&apos;zfpx2&apos;&#125;,</div><div class="line">    &#123;id:3,name:&apos;zfpx3&apos;&#125;,</div><div class="line">    &#123;id:4,name:&apos;zfpx3&apos;&#125;</div><div class="line">];</div><div class="line"></div><div class="line">app.get(/\/user\/\d+/,function(req,res)&#123;</div><div class="line">    res.end(req.url);</div><div class="line">&#125;);</div><div class="line">//路径参数</div><div class="line">app.get(&apos;/user/:id/:name&apos;,function(req,res)&#123;</div><div class="line">    var id = req.params.id;</div><div class="line">    var name = req.params.name;</div><div class="line">    var user = users.find(function(item)&#123;</div><div class="line">        return item.id == id;</div><div class="line">    &#125;);</div><div class="line">    //write end 只能接收字符串或者buffer</div><div class="line">    res.end(JSON.stringify(user));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="5、中间件"><a href="#5、中间件" class="headerlink" title="5、中间件"></a>5、中间件</h3><p>中间件就是在执行路由函数之前的函数<br>next也是一个函数，中间件里的请求对象和响应对象和路由中的是同一个；</p>
+<ul>
+<li><ol>
+<li>执行一些公共的逻辑，比如设置内容类型</li>
+</ol>
+</li>
+<li><ol>
+<li>添加一些公共的方法和属性 req.query req.path req.send</li>
+</ol>
+</li>
+<li><ol>
+<li>还可以覆盖一些原有方法，插入我们自己的逻辑</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//app.use就是一个中间件，回调函数里边三个参数req,res,next，只有中间件里边调用next方法的时候，才行执行下边的函数；</div><div class="line">//在中间件里边设置响应头的类型和编码格式，就不用在路由里边再设置了，减少代码重复</div><div class="line"></div><div class="line">app.use(function(req,res,next)&#123;</div><div class="line">    res.setHeader(&apos;Content-Type&apos;,&apos;text/html;charset=utf8&apos;);</div><div class="line">    next();</div><div class="line">&#125;);</div><div class="line">app.get(&apos;/&apos;,function(req,res)&#123;</div><div class="line">    res.end(&apos;首页&apos;);</div><div class="line">&#125;);</div><div class="line">app.get(&apos;/login&apos;,function(req,res)&#123;</div><div class="line">    res.end(&apos;登录&apos;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">for(var i=0;i&lt;wares.length;i++)&#123;</div><div class="line">    app.use(wares[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>中间价的执行</p>
+</blockquote>
+<p>执行完成后必须调用next方法，如果不调用的话就不能执行下边的中间价</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">app.use(function(req,res,next)&#123;</div><div class="line">    console.log(1);</div><div class="line">    next();</div><div class="line">&#125;);</div><div class="line">app.use(function(req,res,next)&#123;</div><div class="line">    console.log(2);</div><div class="line">    next();</div><div class="line">&#125;);</div><div class="line">app.use(function(req,res,next)&#123;</div><div class="line">    console.log(3);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>中间件里可以放路径，但这个路径的含义是只要请求的URL以这个路径开头就可以</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">app.use(&apos;/user&apos;,function(req,res,next)&#123;</div><div class="line">   req.money = 100;</div><div class="line">   next();</div><div class="line">&#125;);</div><div class="line">app.use(&apos;/user&apos;,function(req,res,next)&#123;</div><div class="line">    req.money -=50;</div><div class="line">    next();</div><div class="line">&#125;);</div><div class="line">app.use(&apos;/user&apos;,function(req,res,next)&#123;</div><div class="line">    req.money -=30;</div><div class="line">    next(&apos;err&apos;);//next函数里边可以传参，传参代表错误中间件</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//错误处理中间件</div><div class="line">app.use(&apos;/user&apos;,function(err,req,res,next)&#123;</div><div class="line">   console.log(err);</div><div class="line">   res.end(&apos;错误:&apos;+err);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="6、中间件搭配路由"><a href="#6、中间件搭配路由" class="headerlink" title="6、中间件搭配路由"></a>6、中间件搭配路由</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//倒入模块</div><div class="line">var user = require(&apos;./routes/user&apos;);</div><div class="line">如果客户端访问的路径是以/article开头的话，</div><div class="line">app.use(&apos;/user&apos;,user); //路由的配置</div><div class="line">// /article/add  发表文章 /article/delete 删除文章</div></pre></td></tr></table></figure>
+<blockquote>
+<p>router是一个中间件函数，不使用app.get,直接使用router.get</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var router = express.Router();</div><div class="line">//增加文章</div><div class="line">router.get(&apos;/add&apos;,function(req,res)&#123;</div><div class="line">  res.end(&apos;增加文章&apos;);</div><div class="line">&#125;);</div><div class="line">//删除文章</div><div class="line">router.get(&apos;/delete&apos;,function(req,res)&#123;</div><div class="line">    res.end(&apos;删除文章&apos;);</div><div class="line">&#125;);</div><div class="line">module.exports = router;//导出路由模块</div></pre></td></tr></table></figure>
+<h3 id="7、模板引擎的设置"><a href="#7、模板引擎的设置" class="headerlink" title="7、模板引擎的设置"></a>7、模板引擎的设置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 1.拼出来模板绝对路径</div><div class="line"> * 2.从硬盘上读出此模板，得到模板字符串</div><div class="line"> * 3.把模板字符串中的变量替换真实的值，真实的值从对象而来</div><div class="line"> * 4.把替换后的字符串返回给客户端</div><div class="line"> */</div><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var path = require(&apos;path&apos;);</div><div class="line">var fs = require(&apos;fs&apos;);</div><div class="line">var app = express();</div><div class="line">//设置模板引擎 ejs</div><div class="line">app.set(&apos;view engine&apos;,&apos;ejs&apos;);</div><div class="line">//模板的存放目录的绝对路径</div><div class="line">app.set(&apos;views&apos;,path.resolve(&apos;views&apos;));</div><div class="line">//静态文件中间件，也是express自己亲自的一个唯一中间件</div><div class="line">//参数指定的是静态文件根目录</div><div class="line">//可以指定多个静态文件根目录</div><div class="line">app.use(express.static(path.join(__dirname,&apos;public&apos;)));</div><div class="line">app.use(express.static(path.resolve(&apos;../node_modules&apos;)));</div><div class="line"></div><div class="line">app.get(&apos;/users&apos;,function(req,res)&#123;</div><div class="line">    //1 参数是模板的相对路径 2 参数是数据对象</div><div class="line">    //模板中的变量会从数据对象的属性取值</div><div class="line">    //模板的渲染把静态模板里的变量用数据对象的属性替换掉</div><div class="line">   res.render(&apos;user&apos;,&#123;users:users&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="8、重定向"><a href="#8、重定向" class="headerlink" title="8、重定向"></a>8、重定向</h3><p>redirect方法允许网址的重定向,跳转到指定的url并且可以指定status，默认为302方式。 语法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">res.redirect([status], url);</div><div class="line"></div><div class="line">//所有匹配到的全都定向到/这个路径下边</div><div class="line">app.all(&apos;*&apos;,function(req,res)&#123;</div><div class="line">    res.redirect(&apos;/&apos;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/30/Express笔记/" class="archive-article-date">
+  	<time datetime="2016-12-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-30</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-NodeJs中使用util.inherits继承" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/20/NodeJs中使用util.inherits继承/">util.inherits继承</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>util.inherits （son, father） 是一个实现对象间原型继承的函数。JavaScript 的面向对象特性是基于原型的，继承是通过原型复制来实现的；</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">var util = require(&apos;util&apos;); //首先引入这个内置包</div><div class="line"></div><div class="line">//基础对象 Base，这是一个构造函数，是父级</div><div class="line">function Base() &#123;</div><div class="line">    this.name = &apos;Yang&apos;;</div><div class="line">    this.base = 1991;</div><div class="line">    this.sayHello = function() &#123;</div><div class="line">        console.log(&apos;Hello &apos; + this.name);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//Base 在原型中定义的函数</div><div class="line">Base.prototype.showName = function() &#123;</div><div class="line">    console.log(this.name);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//Sub是子级</div><div class="line">function Sub() &#123;</div><div class="line">    this.name = &apos;sub&apos;;</div><div class="line">&#125;</div><div class="line">//Sub通过util.inherit来继承Base，但是只能继承Base在原型中定义的函数（公有属性），不能继承Base里边的私有属性,</div><div class="line">//当调用方法的时候，首先去Sub里边去找，如果没有的话就会到Base的原型上边去找，找不到就会报错；</div><div class="line"></div><div class="line">util.inherits(Sub, Base);//Sub继承者    Base被继承者   Sub继承Base</div><div class="line">//当我们调用inherits方法的时候，必须给被继承者原型上定义方法，否者当我们调用的时候会报错</div><div class="line"></div><div class="line">var objBase = new Base();//objBase 是 Base的一个实例，继承了Base函数的公有和私有方法</div><div class="line"></div><div class="line">var objSub = new Sub();</div></pre></td></tr></table></figure>
+<ul>
+<li>调用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">objBase.showName(); </div><div class="line">objBase.sayHello(); </div><div class="line">console.log(objBase); </div><div class="line">var objSub = new Sub(); </div><div class="line">objSub.showName(); </div><div class="line">//objSub.sayHello(); //如果不注释掉的话，会报错，无论Sub公有属性还是私有属性都没有sayHello这个方法</div><div class="line">console.log(objSub);</div></pre></td></tr></table></figure>
+<ul>
+<li>结果</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Yang</div><div class="line">Hello Yang</div><div class="line">Base &#123; name: &apos;Yang&apos;, base: 1991, sayHello: [Function] &#125;</div><div class="line">sub</div><div class="line">Sub &#123; name: &apos;sub&apos; &#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/20/NodeJs中使用util.inherits继承/" class="archive-article-date">
+  	<time datetime="2016-12-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-20</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/inherits/">inherits</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/util/">util</a></li></ul>
 	</div>
 
       
@@ -866,7 +885,7 @@ render(){
 
 
   
-    <article id="post-NodeJs中使用util.inherits继承" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Angular的五种服务" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -876,7 +895,7 @@ render(){
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/20/NodeJs中使用util.inherits继承/">util.inherits继承</a>
+      <a class="article-title" href="/2016/12/16/Angular的五种服务/">Angular的五种服务</a>
     </h1>
   
 
@@ -884,177 +903,37 @@ render(){
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>util.inherits （son, father） 是一个实现对象间原型继承的函数。JavaScript 的面向对象特性是基于原型的，继承是通过原型复制来实现的；</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">var util = require(&apos;util&apos;); //首先引入这个内置包</div><div class="line"></div><div class="line">//基础对象 Base，这是一个构造函数，是父级</div><div class="line">function Base() &#123;</div><div class="line">    this.name = &apos;Yang&apos;;</div><div class="line">    this.base = 1991;</div><div class="line">    this.sayHello = function() &#123;</div><div class="line">        console.log(&apos;Hello &apos; + this.name);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//Base 在原型中定义的函数</div><div class="line">Base.prototype.showName = function() &#123;</div><div class="line">    console.log(this.name);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//Sub是子级</div><div class="line">function Sub() &#123;</div><div class="line">    this.name = &apos;sub&apos;;</div><div class="line">&#125;</div><div class="line">//Sub通过util.inherit来继承Base，但是只能继承Base在原型中定义的函数（公有属性），不能继承Base里边的私有属性,</div><div class="line">//当调用方法的时候，首先去Sub里边去找，如果没有的话就会到Base的原型上边去找，找不到就会报错；</div><div class="line"></div><div class="line">util.inherits(Sub, Base);//Sub继承者    Base被继承者   Sub继承Base</div><div class="line">//当我们调用inherits方法的时候，必须给被继承者原型上定义方法，否者当我们调用的时候会报错</div><div class="line"></div><div class="line">var objBase = new Base();//objBase 是 Base的一个实例，继承了Base函数的公有和私有方法</div><div class="line"></div><div class="line">var objSub = new Sub();</div></pre></td></tr></table></figure>
+        <h3 id="1、provider"><a href="#1、provider" class="headerlink" title="1、provider"></a>1、provider</h3><blockquote>
+<p>唯一一个可以配置的服务</p>
+</blockquote>
+<p>基本结构样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">app.provider(&apos;pname&apos;,function()&#123;</div><div class="line">    this.$get = function()&#123;</div><div class="line">        return &#123;</div><div class="line">            name:function()&#123;&#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <ul>
-<li>调用</li>
+<li>小例子</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">objBase.showName(); </div><div class="line">objBase.sayHello(); </div><div class="line">console.log(objBase); </div><div class="line">var objSub = new Sub(); </div><div class="line">objSub.showName(); </div><div class="line">//objSub.sayHello(); //如果不注释掉的话，会报错，无论Sub公有属性还是私有属性都没有sayHello这个方法</div><div class="line">console.log(objSub);</div></pre></td></tr></table></figure>
-<ul>
-<li>结果</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Yang</div><div class="line">Hello Yang</div><div class="line">Base &#123; name: &apos;Yang&apos;, base: 1991, sayHello: [Function] &#125;</div><div class="line">sub</div><div class="line">Sub &#123; name: &apos;sub&apos; &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;!--HTML--&gt;</div><div class="line"></div><div class="line">&lt;div ng-controller=&quot;myCtrl1&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div ng-controller=&quot;myCtrl2&quot;&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">//js</div><div class="line"></div><div class="line">//provider 唯一一个可以配置的服务</div><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">//config用来配置服务的</div><div class="line">app.config(function (calcProvider) &#123;//在需要配置的provider后面加Provider，calcProvider代表的就是函数中的this</div><div class="line">    calcProvider.currency = &apos;$&apos;;</div><div class="line">&#125;);</div><div class="line">app.provider(&apos;calc&apos;,function () &#123;</div><div class="line">    this.currency = &apos;￡&apos;;</div><div class="line">    this.$get = function () &#123;</div><div class="line">        return &#123;</div><div class="line">            //这里的this都是calc</div><div class="line">            &apos;+&apos;:(a,b)=&gt; this.currency+(a+b),</div><div class="line">            &apos;-&apos;:(a,b)=&gt; this.currency+(a-b),</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="2、factory"><a href="#2、factory" class="headerlink" title="2、factory"></a>2、factory</h3><p>pname为服务的名字,第二个参数传入一个函数,函数需要有一个返回值obj,返回一个对象.实际被注入的服务就是这个对象.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">app.factory(&apos;pname&apos;,function()&#123;</div><div class="line">    return &#123;</div><div class="line">        name:function()&#123;&#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>小例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">//factory中直接后面的函数就是$get,factory是通过provider衍生出来的</div><div class="line">app.factory(&apos;calc&apos;, function () &#123;//就是$get方法</div><div class="line">    return &#123;</div><div class="line">        &apos;+&apos;:function (a,b) &#123;return (a+b)&#125;,</div><div class="line">        &apos;-&apos;:function (a,b) &#123;return (a-b)&#125;,</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="3、service"><a href="#3、service" class="headerlink" title="3、service"></a>3、service</h3><p>name为服务的名字,function是一个构造函数.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app,service(&apos;pname&apos;,function()&#123;</div><div class="line">    this.name = function()&#123;&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>小例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">app.service(&apos;calc&apos;, function () &#123;//就是$get方法</div><div class="line">    //这个构造函数是factory返回对象的构造函数</div><div class="line">    this[&apos;+&apos;] = function (a,b) &#123;return (a+b)&#125;;</div><div class="line">    this[&apos;-&apos;] = function (a,b) &#123;return (a-b)&#125;;</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout,calc ) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="4、value-5、constant"><a href="#4、value-5、constant" class="headerlink" title="4、value/5、constant"></a>4、value/5、constant</h3><p>‘app.value/constant(‘name’,obj)’<br>name为服务的名字,obj为一个json对象,用法相同</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.value(&apos;pname&apos;,&#123;</div><div class="line">  name:function()&#123;&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>小例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">    app.constant(&apos;calc&apos;,&#123; //这个对象是factory返回后的对象</div><div class="line">        &apos;+&apos;:function (a,b) &#123;return (a+b)&#125;,</div><div class="line">        &apos;-&apos;:function (a,b) &#123;return (a-b)&#125;,</div><div class="line">    &#125;);</div><div class="line">    app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">        console.log(calc[&apos;+&apos;](1,2));</div><div class="line">    &#125;);</div><div class="line">    app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout,calc ) &#123;</div><div class="line">        console.log(calc[&apos;+&apos;](1,2));</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/12/20/NodeJs中使用util.inherits继承/" class="archive-article-date">
-  	<time datetime="2016-12-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-20</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/inherits/">inherits</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/util/">util</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Angular的过滤器" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/16/Angular的过滤器/">AngularJs过滤器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="filter的两种使用方法"><a href="#filter的两种使用方法" class="headerlink" title="filter的两种使用方法"></a>filter的两种使用方法</h1><h3 id="1、在模板中使用filter"><a href="#1、在模板中使用filter" class="headerlink" title="1、在模板中使用filter"></a>1、在模板中使用filter</h3><ul>
-<li>我们可以直接在 &#123;&#123;&#125;&#125; 中使用filter，跟在表达式后面用 &#124; 分割</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; expression | filter &#125;&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li><p>也可以多个filter连用，上一个filter的输出将作为下一个filter的输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; expression | filter1 | filter2 | ... &#125;&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>filter可以接收参数，参数用 : 进行分割</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; expression | filter:argument1:argument2:... &#125;&#125;</div></pre></td></tr></table></figure>
-<h3 id="2、在控制器controller、指令directive和服务service中使用filter"><a href="#2、在控制器controller、指令directive和服务service中使用filter" class="headerlink" title="2、在控制器controller、指令directive和服务service中使用filter"></a>2、在控制器controller、指令directive和服务service中使用filter</h3><ul>
-<li>在指令中使用filter，例如先对数组array进行过滤处理，然后再循环输出</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;span ng-repeat=&quot;a in array | filter &quot;&gt;</div></pre></td></tr></table></figure>
-<ul>
-<li>controller中使用currency过滤器，只需将它注入到该controller中即可</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.controller(&apos;testC&apos;,function($scope,currencyFilter)&#123;</div><div class="line">    $scope.num = currencyFilter(123534);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>在页面中使用 &#123;&#123;num&#125;&#125; 就可以直接输出 $123,534.00了</p>
-<ul>
-<li>在controller中使用多个filter,ng提供了一个$filter服务可以来调用所需的filter，你只需注入一个$filter可以达到同样的效果</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">app.controller(&apos;testC&apos;,function($scope,$filter)&#123;</div><div class="line">    $scope.num = $filter(&apos;currency&apos;)(123534);</div><div class="line">　　$scope.date = $filter(&apos;date&apos;)(new Date());  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="ng的内置过滤器"><a href="#ng的内置过滤器" class="headerlink" title="ng的内置过滤器"></a>ng的内置过滤器</h1><ul>
-<li>1、currency</li>
-</ul>
-<blockquote>
-<p>使用currency可以将数字格式化为货币，默认是美元符号，你可以自己传入所需的符号</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123;num | currency : &apos;￥&apos;&#125;&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>2、date</li>
-</ul>
-<blockquote>
-<p>原生的js对日期的格式化能力有限，ng提供的date过滤器基本可以满足一般的格式化要求</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123;date | date : &apos;yyyy-MM-dd hh:mm:ss EEEE&apos;&#125;&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>3、filter<blockquote>
-<p>用来处理一个数组，然后可以过滤出含有某个子串的元素，作为一个子数组来返回。可以是字符串数组，也可以是对象数组。如果是对象数组，可以匹配属性的值。它接收一个参数，用来定义子串的匹配规则</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$scope.childrenArray = [</div><div class="line">    &#123;name:&apos;kimi&apos;,age:3&#125;,</div><div class="line">    &#123;name:&apos;cindy&apos;,age:4&#125;,</div><div class="line">    &#123;name:&apos;anglar&apos;,age:4&#125;,</div><div class="line">    &#123;name:&apos;shitou&apos;,age:6&#125;,</div><div class="line">    &#123;name:&apos;tiantian&apos;,age:5&#125;</div><div class="line">];</div><div class="line">$scope.func = function(e)&#123;return e.age&gt;4;&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; childrenArray | filter : &apos;a&apos; &#125;&#125; //匹配属性值中含有a的</div><div class="line">&#123;&#123; childrenArray | filter : 4 &#125;&#125;  //匹配属性值中含有4的</div><div class="line">&#123;&#123; childrenArray | filter : &#123;name : &apos;i&apos;&#125; &#125;&#125; //参数是对象，匹配name属性中含有i的</div><div class="line">&#123;&#123;childrenArray | filter : func &#125;&#125;  //参数是函数，指定返回age&gt;4的</div></pre></td></tr></table></figure>
-<ul>
-<li>4、json<blockquote>
-<p>可以把一个js对象格式化为json字符串，没有参数。也可以用在js中使用，作用就和我们熟悉的JSON . stringify （）一样。</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; jsonTest | json&#125;&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>5、limitTo</li>
-</ul>
-<blockquote>
-<p>用来截取数组或字符串，接收一个参数用来指定截取的长度，如果参数是负值，则从数组尾部开始截取。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; childrenArray | limitTo : 2 &#125;&#125;  //将会显示数组中的前两项</div></pre></td></tr></table></figure>
-<ul>
-<li>6、lowercase</li>
-</ul>
-<blockquote>
-<p>把数据转化为全部小写,没有参数，只能把整个字符串变为小写，不能指定字母。</p>
-</blockquote>
-<ul>
-<li>7、uppercase</li>
-</ul>
-<blockquote>
-<p>同上。</p>
-</blockquote>
-<ul>
-<li>8、number</li>
-</ul>
-<blockquote>
-<p>可以为一个数字加上千位分割，像这样，123,456,789。同时接收一个参数，可以指定float类型保留几位小数,num这个变量必须是数字，不是数组</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; num | number : 2 &#125;&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>9、orderBy<blockquote>
-<p>orderBy过滤器可以将一个数组中的元素进行排序，接收一个参数来指定排序规则，参数可以是一个字符串，表示以该属性名称进行排序。可以是一个函数，定义排序属性。还可以是一个数组，表示依次按数组中的属性值进行排序（若按第一项比较的值相等，再按第二项比较）</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$scope.childrenArray = [</div><div class="line">    &#123;name:&apos;kimi&apos;,age:3&#125;,</div><div class="line">    &#123;name:&apos;cindy&apos;,age:4&#125;,</div><div class="line">    &#123;name:&apos;anglar&apos;,age:4&#125;,</div><div class="line">    &#123;name:&apos;shitou&apos;,age:6&#125;,</div><div class="line">    &#123;name:&apos;tiantian&apos;,age:5&#125;</div><div class="line">];</div></pre></td></tr></table></figure>
-<p>结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;&#123;&#123; childrenArray | orderBy : &apos;age&apos; &#125;&#125;&lt;/div&gt;      //按age属性值进行排序，若是-age，则倒序</div><div class="line">&lt;div&gt;&#123;&#123; childrenArray | orderBy : orderFunc &#125;&#125;&lt;/div&gt;   //按照函数的返回值进行排序</div><div class="line">&lt;div&gt;&#123;&#123; childrenArray | orderBy : [&apos;age&apos;,&apos;name&apos;] &#125;&#125;&lt;/div&gt;  //如果age相同，按照name进行排序</div></pre></td></tr></table></figure>
-<h1 id="自定义过滤器"><a href="#自定义过滤器" class="headerlink" title="自定义过滤器"></a>自定义过滤器</h1><blockquote>
-<p>使用module的filter方法，返回一个函数，该函数接收输入值，并返回处理后的结果。</p>
-</blockquote>
-<ul>
-<li><p>字符串的首字母大写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;&#123;&apos;welcome       to    beijing&apos; | capitalize&#125;&#125;//Welcome To Beijing</div><div class="line"></div><div class="line">var app = angular.module(&apos;appModule&apos;,[]);  //通过模块创建过滤器</div><div class="line"></div><div class="line">app.filter(&apos;capitalize&apos;,function (uppercaseFilter) &#123;</div><div class="line">    return function (data, param1, param2) &#123;</div><div class="line">        var reg=/^[a-z]| [a-z]/g;</div><div class="line">        data=data.replace(reg,function (item, index) &#123;</div><div class="line">            return uppercaseFilter(item);</div><div class="line">         &#125;);</div><div class="line">        return data;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-</li>
-<li><p>一个数组中下标为奇数的元素</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">app.filter(&apos;odditems&apos;,function()&#123;</div><div class="line">    return function(inputArray)&#123;</div><div class="line">        var array = [];</div><div class="line">        for(var i=0;i&lt;inputArray.length;i++)&#123;</div><div class="line">            if(i%2!==0)&#123;</div><div class="line">                array.push(inputArray[i]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return array;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/16/Angular的过滤器/" class="archive-article-date">
+      <a href="/2016/12/16/Angular的五种服务/" class="archive-article-date">
   	<time datetime="2016-12-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-16</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJs/">AngularJs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/过滤器/">过滤器</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务/">服务</a></li></ul>
 	</div>
 
       
