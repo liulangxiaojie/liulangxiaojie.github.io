@@ -291,7 +291,7 @@
 
 
   
-    <article id="post-Angular作用域之间的通信" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Angular的五种服务" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -301,7 +301,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/16/Angular作用域之间的通信/">Angular作用域之间的通信</a>
+      <a class="article-title" href="/2016/12/16/Angular的五种服务/">Angular的五种服务</a>
     </h1>
   
 
@@ -309,25 +309,37 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>$on方法负责监听数据的变化</li>
-<li>$broadcast 向下广播（自己也能听到），父级作用域向子集作用域传递</li>
-<li>$emit 向上发射（自己也能听到），子集作用域向父级作用域传递</li>
+        <h3 id="1、provider"><a href="#1、provider" class="headerlink" title="1、provider"></a>1、provider</h3><blockquote>
+<p>唯一一个可以配置的服务</p>
+</blockquote>
+<p>基本结构样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">app.provider(&apos;pname&apos;,function()&#123;</div><div class="line">    this.$get = function()&#123;</div><div class="line">        return &#123;</div><div class="line">            name:function()&#123;&#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>小例子</li>
 </ul>
-<p>-$broadcast、$emit事件必须依靠其他事件（ng-click等）进行触发，而不能单纯写一个</p>
-<p>下面是一个小例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot; ng-app=&quot;appModule&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Title&lt;/title&gt;</div><div class="line">    &lt;script src=&quot;js/angular.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div ng-controller=&quot;dad&quot;&gt;</div><div class="line">    总价 &lt;input type=&quot;text&quot; ng-model=&quot;total&quot; ng-change=&quot;fn()&quot;&gt;</div><div class="line">    &lt;div ng-controller=&quot;son&quot;&gt;</div><div class="line">        单价 30 &lt;br&gt;</div><div class="line">        数量 &lt;input type=&quot;text&quot; ng-model=&quot;count&quot;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">    app.controller(&apos;dad&apos;,function ($scope) &#123;//父级控制器</div><div class="line">        $scope.total = 30;</div><div class="line">        //2、父级监控数量的变化，饭后修改数据</div><div class="line">        $scope.$on(&apos;toDad&apos;,function (e,data) &#123;</div><div class="line">            //e是事件源，data代表的是听到的内容</div><div class="line">            $scope.total = data;</div><div class="line">        &#125;);</div><div class="line">        //3、父级代码运行 向子集广播</div><div class="line">        $scope.fn = function () &#123;</div><div class="line">            $scope.$broadcast(&apos;toSon&apos;,$scope.total);</div><div class="line">        &#125;;</div><div class="line">    &#125;);</div><div class="line">    app.controller(&apos;son&apos;,function ($scope) &#123;//子集控制器</div><div class="line">        $scope.count = 1;</div><div class="line">        //1、子集监控数量count的变化，然后发送到父级</div><div class="line">        $scope.$watch(&apos;count&apos;,function (newVal) &#123;</div><div class="line">            $scope.$emit(&apos;toDad&apos;,newVal*30);</div><div class="line">        &#125;);</div><div class="line">        //4、子集收到后更改自己的数量</div><div class="line">        $scope.$on(&apos;toSon&apos;,function (e,data) &#123;</div><div class="line">            $scope.count = data/30;</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">    // $on方法负责监听</div><div class="line">    // $broadcast需要向下广播（自己也能听到）</div><div class="line">    // $emit向上广播emit（自己也能听到）</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;!--HTML--&gt;</div><div class="line"></div><div class="line">&lt;div ng-controller=&quot;myCtrl1&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div ng-controller=&quot;myCtrl2&quot;&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">//js</div><div class="line"></div><div class="line">//provider 唯一一个可以配置的服务</div><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">//config用来配置服务的</div><div class="line">app.config(function (calcProvider) &#123;//在需要配置的provider后面加Provider，calcProvider代表的就是函数中的this</div><div class="line">    calcProvider.currency = &apos;$&apos;;</div><div class="line">&#125;);</div><div class="line">app.provider(&apos;calc&apos;,function () &#123;</div><div class="line">    this.currency = &apos;￡&apos;;</div><div class="line">    this.$get = function () &#123;</div><div class="line">        return &#123;</div><div class="line">            //这里的this都是calc</div><div class="line">            &apos;+&apos;:(a,b)=&gt; this.currency+(a+b),</div><div class="line">            &apos;-&apos;:(a,b)=&gt; this.currency+(a-b),</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="2、factory"><a href="#2、factory" class="headerlink" title="2、factory"></a>2、factory</h3><p>pname为服务的名字,第二个参数传入一个函数,函数需要有一个返回值obj,返回一个对象.实际被注入的服务就是这个对象.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">app.factory(&apos;pname&apos;,function()&#123;</div><div class="line">    return &#123;</div><div class="line">        name:function()&#123;&#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>小例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">//factory中直接后面的函数就是$get,factory是通过provider衍生出来的</div><div class="line">app.factory(&apos;calc&apos;, function () &#123;//就是$get方法</div><div class="line">    return &#123;</div><div class="line">        &apos;+&apos;:function (a,b) &#123;return (a+b)&#125;,</div><div class="line">        &apos;-&apos;:function (a,b) &#123;return (a-b)&#125;,</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="3、service"><a href="#3、service" class="headerlink" title="3、service"></a>3、service</h3><p>name为服务的名字,function是一个构造函数.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app,service(&apos;pname&apos;,function()&#123;</div><div class="line">    this.name = function()&#123;&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>小例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">app.service(&apos;calc&apos;, function () &#123;//就是$get方法</div><div class="line">    //这个构造函数是factory返回对象的构造函数</div><div class="line">    this[&apos;+&apos;] = function (a,b) &#123;return (a+b)&#125;;</div><div class="line">    this[&apos;-&apos;] = function (a,b) &#123;return (a-b)&#125;;</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout,calc ) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="4、value-5、constant"><a href="#4、value-5、constant" class="headerlink" title="4、value/5、constant"></a>4、value/5、constant</h3><p>‘app.value/constant(‘name’,obj)’<br>name为服务的名字,obj为一个json对象,用法相同</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.value(&apos;pname&apos;,&#123;</div><div class="line">  name:function()&#123;&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>小例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">    app.constant(&apos;calc&apos;,&#123; //这个对象是factory返回后的对象</div><div class="line">        &apos;+&apos;:function (a,b) &#123;return (a+b)&#125;,</div><div class="line">        &apos;-&apos;:function (a,b) &#123;return (a-b)&#125;,</div><div class="line">    &#125;);</div><div class="line">    app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">        console.log(calc[&apos;+&apos;](1,2));</div><div class="line">    &#125;);</div><div class="line">    app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout,calc ) &#123;</div><div class="line">        console.log(calc[&apos;+&apos;](1,2));</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/12/16/Angular作用域之间的通信/" class="archive-article-date">
+      <a href="/2016/12/16/Angular的五种服务/" class="archive-article-date">
   	<time datetime="2016-12-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-16</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/broadcast/">$broadcast</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emit/">$emit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/on/">$on</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJs/">AngularJs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/通信/">通信</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务/">服务</a></li></ul>
 	</div>
 
       
@@ -386,134 +398,6 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/">windows</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-npm" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/11/npm/">npm的使用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="npm的使用"><a href="#npm的使用" class="headerlink" title="npm的使用"></a>npm的使用</h2><ul>
-<li>npm是安装node后给我们提供的一个包管理工具</li>
-</ul>
-<h3 id="安装，卸载，发布"><a href="#安装，卸载，发布" class="headerlink" title="安装，卸载，发布"></a>安装，卸载，发布</h3><ul>
-<li>1.全局安装 安装时增加-g参数</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install nodeppt -g</div></pre></td></tr></table></figure>
-<ul>
-<li>2.全局卸载 </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm uninstall gulp -g</div></pre></td></tr></table></figure>
-<blockquote>
-<p>只要全局安装后就会在命令行下有一个nodeppt的命令</p>
-</blockquote>
-<h3 id="本地安装"><a href="#本地安装" class="headerlink" title="本地安装"></a>本地安装</h3><p>可以在代码中使用</p>
-<ul>
-<li>1.初始化package.json(记住依赖使用过哪些文件)</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm init -y</div></pre></td></tr></table></figure>
-<ul>
-<li>2.开发依赖</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install/uninstall gulp --save-dev</div></pre></td></tr></table></figure>
-<ul>
-<li>3.发布依赖</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install/uninstall jquery@3.0.0 --save</div></pre></td></tr></table></figure>
-<blockquote>
-<p>4.json文件中不能写注释，不能多逗号</p>
-</blockquote>
-<ul>
-<li>5.安装所需要的依赖</li>
-</ul>
-<p>别人打开安装的时候不需要一一安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure>
-<h2 id="发布-包到-npm上"><a href="#发布-包到-npm上" class="headerlink" title="发布 包到 npm上"></a>发布 <strong>包到</strong> npm上</h2><ul>
-<li>0.发布的名字不能用人家已有的</li>
-<li>1.创建带有package.json的包</li>
-<li>2.增加index.js</li>
-<li>3.使用官方npm</li>
-<li>4.登陆你的账号进行发布</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm adduser</div></pre></td></tr></table></figure>
-<ul>
-<li>5.发布</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm publish</div></pre></td></tr></table></figure>
-<h2 id="源的使用"><a href="#源的使用" class="headerlink" title="源的使用"></a>源的使用</h2><ul>
-<li>1.配置内网</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm config set registry &quot;http://172.18.0.199&quot;</div></pre></td></tr></table></figure>
-<ul>
-<li>2.切换源nrm</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install nrm -g</div></pre></td></tr></table></figure>
-<ul>
-<li>3.添加珠峰源</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm add TB http://172.18.0.199</div></pre></td></tr></table></figure>
-<ul>
-<li>4.使用源</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm use TB</div></pre></td></tr></table></figure>
-<ul>
-<li>5.显示所有源</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm ls</div></pre></td></tr></table></figure>
-<ul>
-<li>6.测试速度</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm test</div></pre></td></tr></table></figure>
-<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><ul>
-<li><p>文件模块(两个模块之间的关系)，引用时要增加路径./ /../,引用时可以不添加后缀名，默认会增加.js后缀，.json后缀,.node后缀</p>
-</li>
-<li><p>第三方模块(模块和包(别人的)之间的关系),引用的时候直接引用包的名字，找不到像上找，只能找到根目录为止，找到后找到package.json文件中，main对应的文件执行</p>
-</li>
-<li><p>核心模块(直接引用即可)</p>
-</li>
-</ul>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/11/npm/" class="archive-article-date">
-  	<time datetime="2016-12-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-11</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
 	</div>
 
       
@@ -701,6 +585,134 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/idoc/">idoc</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-npm" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/11/npm/">npm的使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="npm的使用"><a href="#npm的使用" class="headerlink" title="npm的使用"></a>npm的使用</h2><ul>
+<li>npm是安装node后给我们提供的一个包管理工具</li>
+</ul>
+<h3 id="安装，卸载，发布"><a href="#安装，卸载，发布" class="headerlink" title="安装，卸载，发布"></a>安装，卸载，发布</h3><ul>
+<li>1.全局安装 安装时增加-g参数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install nodeppt -g</div></pre></td></tr></table></figure>
+<ul>
+<li>2.全局卸载 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm uninstall gulp -g</div></pre></td></tr></table></figure>
+<blockquote>
+<p>只要全局安装后就会在命令行下有一个nodeppt的命令</p>
+</blockquote>
+<h3 id="本地安装"><a href="#本地安装" class="headerlink" title="本地安装"></a>本地安装</h3><p>可以在代码中使用</p>
+<ul>
+<li>1.初始化package.json(记住依赖使用过哪些文件)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm init -y</div></pre></td></tr></table></figure>
+<ul>
+<li>2.开发依赖</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install/uninstall gulp --save-dev</div></pre></td></tr></table></figure>
+<ul>
+<li>3.发布依赖</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install/uninstall jquery@3.0.0 --save</div></pre></td></tr></table></figure>
+<blockquote>
+<p>4.json文件中不能写注释，不能多逗号</p>
+</blockquote>
+<ul>
+<li>5.安装所需要的依赖</li>
+</ul>
+<p>别人打开安装的时候不需要一一安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure>
+<h2 id="发布-包到-npm上"><a href="#发布-包到-npm上" class="headerlink" title="发布 包到 npm上"></a>发布 <strong>包到</strong> npm上</h2><ul>
+<li>0.发布的名字不能用人家已有的</li>
+<li>1.创建带有package.json的包</li>
+<li>2.增加index.js</li>
+<li>3.使用官方npm</li>
+<li>4.登陆你的账号进行发布</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm adduser</div></pre></td></tr></table></figure>
+<ul>
+<li>5.发布</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm publish</div></pre></td></tr></table></figure>
+<h2 id="源的使用"><a href="#源的使用" class="headerlink" title="源的使用"></a>源的使用</h2><ul>
+<li>1.配置内网</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm config set registry &quot;http://172.18.0.199&quot;</div></pre></td></tr></table></figure>
+<ul>
+<li>2.切换源nrm</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install nrm -g</div></pre></td></tr></table></figure>
+<ul>
+<li>3.添加珠峰源</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm add TB http://172.18.0.199</div></pre></td></tr></table></figure>
+<ul>
+<li>4.使用源</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm use TB</div></pre></td></tr></table></figure>
+<ul>
+<li>5.显示所有源</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm ls</div></pre></td></tr></table></figure>
+<ul>
+<li>6.测试速度</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nrm test</div></pre></td></tr></table></figure>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><ul>
+<li><p>文件模块(两个模块之间的关系)，引用时要增加路径./ /../,引用时可以不添加后缀名，默认会增加.js后缀，.json后缀,.node后缀</p>
+</li>
+<li><p>第三方模块(模块和包(别人的)之间的关系),引用的时候直接引用包的名字，找不到像上找，只能找到根目录为止，找到后找到package.json文件中，main对应的文件执行</p>
+</li>
+<li><p>核心模块(直接引用即可)</p>
+</li>
+</ul>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/11/npm/" class="archive-article-date">
+  	<time datetime="2016-12-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-11</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
 	</div>
 
       

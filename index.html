@@ -143,6 +143,60 @@
       <div class="body-wrap">
         
   
+    <article id="post-常见错误的总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/06/常见错误的总结/">常见错误的总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="angular"><a href="#angular" class="headerlink" title="angular"></a>angular</h1><p>如果碰到代码里边没有用到的函数的报错的话，可以换一个版本号</p>
+<blockquote>
+<p>这个就是angular就是版本号引起的，用angular1.5.8解决</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">encodeUriSegment is not defined</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2017/01/06/常见错误的总结/" class="archive-article-date">
+  	<time datetime="2017-01-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-01-06</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/常见错误/">常见错误</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-React笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -199,9 +253,11 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">persons.map(function (person,index) </div><div class="line">	&#123;</div><div class="line">		return &lt;div key=&#123;index&#125; style=&#123;style&#125;&gt;Hello, &#123;person&#125;!&lt;/div&gt;</div><div class="line">	&#125;)</div></pre></td></tr></table></figure>
 <ul>
-<li>angular遍历 </li>
+<li>angular遍历</li>
 </ul>
+<p>HTML代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-repeat=&quot;person in presons track by $index&quot;&gt;</div><div class="line">	&lt;div&gt;&#123;&#123;person&#125;&#125;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>JS代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var persons = [&apos;刘德华&apos;, &apos;范冰冰&apos;, &apos;郭跃&apos;];</div><div class="line">var style = &#123;color:&apos;red&apos;&#125;;</div><div class="line">ReactDOM.render(</div><div class="line">  &lt;div&gt;</div><div class="line">  &#123;</div><div class="line">    persons.map(function (person,index) &#123;//类似于angular的track by $index 防止出现同样的内容而报错</div><div class="line">      return &lt;div key=&#123;index&#125; style=&#123;style&#125;&gt;Hello, &#123;person&#125;!&lt;/div&gt;</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line">  &lt;/div&gt;,</div><div class="line">  document.getElementById(&apos;app&apos;)</div><div class="line">);</div></pre></td></tr></table></figure>
 <h3 id="4、定义组件"><a href="#4、定义组件" class="headerlink" title="4、定义组件"></a>4、定义组件</h3><p>React允许将代码封装成组件，然后像插入普通HTML标签一样，在网页中插入这个组件</p>
 <ul>
@@ -278,60 +334,6 @@
 
 
   
-    <article id="post-常见错误的总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/06/常见错误的总结/">常见错误的总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="angular"><a href="#angular" class="headerlink" title="angular"></a>angular</h1><p>如果碰到代码里边没有用到的函数的报错的话，可以换一个版本号</p>
-<blockquote>
-<p>这个就是angular就是版本号引起的，用angular1.5.8解决</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">encodeUriSegment is not defined</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2017/01/06/常见错误的总结/" class="archive-article-date">
-  	<time datetime="2017-01-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-01-06</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/常见错误/">常见错误</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-win10安装.NET Framework 3.5的方法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -381,6 +383,74 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/">windows</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-bodyParser中间件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/30/bodyParser中间件/">bodyParser中间件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="bodyParser中间件"><a href="#bodyParser中间件" class="headerlink" title="bodyParser中间件"></a>bodyParser中间件</h3><p>bodyParser中间件用来解析http请求体，是express默认使用的中间件之一。</p>
+<ul>
+<li><p>bodyParser.json是用来解析json数据格式的</p>
+</li>
+<li><p>bodyParser.urlencoded则是用来解析我们通常的form表单提交的数据，也就是请求头中包含这样的信息： <code>Content-Type: application/x-www-form-urlencoded</code></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">app.use(bodyParser.json());</div><div class="line">app.use(bodyParser.urlencoded(&#123; extended: false &#125;));</div></pre></td></tr></table></figure>
+<blockquote>
+<p>extended选项允许配置使用querystring(false)或qs(true)来解析数据，默认值是true<br>false 代表querystring解析数据<br>true 代表qs解析数据</p>
+</blockquote>
+<p>querystring就是nodejs内建的对象之一，用来字符串化对象或解析字符串。如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">querystring.parse(&quot;name=henry&amp;age=30&quot;) =&gt; &#123; name: &apos;henry&apos;, age: &apos;30&apos; &#125;</div></pre></td></tr></table></figure>
+<h3 id="qs介绍"><a href="#qs介绍" class="headerlink" title="qs介绍"></a>qs介绍</h3><p>qs是一个querystring的库，在querystring的功能基础上，还支持更多的功能并优化了一些安全性。比如，对象解析的支持：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">// 内建对象 querystring</div><div class="line">querystring.parse(&quot;info[name]=henry&amp;info[age]=30&amp;hobby[1]=sport&amp;hobby[2]=coding&quot;) =&gt; </div><div class="line">  &#123; </div><div class="line">    &apos;info[name]&apos;: &apos;henry&apos;,</div><div class="line">    &apos;info[age]&apos;: &apos;30&apos;,</div><div class="line">    &apos;hobby[1]&apos;: &apos;sport&apos;,</div><div class="line">    &apos;hobby[2]&apos;: &apos;coding&apos;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">// 第三方插件 qs</div><div class="line">qs.parse(&quot;info[name]=henry&amp;info[age]=30&amp;hobby[1]=sport&amp;hobby[2]=coding&quot;) =&gt; </div><div class="line">  &#123;</div><div class="line">    info: &#123;</div><div class="line">      name: &apos;henry&apos;,</div><div class="line">      age: &apos;30&apos;</div><div class="line">    &#125;,</div><div class="line">    hobby: [ &apos;sport&apos;, &apos;coding&apos; ]</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>querystring并不能正确的解析复杂对象（多级嵌套），而qs却可以做到</p>
+</blockquote>
+<h3 id="复杂嵌套解决方案"><a href="#复杂嵌套解决方案" class="headerlink" title="复杂嵌套解决方案"></a>复杂嵌套解决方案</h3><p>form的形式去提交了一个json数据,jquery默认的 <code>content-Type</code> 配置的是 <code>application/x-www-form-urlencoded</code><br>因此更改ajax请求参数：<code>contentType: &quot;application/json&quot;</code>,并将数据转成json提交，问题就解决了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// 浏览器端post一个对象</div><div class="line">$.ajax(&#123;</div><div class="line">    url: &quot;/save&quot;,</div><div class="line">    type: &quot;post&quot;,</div><div class="line">    contentType: &quot;application/json&quot;,</div><div class="line">    data: JSON.stringify(&#123;</div><div class="line">        name: &quot;henry&quot;,</div><div class="line">        age: 30,</div><div class="line">        hobby: [ &quot;sport&quot;, &quot;coding&quot; ]</div><div class="line">    &#125;)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// express接收这个对象</div><div class="line">router.post(&quot;/save&quot;, function (req, res, next) &#123;</div><div class="line">    console.log(req.body); // =&gt; &#123; name: &apos;henry&apos;, age: 30, hobby: [ &apos;sport&apos;, &apos;coding&apos; ] &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/30/bodyParser中间件/" class="archive-article-date">
+  	<time datetime="2016-12-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-30</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li></ul>
 	</div>
 
       
@@ -511,74 +581,6 @@
 
 
   
-    <article id="post-bodyParser中间件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/30/bodyParser中间件/">bodyParser中间件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="bodyParser中间件"><a href="#bodyParser中间件" class="headerlink" title="bodyParser中间件"></a>bodyParser中间件</h3><p>bodyParser中间件用来解析http请求体，是express默认使用的中间件之一。</p>
-<ul>
-<li><p>bodyParser.json是用来解析json数据格式的</p>
-</li>
-<li><p>bodyParser.urlencoded则是用来解析我们通常的form表单提交的数据，也就是请求头中包含这样的信息： <code>Content-Type: application/x-www-form-urlencoded</code></p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">app.use(bodyParser.json());</div><div class="line">app.use(bodyParser.urlencoded(&#123; extended: false &#125;));</div></pre></td></tr></table></figure>
-<blockquote>
-<p>extended选项允许配置使用querystring(false)或qs(true)来解析数据，默认值是true<br>false 代表querystring解析数据<br>true 代表qs解析数据</p>
-</blockquote>
-<p>querystring就是nodejs内建的对象之一，用来字符串化对象或解析字符串。如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">querystring.parse(&quot;name=henry&amp;age=30&quot;) =&gt; &#123; name: &apos;henry&apos;, age: &apos;30&apos; &#125;</div></pre></td></tr></table></figure>
-<h3 id="qs介绍"><a href="#qs介绍" class="headerlink" title="qs介绍"></a>qs介绍</h3><p>qs是一个querystring的库，在querystring的功能基础上，还支持更多的功能并优化了一些安全性。比如，对象解析的支持：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">// 内建对象 querystring</div><div class="line">querystring.parse(&quot;info[name]=henry&amp;info[age]=30&amp;hobby[1]=sport&amp;hobby[2]=coding&quot;) =&gt; </div><div class="line">  &#123; </div><div class="line">    &apos;info[name]&apos;: &apos;henry&apos;,</div><div class="line">    &apos;info[age]&apos;: &apos;30&apos;,</div><div class="line">    &apos;hobby[1]&apos;: &apos;sport&apos;,</div><div class="line">    &apos;hobby[2]&apos;: &apos;coding&apos;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">// 第三方插件 qs</div><div class="line">qs.parse(&quot;info[name]=henry&amp;info[age]=30&amp;hobby[1]=sport&amp;hobby[2]=coding&quot;) =&gt; </div><div class="line">  &#123;</div><div class="line">    info: &#123;</div><div class="line">      name: &apos;henry&apos;,</div><div class="line">      age: &apos;30&apos;</div><div class="line">    &#125;,</div><div class="line">    hobby: [ &apos;sport&apos;, &apos;coding&apos; ]</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>querystring并不能正确的解析复杂对象（多级嵌套），而qs却可以做到</p>
-</blockquote>
-<h3 id="复杂嵌套解决方案"><a href="#复杂嵌套解决方案" class="headerlink" title="复杂嵌套解决方案"></a>复杂嵌套解决方案</h3><p>form的形式去提交了一个json数据,jquery默认的 <code>content-Type</code> 配置的是 <code>application/x-www-form-urlencoded</code><br>因此更改ajax请求参数：<code>contentType: &quot;application/json&quot;</code>,并将数据转成json提交，问题就解决了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// 浏览器端post一个对象</div><div class="line">$.ajax(&#123;</div><div class="line">    url: &quot;/save&quot;,</div><div class="line">    type: &quot;post&quot;,</div><div class="line">    contentType: &quot;application/json&quot;,</div><div class="line">    data: JSON.stringify(&#123;</div><div class="line">        name: &quot;henry&quot;,</div><div class="line">        age: 30,</div><div class="line">        hobby: [ &quot;sport&quot;, &quot;coding&quot; ]</div><div class="line">    &#125;)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">// express接收这个对象</div><div class="line">router.post(&quot;/save&quot;, function (req, res, next) &#123;</div><div class="line">    console.log(req.body); // =&gt; &#123; name: &apos;henry&apos;, age: 30, hobby: [ &apos;sport&apos;, &apos;coding&apos; ] &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/30/bodyParser中间件/" class="archive-article-date">
-  	<time datetime="2016-12-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-30</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
     <article id="post-Express笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -650,66 +652,6 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-NodeJs中使用util.inherits继承" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/20/NodeJs中使用util.inherits继承/">util.inherits继承</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>util.inherits （son, father） 是一个实现对象间原型继承的函数。JavaScript 的面向对象特性是基于原型的，继承是通过原型复制来实现的；</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">var util = require(&apos;util&apos;); //首先引入这个内置包</div><div class="line"></div><div class="line">//基础对象 Base，这是一个构造函数，是父级</div><div class="line">function Base() &#123;</div><div class="line">    this.name = &apos;Yang&apos;;</div><div class="line">    this.base = 1991;</div><div class="line">    this.sayHello = function() &#123;</div><div class="line">        console.log(&apos;Hello &apos; + this.name);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//Base 在原型中定义的函数</div><div class="line">Base.prototype.showName = function() &#123;</div><div class="line">    console.log(this.name);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//Sub是子级</div><div class="line">function Sub() &#123;</div><div class="line">    this.name = &apos;sub&apos;;</div><div class="line">&#125;</div><div class="line">//Sub通过util.inherit来继承Base，但是只能继承Base在原型中定义的函数（公有属性），不能继承Base里边的私有属性,</div><div class="line">//当调用方法的时候，首先去Sub里边去找，如果没有的话就会到Base的原型上边去找，找不到就会报错；</div><div class="line"></div><div class="line">util.inherits(Sub, Base);//Sub继承者    Base被继承者   Sub继承Base</div><div class="line">//当我们调用inherits方法的时候，必须给被继承者原型上定义方法，否者当我们调用的时候会报错</div><div class="line"></div><div class="line">var objBase = new Base();//objBase 是 Base的一个实例，继承了Base函数的公有和私有方法</div><div class="line"></div><div class="line">var objSub = new Sub();</div></pre></td></tr></table></figure>
-<ul>
-<li>调用</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">objBase.showName(); </div><div class="line">objBase.sayHello(); </div><div class="line">console.log(objBase); </div><div class="line">var objSub = new Sub(); </div><div class="line">objSub.showName(); </div><div class="line">//objSub.sayHello(); //如果不注释掉的话，会报错，无论Sub公有属性还是私有属性都没有sayHello这个方法</div><div class="line">console.log(objSub);</div></pre></td></tr></table></figure>
-<ul>
-<li>结果</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Yang</div><div class="line">Hello Yang</div><div class="line">Base &#123; name: &apos;Yang&apos;, base: 1991, sayHello: [Function] &#125;</div><div class="line">sub</div><div class="line">Sub &#123; name: &apos;sub&apos; &#125;</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/20/NodeJs中使用util.inherits继承/" class="archive-article-date">
-  	<time datetime="2016-12-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-20</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/inherits/">inherits</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/util/">util</a></li></ul>
 	</div>
 
       
@@ -885,7 +827,7 @@
 
 
   
-    <article id="post-Angular的五种服务" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-NodeJs中使用util.inherits继承" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -895,7 +837,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/16/Angular的五种服务/">Angular的五种服务</a>
+      <a class="article-title" href="/2016/12/20/NodeJs中使用util.inherits继承/">util.inherits继承</a>
     </h1>
   
 
@@ -903,37 +845,85 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1、provider"><a href="#1、provider" class="headerlink" title="1、provider"></a>1、provider</h3><blockquote>
-<p>唯一一个可以配置的服务</p>
-</blockquote>
-<p>基本结构样式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">app.provider(&apos;pname&apos;,function()&#123;</div><div class="line">    this.$get = function()&#123;</div><div class="line">        return &#123;</div><div class="line">            name:function()&#123;&#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<ul>
-<li>小例子</li>
+        <ul>
+<li>util.inherits （son, father） 是一个实现对象间原型继承的函数。JavaScript 的面向对象特性是基于原型的，继承是通过原型复制来实现的；</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&lt;!--HTML--&gt;</div><div class="line"></div><div class="line">&lt;div ng-controller=&quot;myCtrl1&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;div ng-controller=&quot;myCtrl2&quot;&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">//js</div><div class="line"></div><div class="line">//provider 唯一一个可以配置的服务</div><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">//config用来配置服务的</div><div class="line">app.config(function (calcProvider) &#123;//在需要配置的provider后面加Provider，calcProvider代表的就是函数中的this</div><div class="line">    calcProvider.currency = &apos;$&apos;;</div><div class="line">&#125;);</div><div class="line">app.provider(&apos;calc&apos;,function () &#123;</div><div class="line">    this.currency = &apos;￡&apos;;</div><div class="line">    this.$get = function () &#123;</div><div class="line">        return &#123;</div><div class="line">            //这里的this都是calc</div><div class="line">            &apos;+&apos;:(a,b)=&gt; this.currency+(a+b),</div><div class="line">            &apos;-&apos;:(a,b)=&gt; this.currency+(a-b),</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="2、factory"><a href="#2、factory" class="headerlink" title="2、factory"></a>2、factory</h3><p>pname为服务的名字,第二个参数传入一个函数,函数需要有一个返回值obj,返回一个对象.实际被注入的服务就是这个对象.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">app.factory(&apos;pname&apos;,function()&#123;</div><div class="line">    return &#123;</div><div class="line">        name:function()&#123;&#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>小例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">//factory中直接后面的函数就是$get,factory是通过provider衍生出来的</div><div class="line">app.factory(&apos;calc&apos;, function () &#123;//就是$get方法</div><div class="line">    return &#123;</div><div class="line">        &apos;+&apos;:function (a,b) &#123;return (a+b)&#125;,</div><div class="line">        &apos;-&apos;:function (a,b) &#123;return (a-b)&#125;,</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="3、service"><a href="#3、service" class="headerlink" title="3、service"></a>3、service</h3><p>name为服务的名字,function是一个构造函数.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app,service(&apos;pname&apos;,function()&#123;</div><div class="line">    this.name = function()&#123;&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>小例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">app.service(&apos;calc&apos;, function () &#123;//就是$get方法</div><div class="line">    //这个构造函数是factory返回对象的构造函数</div><div class="line">    this[&apos;+&apos;] = function (a,b) &#123;return (a+b)&#125;;</div><div class="line">    this[&apos;-&apos;] = function (a,b) &#123;return (a-b)&#125;;</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div><div class="line">app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout,calc ) &#123;</div><div class="line">    console.log(calc[&apos;+&apos;](1,2));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h3 id="4、value-5、constant"><a href="#4、value-5、constant" class="headerlink" title="4、value/5、constant"></a>4、value/5、constant</h3><p>‘app.value/constant(‘name’,obj)’<br>name为服务的名字,obj为一个json对象,用法相同</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.value(&apos;pname&apos;,&#123;</div><div class="line">  name:function()&#123;&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>小例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">    app.constant(&apos;calc&apos;,&#123; //这个对象是factory返回后的对象</div><div class="line">        &apos;+&apos;:function (a,b) &#123;return (a+b)&#125;,</div><div class="line">        &apos;-&apos;:function (a,b) &#123;return (a-b)&#125;,</div><div class="line">    &#125;);</div><div class="line">    app.controller(&apos;myCtrl1&apos;,function ($scope,$timeout,calc) &#123;</div><div class="line">        console.log(calc[&apos;+&apos;](1,2));</div><div class="line">    &#125;);</div><div class="line">    app.controller(&apos;myCtrl2&apos;,function ($scope,$timeout,calc ) &#123;</div><div class="line">        console.log(calc[&apos;+&apos;](1,2));</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">var util = require(&apos;util&apos;); //首先引入这个内置包</div><div class="line"></div><div class="line">//基础对象 Base，这是一个构造函数，是父级</div><div class="line">function Base() &#123;</div><div class="line">    this.name = &apos;Yang&apos;;</div><div class="line">    this.base = 1991;</div><div class="line">    this.sayHello = function() &#123;</div><div class="line">        console.log(&apos;Hello &apos; + this.name);</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//Base 在原型中定义的函数</div><div class="line">Base.prototype.showName = function() &#123;</div><div class="line">    console.log(this.name);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//Sub是子级</div><div class="line">function Sub() &#123;</div><div class="line">    this.name = &apos;sub&apos;;</div><div class="line">&#125;</div><div class="line">//Sub通过util.inherit来继承Base，但是只能继承Base在原型中定义的函数（公有属性），不能继承Base里边的私有属性,</div><div class="line">//当调用方法的时候，首先去Sub里边去找，如果没有的话就会到Base的原型上边去找，找不到就会报错；</div><div class="line"></div><div class="line">util.inherits(Sub, Base);//Sub继承者    Base被继承者   Sub继承Base</div><div class="line">//当我们调用inherits方法的时候，必须给被继承者原型上定义方法，否者当我们调用的时候会报错</div><div class="line"></div><div class="line">var objBase = new Base();//objBase 是 Base的一个实例，继承了Base函数的公有和私有方法</div><div class="line"></div><div class="line">var objSub = new Sub();</div></pre></td></tr></table></figure>
+<ul>
+<li>调用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">objBase.showName(); </div><div class="line">objBase.sayHello(); </div><div class="line">console.log(objBase); </div><div class="line">var objSub = new Sub(); </div><div class="line">objSub.showName(); </div><div class="line">//objSub.sayHello(); //如果不注释掉的话，会报错，无论Sub公有属性还是私有属性都没有sayHello这个方法</div><div class="line">console.log(objSub);</div></pre></td></tr></table></figure>
+<ul>
+<li>结果</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Yang</div><div class="line">Hello Yang</div><div class="line">Base &#123; name: &apos;Yang&apos;, base: 1991, sayHello: [Function] &#125;</div><div class="line">sub</div><div class="line">Sub &#123; name: &apos;sub&apos; &#125;</div></pre></td></tr></table></figure>
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/12/16/Angular的五种服务/" class="archive-article-date">
+      <a href="/2016/12/20/NodeJs中使用util.inherits继承/" class="archive-article-date">
+  	<time datetime="2016-12-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-20</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/inherits/">inherits</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/util/">util</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Angular作用域之间的通信" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/16/Angular作用域之间的通信/">Angular作用域之间的通信</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>$on方法负责监听数据的变化</li>
+<li>$broadcast 向下广播（自己也能听到），父级作用域向子集作用域传递</li>
+<li>$emit 向上发射（自己也能听到），子集作用域向父级作用域传递</li>
+</ul>
+<p>-$broadcast、$emit事件必须依靠其他事件（ng-click等）进行触发，而不能单纯写一个</p>
+<p>下面是一个小例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot; ng-app=&quot;appModule&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Title&lt;/title&gt;</div><div class="line">    &lt;script src=&quot;js/angular.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div ng-controller=&quot;dad&quot;&gt;</div><div class="line">    总价 &lt;input type=&quot;text&quot; ng-model=&quot;total&quot; ng-change=&quot;fn()&quot;&gt;</div><div class="line">    &lt;div ng-controller=&quot;son&quot;&gt;</div><div class="line">        单价 30 &lt;br&gt;</div><div class="line">        数量 &lt;input type=&quot;text&quot; ng-model=&quot;count&quot;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">    app.controller(&apos;dad&apos;,function ($scope) &#123;//父级控制器</div><div class="line">        $scope.total = 30;</div><div class="line">        //2、父级监控数量的变化，饭后修改数据</div><div class="line">        $scope.$on(&apos;toDad&apos;,function (e,data) &#123;</div><div class="line">            //e是事件源，data代表的是听到的内容</div><div class="line">            $scope.total = data;</div><div class="line">        &#125;);</div><div class="line">        //3、父级代码运行 向子集广播</div><div class="line">        $scope.fn = function () &#123;</div><div class="line">            $scope.$broadcast(&apos;toSon&apos;,$scope.total);</div><div class="line">        &#125;;</div><div class="line">    &#125;);</div><div class="line">    app.controller(&apos;son&apos;,function ($scope) &#123;//子集控制器</div><div class="line">        $scope.count = 1;</div><div class="line">        //1、子集监控数量count的变化，然后发送到父级</div><div class="line">        $scope.$watch(&apos;count&apos;,function (newVal) &#123;</div><div class="line">            $scope.$emit(&apos;toDad&apos;,newVal*30);</div><div class="line">        &#125;);</div><div class="line">        //4、子集收到后更改自己的数量</div><div class="line">        $scope.$on(&apos;toSon&apos;,function (e,data) &#123;</div><div class="line">            $scope.count = data/30;</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">    // $on方法负责监听</div><div class="line">    // $broadcast需要向下广播（自己也能听到）</div><div class="line">    // $emit向上广播emit（自己也能听到）</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/16/Angular作用域之间的通信/" class="archive-article-date">
   	<time datetime="2016-12-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-16</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务/">服务</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/broadcast/">$broadcast</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emit/">$emit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/on/">$on</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJs/">AngularJs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/通信/">通信</a></li></ul>
 	</div>
 
       
