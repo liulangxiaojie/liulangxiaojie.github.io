@@ -143,6 +143,73 @@
       <div class="body-wrap">
         
   
+    <article id="post-Angular常用内置指令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/14/Angular常用内置指令/">Angular常用内置指令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1、ng-app-html"><a href="#1、ng-app-html" class="headerlink" title="1、ng-app ( html )"></a>1、ng-app ( html )</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; 启动angular程序，指定模块来启动，定义模块。调用run方法,产生 $rootScope</div><div class="line">### 2、ng-model</div><div class="line">&gt; 只能放置变量，不能放运算</div><div class="line">&gt; 用于表单元素</div><div class="line">&gt; 如果作用域上没有，则声明</div><div class="line">&gt; 如果有取值放到输入框中</div><div class="line">&gt; 如果使用user.name 则会创建一个对象，将name变成一个变量存入进来</div></pre></td></tr></table></figure>
+<h3 id="3、ng-bind"><a href="#3、ng-bind" class="headerlink" title="3、ng-bind"></a>3、ng-bind</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; 和 &#123;&#123;&#125;&#125;相同，ngbind不会闪烁</div><div class="line">&gt; 不能用于表单元素</div><div class="line">&gt; 可以使用!/?</div><div class="line">&gt; 原有的内容会被ng-bind绑定的值替换掉</div></pre></td></tr></table></figure>
+<h3 id="4、ng-cloak"><a href="#4、ng-cloak" class="headerlink" title="4、ng-cloak"></a>4、ng-cloak</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; 用途: 防止闪烁</div><div class="line">&gt; 先声明一个css,找到所有带有ng-cloak让其隐藏</div><div class="line">&gt; 增加到需要防止闪烁的元素身上</div><div class="line">&gt; 加载后移出掉ng-cloak属性</div></pre></td></tr></table></figure>
+<h3 id="5、ng-controller"><a href="#5、ng-controller" class="headerlink" title="5、ng-controller"></a>5、ng-controller</h3><p>用途:调度数据的，买一送一送作用域</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; 不能操作dom，dom在link函数操作</div><div class="line">&gt; 管辖范围,和dom平齐</div><div class="line">&gt; 可以将带有ng-controller的标签嵌套，子继承父 父继承不了子</div><div class="line">&gt; 不能复用</div><div class="line">&gt; 调用ng-controller后可以执行控制器</div></pre></td></tr></table></figure>
+<h3 id="6、ng-repeat"><a href="#6、ng-repeat" class="headerlink" title="6、ng-repeat"></a>6、ng-repeat</h3><p>用途:循环遍历</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; 要循环谁就写在谁的身上</div><div class="line">&gt; 遍历数组 ng中增加的属性 $index $odd $even $first $last $middle (根据索引来遍历)</div><div class="line">&gt; 通过 ( key,value )可以获得索引，默认写一个变量则是value</div><div class="line">&gt; 对象同数组</div></pre></td></tr></table></figure>
+<p><code>ng-repeat 为什么 track by \$index</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; 如果value重复，不能通过相同的value去遍历，通过唯一项来进行遍历。只要是数组就加track by $index</div></pre></td></tr></table></figure>
+<h3 id="7、ng-click"><a href="#7、ng-click" class="headerlink" title="7、ng-click"></a>7、ng-click</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- angular的事件 ng-click=&quot;a ()&quot;</div></pre></td></tr></table></figure>
+<h3 id="8、ng-show-ng-hide"><a href="#8、ng-show-ng-hide" class="headerlink" title="8、ng -show/ng -hide"></a>8、ng -show/ng -hide</h3><p>用途：控制元素的显示隐藏<br>通过css样式进行隐藏，内部命令依然执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; 频繁切换采用ng-show/ng-hide</div></pre></td></tr></table></figure>
+<h3 id="9、ng-if"><a href="#9、ng-if" class="headerlink" title="9、ng -if"></a>9、ng -if</h3><p>用途：控制元素的显示隐藏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; 通过删除dom达到隐藏效果，如果为false内部指令不再执行</div><div class="line">&gt; 会产生一个作用域，保留删掉的内容</div><div class="line">&gt; 一般和ng-repeat连用，如果数据不存在就移出掉dom</div></pre></td></tr></table></figure>
+<h3 id="10、ng-disabled"><a href="#10、ng-disabled" class="headerlink" title="10、ng -disabled"></a>10、ng -disabled</h3><p>用途:ng -disabled=”true” 进入禁用状态</p>
+<h3 id="11、ng-readonly"><a href="#11、ng-readonly" class="headerlink" title="11、ng -readonly"></a>11、ng -readonly</h3><p>用途:ng -readonly=”true” 进入仅读状态</p>
+<h3 id="12、自定义指令"><a href="#12、自定义指令" class="headerlink" title="12、自定义指令"></a>12、自定义指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- 自定义：组件式和装饰型</div><div class="line">&gt; 组件式:Element,看有没有template</div><div class="line">&gt; 装饰型:Attribute,一般没有模板 link函数</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">return &#123;</div><div class="line">    restrict:&apos;EA&apos;, 限制使用范围</div><div class="line">    template/templateUrl, 模板</div><div class="line">    transclude:true,</div><div class="line">    scope:true/&#123;@=&amp;&#125;/不写</div><div class="line">    replace：true 替换</div><div class="line">    /**</div><div class="line">             * @param scope :当前模板的作用域，如果当前模板没有形成作用域，会直接找父集的作用域</div><div class="line">             * @param element ：自定义指令所在的DOM元素，是一个jQuery对象，内置的有轻量级的jQuery也就是 jqLite(简化版的jQuery)</div><div class="line">             * @param attrs ：自定义指令所在的DOM元素上的属性存储在attrs对象中</div><div class="line">             */</div><div class="line">    link:function(scope,element,attrs)&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/14/Angular常用内置指令/" class="archive-article-date">
+  	<time datetime="2016-11-14T12:39:42.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-14</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内置指令/">内置指令</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-使用git发布一个项目" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -592,7 +659,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/broadcast/" style="font-size: 10px;">$broadcast</a> <a href="/tags/emit/" style="font-size: 10px;">$emit</a> <a href="/tags/on/" style="font-size: 10px;">$on</a> <a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/AngularJs/" style="font-size: 12px;">AngularJs</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 16px;">JS</a> <a href="/tags/Node/" style="font-size: 18px;">Node</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 12px;">WebStorm</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/dom/" style="font-size: 10px;">dom</a> <a href="/tags/express/" style="font-size: 12px;">express</a> <a href="/tags/fs/" style="font-size: 10px;">fs</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/idoc/" style="font-size: 10px;">idoc</a> <a href="/tags/inherits/" style="font-size: 10px;">inherits</a> <a href="/tags/nodePPT/" style="font-size: 10px;">nodePPT</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/path/" style="font-size: 10px;">path</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/内置指令/" style="font-size: 10px;">内置指令</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/指令/" style="font-size: 14px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/方法/" style="font-size: 10px;">方法</a> <a href="/tags/服务/" style="font-size: 10px;">服务</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/购物车/" style="font-size: 10px;">购物车</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a> <a href="/tags/过滤器/" style="font-size: 10px;">过滤器</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
+    				<a href="/tags/broadcast/" style="font-size: 10px;">$broadcast</a> <a href="/tags/emit/" style="font-size: 10px;">$emit</a> <a href="/tags/on/" style="font-size: 10px;">$on</a> <a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/AngularJs/" style="font-size: 12px;">AngularJs</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 16px;">JS</a> <a href="/tags/Node/" style="font-size: 18px;">Node</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 12px;">WebStorm</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/dom/" style="font-size: 10px;">dom</a> <a href="/tags/express/" style="font-size: 12px;">express</a> <a href="/tags/fs/" style="font-size: 10px;">fs</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/idoc/" style="font-size: 10px;">idoc</a> <a href="/tags/inherits/" style="font-size: 10px;">inherits</a> <a href="/tags/nodePPT/" style="font-size: 10px;">nodePPT</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/path/" style="font-size: 10px;">path</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/内置指令/" style="font-size: 10px;">内置指令</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/常见错误/" style="font-size: 10px;">常见错误</a> <a href="/tags/指令/" style="font-size: 14px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/方法/" style="font-size: 10px;">方法</a> <a href="/tags/服务/" style="font-size: 10px;">服务</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/购物车/" style="font-size: 10px;">购物车</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a> <a href="/tags/过滤器/" style="font-size: 10px;">过滤器</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
     			</div>
     	</section>
     
@@ -605,6 +672,8 @@
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.zybuluo.com/mdeditor">Markdown语法参考链接</a>
   	        
   	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.itheima.com/webmap">前端学习路线图</a>
+  	        
+  	          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.36zhen.com/t?id=3448">前端书籍资料</a>
   	        
   	        </div>
   		
