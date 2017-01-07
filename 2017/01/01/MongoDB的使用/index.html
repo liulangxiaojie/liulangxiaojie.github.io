@@ -6,18 +6,39 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>dom小知识 | 杨小杰的博客</title>
+  <title>MongoDB的使用 | 杨小杰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="获取元素的方式：123456789101.document.getElementById(id);2.context.getElementsByTagName(标签名);3.context.getElementsByClassName(class名)；4.document.getElementsByName(name名)5.document.body 整个bodydocument.document">
+  <meta name="description" content="1、MongoDB的概念MongoDB是一个基于分布式文件存储的开源数据库系统，将数据存储为一个文档，数据结构由键值对组成。
+2、MongoDB安装
+MongoDB64位绿色免装版 (http://pan.baidu.com/s/1cMM9oq)
+
+3、MongoDB启动
+下载MongoDB解压后，把文件的安装目录随意
+
+在MongoDB目录下的 bin 文件夹下，按下Shift+鼠标右键,选择在">
 <meta property="og:type" content="article">
-<meta property="og:title" content="dom小知识">
-<meta property="og:url" content="http://yoursite.com/2016/06/15/dom小知识/index.html">
+<meta property="og:title" content="MongoDB的使用">
+<meta property="og:url" content="http://yoursite.com/2017/01/01/MongoDB的使用/index.html">
 <meta property="og:site_name" content="杨小杰的博客">
-<meta property="og:description" content="获取元素的方式：123456789101.document.getElementById(id);2.context.getElementsByTagName(标签名);3.context.getElementsByClassName(class名)；4.document.getElementsByName(name名)5.document.body 整个bodydocument.document">
-<meta property="og:updated_time" content="2016-12-30T15:10:59.815Z">
+<meta property="og:description" content="1、MongoDB的概念MongoDB是一个基于分布式文件存储的开源数据库系统，将数据存储为一个文档，数据结构由键值对组成。
+2、MongoDB安装
+MongoDB64位绿色免装版 (http://pan.baidu.com/s/1cMM9oq)
+
+3、MongoDB启动
+下载MongoDB解压后，把文件的安装目录随意
+
+在MongoDB目录下的 bin 文件夹下，按下Shift+鼠标右键,选择在">
+<meta property="og:updated_time" content="2017-01-01T15:00:12.174Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="dom小知识">
-<meta name="twitter:description" content="获取元素的方式：123456789101.document.getElementById(id);2.context.getElementsByTagName(标签名);3.context.getElementsByClassName(class名)；4.document.getElementsByName(name名)5.document.body 整个bodydocument.document">
+<meta name="twitter:title" content="MongoDB的使用">
+<meta name="twitter:description" content="1、MongoDB的概念MongoDB是一个基于分布式文件存储的开源数据库系统，将数据存储为一个文档，数据结构由键值对组成。
+2、MongoDB安装
+MongoDB64位绿色免装版 (http://pan.baidu.com/s/1cMM9oq)
+
+3、MongoDB启动
+下载MongoDB解压后，把文件的安装目录随意
+
+在MongoDB目录下的 bin 文件夹下，按下Shift+鼠标右键,选择在">
   
     <link rel="alternative" href="/atom.xml" title="杨小杰的博客" type="application/atom+xml">
   
@@ -145,7 +166,7 @@
 </nav>
 
       <div class="body-wrap">
-        <article id="post-dom小知识" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-MongoDB的使用" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -155,7 +176,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      dom小知识
+      MongoDB的使用
     </h1>
   
 
@@ -163,19 +184,56 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="获取元素的方式："><a href="#获取元素的方式：" class="headerlink" title="获取元素的方式："></a>获取元素的方式：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">1.document.getElementById(id);</div><div class="line">2.context.getElementsByTagName(标签名);</div><div class="line">3.context.getElementsByClassName(class名)；</div><div class="line">4.document.getElementsByName(name名)</div><div class="line">5.document.body 整个body</div><div class="line">document.documentElement 整个HTML；</div><div class="line">document.documentElement.clientWidth||document.body.clientWidth 获取屏幕的宽度</div><div class="line">document.documentElement.clientHeight||document.body.clientHeight 获取屏幕的高度</div><div class="line">6.context.querySelector() 获取一个元素</div><div class="line">7.context.querySelectorAll() 获取一组元素</div></pre></td></tr></table></figure>
-<h3 id="DOM动态创建"><a href="#DOM动态创建" class="headerlink" title="DOM动态创建"></a>DOM动态创建</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">1.创建一个元素</div><div class="line">document.createElement(&apos;div&apos;)</div><div class="line">文档      创建    元素  （标签名）</div><div class="line">2.插入元素</div><div class="line">parent.appendChild(oDiv) //插入一个容器的末尾；</div><div class="line">parent.insertBefore(newEle,oldEle)//把新元素插入到指定元素的前面；</div><div class="line">3.删除元素</div><div class="line">parent.removeChild(oDiv);</div><div class="line">4.替换元素</div><div class="line">parent.replaceChild(newEle,oldEle)</div></pre></td></tr></table></figure>
+        <h3 id="1、MongoDB的概念"><a href="#1、MongoDB的概念" class="headerlink" title="1、MongoDB的概念"></a>1、MongoDB的概念</h3><p>MongoDB是一个基于分布式文件存储的开源数据库系统，将数据存储为一个文档，数据结构由键值对组成。</p>
+<h3 id="2、MongoDB安装"><a href="#2、MongoDB安装" class="headerlink" title="2、MongoDB安装"></a>2、MongoDB安装</h3><ul>
+<li>MongoDB64位绿色免装版 (<a href="http://pan.baidu.com/s/1cMM9oq" target="_blank" rel="external">http://pan.baidu.com/s/1cMM9oq</a>)</li>
+</ul>
+<h3 id="3、MongoDB启动"><a href="#3、MongoDB启动" class="headerlink" title="3、MongoDB启动"></a>3、MongoDB启动</h3><ul>
+<li><p>下载MongoDB解压后，把文件的安装目录随意</p>
+</li>
+<li><p>在MongoDB目录下的 <strong>bin</strong> 文件夹下，按下Shift+鼠标右键,选择在此处打开命令窗口</p>
+</li>
+<li><p>在除C盘外的盘符新建一个空目录,如 <code>D:\Mongodb\data</code> </p>
+</li>
+<li><p>在命令行中输入 <code>mongod --dbpath=刚创建的空目录</code> 如，</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongod --dbpath=D:\Mongodb\data</div></pre></td></tr></table></figure>
+<ul>
+<li>按回车键，如果出现waiting for connections on port 27017就表示 <strong>启动成功</strong>,已经在27017端口上监听了客户端的请求</li>
+</ul>
+<blockquote>
+<p>–dbpath后的值表示数据库文件的存储路径,而且后面的路径必须事先创建好，必须已经存在，否则服务开启失败,而且这个窗口不能关闭，关闭窗口Mongodb服务也停止了 </p>
+</blockquote>
+<h3 id="4、MongoDB客户端连接服务器"><a href="#4、MongoDB客户端连接服务器" class="headerlink" title="4、MongoDB客户端连接服务器"></a>4、MongoDB客户端连接服务器</h3><ul>
+<li><p>找到mongodb安装目录,一般是 <code>C:\Program Files\MongoDB 2.6 Standard\bin</code></p>
+</li>
+<li><p>按下Shift+鼠标右键,选择在此处打开命令窗口，输入mongo或者</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongo --host=127.0.0.1</div></pre></td></tr></table></figure>
+<ul>
+<li>如果出现下列代码，表示链接成功</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MongoDB shell version:2.6.7</div><div class="line">connecting to: test</div></pre></td></tr></table></figure>
+<h3 id="5、运行MongodbVUE"><a href="#5、运行MongodbVUE" class="headerlink" title="5、运行MongodbVUE"></a>5、运行MongodbVUE</h3><ul>
+<li>出现的登录页面，name没有限制， <strong>server</strong> 里边填写127.0.0.1或者localhost就可以链接到数据库</li>
+</ul>
+<blockquote>
+<p>如果win10出现NET Framework 3.5无法安装的情况下，参考<a href="https://liulangxiaojie.github.io/2017/01/01/win10%E5%AE%89%E8%A3%85.NET%20Framework%203.5%E7%9A%84%E6%96%B9%E6%B3%95/" target="_blank" rel="external">https://liulangxiaojie.github.io/2017/01/01/win10%E5%AE%89%E8%A3%85.NET%20Framework%203.5%E7%9A%84%E6%96%B9%E6%B3%95/</a></p>
+</blockquote>
+
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/06/15/dom小知识/" class="archive-article-date">
-  	<time datetime="2016-06-14T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-06-15</time>
+      <a href="/2017/01/01/MongoDB的使用/" class="archive-article-date">
+  	<time datetime="2016-12-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2017-01-01</time>
 </a>
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dom/">dom</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MongoDB/">MongoDB</a></li></ul>
 	</div>
 
       
@@ -188,18 +246,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/11/08/hexo搭建github博客/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/01/06/常见错误的总结/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Hexo搭建github博客
+          常见错误的总结
         
       </div>
     </a>
   
   
-    <a href="/2016/06/12/数组方法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">数组常用方法</div>
+    <a href="/2017/01/01/win10安装.NET Framework 3.5的方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Win10离线安装.NET Framework 3.5的方法技巧</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -245,7 +303,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="dom小知识" data-title="dom小知识" data-url="http://yoursite.com/2016/06/15/dom小知识/"></div>
+	<div class="ds-thread" data-thread-key="MongoDB的使用" data-title="MongoDB的使用" data-url="http://yoursite.com/2017/01/01/MongoDB的使用/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

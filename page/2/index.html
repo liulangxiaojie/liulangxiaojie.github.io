@@ -291,6 +291,62 @@
 
 
   
+    <article id="post-Angular作用域之间的通信" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/16/Angular作用域之间的通信/">Angular作用域之间的通信</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>$on方法负责监听数据的变化</li>
+<li>$broadcast 向下广播（自己也能听到），父级作用域向子集作用域传递</li>
+<li>$emit 向上发射（自己也能听到），子集作用域向父级作用域传递</li>
+</ul>
+<p>-$broadcast、$emit事件必须依靠其他事件（ng-click等）进行触发，而不能单纯写一个</p>
+<p>下面是一个小例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot; ng-app=&quot;appModule&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;Title&lt;/title&gt;</div><div class="line">    &lt;script src=&quot;js/angular.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;div ng-controller=&quot;dad&quot;&gt;</div><div class="line">    总价 &lt;input type=&quot;text&quot; ng-model=&quot;total&quot; ng-change=&quot;fn()&quot;&gt;</div><div class="line">    &lt;div ng-controller=&quot;son&quot;&gt;</div><div class="line">        单价 30 &lt;br&gt;</div><div class="line">        数量 &lt;input type=&quot;text&quot; ng-model=&quot;count&quot;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var app = angular.module(&apos;appModule&apos;,[]);</div><div class="line">    app.controller(&apos;dad&apos;,function ($scope) &#123;//父级控制器</div><div class="line">        $scope.total = 30;</div><div class="line">        //2、父级监控数量的变化，饭后修改数据</div><div class="line">        $scope.$on(&apos;toDad&apos;,function (e,data) &#123;</div><div class="line">            //e是事件源，data代表的是听到的内容</div><div class="line">            $scope.total = data;</div><div class="line">        &#125;);</div><div class="line">        //3、父级代码运行 向子集广播</div><div class="line">        $scope.fn = function () &#123;</div><div class="line">            $scope.$broadcast(&apos;toSon&apos;,$scope.total);</div><div class="line">        &#125;;</div><div class="line">    &#125;);</div><div class="line">    app.controller(&apos;son&apos;,function ($scope) &#123;//子集控制器</div><div class="line">        $scope.count = 1;</div><div class="line">        //1、子集监控数量count的变化，然后发送到父级</div><div class="line">        $scope.$watch(&apos;count&apos;,function (newVal) &#123;</div><div class="line">            $scope.$emit(&apos;toDad&apos;,newVal*30);</div><div class="line">        &#125;);</div><div class="line">        //4、子集收到后更改自己的数量</div><div class="line">        $scope.$on(&apos;toSon&apos;,function (e,data) &#123;</div><div class="line">            $scope.count = data/30;</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">    // $on方法负责监听</div><div class="line">    // $broadcast需要向下广播（自己也能听到）</div><div class="line">    // $emit向上广播emit（自己也能听到）</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/16/Angular作用域之间的通信/" class="archive-article-date">
+  	<time datetime="2016-12-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-16</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/broadcast/">$broadcast</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/emit/">$emit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/on/">$on</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJs/">AngularJs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/通信/">通信</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Angular的五种服务" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -398,193 +454,6 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/">windows</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-nodeppt" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/11/nodeppt/">nodePPT的使用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="nodePPT的使用"><a href="#nodePPT的使用" class="headerlink" title="nodePPT的使用"></a>nodePPT的使用</h2><ul>
-<li><p>nodeppt是基于nodejs写的支持 <strong>Markdown!</strong> 语法的网页PPT,语法和 <strong>Markdown!</strong> 一样</p>
-</li>
-<li><p>多种模式：<code>overview模式</code> ， <code>双屏模式</code>， <code>socket远程控制</code> ，使用手机或者ipad摇一摇换页更加炫酷！</p>
-</li>
-</ul>
-<h3 id="安装nodePPT"><a href="#安装nodePPT" class="headerlink" title="安装nodePPT"></a>安装nodePPT</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install nodeppt -g</div></pre></td></tr></table></figure>
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node start -p 8000</div></pre></td></tr></table></figure>
-<h3 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodeppt start -h</div></pre></td></tr></table></figure>
-<h3 id="单页面的动画"><a href="#单页面的动画" class="headerlink" title="单页面的动画"></a>单页面的动画</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[slide data-transition=&quot;vertical3d&quot;]</div></pre></td></tr></table></figure>
-<h3 id="单页面的背景图片"><a href="#单页面的背景图片" class="headerlink" title="单页面的背景图片"></a>单页面的背景图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[slide style=&quot;background-image:url(&apos;/img/bg1.png&apos;)&quot;]</div></pre></td></tr></table></figure>
-<h3 id="支持的转场动画"><a href="#支持的转场动画" class="headerlink" title="支持的转场动画"></a>支持的转场动画</h3><ul>
-<li><p>kontext</p>
-</li>
-<li><p>vkontext</p>
-</li>
-<li><p>circle</p>
-</li>
-<li><p>earthquake</p>
-</li>
-<li><p>cards</p>
-</li>
-<li><p>glue</p>
-</li>
-<li><p>stick</p>
-</li>
-<li><p>move</p>
-</li>
-<li><p>newspaper</p>
-</li>
-<li><p>slide</p>
-</li>
-<li><p>slide2</p>
-</li>
-<li><p>slide3</p>
-</li>
-<li><p>horizontal3d</p>
-</li>
-<li><p>horizontal</p>
-</li>
-<li><p>vertical3d</p>
-</li>
-<li><p>zoomin</p>
-</li>
-<li><p>zoomout</p>
-</li>
-<li><p>pulse</p>
-</li>
-</ul>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><blockquote>
-<p>启动的时候确保当前文件夹下有md格式的文件</p>
-<p>md文件的格式</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[slide] </div><div class="line">## 主页面样式 </div><div class="line">### </div><div class="line">----是上下分界线 </div><div class="line">----</div></pre></td></tr></table></figure>
-<h2 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h2><blockquote>
-<p>地址 <a href="https://github.com/ksky521/nodePPT" target="_blank" rel="external">https://github.com/ksky521/nodePPT</a></p>
-</blockquote>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/11/nodeppt/" class="archive-article-date">
-  	<time datetime="2016-12-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-11</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodePPT/">nodePPT</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-idoc文档生成" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/11/idoc文档生成/">idoc博客</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="idoc文档生成"><a href="#idoc文档生成" class="headerlink" title="idoc文档生成"></a>idoc文档生成</h2><blockquote>
-<p>idoc类似于hexo生成博客，然后推送到github上边，和hexo相比，idoc更加的简单，可以生成的博客页面也没有hexo那样有数量的限制；</p>
-<p>操作的时候，一个文件夹就生成一个分类，只需把相应的md文件放到文件夹下就可以；</p>
-</blockquote>
-<ul>
-<li>1.安装idoc文档</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install fandoc/idoc -g</div></pre></td></tr></table></figure>
-<ul>
-<li>2.初始化</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fandoc init</div></pre></td></tr></table></figure>
-<ul>
-<li>3.构建</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fandoc build</div></pre></td></tr></table></figure>
-<ul>
-<li>4.启动服务</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fandoc server</div></pre></td></tr></table></figure>
-<ul>
-<li>5.推送</li>
-</ul>
-<blockquote>
-<p>在git上边新建的仓库分支必须是gh-pages</p>
-</blockquote>
-<ul>
-<li>原文地址</li>
-</ul>
-<blockquote>
-<p><a href="https://github.com/jaywcjlove/idoc" target="_blank" rel="external">https://github.com/jaywcjlove/idoc</a></p>
-</blockquote>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/11/idoc文档生成/" class="archive-article-date">
-  	<time datetime="2016-12-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-11</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/idoc/">idoc</a></li></ul>
 	</div>
 
       
@@ -713,6 +582,193 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-idoc文档生成" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/11/idoc文档生成/">idoc博客</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="idoc文档生成"><a href="#idoc文档生成" class="headerlink" title="idoc文档生成"></a>idoc文档生成</h2><blockquote>
+<p>idoc类似于hexo生成博客，然后推送到github上边，和hexo相比，idoc更加的简单，可以生成的博客页面也没有hexo那样有数量的限制；</p>
+<p>操作的时候，一个文件夹就生成一个分类，只需把相应的md文件放到文件夹下就可以；</p>
+</blockquote>
+<ul>
+<li>1.安装idoc文档</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install fandoc/idoc -g</div></pre></td></tr></table></figure>
+<ul>
+<li>2.初始化</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fandoc init</div></pre></td></tr></table></figure>
+<ul>
+<li>3.构建</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fandoc build</div></pre></td></tr></table></figure>
+<ul>
+<li>4.启动服务</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fandoc server</div></pre></td></tr></table></figure>
+<ul>
+<li>5.推送</li>
+</ul>
+<blockquote>
+<p>在git上边新建的仓库分支必须是gh-pages</p>
+</blockquote>
+<ul>
+<li>原文地址</li>
+</ul>
+<blockquote>
+<p><a href="https://github.com/jaywcjlove/idoc" target="_blank" rel="external">https://github.com/jaywcjlove/idoc</a></p>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/11/idoc文档生成/" class="archive-article-date">
+  	<time datetime="2016-12-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-11</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/idoc/">idoc</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-nodeppt" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/11/nodeppt/">nodePPT的使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="nodePPT的使用"><a href="#nodePPT的使用" class="headerlink" title="nodePPT的使用"></a>nodePPT的使用</h2><ul>
+<li><p>nodeppt是基于nodejs写的支持 <strong>Markdown!</strong> 语法的网页PPT,语法和 <strong>Markdown!</strong> 一样</p>
+</li>
+<li><p>多种模式：<code>overview模式</code> ， <code>双屏模式</code>， <code>socket远程控制</code> ，使用手机或者ipad摇一摇换页更加炫酷！</p>
+</li>
+</ul>
+<h3 id="安装nodePPT"><a href="#安装nodePPT" class="headerlink" title="安装nodePPT"></a>安装nodePPT</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install nodeppt -g</div></pre></td></tr></table></figure>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node start -p 8000</div></pre></td></tr></table></figure>
+<h3 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nodeppt start -h</div></pre></td></tr></table></figure>
+<h3 id="单页面的动画"><a href="#单页面的动画" class="headerlink" title="单页面的动画"></a>单页面的动画</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[slide data-transition=&quot;vertical3d&quot;]</div></pre></td></tr></table></figure>
+<h3 id="单页面的背景图片"><a href="#单页面的背景图片" class="headerlink" title="单页面的背景图片"></a>单页面的背景图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[slide style=&quot;background-image:url(&apos;/img/bg1.png&apos;)&quot;]</div></pre></td></tr></table></figure>
+<h3 id="支持的转场动画"><a href="#支持的转场动画" class="headerlink" title="支持的转场动画"></a>支持的转场动画</h3><ul>
+<li><p>kontext</p>
+</li>
+<li><p>vkontext</p>
+</li>
+<li><p>circle</p>
+</li>
+<li><p>earthquake</p>
+</li>
+<li><p>cards</p>
+</li>
+<li><p>glue</p>
+</li>
+<li><p>stick</p>
+</li>
+<li><p>move</p>
+</li>
+<li><p>newspaper</p>
+</li>
+<li><p>slide</p>
+</li>
+<li><p>slide2</p>
+</li>
+<li><p>slide3</p>
+</li>
+<li><p>horizontal3d</p>
+</li>
+<li><p>horizontal</p>
+</li>
+<li><p>vertical3d</p>
+</li>
+<li><p>zoomin</p>
+</li>
+<li><p>zoomout</p>
+</li>
+<li><p>pulse</p>
+</li>
+</ul>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><blockquote>
+<p>启动的时候确保当前文件夹下有md格式的文件</p>
+<p>md文件的格式</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[slide] </div><div class="line">## 主页面样式 </div><div class="line">### </div><div class="line">----是上下分界线 </div><div class="line">----</div></pre></td></tr></table></figure>
+<h2 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h2><blockquote>
+<p>地址 <a href="https://github.com/ksky521/nodePPT" target="_blank" rel="external">https://github.com/ksky521/nodePPT</a></p>
+</blockquote>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/11/nodeppt/" class="archive-article-date">
+  	<time datetime="2016-12-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-11</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodePPT/">nodePPT</a></li></ul>
 	</div>
 
       
@@ -979,6 +1035,55 @@
 
 
   
+    <article id="post-angular配合bootstrap实现购物车" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/09/angular配合bootstrap实现购物车/">angular配合bootstrap实现购物车</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="angular小列子之购物车"><a href="#angular小列子之购物车" class="headerlink" title="angular小列子之购物车"></a>angular小列子之购物车</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot; ng-app=&quot;app&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;购物车&lt;/title&gt;</div><div class="line">    &lt;script src=&quot;../../JS/angular.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;../../JS/bootstrap.css&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body ng-controller=&quot;myCtrl&quot;&gt;</div><div class="line">&lt;table class=&quot;table table-bordered&quot;&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;th&gt;&lt;input type=&quot;checkbox&quot; ng-model=&quot;flag&quot; ng-click=&quot;selectAll()&quot;&gt;全选&lt;/th&gt;</div><div class="line">        &lt;th&gt;商品名称&lt;/th&gt;</div><div class="line">        &lt;th&gt;单价&lt;/th&gt;</div><div class="line">        &lt;th&gt;数量&lt;/th&gt;</div><div class="line">        &lt;th&gt;小计&lt;/th&gt;</div><div class="line">        &lt;th&gt;操作&lt;/th&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">    &lt;tr ng-repeat=&quot;p in products track by $index&quot;&gt;</div><div class="line">        &lt;td&gt;&lt;input type=&quot;checkbox&quot; ng-model=&quot;p.isSelected&quot; ng-click=&quot;selectOne()&quot;&gt;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&#123;&#123;p.name&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&#123;&#123;p.price&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;</div><div class="line">            &lt;button class=&quot;btn&quot; ng-click=&quot;p.count=p.count-1&quot; ng-disabled=&quot;p.count&lt;=1&quot;&gt;-&lt;/button&gt;</div><div class="line">            &lt;input type=&quot;text&quot; ng-model=&quot;p.count&quot; ng-readonly=&quot;true&quot;&gt;</div><div class="line">            &lt;button class=&quot;btn&quot; ng-click=&quot;p.count=p.count+1&quot;&gt;+&lt;/button&gt;</div><div class="line">        &lt;/td&gt;</div><div class="line">        &lt;td&gt;&#123;&#123;p.price*p.count | currency:&apos;$&apos;&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;</div><div class="line">            &lt;button class=&quot;btn btn-danger&quot; ng-click=&quot;remove(p)&quot;&gt;删除&lt;/button&gt;</div><div class="line">        &lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;td&gt;总价&#123;&#123;sum() |  currency:&apos;$&apos;&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;</div><div class="line">            &lt;button ng-click=&quot;removeAll()&quot;&gt;删除选中项&lt;/button&gt;</div><div class="line">        &lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line"></div><div class="line">&lt;/table&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var app = angular.module(&apos;app&apos;, []);</div><div class="line">    app.controller(&apos;myCtrl&apos;, [&apos;$scope&apos;, function ($scope) &#123;</div><div class="line">        $scope.products = [</div><div class="line">            &#123;isSelected: true, name: &apos;iphone5s&apos;, price: 99.9, count: 1, id: 1&#125;,</div><div class="line">            &#123;isSelected: true, name: &apos;iphone6s&apos;, price: 88, count: 2, id: 2&#125;,</div><div class="line">            &#123;isSelected: false, name: &apos;iphone7s&apos;, price: 66, count: 7, id: 3&#125;,</div><div class="line">            &#123;isSelected: true, name: &apos;iphone4s&apos;, price: 33, count: 4, id: 4&#125;,</div><div class="line">        ];</div><div class="line"></div><div class="line">        $scope.flag = true;</div><div class="line">        //求总价</div><div class="line">        $scope.sum = function () &#123;</div><div class="line">            var total = 0;</div><div class="line">            $scope.products.forEach(function (item) &#123;</div><div class="line">                if (item.isSelected == true) &#123;</div><div class="line">                    total += item.price * item.count</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">            return total;</div><div class="line">        &#125;;</div><div class="line">        //点击全选/全不选</div><div class="line">        $scope.selectAll = function () &#123;</div><div class="line">            $scope.products.forEach(function (item) &#123;</div><div class="line">                item.isSelected = $scope.flag;//让每一项的值都和全选框的值保持一致</div><div class="line">            &#125;);</div><div class="line">        &#125;;</div><div class="line">        //列表点击时更改全选框状态</div><div class="line">        $scope.selectOne = function () &#123;</div><div class="line">            var all = false;</div><div class="line">            var hello = $scope.products.find(function (item) &#123;</div><div class="line">                return item.isSelected == all;</div><div class="line">            &#125;);</div><div class="line">            $scope.flag = hello == undefined ? true : false;</div><div class="line">        &#125;;</div><div class="line">        $scope.selectOne();//先执行以下函数，确定全选框是否勾选</div><div class="line">        //删除当前项</div><div class="line">        $scope.remove = function (p) &#123;</div><div class="line">            //传进来的P是之前ng-repeat的p</div><div class="line">            $scope.products = $scope.products.filter(function (item) &#123;</div><div class="line">                return item != p;//所有的元素不能等于当前传进来的元素，这样可以实现删除</div><div class="line">            &#125;);</div><div class="line">        &#125;;</div><div class="line">        $scope.removeAll = function () &#123;</div><div class="line">            $scope.products = $scope.products.filter(function (item) &#123;</div><div class="line">                return item.isSelected == false;</div><div class="line">                //把没有选中的作为条件，过滤后保留没有选中的</div><div class="line">            &#125;)</div><div class="line">        &#125;</div><div class="line">    &#125;]);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/12/09/angular配合bootstrap实现购物车/" class="archive-article-date">
+  	<time datetime="2016-12-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-09</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/购物车/">购物车</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-git跟新" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1030,132 +1135,6 @@
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-angular配合bootstrap实现购物车" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/09/angular配合bootstrap实现购物车/">angular配合bootstrap实现购物车</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="angular小列子之购物车"><a href="#angular小列子之购物车" class="headerlink" title="angular小列子之购物车"></a>angular小列子之购物车</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot; ng-app=&quot;app&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;购物车&lt;/title&gt;</div><div class="line">    &lt;script src=&quot;../../JS/angular.js&quot;&gt;&lt;/script&gt;</div><div class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;../../JS/bootstrap.css&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body ng-controller=&quot;myCtrl&quot;&gt;</div><div class="line">&lt;table class=&quot;table table-bordered&quot;&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;th&gt;&lt;input type=&quot;checkbox&quot; ng-model=&quot;flag&quot; ng-click=&quot;selectAll()&quot;&gt;全选&lt;/th&gt;</div><div class="line">        &lt;th&gt;商品名称&lt;/th&gt;</div><div class="line">        &lt;th&gt;单价&lt;/th&gt;</div><div class="line">        &lt;th&gt;数量&lt;/th&gt;</div><div class="line">        &lt;th&gt;小计&lt;/th&gt;</div><div class="line">        &lt;th&gt;操作&lt;/th&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">    &lt;tr ng-repeat=&quot;p in products track by $index&quot;&gt;</div><div class="line">        &lt;td&gt;&lt;input type=&quot;checkbox&quot; ng-model=&quot;p.isSelected&quot; ng-click=&quot;selectOne()&quot;&gt;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&#123;&#123;p.name&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&#123;&#123;p.price&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;</div><div class="line">            &lt;button class=&quot;btn&quot; ng-click=&quot;p.count=p.count-1&quot; ng-disabled=&quot;p.count&lt;=1&quot;&gt;-&lt;/button&gt;</div><div class="line">            &lt;input type=&quot;text&quot; ng-model=&quot;p.count&quot; ng-readonly=&quot;true&quot;&gt;</div><div class="line">            &lt;button class=&quot;btn&quot; ng-click=&quot;p.count=p.count+1&quot;&gt;+&lt;/button&gt;</div><div class="line">        &lt;/td&gt;</div><div class="line">        &lt;td&gt;&#123;&#123;p.price*p.count | currency:&apos;$&apos;&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;</div><div class="line">            &lt;button class=&quot;btn btn-danger&quot; ng-click=&quot;remove(p)&quot;&gt;删除&lt;/button&gt;</div><div class="line">        &lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;td&gt;总价&#123;&#123;sum() |  currency:&apos;$&apos;&#125;&#125;&lt;/td&gt;</div><div class="line">        &lt;td&gt;</div><div class="line">            &lt;button ng-click=&quot;removeAll()&quot;&gt;删除选中项&lt;/button&gt;</div><div class="line">        &lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line"></div><div class="line">&lt;/table&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var app = angular.module(&apos;app&apos;, []);</div><div class="line">    app.controller(&apos;myCtrl&apos;, [&apos;$scope&apos;, function ($scope) &#123;</div><div class="line">        $scope.products = [</div><div class="line">            &#123;isSelected: true, name: &apos;iphone5s&apos;, price: 99.9, count: 1, id: 1&#125;,</div><div class="line">            &#123;isSelected: true, name: &apos;iphone6s&apos;, price: 88, count: 2, id: 2&#125;,</div><div class="line">            &#123;isSelected: false, name: &apos;iphone7s&apos;, price: 66, count: 7, id: 3&#125;,</div><div class="line">            &#123;isSelected: true, name: &apos;iphone4s&apos;, price: 33, count: 4, id: 4&#125;,</div><div class="line">        ];</div><div class="line"></div><div class="line">        $scope.flag = true;</div><div class="line">        //求总价</div><div class="line">        $scope.sum = function () &#123;</div><div class="line">            var total = 0;</div><div class="line">            $scope.products.forEach(function (item) &#123;</div><div class="line">                if (item.isSelected == true) &#123;</div><div class="line">                    total += item.price * item.count</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">            return total;</div><div class="line">        &#125;;</div><div class="line">        //点击全选/全不选</div><div class="line">        $scope.selectAll = function () &#123;</div><div class="line">            $scope.products.forEach(function (item) &#123;</div><div class="line">                item.isSelected = $scope.flag;//让每一项的值都和全选框的值保持一致</div><div class="line">            &#125;);</div><div class="line">        &#125;;</div><div class="line">        //列表点击时更改全选框状态</div><div class="line">        $scope.selectOne = function () &#123;</div><div class="line">            var all = false;</div><div class="line">            var hello = $scope.products.find(function (item) &#123;</div><div class="line">                return item.isSelected == all;</div><div class="line">            &#125;);</div><div class="line">            $scope.flag = hello == undefined ? true : false;</div><div class="line">        &#125;;</div><div class="line">        $scope.selectOne();//先执行以下函数，确定全选框是否勾选</div><div class="line">        //删除当前项</div><div class="line">        $scope.remove = function (p) &#123;</div><div class="line">            //传进来的P是之前ng-repeat的p</div><div class="line">            $scope.products = $scope.products.filter(function (item) &#123;</div><div class="line">                return item != p;//所有的元素不能等于当前传进来的元素，这样可以实现删除</div><div class="line">            &#125;);</div><div class="line">        &#125;;</div><div class="line">        $scope.removeAll = function () &#123;</div><div class="line">            $scope.products = $scope.products.filter(function (item) &#123;</div><div class="line">                return item.isSelected == false;</div><div class="line">                //把没有选中的作为条件，过滤后保留没有选中的</div><div class="line">            &#125;)</div><div class="line">        &#125;</div><div class="line">    &#125;]);</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/09/angular配合bootstrap实现购物车/" class="archive-article-date">
-  	<time datetime="2016-12-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-09</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/购物车/">购物车</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-webstrom总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/08/webstrom总结/">WebStorm设置</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="安装markdown语法提示插件"><a href="#安装markdown语法提示插件" class="headerlink" title="安装markdown语法提示插件"></a>安装markdown语法提示插件</h3><blockquote>
-<p>file-&gt;settings-&gt;plugin-&gt;browse responsitry -&gt; markdown navigator</p>
-</blockquote>
-<h3 id="编码格式"><a href="#编码格式" class="headerlink" title="编码格式"></a>编码格式</h3><blockquote>
-<p>file-&gt;settings-&gt; encoding -&gt; utf-8</p>
-</blockquote>
-<h3 id="npm设置"><a href="#npm设置" class="headerlink" title="npm设置"></a>npm设置</h3><blockquote>
-<p>file-&gt;settings-&gt;npm</p>
-</blockquote>
-<h3 id="代码支持的设置"><a href="#代码支持的设置" class="headerlink" title="代码支持的设置"></a>代码支持的设置</h3><blockquote>
-<p>file-&gt;settings-&gt; language -&gt; ecmascript6</p>
-</blockquote>
-<h3 id="快捷键的设置"><a href="#快捷键的设置" class="headerlink" title="快捷键的设置"></a>快捷键的设置</h3><blockquote>
-<p>file-&gt;settings-&gt; live template-&gt; javascript -&gt; define设置使用范围</p>
-<ul>
-<li>Abbreviation中填写要 设置的快捷键例如 con</li>
-<li>Template中填写 console.log($END$);//$END$ 是光标停留在小括号里边</li>
-</ul>
-</blockquote>
-<h3 id="取消自动保存"><a href="#取消自动保存" class="headerlink" title="取消自动保存"></a>取消自动保存</h3><blockquote>
-<p>file system -&gt; use save-write</p>
-</blockquote>
-<h3 id="设置光标所在行的背景颜色"><a href="#设置光标所在行的背景颜色" class="headerlink" title="设置光标所在行的背景颜色"></a>设置光标所在行的背景颜色</h3><blockquote>
-<p>editor -&gt; general -&gt; caret row</p>
-</blockquote>
-<h3 id="代码行号宽度的调整"><a href="#代码行号宽度的调整" class="headerlink" title="代码行号宽度的调整"></a>代码行号宽度的调整</h3><blockquote>
-<p>Editor -&gt; General -&gt;Gutter Icons -&gt; Ghow gutter icons</p>
-</blockquote>
-<h3 id="最新的激活码生成地址"><a href="#最新的激活码生成地址" class="headerlink" title="最新的激活码生成地址"></a>最新的激活码生成地址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://idea.lanyus.com/</div></pre></td></tr></table></figure>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/12/08/webstrom总结/" class="archive-article-date">
-  	<time datetime="2016-12-07T16:00:00.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-12-08</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebStorm/">WebStorm</a></li></ul>
 	</div>
 
       
@@ -1240,7 +1219,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/broadcast/" style="font-size: 10px;">$broadcast</a> <a href="/tags/emit/" style="font-size: 10px;">$emit</a> <a href="/tags/on/" style="font-size: 10px;">$on</a> <a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/AngularJs/" style="font-size: 12px;">AngularJs</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 16px;">JS</a> <a href="/tags/Node/" style="font-size: 18px;">Node</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 12px;">WebStorm</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/dom/" style="font-size: 10px;">dom</a> <a href="/tags/express/" style="font-size: 12px;">express</a> <a href="/tags/fs/" style="font-size: 10px;">fs</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/idoc/" style="font-size: 10px;">idoc</a> <a href="/tags/inherits/" style="font-size: 10px;">inherits</a> <a href="/tags/nodePPT/" style="font-size: 10px;">nodePPT</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/path/" style="font-size: 10px;">path</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/内置指令/" style="font-size: 10px;">内置指令</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/常见错误/" style="font-size: 10px;">常见错误</a> <a href="/tags/指令/" style="font-size: 14px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/方法/" style="font-size: 10px;">方法</a> <a href="/tags/服务/" style="font-size: 10px;">服务</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/购物车/" style="font-size: 10px;">购物车</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a> <a href="/tags/过滤器/" style="font-size: 10px;">过滤器</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
+    				<a href="/tags/broadcast/" style="font-size: 10px;">$broadcast</a> <a href="/tags/emit/" style="font-size: 10px;">$emit</a> <a href="/tags/on/" style="font-size: 10px;">$on</a> <a href="/tags/Angular/" style="font-size: 20px;">Angular</a> <a href="/tags/AngularJs/" style="font-size: 12px;">AngularJs</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 16px;">JS</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/Node/" style="font-size: 18px;">Node</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/WebStorm/" style="font-size: 12px;">WebStorm</a> <a href="/tags/angular/" style="font-size: 10px;">angular</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/dom/" style="font-size: 10px;">dom</a> <a href="/tags/express/" style="font-size: 12px;">express</a> <a href="/tags/fs/" style="font-size: 10px;">fs</a> <a href="/tags/git/" style="font-size: 14px;">git</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/idoc/" style="font-size: 10px;">idoc</a> <a href="/tags/inherits/" style="font-size: 10px;">inherits</a> <a href="/tags/nodePPT/" style="font-size: 10px;">nodePPT</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/path/" style="font-size: 10px;">path</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/windows/" style="font-size: 12px;">windows</a> <a href="/tags/事件/" style="font-size: 10px;">事件</a> <a href="/tags/内置指令/" style="font-size: 10px;">内置指令</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/常用网站/" style="font-size: 10px;">常用网站</a> <a href="/tags/常见错误/" style="font-size: 10px;">常见错误</a> <a href="/tags/指令/" style="font-size: 14px;">指令</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/方法/" style="font-size: 10px;">方法</a> <a href="/tags/服务/" style="font-size: 10px;">服务</a> <a href="/tags/模块/" style="font-size: 10px;">模块</a> <a href="/tags/组件/" style="font-size: 10px;">组件</a> <a href="/tags/表达式/" style="font-size: 10px;">表达式</a> <a href="/tags/购物车/" style="font-size: 10px;">购物车</a> <a href="/tags/跑马灯/" style="font-size: 10px;">跑马灯</a> <a href="/tags/过滤器/" style="font-size: 10px;">过滤器</a> <a href="/tags/通信/" style="font-size: 10px;">通信</a>
     			</div>
     	</section>
     
